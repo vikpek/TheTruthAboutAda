@@ -64,12 +64,13 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( col.gameObject.tag == Tags.BULLET )
 		{
-			HighScoreManager.Get.creepKilled();
+
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
+				HighScoreManager.Get.creepKilled();
 				generateRail( transform.FindChild ("animation_holder").gameObject );
 				soundManager.playEnemyDeath();
 				Destroy ( GetComponent<BoxCollider>() );
@@ -82,6 +83,8 @@ public class CreepController3D : MonoBehaviour
 					temp.renderer.material.color = Color.red;
 					Destroy( temp.GetComponent<SphereCollider>() );
 				}
+			}else{
+				HighScoreManager.Get.shotFailed();
 			}
 			Destroy( col.gameObject );
 		}
