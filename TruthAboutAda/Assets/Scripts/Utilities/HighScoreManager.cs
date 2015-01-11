@@ -43,5 +43,15 @@ public class HighScoreManager : MonoBehaviour {
 
 	}
 
+	public int getCurrentHighScore()
+	{
+		return (int) currentHighscore;
+	}
+
+	public int getCurrentMultiplier()
+	{
+		return (int) currentMultiplier;
+	}
+
 	//TODO new level
 }

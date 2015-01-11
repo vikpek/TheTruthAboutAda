@@ -35,9 +35,6 @@ public class CreepController3D : MonoBehaviour
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 		audioSource = transform.GetComponent<AudioSource> ();
 
-//		cylinderValue = Random.Range (0, 9);
-//		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, cylinderValue);
-
 		rotationTime = beginRotationAfter;
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
 	}
