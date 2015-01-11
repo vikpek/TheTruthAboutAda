@@ -36,7 +36,7 @@ public class CreepController3D : MonoBehaviour
 		audioSource = transform.GetComponent<AudioSource> ();
 
 		cylinderValue = Random.Range (0, 9);
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 36 ), 0 ) );
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, cylinderValue);
 
 		rotationTime = beginRotationAfter;
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
@@ -57,6 +57,7 @@ public class CreepController3D : MonoBehaviour
 			}
 		} else {
 			audioSource.Stop();
+			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);
 		}
 	}
 	
@@ -86,9 +87,10 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
+
 	void rotateCylinder(){
 		cylinderValue = Random.Range (0, 9);
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 36 ), 0 ) );
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, cylinderValue);
 	}
 	
 	void generateRail( GameObject obj )

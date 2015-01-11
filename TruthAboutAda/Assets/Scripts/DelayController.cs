@@ -43,12 +43,12 @@ public class DelayController : MonoBehaviour {
 	}
 
 	void rotateCylinder(){
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( Random.Range (0, 9) * 9 ), 0 ) );
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, loadedNumber);
 	}
 
 	void setCylinderToNumber(int loadedNumber)
 	{
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0,  (loadedNumber-1) * 36 , 0 ) );
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), loadedNumber);
 	}
 
 	public void resetDelay()

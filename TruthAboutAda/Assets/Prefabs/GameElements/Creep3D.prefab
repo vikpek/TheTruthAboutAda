@@ -328,7 +328,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108378}
-  m_LocalRotation: {x: 0, y: -.965925813, z: 0, w: .258819073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.00000012}
   m_Children:
@@ -342,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44199991, y: .560000002, z: 0}
+  m_LocalPosition: {x: 3.88000011, y: .560000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408376}
@@ -476,8 +476,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111698}
-  m_LocalRotation: {x: 0, y: .965925813, z: 0, w: .258819073}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -8.50923243e-09, y: -.808916688, z: -1.53202784e-08, w: -.587923408}
+  m_LocalPosition: {x: 2.45137271e-13, y: 1.37090706e-06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 408378}
@@ -966,10 +966,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalMovementStepSize: .200000003
-  verticalMovementStepSize: .5
-  horizontalStepTime: .204999998
+  verticalMovementStepSize: 1
+  horizontalStepTime: .100000001
   verticalStepTime: .200000003
-  maxStepsToSide: 10
+  maxStepsToSide: 30
 --- !u!198 &19808374
 ParticleSystem:
   m_ObjectHideFlags: 1
