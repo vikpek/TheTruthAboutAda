@@ -14,39 +14,36 @@ public class DelayController : MonoBehaviour {
 	Transform cylinderTransform;
 
 	int loadedNumber = 0;
+
+	AudioSource audioSource;
 	
 	void Awake()
 	{
 		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").transform;
 		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
+		audioSource = transform.GetComponent<AudioSource> ();
 	}
 
 	public void setRestDelay(float restDelay)
 	{
 		rotateCylinder();
+		if (!audioSource.isPlaying) {
+			audioSource.Play ();
+		}
+
 		if (maxDelay == 0) {
 			maxDelay = restDelay;		
 		}
 
-		if (restDelay < maxDelay) 
-		{
-//			delayLayer.sprite = singleSprites [0];		
-			particleSystem.Stop();
-		}
-		if (restDelay < maxDelay / 2) {
-//			delayLayer.sprite = singleSprites [1];		
-		}
-		if (restDelay < maxDelay / 4) {
-//			delayLayer.sprite = singleSprites [2];		
-		}
 		if (restDelay < maxDelay / 10) {
 			setCylinderToNumber(loadedNumber);
 			particleSystem.Play();
+			audioSource.Stop ();
 		}
 	}
 
 	void rotateCylinder(){
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( Random.Range (0, 9) * 36 ), 0 ) );
+		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( Random.Range (0, 9) * 9 ), 0 ) );
 	}
 
 	void setCylinderToNumber(int loadedNumber)

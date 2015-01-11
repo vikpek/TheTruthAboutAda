@@ -23,6 +23,8 @@ public class CreepController3D : MonoBehaviour
 	float rotationTime;
 	float rotationDuration;
 
+	AudioSource audioSource;
+
 
 
 	void Awake()
@@ -31,6 +33,7 @@ public class CreepController3D : MonoBehaviour
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
+		audioSource = transform.GetComponent<AudioSource> ();
 
 		cylinderValue = Random.Range (0, 9);
 		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 36 ), 0 ) );
@@ -46,9 +49,14 @@ public class CreepController3D : MonoBehaviour
 			rotationTime -= Time.fixedDeltaTime;
 		}
 		if (rotationTime <= 0f && rotationDuration > 0) {
-			rotationDuration -=Time.fixedDeltaTime;
-			rotateCylinder();
+			rotationDuration -= Time.fixedDeltaTime;
+			rotateCylinder ();
 
+			if (!audioSource.isPlaying) {
+					audioSource.Play ();
+			}
+		} else {
+			audioSource.Stop();
 		}
 	}
 	
@@ -62,7 +70,6 @@ public class CreepController3D : MonoBehaviour
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
 				generateRail( gameObject );
-//				GenericFXController.Get.playVerticalRailAnim();
 				soundManager.playEnemyDeath();
 				Destroy ( GetComponent<BoxCollider>() );
 
