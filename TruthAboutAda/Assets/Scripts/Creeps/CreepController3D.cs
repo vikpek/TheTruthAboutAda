@@ -67,6 +67,7 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( col.gameObject.tag == Tags.BULLET )
 		{
+			HighScoreManager.Get.creepKilled();
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 

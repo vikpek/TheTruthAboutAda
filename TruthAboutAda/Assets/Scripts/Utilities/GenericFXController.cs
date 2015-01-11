@@ -34,7 +34,7 @@ public class GenericFXController : MonoBehaviour
 	void init()
 	{
 		cameraRumbler = GameObject.FindGameObjectWithTag( Tags.CAMERAHOLDER ).GetComponent<CameraRumbler>();
-		verticalRailController = GameObject.FindGameObjectWithTag( Tags.VERTICALRAIL ).GetComponent<VerticalRailController>();
+//		verticalRailController = GameObject.FindGameObjectWithTag( Tags.VERTICALRAIL ).GetComponent<VerticalRailController>();
 	}
 
 	public void rumbleCamera( float _shake, float _shakeAmount )
