@@ -48,6 +48,7 @@ public class RowSpawner : MonoBehaviour
 	{
 		foreach (Transform child in transform){
 				child.GetComponent<CreepMovement>().enabled = active;
+
 		}
 	}
 }

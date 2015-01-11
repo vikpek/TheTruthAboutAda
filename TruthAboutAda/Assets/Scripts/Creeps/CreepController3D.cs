@@ -57,7 +57,9 @@ public class CreepController3D : MonoBehaviour
 			}
 		} else {
 			audioSource.Stop();
-			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);
+			if(cylinderTransform){
+				cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);
+			}
 		}
 	}
 	
@@ -70,7 +72,7 @@ public class CreepController3D : MonoBehaviour
 
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
-				generateRail( gameObject );
+				generateRail( transform.FindChild ("animation_holder").gameObject );
 				soundManager.playEnemyDeath();
 				Destroy ( GetComponent<BoxCollider>() );
 
