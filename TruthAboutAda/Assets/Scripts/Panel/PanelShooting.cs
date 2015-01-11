@@ -17,7 +17,6 @@ public class PanelShooting : MonoBehaviour
 	Sprite[] singleChars;
 
 	SoundManager soundManager;
-	SpriteRenderer loadedBullet;
 
 	float shootWaiter;
 
@@ -31,7 +30,6 @@ public class PanelShooting : MonoBehaviour
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		bullets = PrefabDB.Get.ProjectileChars();
 		singleChars = PrefabDB.Get.Indicators();
-		loadedBullet = transform.FindChild( "LoadedNumber" ).GetComponent<SpriteRenderer>();
 		delayController = GameObject.FindGameObjectWithTag( Tags.DELAYBAR ).GetComponent<DelayController>();
 
 		//initating first shot
@@ -48,7 +46,6 @@ public class PanelShooting : MonoBehaviour
 		}
 		if( shootWaiter <= 0f ) 
 		{
-			setBrightness( true );
 			if( activeKey != -1 ) 
 			{
 				if( GameConfig.Get.DebugPannelShooting ) 
@@ -56,12 +53,11 @@ public class PanelShooting : MonoBehaviour
 				float wait = ( activeKey == lastActiveKey )?( 0f ):( waitBetweenDifferentsShots );
 				lastActiveKey = activeKey;
 				shootWaiter = 1f / shootsPerSecond + wait;
-				loadedBullet.sprite = singleChars[activeKey];
-				setBrightness( false );
+				delayController.setLoadedNumner(activeKey);
+			
 				if( wait == 0f )
 				{
 					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( bullets[activeKey], activeKey );
-					GenericFXController.Get.playTypewriterAnimation( activeKey );
 					soundManager.playPlayerShot();
 
 					delayController.resetDelay();
@@ -97,10 +93,5 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
 		if( Input.GetKeyDown( KeyCode.Alpha0 ) || Input.GetKeyDown( KeyCode.Keypad0 ) ) return 0;
 		return -1;
-	}
-
-	void setBrightness( bool show )
-	{
-		loadedBullet.material.color = ( show )?( Color.white ):( Color.gray );
 	}
 }

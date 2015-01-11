@@ -62,7 +62,7 @@ public class CreepController3D : MonoBehaviour
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
 				generateRail( gameObject );
-				GenericFXController.Get.playVerticalRailAnim();
+//				GenericFXController.Get.playVerticalRailAnim();
 				soundManager.playEnemyDeath();
 				Destroy ( GetComponent<BoxCollider>() );
 
