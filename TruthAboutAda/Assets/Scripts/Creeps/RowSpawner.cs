@@ -5,7 +5,6 @@ public class RowSpawner : MonoBehaviour
 	[SerializeField]
 	float spawnTimer = 1.5f;
 
-	[SerializeField]
 	Animator animator;
 
 	[SerializeField]
@@ -16,13 +15,15 @@ public class RowSpawner : MonoBehaviour
 
 	void Awake()
 	{
+		movementStartDelay += spawnTimer;
 		setRowActive(false);
+		animator = transform.GetComponent<Animator> ();
 	}
 
 	void Update()
 	{
 		spawnTimer -= Time.deltaTime;
-		if (incomingAnimation && spawnTimer <= 0f && animator.enabled) {
+		if (incomingAnimation && spawnTimer <= 0f) {
 			animator.enabled = true;
 			animator.Play ("RowAnimation");
 			setRowActive(true);
@@ -31,7 +32,6 @@ public class RowSpawner : MonoBehaviour
 
 		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
 		if (movementStartDelay <= 0f) {
-			Debug.Log ("moving start");
 			setRowActive(true);
 			setCreepMovementActive(true);
 			animator.enabled = false;

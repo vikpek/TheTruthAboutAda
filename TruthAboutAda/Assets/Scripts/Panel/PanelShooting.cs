@@ -60,7 +60,6 @@ public class PanelShooting : MonoBehaviour
 				setBrightness( false );
 				if( wait == 0f )
 				{
-					Debug.Log( "Activate Shot" );
 					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( bullets[activeKey], activeKey );
 					GenericFXController.Get.playTypewriterAnimation( activeKey );
 					soundManager.playPlayerShot();

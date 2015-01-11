@@ -33,7 +33,7 @@ public class CreepController3D : MonoBehaviour
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 
 		cylinderValue = Random.Range (0, 9);
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 34 ), 0 ) );
+		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 36 ), 0 ) );
 
 		rotationTime = beginRotationAfter;
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
@@ -81,7 +81,7 @@ public class CreepController3D : MonoBehaviour
 
 	void rotateCylinder(){
 		cylinderValue = Random.Range (0, 9);
-		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 34 ), 0 ) );
+		cylinderTransform.rotation = Quaternion.Euler( new Vector3( 0, cylinderTransform.rotation.eulerAngles.y + ( cylinderValue * 36 ), 0 ) );
 	}
 	
 	void generateRail( GameObject obj )
