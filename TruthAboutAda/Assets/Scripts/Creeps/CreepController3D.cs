@@ -120,13 +120,23 @@ public class CreepController3D : MonoBehaviour
 
 	void damageBlackCreepOperation()
 	{
-		// TODO implement
+		foreach (Transform element in transform.FindChild ("animation_holder").FindChild ("cylinder")) {
+			if(element.tag == Tags.DESTROYABLE){
+				element.gameObject.AddComponent<Rigidbody>();
+				element.gameObject.AddComponent<ConstantForce>();
+				element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
+				element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
+			}
+		} 
 	}
 
 	void reinitializeCreepRow()
 	{
 		foreach (Transform creep in transform.parent) {
-			if(creep.tag == Tags.CREEP) creep.GetComponent<CreepController3D>().reinitializeCylinder();
+			if(creep.tag == Tags.CREEP) 
+			{
+				creep.GetComponent<CreepController3D>().reinitializeCylinder();
+			}
 		}
 	}
 

@@ -2,6 +2,8 @@
 
 public class Tags : MonoBehaviour
 {
+	public const string DESTROYABLE = "Destroyable";
+
 	public const string VERTICALRAIL = "VerticalRail";
 	public const string PROJECTORLINE = "ProjectorLine";
 	public const string TYPEWRITERARM = "TypewriterArm";
