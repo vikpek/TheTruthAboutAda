@@ -16,39 +16,28 @@ public class RowSpawner : MonoBehaviour
 	void Awake()
 	{
 		movementStartDelay += spawnTimer;
-		setRowActive(false);
-		animator = transform.GetComponent<Animator> ();
+		animator = transform.GetComponent<Animator>();
+		foreach( Transform child in transform ) child.gameObject.SetActive( false );
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
-		spawnTimer -= Time.deltaTime;
-		if (incomingAnimation && spawnTimer <= 0f) {
+		if( spawnTimer > 0f ) spawnTimer -= Time.fixedDeltaTime;
+		if( incomingAnimation && spawnTimer <= 0f )
+		{
 			animator.enabled = true;
-			animator.Play ("RowAnimation");
-			setRowActive(true);
+			animator.Play( "RowAnimation" );
+			foreach( Transform child in transform ) child.gameObject.SetActive( true );
 		}
-
 		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
-		if (movementStartDelay <= 0f) {
-			setRowActive(true);
-			setCreepMovementActive(true);
+		if( movementStartDelay <= 0f )
+		{
+			foreach( Transform child in transform )
+			{
+				child.gameObject.SetActive( true );
+				child.GetComponent<CreepMovement>().enabled = true;
+			}
 			animator.enabled = false;
-		}
-	}
-
-	void setRowActive(bool active)
-	{
-		foreach (Transform child in transform){
-			child.gameObject.SetActive (active);
-		}
-	}
-
-	void setCreepMovementActive(bool active)
-	{
-		foreach (Transform child in transform){
-				child.GetComponent<CreepMovement>().enabled = active;
-
 		}
 	}
 }

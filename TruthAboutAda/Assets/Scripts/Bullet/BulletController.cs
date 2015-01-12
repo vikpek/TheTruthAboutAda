@@ -4,9 +4,8 @@ public class BulletController : MonoBehaviour
 {
 	int bulletValue;
 
-	public void setBulletValue( Sprite img, int numb )
+	public void setBulletValue( int numb )
 	{
-//		transform.GetComponent<SpriteRenderer>().sprite = img;
 		bulletValue = numb;
 	}
 

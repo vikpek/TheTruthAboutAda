@@ -13,9 +13,6 @@ public class PanelShooting : MonoBehaviour
 	[SerializeField]
 	float waitBetweenDifferentsShots = 0.2f;
 
-	Sprite[] bullets;
-	Sprite[] singleChars;
-
 	SoundManager soundManager;
 
 	float shootWaiter;
@@ -28,20 +25,16 @@ public class PanelShooting : MonoBehaviour
 	void Awake()
 	{
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
-		bullets = PrefabDB.Get.ProjectileChars();
-		singleChars = PrefabDB.Get.Indicators();
 		delayController = GameObject.FindGameObjectWithTag( Tags.DELAYBAR ).GetComponent<DelayController>();
-
 		//initating first shot
 		shootWaiter = 0;
-		activeKey = 0;
+		lastActiveKey = 0;
 	}
 	
 	void FixedUpdate()
 	{
-
-		Debug.Log ("active key " + activeKey);
-		if (shootWaiter > 0f) 
+		
+		if( shootWaiter > 0f ) 
 		{
 			delayController.setRestDelay(shootWaiter);
 			shootWaiter -= Time.fixedDeltaTime;
@@ -50,25 +43,24 @@ public class PanelShooting : MonoBehaviour
 		{
 			if( activeKey != -1 ) 
 			{
-				if( GameConfig.Get.DebugPannelShooting ) 
-					Debug.Log( "Prepare Shot" );
-				float wait = ( activeKey == lastActiveKey )?( 0f ):( waitBetweenDifferentsShots );
-				lastActiveKey = activeKey;
-				shootWaiter = 1f / shootsPerSecond + wait;
-				delayController.setLoadedNumner(activeKey);
-			
-				if( wait == 0f )
+				if( activeKey == 10 && lastActiveKey != -1 )
 				{
-					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( bullets[activeKey], activeKey );
+					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Fire Shoot" );
+					shootWaiter += 1f / shootsPerSecond;
+					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( lastActiveKey );
 					soundManager.playPlayerShot();
-
 					delayController.resetDelay();
+				} else if( activeKey != 10 )
+				{
+					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Prepare Shot" );
+					shootWaiter += waitBetweenDifferentsShots;
+					lastActiveKey = activeKey;
+					delayController.setLoadedNumner( activeKey );
 				}
 			}
 		} else if( GameConfig.Get.DebugPannelShooting )
 		{
-			if( activeKey != -1 ) 
-				Debug.Log("Waiting for Shot");
+			if( activeKey != -1 ) Debug.Log("Waiting for Shot");
 		}
 	}
 
@@ -77,13 +69,13 @@ public class PanelShooting : MonoBehaviour
 		activeKey = scanKeys();
 		if( GameConfig.Get.DebugPannelShooting )
 		{
-			if( activeKey != -1 ) 
-				Debug.Log( System.DateTime.Now.ToLongTimeString() + " : Key Pressed ( " + activeKey + " ) " );
+			if( activeKey != -1 ) Debug.Log( System.DateTime.Now.ToLongTimeString() + " : Key Pressed ( " + activeKey + " ) " );
 		}
 	}
 
 	int scanKeys() 
 	{
+		if( Input.GetKeyDown( KeyCode.Alpha0 ) || Input.GetKeyDown( KeyCode.Keypad0 ) ) return 0;
 		if( Input.GetKeyDown( KeyCode.Alpha1 ) || Input.GetKeyDown( KeyCode.Keypad1 ) ) return 1;
 		if( Input.GetKeyDown( KeyCode.Alpha2 ) || Input.GetKeyDown( KeyCode.Keypad2 ) ) return 2;
 		if( Input.GetKeyDown( KeyCode.Alpha3 ) || Input.GetKeyDown( KeyCode.Keypad3 ) ) return 3;
@@ -93,8 +85,7 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha7 ) || Input.GetKeyDown( KeyCode.Keypad7 ) ) return 7;
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
-		if( Input.GetKeyDown( KeyCode.Alpha0 ) || Input.GetKeyDown( KeyCode.Keypad0 ) ) return 0;
-		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) ) return 101;
+		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) ) return 10;
 		return -1;
 	}
 }

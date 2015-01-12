@@ -22,7 +22,7 @@ public class LifeController : MonoBehaviour
 		{
 			lifeCount--;
 			lifeLayer.sprite = singleSprites[lifeCount];
-			if( lifeCount <= 0 ) stopGame();
+			if( lifeCount == 0 ) stopGame();
 		}
 	}
 

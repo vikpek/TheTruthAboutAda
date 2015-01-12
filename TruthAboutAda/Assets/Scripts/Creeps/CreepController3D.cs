@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class CreepController3D : MonoBehaviour 
 {
@@ -6,7 +6,7 @@ public class CreepController3D : MonoBehaviour
 	bool randomized = true;
 	
 	[SerializeField]
-	int cylinderValue = 0;
+	int cylinderValue;
 
 	[SerializeField]
 	float beginRotationAfter = 2;
@@ -28,9 +28,7 @@ public class CreepController3D : MonoBehaviour
 	[SerializeField]
 	bool blackCreep;
 
-	// basically indicates lifes - atm 2 hits
 	int blackCreepStatus = 0;
-
 
 
 	void Awake()
@@ -40,26 +38,30 @@ public class CreepController3D : MonoBehaviour
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 
-		audioSource = transform.GetComponent<AudioSource> ();
+		audioSource = transform.GetComponent<AudioSource>();
+
 		rotationTime = beginRotationAfter;
 		reinitializeCylinder ();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
-		if (rotationTime > 0f) 
+		if( rotationTime > 0f ) 
 		{
 			rotationTime -= Time.fixedDeltaTime;
 		}
-		if (rotationTime <= 0f && rotationDuration > 0) {
+		if( rotationTime <= 0f && rotationDuration > 0 )
+		{
 			rotationDuration -= Time.fixedDeltaTime;
-			rotateCylinder ();
-			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);		
+			rotateCylinder();
+			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( new Vector3(0,0,0), cylinderValue );		
 
-			if (!audioSource.isPlaying) {
-				audioSource.Play ();
+			if( !audioSource.isPlaying )
+			{
+				audioSource.Play();
 			}
-		} else {
+		} else 
+		{
 			audioSource.Stop();
 		}
 	}
@@ -73,7 +75,7 @@ public class CreepController3D : MonoBehaviour
 		
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
-				if(blackCreep)
+				if( blackCreep )
 				{
 					if(blackCreepStatus < 2){
 						blackCreepStatus++;
@@ -81,8 +83,8 @@ public class CreepController3D : MonoBehaviour
 					} else {
 						destroyCreepOperation();
 					}
-				}else{
-					destroyCreepOperation ();
+				} else {
+					destroyCreepOperation();
 				}
 
 				if( GameConfig.Get.ShowEnemyCollisionPoints )
@@ -93,7 +95,8 @@ public class CreepController3D : MonoBehaviour
 					temp.renderer.material.color = Color.red;
 					Destroy( temp.GetComponent<SphereCollider>() );
 				}
-			}else{
+			} else
+			{
 				HighScoreManager.Get.shotFailed();
 				reinitializeCylinder();
 				if(blackCreep) reinitializeCreepRow();
@@ -109,10 +112,10 @@ public class CreepController3D : MonoBehaviour
 
 	void destroyCreepOperation ()
 	{
-		HighScoreManager.Get.creepKilled ();
-		generateRail (transform.FindChild ("animation_holder").gameObject);
-		soundManager.playEnemyDeath ();
-		Destroy (GetComponent<BoxCollider> ());
+		HighScoreManager.Get.creepKilled();
+		generateRail( transform.FindChild( "animation_holder" ).gameObject );
+		soundManager.playEnemyDeath();
+		Destroy( GetComponent<BoxCollider>() );
 	}
 
 	void damageBlackCreepOperation()
