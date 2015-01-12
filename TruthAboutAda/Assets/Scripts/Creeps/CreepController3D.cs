@@ -33,7 +33,11 @@ public class CreepController3D : MonoBehaviour
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
-		audioSource = transform.GetComponent<AudioSource> ();
+
+
+		// FIXME when adding an audio source - the start animation brakes.... wtfhell...
+//		audioSource = transform.gameObject.AddComponent<AudioSource> ();
+
 
 		rotationTime = beginRotationAfter;
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
@@ -49,11 +53,11 @@ public class CreepController3D : MonoBehaviour
 			rotationDuration -= Time.fixedDeltaTime;
 			rotateCylinder ();
 
-			if (!audioSource.isPlaying) {
-				audioSource.Play ();
-			}
+//			if (!audioSource.isPlaying) {
+//				audioSource.Play ();
+//			}
 		} else {
-			audioSource.Stop();
+//			audioSource.Stop();
 			if(cylinderTransform){
 				cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);
 			}
