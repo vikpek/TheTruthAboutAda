@@ -54,7 +54,9 @@ public class UIController : MonoBehaviour
 				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Return to Menu" ) ) BackToMenu();
 				break;
 			case States.Win :
-				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - Buttons.HEIGHT / 2 );
+				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - ( Buttons.HEIGHT * 2 + Buttons.GAP * 1 ) / 2 );
+				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Next Level" ) ) NextLevel();
+				temp.y += Buttons.GAP + Buttons.HEIGHT;
 				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Return to Menu" ) ) BackToMenu();
 				break;
 		}
@@ -99,6 +101,14 @@ public class UIController : MonoBehaviour
 		lastState = state;
 		Time.timeScale = 1f;
 		Application.LoadLevel( Application.loadedLevel );
+		state = States.None;
+	}
+
+	void NextLevel()
+	{
+		lastState = state;
+		Time.timeScale = 1f;
+		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
 	}
 

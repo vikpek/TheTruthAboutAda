@@ -28,12 +28,12 @@ public class CreepController3D : MonoBehaviour
 	[SerializeField]
 	bool blackCreep;
 
-	int blackCreepStatus = 0;
+	int blackCreepStatus;
 
 
 	void Awake()
 	{
-		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").transform;
+		cylinderTransform = transform.FindChild( "animation_holder" ).FindChild( "cylinder" ).FindChild( "animation_holder_cylinder" ).transform;
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
@@ -46,24 +46,15 @@ public class CreepController3D : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if( rotationTime > 0f ) 
-		{
-			rotationTime -= Time.fixedDeltaTime;
-		}
+		if( rotationTime > 0f ) rotationTime -= Time.fixedDeltaTime;
 		if( rotationTime <= 0f && rotationDuration > 0 )
 		{
 			rotationDuration -= Time.fixedDeltaTime;
-			rotateCylinder();
-			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( new Vector3(0,0,0), cylinderValue );		
+			if( randomized ) rotateCylinder();
+			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( new Vector3(0,0,0), cylinderValue );
 
-			if( !audioSource.isPlaying )
-			{
-				audioSource.Play();
-			}
-		} else 
-		{
-			audioSource.Stop();
-		}
+			if( !audioSource.isPlaying ) audioSource.Play();
+		} else audioSource.Stop();
 	}
 	
 	void OnTriggerEnter( Collider col )
@@ -77,14 +68,9 @@ public class CreepController3D : MonoBehaviour
 			{
 				if( blackCreep )
 				{
-					if( blackCreepStatus < 2 ){
-						blackCreepStatus++;
-					} else {
-						destroyCreepOperation();
-					}
-				} else {
-					destroyCreepOperation();
-				}
+					if( blackCreepStatus < 2 ) blackCreepStatus++;
+					else destroyCreepOperation();
+				} else destroyCreepOperation();
 
 				if( GameConfig.Get.ShowEnemyCollisionPoints )
 				{
@@ -103,14 +89,13 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
-	void destroyCreepOperation ()
+	void destroyCreepOperation()
 	{
 		HighScoreManager.Get.creepKilled();
 		generateRail( transform.FindChild( "animation_holder" ).gameObject );
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
 	}
-
 
 	void rotateCylinder()
 	{

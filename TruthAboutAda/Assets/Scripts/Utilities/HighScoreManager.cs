@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class HighScoreManager : MonoBehaviour {
-
+public class HighScoreManager : MonoBehaviour 
+{
 	public const float CREEP_POINTS = 10;
 
-	float currentHighscore = 0;
-	float currentMultiplier = 0;
+	float currentHighscore;
+	float currentMultiplier;
+
+	int creepCounter;
+	bool winScreen;
 
 	static HighScoreManager _instance;
 	
@@ -14,9 +16,9 @@ public class HighScoreManager : MonoBehaviour {
 	{
 		get
 		{
-			if (_instance == null)
+			if( _instance == null )
 			{
-				_instance = GameObject.FindObjectOfType<HighScoreManager> ();
+				_instance = GameObject.FindObjectOfType<HighScoreManager>();
 				DontDestroyOnLoad (_instance);
 			}
 			return _instance;
@@ -32,12 +34,20 @@ public class HighScoreManager : MonoBehaviour {
 		} else if( _instance != this ) Destroy( gameObject );
 	}
 
+	void OnLevelWasLoaded()
+	{
+		Debug.Log("New Scene loaded");
+		creepCounter = GameObject.FindGameObjectsWithTag( Tags.CREEP ).Length;
+		winScreen = ( creepCounter > 0 )?( true ):( false );
+	}
  
 	public void creepKilled()
 	{
 		currentMultiplier += 1;
-		currentHighscore += (CREEP_POINTS * currentMultiplier);
-		Debug.Log ("Highscore: " + currentHighscore + " Multiplayer: " + currentMultiplier);
+		currentHighscore += ( CREEP_POINTS * currentMultiplier );
+		creepCounter--;
+		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
+		Debug.Log( "Highscore: " + currentHighscore + " Multiplayer: " + currentMultiplier );
 	}
 
 	public void shotFailed()
