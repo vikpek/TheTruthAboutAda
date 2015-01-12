@@ -32,6 +32,7 @@ public class HighScoreManager : MonoBehaviour
 			_instance = this;
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
+		OnLevelWasLoaded ();
 	}
 
 	void OnLevelWasLoaded()

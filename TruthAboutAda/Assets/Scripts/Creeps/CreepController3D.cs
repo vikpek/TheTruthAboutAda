@@ -97,6 +97,8 @@ public class CreepController3D : MonoBehaviour
 
 	void destroyCreepOperation ()
 	{
+		if (blackCreep)
+						damageBlackCreepOperation ();
 		HighScoreManager.Get.creepKilled();
 		generateRail( transform.FindChild( "animation_holder" ).gameObject );
 		soundManager.playEnemyDeath();
