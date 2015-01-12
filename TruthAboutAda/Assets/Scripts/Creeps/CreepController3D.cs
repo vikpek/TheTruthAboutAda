@@ -28,6 +28,7 @@ public class CreepController3D : MonoBehaviour
 	[SerializeField]
 	bool blackCreep;
 
+	// basically indicates lifes - atm 2 hits
 	int blackCreepStatus = 0;
 
 
@@ -40,10 +41,8 @@ public class CreepController3D : MonoBehaviour
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 
 		audioSource = transform.GetComponent<AudioSource> ();
-
-
 		rotationTime = beginRotationAfter;
-		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
+		reinitializeCylinder ();
 	}
 
 	void Update()
@@ -60,11 +59,8 @@ public class CreepController3D : MonoBehaviour
 			if (!audioSource.isPlaying) {
 				audioSource.Play ();
 			}
-
 		} else {
 			audioSource.Stop();
-
-
 		}
 	}
 	
@@ -81,6 +77,7 @@ public class CreepController3D : MonoBehaviour
 				{
 					if(blackCreepStatus < 2){
 						blackCreepStatus++;
+						damageBlackCreepOperation();
 					} else {
 						destroyCreepOperation();
 					}
@@ -98,9 +95,16 @@ public class CreepController3D : MonoBehaviour
 				}
 			}else{
 				HighScoreManager.Get.shotFailed();
+				reinitializeCylinder();
+				if(blackCreep) reinitializeCreepRow();
 			}
 			Destroy( col.gameObject );
 		}
+	}
+
+	public void reinitializeCylinder()
+	{
+		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
 	}
 
 	void destroyCreepOperation ()
@@ -111,6 +115,17 @@ public class CreepController3D : MonoBehaviour
 		Destroy (GetComponent<BoxCollider> ());
 	}
 
+	void damageBlackCreepOperation()
+	{
+		// TODO implement
+	}
+
+	void reinitializeCreepRow()
+	{
+		foreach (Transform creep in transform.parent) {
+			if(creep.tag == Tags.CREEP) creep.GetComponent<CreepController3D>().reinitializeCylinder();
+		}
+	}
 
 	void rotateCylinder(){
 		cylinderValue = Random.Range (0, 9);
