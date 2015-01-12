@@ -77,7 +77,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				if( blackCreep )
 				{
-					if(blackCreepStatus < 2){
+					if( blackCreepStatus < 2 ){
 						blackCreepStatus++;
 					} else {
 						destroyCreepOperation();
@@ -97,6 +97,7 @@ public class CreepController3D : MonoBehaviour
 			} else
 			{
 				HighScoreManager.Get.shotFailed();
+				if( blackCreep ) Debug.Log("Wrong Hit on BlackCreep"); // TODO : Change Row
 			}
 			Destroy( col.gameObject );
 		}

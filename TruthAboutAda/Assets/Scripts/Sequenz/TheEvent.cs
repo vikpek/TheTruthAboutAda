@@ -19,6 +19,9 @@ public class TheEvent : MonoBehaviour
 	bool triggerAfterDisappear = false;
 
 	[SerializeField]
+	bool skipWholeEvent = false;
+
+	[SerializeField]
 	float Duration = 1f;
 
 	[SerializeField]
@@ -57,7 +60,23 @@ public class TheEvent : MonoBehaviour
 
 	void LateUpdate()
 	{
-		// TODO : Skip with Space
+		if( Input.GetKeyDown( KeyCode.Space ) )
+		{
+			if( skipWholeEvent )
+			{
+				if( endTime > 0f ) Effect( 0, disappearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				endTime = 0f;
+				if( triggerAfterDisappear ) Trigger();
+			} else 
+			{
+				if( startTime > 0f ) Effect( 1, appearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				if( !triggerAfterDisappear ) Trigger();
+			}
+		}
 	}
 
 	void FixedUpdate()
