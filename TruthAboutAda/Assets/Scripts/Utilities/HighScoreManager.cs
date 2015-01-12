@@ -10,15 +10,28 @@ public class HighScoreManager : MonoBehaviour {
 
 	static HighScoreManager _instance;
 	
-	public static HighScoreManager Get {
-		get {
-			if (_instance == null) {
+	public static HighScoreManager Get
+	{
+		get
+		{
+			if (_instance == null)
+			{
 				_instance = GameObject.FindObjectOfType<HighScoreManager> ();
 				DontDestroyOnLoad (_instance);
 				_instance.init ();
 			}
 			return _instance;
 		}
+	}
+
+	void Awake()
+	{
+		if( _instance == null )
+		{
+			_instance = this;
+			DontDestroyOnLoad( this );
+			init();
+		} else if( _instance != this ) Destroy( gameObject );
 	}
 
 	void init()
