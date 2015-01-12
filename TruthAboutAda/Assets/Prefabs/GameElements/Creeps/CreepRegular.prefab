@@ -64,7 +64,7 @@ GameObject:
   - 4: {fileID: 400122}
   - 33: {fileID: 3300120}
   - 23: {fileID: 2300120}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: cylinder_main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - 4: {fileID: 400124}
   - 33: {fileID: 3300122}
   - 23: {fileID: 2300122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cylinder_bl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - 4: {fileID: 400134}
   - 33: {fileID: 3300130}
   - 23: {fileID: 2300130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cylinder_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - 4: {fileID: 400136}
   - 33: {fileID: 3300132}
   - 23: {fileID: 2300132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cylinder_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - 4: {fileID: 400138}
   - 33: {fileID: 3300134}
   - 23: {fileID: 2300134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cylinder_br
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - 4: {fileID: 400140}
   - 33: {fileID: 3300136}
   - 23: {fileID: 2300136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plat_bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .200000003, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 48.2799988, z: 15.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425830}
@@ -653,8 +653,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153126}
-  m_LocalRotation: {x: -4.04210141e-08, y: -.968733788, z: .248102605, w: -1.57826776e-07}
-  m_LocalPosition: {x: 0, y: .638000011, z: 1.69099998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .386999995, z: 1.00300002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400132}
@@ -1412,10 +1412,10 @@ Light:
   m_GameObject: {fileID: 153126}
   m_Enabled: 1
   serializedVersion: 3
-  m_Type: 0
-  m_Color: {r: 0, g: .793103695, b: 1, a: 1}
-  m_Intensity: 7.34000015
-  m_Range: 1.29188919
+  m_Type: 2
+  m_Color: {r: 0, g: .403921574, b: 1, a: 1}
+  m_Intensity: 3
+  m_Range: 1.10000002
   m_SpotAngle: 54.2999992
   m_CookieSize: 10
   m_Shadows:
@@ -1432,7 +1432,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
@@ -1454,6 +1454,7 @@ MonoBehaviour:
   cylinderValue: 2
   beginRotationAfter: 2.20000005
   animationDuration: 2
+  blackCreep: 0
 --- !u!114 &11411172
 MonoBehaviour:
   m_ObjectHideFlags: 1
