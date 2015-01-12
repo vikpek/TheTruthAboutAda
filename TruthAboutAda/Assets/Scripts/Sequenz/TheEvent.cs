@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class TheEvent : MonoBehaviour
 {
@@ -8,9 +7,6 @@ public class TheEvent : MonoBehaviour
 		None,
 		Fade
 	}
-
-	[SerializeField]
-	bool setScreenSize = true;
 
 	[SerializeField]
 	bool hideThemself = true;
@@ -52,8 +48,6 @@ public class TheEvent : MonoBehaviour
 	{
 		render = GetComponent<UnityEngine.UI.RawImage>();
 		if( render == null ) render = GetComponent<UnityEngine.UI.Text>();
-
-		if( setScreenSize ) GetComponent<RectTransform>().sizeDelta = new Vector2( Screen.width, Screen.height );
 		if( appearDuration == 0f ) triggerAfterDisappear = false; // disable if no disappear
 		Set();
 	}

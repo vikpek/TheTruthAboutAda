@@ -3,31 +3,18 @@
 public class Scalation : MonoBehaviour
 {
 	[SerializeField]
-	int baseX = 1971;
+	int baseX = 1920;
 
 	[SerializeField]
-	int baseY = 1181;
+	int baseY = 1080;
 
 	float scale;
 
 	void Awake()
 	{
-		scale = (float)Screen.height / (float)baseY;
-		Debug.Log( scale );
-		FindLayers( transform );
-	}
-
-	void FindLayers( Transform parent )
-	{
-		foreach( Transform child in parent )
-		{
-			RectTransform temp = child.GetComponent<RectTransform>();
-			if( temp != null )
-			{
-				temp.sizeDelta = new Vector2( temp.sizeDelta.x * scale, temp.sizeDelta.y * scale );
-				temp.position = new Vector3( temp.position.x * scale, temp.position.y * scale, temp.position.z * scale );
-			}
-			if( child.childCount > 0 ) FindLayers( child );
-		}
+		float scaleX = (float)baseX / (float)Screen.width;
+		float scaleY = (float)baseY / (float)Screen.height;
+		scale = ( scaleX > scaleY )?( scaleX ):( scaleY );
+		foreach( Transform child in transform ) child.localScale = new Vector3( 1 / scale, 1 / scale );
 	}
 }
