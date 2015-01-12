@@ -42353,6 +42353,8 @@ GameObject:
   - 114: {fileID: 1577265623}
   - 82: {fileID: 1577265622}
   - 114: {fileID: 1577265621}
+  - 114: {fileID: 1577265628}
+  - 114: {fileID: 1577265627}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -42500,6 +42502,30 @@ MonoBehaviour:
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
   MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
+--- !u!114 &1577265627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11498660, guid: 7b795cde19b7b4f758231a91ca80db74,
+    type: 2}
+  m_PrefabInternal: {fileID: 1855768198}
+  m_GameObject: {fileID: 1577265619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c263eb7e6ad441f583165b347953e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1577265628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11498658, guid: 7b795cde19b7b4f758231a91ca80db74,
+    type: 2}
+  m_PrefabInternal: {fileID: 1855768198}
+  m_GameObject: {fileID: 1577265619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a03f32b17b6404295b5ef9fd006547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1578574394
 GameObject:
   m_ObjectHideFlags: 0
