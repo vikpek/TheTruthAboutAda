@@ -25,6 +25,11 @@ public class CreepController3D : MonoBehaviour
 
 	AudioSource audioSource;
 
+	[SerializeField]
+	bool blackCreep;
+
+	int blackCreepStatus = 0;
+
 
 
 	void Awake()
@@ -34,9 +39,7 @@ public class CreepController3D : MonoBehaviour
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 
-
-		// FIXME when adding an audio source - the start animation brakes.... wtfhell...
-//		audioSource = transform.gameObject.AddComponent<AudioSource> ();
+		audioSource = transform.GetComponent<AudioSource> ();
 
 
 		rotationTime = beginRotationAfter;
@@ -52,15 +55,16 @@ public class CreepController3D : MonoBehaviour
 		if (rotationTime <= 0f && rotationDuration > 0) {
 			rotationDuration -= Time.fixedDeltaTime;
 			rotateCylinder ();
+			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);		
 
-//			if (!audioSource.isPlaying) {
-//				audioSource.Play ();
-//			}
-		} else {
-//			audioSource.Stop();
-			if(cylinderTransform){
-				cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), cylinderValue);
+			if (!audioSource.isPlaying) {
+				audioSource.Play ();
 			}
+
+		} else {
+			audioSource.Stop();
+
+
 		}
 	}
 	
@@ -68,16 +72,21 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( col.gameObject.tag == Tags.BULLET )
 		{
-
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
-
+		
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
-				HighScoreManager.Get.creepKilled();
-				generateRail( transform.FindChild ("animation_holder").gameObject );
-				soundManager.playEnemyDeath();
-				Destroy ( GetComponent<BoxCollider>() );
+				if(blackCreep)
+				{
+					if(blackCreepStatus < 2){
+						blackCreepStatus++;
+					} else {
+						destroyCreepOperation();
+					}
+				}else{
+					destroyCreepOperation ();
+				}
 
 				if( GameConfig.Get.ShowEnemyCollisionPoints )
 				{
@@ -92,6 +101,14 @@ public class CreepController3D : MonoBehaviour
 			}
 			Destroy( col.gameObject );
 		}
+	}
+
+	void destroyCreepOperation ()
+	{
+		HighScoreManager.Get.creepKilled ();
+		generateRail (transform.FindChild ("animation_holder").gameObject);
+		soundManager.playEnemyDeath ();
+		Destroy (GetComponent<BoxCollider> ());
 	}
 
 

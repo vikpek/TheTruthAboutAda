@@ -39,6 +39,8 @@ public class PanelShooting : MonoBehaviour
 	
 	void FixedUpdate()
 	{
+
+		Debug.Log ("active key " + activeKey);
 		if (shootWaiter > 0f) 
 		{
 			delayController.setRestDelay(shootWaiter);
@@ -92,6 +94,7 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
 		if( Input.GetKeyDown( KeyCode.Alpha0 ) || Input.GetKeyDown( KeyCode.Keypad0 ) ) return 0;
+		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) ) return 101;
 		return -1;
 	}
 }

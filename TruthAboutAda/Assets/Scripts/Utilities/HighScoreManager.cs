@@ -18,7 +18,6 @@ public class HighScoreManager : MonoBehaviour {
 			{
 				_instance = GameObject.FindObjectOfType<HighScoreManager> ();
 				DontDestroyOnLoad (_instance);
-				_instance.init ();
 			}
 			return _instance;
 		}
@@ -30,14 +29,9 @@ public class HighScoreManager : MonoBehaviour {
 		{
 			_instance = this;
 			DontDestroyOnLoad( this );
-			init();
 		} else if( _instance != this ) Destroy( gameObject );
 	}
 
-	void init()
-	{
-		
-	}
  
 	public void creepKilled()
 	{
@@ -51,11 +45,6 @@ public class HighScoreManager : MonoBehaviour {
 		currentMultiplier = 0;
 	}
 
-	void railCleaned()
-	{
-
-	}
-
 	public int getCurrentHighScore()
 	{
 		return (int) currentHighscore;
@@ -66,5 +55,4 @@ public class HighScoreManager : MonoBehaviour {
 		return (int) currentMultiplier;
 	}
 
-	//TODO new level
 }
