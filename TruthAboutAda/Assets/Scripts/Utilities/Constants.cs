@@ -16,5 +16,7 @@ public class Constants : MonoBehaviour
 	public const string LEVEL_LEVEL01 = "Testing";
 
 	public const string HORIZONTALRAIL = "HorizontalRail";
+
+	public const float CYLINDER_ROTATION = 36f;
 	
 }

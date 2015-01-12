@@ -4,54 +4,60 @@ using System.Collections;
 public class DelayController : MonoBehaviour {
 
 	int delayCount = 0;
-
-	Sprite[] singleSprites;
+	
 	SpriteRenderer delayLayer;
 
 	float maxDelay = 0;
 
 	ParticleSystem particleSystem;
+
+	Transform cylinderTransform;
+
+	int loadedNumber = 0;
+
+	AudioSource audioSource;
 	
 	void Awake()
 	{
-		singleSprites = PrefabDB.Get.Life();
-		delayLayer = transform.FindChild( Constants.DELAY_LAYER ).GetComponent<SpriteRenderer>();
-		delayLayer.sprite = singleSprites [delayCount];
-
+		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").transform;
 		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
-	}
-	
-	public void reduceRestDelay()
-	{
-		delayCount ++;
-		delayLayer.sprite = singleSprites [delayCount];
+		audioSource = transform.GetComponent<AudioSource> ();
 	}
 
 	public void setRestDelay(float restDelay)
 	{
+		rotateCylinder();
+		if (!audioSource.isPlaying) {
+			audioSource.Play ();
+		}
+
 		if (maxDelay == 0) {
 			maxDelay = restDelay;		
 		}
 
-		if (restDelay < maxDelay) 
-		{
-			delayLayer.sprite = singleSprites [0];		
-			particleSystem.Stop();
-		}
-		if (restDelay < maxDelay / 2) {
-			delayLayer.sprite = singleSprites [1];		
-		}
-		if (restDelay < maxDelay / 4) {
-			delayLayer.sprite = singleSprites [2];		
-		}
 		if (restDelay < maxDelay / 10) {
-			delayLayer.sprite = singleSprites [3];		
+			setCylinderToNumber(loadedNumber);
 			particleSystem.Play();
+			audioSource.Stop ();
 		}
 	}
-	
+
+	void rotateCylinder(){
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, loadedNumber);
+	}
+
+	void setCylinderToNumber(int loadedNumber)
+	{
+		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), loadedNumber);
+	}
+
 	public void resetDelay()
 	{
 		delayCount = 0;
+	}
+
+	public void setLoadedNumner(int _loadedNumber)
+	{
+		loadedNumber = _loadedNumber;
 	}
 }

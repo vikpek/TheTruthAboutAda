@@ -3,8 +3,7 @@ using UnityEngine;
 public class GenericFXController : MonoBehaviour
 {	
 	static GenericFXController _instance;
-
-	TypewriterArmController typewriterArmController;
+	
 	VerticalRailController verticalRailController;
 	CameraRumbler cameraRumbler;
 	
@@ -34,14 +33,8 @@ public class GenericFXController : MonoBehaviour
 
 	void init()
 	{
-		typewriterArmController = GameObject.FindGameObjectWithTag( Tags.TYPEWRITERARM ).GetComponent<TypewriterArmController>();
 		cameraRumbler = GameObject.FindGameObjectWithTag( Tags.CAMERAHOLDER ).GetComponent<CameraRumbler>();
-		verticalRailController = GameObject.FindGameObjectWithTag( Tags.VERTICALRAIL ).GetComponent<VerticalRailController>();
-	}
-
-	public void playTypewriterAnimation( int activeKey )
-	{
-		typewriterArmController.playAnimation( activeKey );
+//		verticalRailController = GameObject.FindGameObjectWithTag( Tags.VERTICALRAIL ).GetComponent<VerticalRailController>();
 	}
 
 	public void rumbleCamera( float _shake, float _shakeAmount )
@@ -49,8 +42,8 @@ public class GenericFXController : MonoBehaviour
 		cameraRumbler.rumble( _shake, _shakeAmount);
 	}
 
-	public void playVerticalRailAnim()
-	{
-		verticalRailController.playRandomVerticalRailsAnimation();
-	}
+//	public void playVerticalRailAnim()
+//	{
+//		verticalRailController.playRandomVerticalRailsAnimation();
+//	}
 }

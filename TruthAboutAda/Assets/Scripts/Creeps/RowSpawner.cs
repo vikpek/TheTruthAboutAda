@@ -27,7 +27,6 @@ public class RowSpawner : MonoBehaviour
 			animator.enabled = true;
 			animator.Play ("RowAnimation");
 			setRowActive(true);
-			setCreepMovementActive(false);
 		}
 
 		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
@@ -49,6 +48,7 @@ public class RowSpawner : MonoBehaviour
 	{
 		foreach (Transform child in transform){
 				child.GetComponent<CreepMovement>().enabled = active;
+
 		}
 	}
 }
