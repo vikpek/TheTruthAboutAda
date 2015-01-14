@@ -1493,8 +1493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomized: 1
   cylinderValue: 2
-  beginRotationAfter: 2.20000005
-  animationDuration: 2
+  beginRotationAfter: 2
+  animationDuration: 1
   blackCreep: 0
 --- !u!114 &11439384
 MonoBehaviour:
@@ -1507,9 +1507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -10
-  maxX: 7
-  smooth: .699999988
+  smooth: 1
+  lerp: 1
   directionRight: 1
 --- !u!198 &19825834
 ParticleSystem:

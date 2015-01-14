@@ -9,7 +9,7 @@ public class MovementVerticalController : MonoBehaviour {
 	float minY = 45; 
 
 	[SerializeField]
-	float smooth = 0.1f;
+	float smooth = 5f;
 
 	Vector3 move;
 	Vector3 startPosition;
@@ -20,9 +20,10 @@ public class MovementVerticalController : MonoBehaviour {
 		startPosition = transform.position;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		move.y = minY;
+		//FIXME Rows holen sich ein
 		transform.position = Vector3.MoveTowards(transform.position, move, smooth * Time.deltaTime);
 	}
 }
