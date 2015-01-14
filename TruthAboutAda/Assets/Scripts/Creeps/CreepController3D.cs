@@ -41,7 +41,7 @@ public class CreepController3D : MonoBehaviour
 		audioSource = transform.GetComponent<AudioSource>();
 
 		rotationTime = beginRotationAfter;
-		reinitializeCylinder ();
+		reinitializeCylinder (-1);
 	}
 
 	void FixedUpdate()
@@ -50,7 +50,7 @@ public class CreepController3D : MonoBehaviour
 		if( rotationTime <= 0f && rotationDuration > 0 )
 		{
 			rotationDuration -= Time.fixedDeltaTime;
-			if( randomized ) rotateCylinder();
+			rotateCylinder();
 			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( new Vector3(0,0,0), cylinderValue );
 
 			if( !audioSource.isPlaying ) audioSource.Play();
@@ -83,22 +83,23 @@ public class CreepController3D : MonoBehaviour
 			} else
 			{
 				HighScoreManager.Get.shotFailed();
-				reinitializeCylinder();
+				reinitializeCylinder(-1);
 				if(blackCreep) reinitializeCreepRow();
 			}
 			Destroy( col.gameObject );
 		}
 	}
 
-	public void reinitializeCylinder()
+	public void reinitializeCylinder(int _cylinderValue)
 	{
+		if(_cylinderValue != -1) cylinderValue = _cylinderValue;
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
 	}
 
 	void destroyCreepOperation ()
 	{
 		if (blackCreep)
-						damageBlackCreepOperation ();
+			damageBlackCreepOperation ();
 		HighScoreManager.Get.creepKilled();
 		generateRail( transform.FindChild( "animation_holder" ).gameObject );
 		soundManager.playEnemyDeath();
@@ -122,7 +123,7 @@ public class CreepController3D : MonoBehaviour
 		foreach (Transform creep in transform.parent) {
 			if(creep.tag == Tags.CREEP) 
 			{
-				creep.GetComponent<CreepController3D>().reinitializeCylinder();
+				creep.GetComponent<CreepController3D>().reinitializeCylinder(-1);
 			}
 		}
 	}

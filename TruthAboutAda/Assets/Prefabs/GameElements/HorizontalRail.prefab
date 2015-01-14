@@ -143,7 +143,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400240}
   - 95: {fileID: 9500224}
-  - 114: {fileID: 11435172}
   - 54: {fileID: 5435172}
   m_Layer: 0
   m_Name: HorizontalRail
@@ -337,6 +336,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &160940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460940}
+  - 65: {fileID: 6560940}
+  m_Layer: 0
+  m_Name: right_border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &160942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460942}
+  - 65: {fileID: 6560942}
+  m_Layer: 0
+  m_Name: left_border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400224
 Transform:
   m_ObjectHideFlags: 1
@@ -368,7 +399,7 @@ Transform:
   - {fileID: 400254}
   - {fileID: 400246}
   m_Father: {fileID: 400240}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &400228
 Transform:
   m_ObjectHideFlags: 1
@@ -440,7 +471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400240}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &400240
 Transform:
   m_ObjectHideFlags: 1
@@ -451,9 +482,11 @@ Transform:
   m_LocalPosition: {x: -3.17000008, y: .870000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 460942}
   - {fileID: 400252}
   - {fileID: 400238}
   - {fileID: 400226}
+  - {fileID: 460940}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400242
@@ -535,7 +568,7 @@ Transform:
   - {fileID: 400250}
   - {fileID: 400224}
   m_Father: {fileID: 400240}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400254
 Transform:
   m_ObjectHideFlags: 1
@@ -596,6 +629,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400252}
   m_RootOrder: 3
+--- !u!4 &460940
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.7700005, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2.18650198, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400240}
+  m_RootOrder: 4
+--- !u!4 &460942
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.5500002, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2.1865015, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400240}
+  m_RootOrder: 0
 --- !u!23 &2300224
 Renderer:
   m_ObjectHideFlags: 1
@@ -1070,6 +1127,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6560940
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6560942
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9500224
 Animator:
   serializedVersion: 3
@@ -1085,22 +1166,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11435172
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e0b63a710784a6490cab6f14a0ffd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMovementStepSize: .100000001
-  verticalMovementStepSize: 1
-  horizontalStepTime: .00999999978
-  verticalStepTime: .00100000005
-  maxStepsToSide: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

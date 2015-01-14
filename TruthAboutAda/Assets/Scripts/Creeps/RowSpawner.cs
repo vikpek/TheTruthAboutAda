@@ -35,7 +35,8 @@ public class RowSpawner : MonoBehaviour
 			foreach( Transform child in transform )
 			{
 				child.gameObject.SetActive( true );
-				child.GetComponent<CreepMovement>().enabled = true;
+				if(child.GetComponent<MovementHorizontalController>())	child.GetComponent<MovementHorizontalController>().enabled = true;
+				if(child.GetComponent<MovementVerticalController>()) child.GetComponent<MovementVerticalController>().enabled = true;
 			}
 			animator.enabled = false;
 		}

@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &175258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 475258}
+  - 65: {fileID: 6575258}
+  m_Layer: 0
+  m_Name: direction_trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &194278
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,14 +342,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494316}
-  - 114: {fileID: 11494328}
   - 114: {fileID: 11494326}
   - 65: {fileID: 6594328}
   - 54: {fileID: 5494328}
   - 82: {fileID: 8289370}
+  - 114: {fileID: 11443884}
   m_Layer: 0
   m_Name: CreepBlackChar
-  m_TagString: Creep
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,6 +454,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &475258
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.38578725, y: 1.07585847, z: 1.07585847}
+  m_Children: []
+  m_Father: {fileID: 494316}
+  m_RootOrder: 3
 --- !u!4 &494278
 Transform:
   m_ObjectHideFlags: 1
@@ -626,8 +654,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -.94893378, z: 0, w: .315475285}
+  m_LocalPosition: {x: 2.38418579e-07, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494280}
@@ -687,12 +715,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.48999977, y: 53.7400017, z: 15.3999996}
+  m_LocalPosition: {x: 2.72000027, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494282}
   - {fileID: 494324}
   - {fileID: 494278}
+  - {fileID: 475258}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &494318
@@ -1304,6 +1333,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6575258
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6594328
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1439,6 +1480,21 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11443884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -10
+  maxX: 7
+  smooth: .699999988
+  directionRight: 1
 --- !u!114 &11494326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1455,22 +1511,6 @@ MonoBehaviour:
   beginRotationAfter: 2.20000005
   animationDuration: 2
   blackCreep: 0
---- !u!114 &11494328
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e0b63a710784a6490cab6f14a0ffd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMovementStepSize: .100000001
-  verticalMovementStepSize: 1
-  horizontalStepTime: .00999999978
-  verticalStepTime: .00100000005
-  maxStepsToSide: 100
 --- !u!198 &19894328
 ParticleSystem:
   m_ObjectHideFlags: 1

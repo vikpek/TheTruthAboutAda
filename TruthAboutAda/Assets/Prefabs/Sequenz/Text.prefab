@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &11417406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,6 +58,7 @@ MonoBehaviour:
   setScreenSize: 0
   hideThemself: 1
   triggerAfterDisappear: 0
+  skipWholeEvent: 0
   Duration: 1
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 0}

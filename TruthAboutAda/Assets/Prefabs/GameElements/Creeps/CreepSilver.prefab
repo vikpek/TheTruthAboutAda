@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 409444}
+  - 65: {fileID: 6509444}
+  m_Layer: 0
+  m_Name: direction_trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &186908
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,11 +358,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486948}
-  - 114: {fileID: 11486958}
   - 114: {fileID: 11486956}
   - 65: {fileID: 6586958}
   - 54: {fileID: 5486958}
   - 82: {fileID: 8241486}
+  - 114: {fileID: 11431224}
   m_Layer: 0
   m_Name: CreepSilver
   m_TagString: Creep
@@ -438,6 +454,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &409444
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.38578701, y: 1.075858, z: 1.075858}
+  m_Children: []
+  m_Father: {fileID: 486948}
+  m_RootOrder: 3
 --- !u!4 &486908
 Transform:
   m_ObjectHideFlags: 1
@@ -471,7 +499,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186912}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.43948817, y: .0400009155, z: .721309662}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.90537858, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 486948}
@@ -707,12 +735,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 53.7400017, z: 15.3999996}
+  m_LocalPosition: {x: -7.92999983, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486912}
   - {fileID: 486934}
   - {fileID: 486908}
+  - {fileID: 409444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &486950
@@ -733,7 +762,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186952}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: .999983191, z: 0, w: .00580582675}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1304,6 +1333,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6509444
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6586958
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1439,6 +1480,21 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11431224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -10
+  maxX: 7
+  smooth: .699999988
+  directionRight: 0
 --- !u!114 &11486956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1455,22 +1511,6 @@ MonoBehaviour:
   beginRotationAfter: 2.20000005
   animationDuration: 2
   blackCreep: 0
---- !u!114 &11486958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e0b63a710784a6490cab6f14a0ffd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMovementStepSize: .100000001
-  verticalMovementStepSize: 1
-  horizontalStepTime: .00999999978
-  verticalStepTime: .00100000005
-  maxStepsToSide: 100
 --- !u!198 &19886958
 ParticleSystem:
   m_ObjectHideFlags: 1
