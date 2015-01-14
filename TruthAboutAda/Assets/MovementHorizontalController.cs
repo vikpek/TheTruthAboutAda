@@ -34,7 +34,7 @@ public class MovementHorizontalController : MonoBehaviour {
 
 	}
 
-	void Update()
+	void FixedUpdate()
 	{	
 		if (!(transform.localPosition.x > minX && transform.localPosition.x < maxX)) directionRight = !directionRight;
 	
