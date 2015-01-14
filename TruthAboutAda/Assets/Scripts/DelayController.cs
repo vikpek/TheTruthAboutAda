@@ -19,7 +19,7 @@ public class DelayController : MonoBehaviour {
 	
 	void Awake()
 	{
-		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").transform;
+		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").FindChild("cylinder_main").transform;
 		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
 		audioSource = transform.GetComponent<AudioSource> ();
 	}
@@ -43,12 +43,12 @@ public class DelayController : MonoBehaviour {
 	}
 
 	void rotateCylinder(){
-		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, loadedNumber);
+		cylinderTransform.localRotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, loadedNumber);
 	}
 
 	void setCylinderToNumber(int loadedNumber)
 	{
-		cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), loadedNumber);
+		cylinderTransform.localRotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), loadedNumber);
 	}
 
 	public void resetDelay()
