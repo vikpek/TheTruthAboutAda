@@ -23,6 +23,6 @@ public class MovementVerticalController : MonoBehaviour {
 	void Update()
 	{
 		move.y = minY;
-		transform.position = Vector3.Lerp(transform.position, move, smooth * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, move, smooth * Time.deltaTime);
 	}
 }

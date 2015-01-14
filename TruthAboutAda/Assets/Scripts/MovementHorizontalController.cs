@@ -14,10 +14,7 @@ public class MovementHorizontalController : MonoBehaviour {
 	[SerializeField]
 	bool lerp = true;
 
-
-	
 	Vector3 move;
-	Vector3 startPosition;
 
 	[SerializeField]
 	bool directionRight = true;
@@ -25,7 +22,6 @@ public class MovementHorizontalController : MonoBehaviour {
 	void Awake()
 	{
 		move = transform.localPosition;
-//		startPosition = transform.localPosition;
 
 		minX = transform.parent.FindChild("HorizontalRail").FindChild("right_border").transform.position.x;
 		maxX = transform.parent.FindChild("HorizontalRail").FindChild("left_border").transform.position.x;

@@ -13,6 +13,9 @@ public class CreepController3D : MonoBehaviour
 	
 	[SerializeField]
 	float animationDuration = 2;
+
+	[SerializeField]
+	int blackCreepLifeCount = 1;
 	
 	SoundManager soundManager;
 	ParticleSystem particleSystem;
@@ -68,7 +71,12 @@ public class CreepController3D : MonoBehaviour
 			{
 				if( blackCreep )
 				{
-					if( blackCreepStatus < 2 ) blackCreepStatus++;
+					if( blackCreepStatus < blackCreepLifeCount ) 
+					{
+						blackCreepStatus++;
+						damageBlackCreepOperation();
+						reinitializeCylinder(-1);
+					}
 					else destroyCreepOperation();
 				} else destroyCreepOperation();
 
@@ -84,7 +92,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				HighScoreManager.Get.shotFailed();
 				reinitializeCylinder(-1);
-				if(blackCreep) reinitializeCreepRow();
+				if(blackCreep) reinitializeCreepRow(-1);
 			}
 			Destroy( col.gameObject );
 		}
@@ -98,8 +106,8 @@ public class CreepController3D : MonoBehaviour
 
 	void destroyCreepOperation ()
 	{
-		if (blackCreep)
-			damageBlackCreepOperation ();
+
+		if (blackCreep) reinitializeCreepRow (Random.Range(0,9));
 		HighScoreManager.Get.creepKilled();
 		generateRail( transform.FindChild( "animation_holder" ).gameObject );
 		soundManager.playEnemyDeath();
@@ -118,12 +126,12 @@ public class CreepController3D : MonoBehaviour
 		} 
 	}
 
-	void reinitializeCreepRow()
+	void reinitializeCreepRow(int value)
 	{
 		foreach (Transform creep in transform.parent) {
 			if(creep.tag == Tags.CREEP) 
 			{
-				creep.GetComponent<CreepController3D>().reinitializeCylinder(-1);
+				creep.GetComponent<CreepController3D>().reinitializeCylinder(value);
 			}
 		}
 	}
