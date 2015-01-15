@@ -75,7 +75,7 @@ GameObject:
   - 23: {fileID: 2386922}
   m_Layer: 8
   m_Name: cylinder_fr
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - 23: {fileID: 2386924}
   m_Layer: 8
   m_Name: cylinder_bl
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - 23: {fileID: 2386928}
   m_Layer: 8
   m_Name: cylinder_br
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ GameObject:
   - 23: {fileID: 2386940}
   m_Layer: 0
   m_Name: pCube3
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   - 23: {fileID: 2386944}
   m_Layer: 0
   m_Name: cylinder_middle
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +328,7 @@ GameObject:
   - 23: {fileID: 2386948}
   m_Layer: 0
   m_Name: cylinder_axis
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ GameObject:
   - 23: {fileID: 2386950}
   m_Layer: 8
   m_Name: plat_bottom
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,6 @@ GameObject:
   - 65: {fileID: 6586958}
   - 54: {fileID: 5486958}
   - 82: {fileID: 8241486}
-  - 114: {fileID: 11431224}
   m_Layer: 0
   m_Name: CreepSilver
   m_TagString: Creep
@@ -382,7 +381,7 @@ GameObject:
   - 23: {fileID: 2386952}
   m_Layer: 0
   m_Name: plate_top
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +415,7 @@ GameObject:
   - 23: {fileID: 2386956}
   m_Layer: 0
   m_Name: pCube2
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +432,7 @@ GameObject:
   - 23: {fileID: 2386958}
   m_Layer: 8
   m_Name: cylinder_fl
-  m_TagString: Untagged
+  m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -735,7 +734,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.92999983, y: 0, z: 0}
+  m_LocalPosition: {x: -.730000019, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486912}
@@ -1480,21 +1479,6 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11431224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minX: -10
-  maxX: 7
-  smooth: .699999988
-  directionRight: 0
 --- !u!114 &11486956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1510,7 +1494,6 @@ MonoBehaviour:
   cylinderValue: 2
   beginRotationAfter: 2.20000005
   animationDuration: 2
-  blackCreep: 0
 --- !u!198 &19886958
 ParticleSystem:
   m_ObjectHideFlags: 1

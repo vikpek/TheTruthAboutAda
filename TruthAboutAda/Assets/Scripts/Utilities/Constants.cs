@@ -18,5 +18,11 @@ public class Constants : MonoBehaviour
 	public const string HORIZONTALRAIL = "HorizontalRail";
 
 	public const float CYLINDER_ROTATION = 36f;
-	
+
+	public const string CREEP_BLACK = "CreepBlack";
+	public const string CREEP_SILVER = "CreepSilver";
+
+	public const string ANIMATION_HOLDER = "animation_holder";
+	public const string CYLINDER = "cylinder";
+
 }

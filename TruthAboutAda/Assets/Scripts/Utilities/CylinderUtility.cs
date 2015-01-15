@@ -23,6 +23,9 @@ public class CylinderUtility : MonoBehaviour {
 		return Quaternion.Euler (new Vector3 (0, eulerAngles.y + (cylinderValue * Constants.CYLINDER_ROTATION), 0));
 	}
 
-
+	public Quaternion damageCylinder (Vector3 eulerAngles, float cylinderValue)
+	{
+		return Quaternion.Euler (new Vector3 (eulerAngles.y + Random.Range(-20,20), 0, eulerAngles.y + Random.Range(-10, 10)));
+	}
 
 }

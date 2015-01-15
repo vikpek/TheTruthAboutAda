@@ -48,7 +48,6 @@ public class HighScoreManager : MonoBehaviour
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
 		creepCounter--;
 		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
-		Debug.Log( "Highscore: " + currentHighscore + " Multiplayer: " + currentMultiplier );
 	}
 
 	public void shotFailed()
