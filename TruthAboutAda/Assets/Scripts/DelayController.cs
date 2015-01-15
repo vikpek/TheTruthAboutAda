@@ -48,7 +48,7 @@ public class DelayController : MonoBehaviour {
 
 	void setCylinderToNumber(int loadedNumber)
 	{
-		cylinderTransform.localRotation = CylinderUtility.Get.rotateCylinder(new Vector3(0,0,0), loadedNumber);
+		cylinderTransform.localRotation = CylinderUtility.Get.setCylinderToValue (loadedNumber);
 	}
 
 	public void resetDelay()
