@@ -23,6 +23,6 @@ public class MovementVerticalController : MonoBehaviour {
 	void FixedUpdate()
 	{
 		move.y = minY;
-		transform.position = Vector3.MoveTowards(transform.position, move, smooth * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, move, smooth * Time.fixedDeltaTime);
 	}
 }
