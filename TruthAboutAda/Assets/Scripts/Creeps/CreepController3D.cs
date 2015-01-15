@@ -58,14 +58,21 @@ public class CreepController3D : MonoBehaviour
 	void FixedUpdate()
 	{
 		if( rotationTime > 0f ) rotationTime -= Time.fixedDeltaTime;
-		if( rotationTime <= 0f && rotationDuration > 0 )
-		{
+		if (rotationTime <= 0f && rotationDuration > 0) {
 			rotationDuration -= Time.fixedDeltaTime;
-			rotateCylinder();
-			cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( new Vector3(0,0,0), cylinderValue );
+			rotateCylinder ();
 
-			if( !audioSource.isPlaying ) audioSource.Play();
-		} else audioSource.Stop();
+			if (!audioSource.isPlaying){
+					audioSource.Play ();
+			}
+		} else {
+				audioSource.Stop ();
+		}
+
+		if (rotationDuration <= 0) {
+			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue(cylinderValue);
+		}
+
 	}
 	
 	void OnTriggerEnter( Collider col )
@@ -77,7 +84,6 @@ public class CreepController3D : MonoBehaviour
 		
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
-				Debug.Log (creepHP);
 				if( creepSilver )
 				{
 					if( creepHP < silverCreepLifeCount ) 

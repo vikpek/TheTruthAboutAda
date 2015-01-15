@@ -20,7 +20,12 @@ public class CylinderUtility : MonoBehaviour {
 
 	public Quaternion rotateCylinder (Vector3 eulerAngles, float cylinderValue)
 	{
-		return Quaternion.Euler (new Vector3 (0, eulerAngles.y + (cylinderValue * Constants.CYLINDER_ROTATION), 0));
+			return Quaternion.Euler (new Vector3 (0, eulerAngles.y + (cylinderValue * Constants.CYLINDER_ROTATION_ANIMATION), 0));
+	}
+
+	public Quaternion setCylinderToValue (float cylinderValue)
+	{
+		return Quaternion.Euler (new Vector3 (0, cylinderValue * Constants.CYLINDER_ROTATION, 0));
 	}
 
 	public Quaternion damageCylinder (Vector3 eulerAngles, float cylinderValue)
