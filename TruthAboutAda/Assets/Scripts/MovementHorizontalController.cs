@@ -43,9 +43,9 @@ public class MovementHorizontalController : MonoBehaviour {
 		}
 
 		if (lerp) {
-				transform.localPosition = Vector3.Lerp (transform.localPosition, move, smooth * Time.deltaTime);
+			transform.localPosition = Vector3.Lerp (transform.localPosition, move, smooth * Time.fixedDeltaTime);
 		} else {
-				transform.localPosition = Vector3.MoveTowards (transform.localPosition, move, smooth * Time.deltaTime);
+			transform.localPosition = Vector3.MoveTowards (transform.localPosition, move, smooth * Time.fixedDeltaTime);
 		}
 
 	}
