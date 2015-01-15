@@ -19,7 +19,7 @@ public class Constants : MonoBehaviour
 	public const string HORIZONTALRAIL = "HorizontalRail";
 
 	public const float CYLINDER_ROTATION = 36f;
-	public const float CYLINDER_ROTATION_ANIMATION = 2f;
+	public const float CYLINDER_ROTATION_ANIMATION = 3f;
 
 	public const string CREEP_BLACK = "CreepBlack";
 	public const string CREEP_SILVER = "CreepSilver";
