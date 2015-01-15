@@ -34,8 +34,8 @@ public class CreepController3D : MonoBehaviour
 	bool creepSilver = false;
 
 	//TODO hp organisation...
-	int blackCreepLifeCount = 2;
-	int silverCreepLifeCount = 3;
+	int blackCreepLifeCount = 1;
+	int silverCreepLifeCount = 2;
 	int creepHP = 0;
 
 	void Awake()
@@ -77,9 +77,10 @@ public class CreepController3D : MonoBehaviour
 		
 			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
 			{
+				Debug.Log (creepHP);
 				if( creepSilver )
 				{
-					if( creepHP <= silverCreepLifeCount ) 
+					if( creepHP < silverCreepLifeCount ) 
 					{
 						damageCreepCage(creepHP);
 						reinitializeCylinder(-1);
@@ -90,7 +91,7 @@ public class CreepController3D : MonoBehaviour
 					}
 				} else if( creepBlack )
 				{
-					if( creepHP <= blackCreepLifeCount ) 
+					if( creepHP < blackCreepLifeCount ) 
 					{
 						damageCreepCage(0);
 						reinitializeCylinder(-1);
@@ -103,6 +104,8 @@ public class CreepController3D : MonoBehaviour
 				{
 					moveCreepAway();
 				}
+
+				creepHP++;
 
 				if( GameConfig.Get.ShowEnemyCollisionPoints )
 				{
@@ -157,12 +160,12 @@ public class CreepController3D : MonoBehaviour
 	void damageCreepCage(int damage)
 	{
 		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER)) {
-			if(damage == 1){
+			if(damage == 0){
 				element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
 			}
 
 			if(element.tag == Tags.DESTROYABLE){
-				if(damage == 2){
+				if(damage == 1){
 					element.gameObject.AddComponent<Rigidbody>();
 					element.gameObject.AddComponent<ConstantForce>();
 					element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
