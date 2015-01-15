@@ -14240,6 +14240,10 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 4.76837158e-07
       objectReference: {fileID: 0}
+    - target: {fileID: 11494326, guid: 33c1d0582e841474bb96e79c11bf6508, type: 2}
+      propertyPath: blackCreepLifeCount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c1d0582e841474bb96e79c11bf6508, type: 2}
   m_RootGameObject: {fileID: 1441456760}
@@ -27557,7 +27561,7 @@ MonoBehaviour:
   cylinderValue: 2
   beginRotationAfter: 2.20000005
   animationDuration: 2
-  blackCreepLifeCount: 1
+  blackCreepLifeCount: 2
   blackCreep: 1
 --- !u!82 &1441456766
 AudioSource:

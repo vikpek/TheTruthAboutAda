@@ -15,7 +15,7 @@ public class CreepController3D : MonoBehaviour
 	float animationDuration = 2;
 
 	[SerializeField]
-	int blackCreepLifeCount = 1;
+	int blackCreepLifeCount = 2;
 	
 	SoundManager soundManager;
 	ParticleSystem particleSystem;
@@ -74,11 +74,11 @@ public class CreepController3D : MonoBehaviour
 					if( blackCreepStatus < blackCreepLifeCount ) 
 					{
 						blackCreepStatus++;
-						damageBlackCreepOperation();
+						damageCreepCage();
 						reinitializeCylinder(-1);
 					}
-					else destroyCreepOperation();
-				} else destroyCreepOperation();
+					else moveCreepAway();
+				} else moveCreepAway();
 
 				if( GameConfig.Get.ShowEnemyCollisionPoints )
 				{
@@ -104,7 +104,7 @@ public class CreepController3D : MonoBehaviour
 		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
 	}
 
-	void destroyCreepOperation ()
+	void moveCreepAway ()
 	{
 
 		if (blackCreep) reinitializeCreepRow (Random.Range(0,9));
@@ -114,7 +114,7 @@ public class CreepController3D : MonoBehaviour
 		Destroy( GetComponent<BoxCollider>() );
 	}
 
-	void damageBlackCreepOperation()
+	void damageCreepCage()
 	{
 		foreach (Transform element in transform.FindChild ("animation_holder").FindChild ("cylinder")) {
 			if(element.tag == Tags.DESTROYABLE){
