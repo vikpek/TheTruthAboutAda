@@ -38,6 +38,8 @@ public class CreepController3D : MonoBehaviour
 	int silverCreepLifeCount = 2;
 	int creepHP = 0;
 
+	float shakingTime = 0f;
+
 	void Awake()
 	{		
 		creepBlack = (transform.name == Constants.CREEP_BLACK)?(true):(false);
@@ -72,6 +74,12 @@ public class CreepController3D : MonoBehaviour
 		if (rotationDuration <= 0) {
 			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue(cylinderValue);
 		}
+
+		if (shakingTime > 0f) {
+			transform.rotation = CylinderUtility.Get.shakeCylinder(shakingTime);
+			shakingTime -= Time.fixedDeltaTime;
+		}
+
 
 	}
 	
@@ -125,6 +133,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				HighScoreManager.Get.shotFailed();
 				reinitializeCylinder(-1);
+				shakeIt(0.5f);
 				if(creepBlack) reinitializeCreepRow(-1);
 			}
 			Destroy( col.gameObject );
@@ -206,6 +215,11 @@ public class CreepController3D : MonoBehaviour
 				collider.GetComponentInParent<CreepController3D>().kickCreepDown();
 			}
 		}
+	}
+
+	void shakeIt(float _shakingTime)
+	{
+		shakingTime = _shakingTime;
 	}
 	
 	void generateRail( GameObject obj )
