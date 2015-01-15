@@ -25,7 +25,7 @@ public class UIController : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Escape ) )
 		{
 			if( state == States.Pause )
-				UnpuaseGame();
+				UnpauseGame();
 			else 
 				PauseGame();
 		}
@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
 
 			case States.Pause :
 				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - ( Buttons.HEIGHT * 3 + Buttons.GAP * 2 ) / 2 );
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Continue" ) ) UnpuaseGame();
+				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Continue" ) ) UnpauseGame();
 				temp.y += Buttons.GAP + Buttons.HEIGHT;
 				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Restart Level" ) ) RestartLevel();
 				temp.y += Buttons.GAP + Buttons.HEIGHT;
@@ -90,7 +90,7 @@ public class UIController : MonoBehaviour
 		state = States.Pause;
 	}
 
-	void UnpuaseGame()
+	void UnpauseGame()
 	{
 		state = lastState;
 		Time.timeScale = 1f;

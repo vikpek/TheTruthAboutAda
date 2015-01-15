@@ -39,7 +39,7 @@ public class HighScoreManager : MonoBehaviour
 	{
 		Debug.Log("New Scene loaded");
 		creepCounter = GameObject.FindGameObjectsWithTag( Tags.CREEP ).Length;
-		winScreen = ( creepCounter > 0 )?( true ):( false );
+//		winScreen = ( creepCounter > 0 )?( true ):( false );
 	}
  
 	public void creepKilled()
