@@ -23,7 +23,6 @@ public class MovementVerticalController : MonoBehaviour {
 	void FixedUpdate()
 	{
 		move.y = minY;
-		//FIXME Rows holen sich ein
 		transform.position = Vector3.MoveTowards(transform.position, move, smooth * Time.deltaTime);
 	}
 }
