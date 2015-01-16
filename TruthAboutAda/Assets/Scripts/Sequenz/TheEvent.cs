@@ -108,7 +108,7 @@ public class TheEvent : MonoBehaviour
 	void Set()
 	{
 		startTime = appearDuration;
-		if( appearEffect == Effects.Fade ) render.color = new Color( 255, 255, 255, 0 );
+		if( appearEffect == Effects.Fade ) render.color = new Color( render.color.r, render.color.g, render.color.b, 0 );
 		endTime = disappearDuration;
 		lifeTime = Duration;
 	}
@@ -122,7 +122,7 @@ public class TheEvent : MonoBehaviour
 	{
 		if( nextEvent != null )	nextEvent.SetActive( true );
 		if( hideEvent != null )	
-			if( hideEvent.activeSelf ) hideEvent.SendMessage("Disappear");
+			if( hideEvent.activeSelf ) hideEvent.BroadcastMessage("Disappear");
 		if( endTime <= 0f && hideThemself ) gameObject.SetActive( false );
 	}
 
@@ -131,7 +131,7 @@ public class TheEvent : MonoBehaviour
 		switch( effect )
 		{
 			case Effects.Fade :
-				render.color = new Color( 255, 255, 255, normal );
+				render.color = new Color( render.color.r, render.color.g, render.color.b, normal );
 				break;
 		}
 	}
