@@ -37,4 +37,9 @@ public class CylinderUtility : MonoBehaviour {
 	{
 		return Quaternion.Euler (new Vector3 (0, 0, Random.Range (-shakeImpact, shakeImpact)));	
 	}
+
+	public Quaternion rotatePanelCogWheel (Vector3 eulerAngles, float directionSpeed)
+	{
+		return Quaternion.Euler (new Vector3 (0, 0, eulerAngles.z + directionSpeed));
+	}
 }

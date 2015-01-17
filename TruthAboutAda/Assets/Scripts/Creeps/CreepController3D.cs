@@ -187,6 +187,7 @@ public class CreepController3D : MonoBehaviour
 		HighScoreManager.Get.creepKilled();
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>());
 	}
 
 
