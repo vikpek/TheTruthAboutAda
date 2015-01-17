@@ -15,7 +15,7 @@ public class CreepController3D : MonoBehaviour
 	float animationDuration = 2;
 
 	[SerializeField]
-	float explosionRaidus = 6;
+	float explosionRadius = 6;
 	
 
 	SoundManager soundManager;
@@ -37,6 +37,8 @@ public class CreepController3D : MonoBehaviour
 	int blackCreepLifeCount = 1;
 	int silverCreepLifeCount = 2;
 	int creepHP = 0;
+
+	float shakingTime = 0f;
 
 	void Awake()
 	{		
@@ -61,6 +63,7 @@ public class CreepController3D : MonoBehaviour
 		if (rotationTime <= 0f && rotationDuration > 0) {
 			rotationDuration -= Time.fixedDeltaTime;
 			rotateCylinder ();
+			shakeIt(0.5f);
 
 			if (!audioSource.isPlaying){
 					audioSource.Play ();
@@ -73,10 +76,17 @@ public class CreepController3D : MonoBehaviour
 			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue(cylinderValue);
 		}
 
+		if (shakingTime > 0f && rotationTime <= 0f) {
+			transform.rotation = CylinderUtility.Get.shakeCylinder(5f);
+			shakingTime -= Time.fixedDeltaTime;
+		}
+
+
 	}
-	
+
 	void OnTriggerEnter( Collider col )
 	{
+		shakeIt(0.5f);
 		if( col.gameObject.tag == Tags.BULLET )
 		{
 			particleSystem.Play();
@@ -131,19 +141,31 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
+
+	/// <summary>
+	/// The owned cylinder will rotate and finally set to the given value which is random if -1.
+	/// </summary>
+	/// <param name="_cylinderValue">_cylinder value.</param>
 	public void reinitializeCylinder(int _cylinderValue)
 	{
 		if(_cylinderValue != -1) cylinderValue = _cylinderValue;
-		rotationDuration = animationDuration * Random.Range (0.6f, animationDuration);
+		rotationDuration = Random.Range (0.6f, animationDuration);
 	}
 
+
+	/// <summary>
+	/// Creep is moved away by incoming rail.
+	/// </summary>
 	void moveCreepAway ()
 	{
-		
 		generateRail( transform.FindChild( "animation_holder" ).gameObject );
 		creepDeath ();
 	}
 
+
+	/// <summary>
+	/// Creep simply falls down. This is an alternative dying animation.
+	/// </summary>
 	void kickCreepDown()
 	{
 		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER)) {
@@ -155,14 +177,26 @@ public class CreepController3D : MonoBehaviour
 		creepDeath ();
 	}
 
+
+	/// <summary>
+	/// The logical consequences for destroyed creep - independend of the animations.
+	/// </summary>
 	void creepDeath()
 	{
 		if (creepBlack) reinitializeCreepRow (0);
 		HighScoreManager.Get.creepKilled();
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>());
 	}
 
+
+	/// <summary>
+	/// Damages the creep cage in different stages dependent on damage:
+	/// 0 - bends some elements of the cage
+	/// 1 - cage falls down in single parts
+	/// </summary>
+	/// <param name="damage">Damage.</param>
 	void damageCreepCage(int damage)
 	{
 		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER)) {
@@ -181,6 +215,11 @@ public class CreepController3D : MonoBehaviour
 		} 
 	}
 
+
+	/// <summary>
+	/// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
+	/// </summary>
+	/// <param name="value">Value.</param>
 	void reinitializeCreepRow(int value)
 	{
 		foreach (Transform creep in transform.parent) {
@@ -191,21 +230,39 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
+
+	/// <summary>
+	/// Randomly rotates the cylinder. This only includes the animation. The actual final value has to be set explictly.
+	/// </summary>
 	void rotateCylinder(){
 		cylinderValue = Random.Range (0, 9);
 		if(cylinderTransform) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, cylinderValue);
 	}
 
+
+	/// <summary>
+	/// Explosion that affects all creep in sphere radius.
+	/// </summary>
 	void explodeYeah ()
 	{
 		particleSystemExplosion.Play ();
-		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRaidus);
+		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 		foreach (Collider collider in colliders) {
 			if(collider.transform.tag == Tags.CREEP){
 				collider.GetComponentInParent<CreepController3D>().damageCreepCage(2);
 				collider.GetComponentInParent<CreepController3D>().kickCreepDown();
 			}
 		}
+	}
+
+
+	/// <summary>
+	/// Increases the shake duration by _shakingTime.
+	/// </summary>
+	/// <param name="_shakingTime">_shaking time.</param>
+	void shakeIt(float _shakingTime)
+	{
+		shakingTime = _shakingTime;
 	}
 	
 	void generateRail( GameObject obj )
