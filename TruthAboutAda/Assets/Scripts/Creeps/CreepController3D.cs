@@ -63,6 +63,7 @@ public class CreepController3D : MonoBehaviour
 		if (rotationTime <= 0f && rotationDuration > 0) {
 			rotationDuration -= Time.fixedDeltaTime;
 			rotateCylinder ();
+			shakeIt(0.5f);
 
 			if (!audioSource.isPlaying){
 					audioSource.Play ();
@@ -75,8 +76,8 @@ public class CreepController3D : MonoBehaviour
 			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue(cylinderValue);
 		}
 
-		if (shakingTime > 0f) {
-			transform.rotation = CylinderUtility.Get.shakeCylinder(shakingTime);
+		if (shakingTime > 0f && rotationTime <= 0f) {
+			transform.rotation = CylinderUtility.Get.shakeCylinder(5f);
 			shakingTime -= Time.fixedDeltaTime;
 		}
 
@@ -85,6 +86,7 @@ public class CreepController3D : MonoBehaviour
 	
 	void OnTriggerEnter( Collider col )
 	{
+		shakeIt(0.5f);
 		if( col.gameObject.tag == Tags.BULLET )
 		{
 			particleSystem.Play();
@@ -133,7 +135,6 @@ public class CreepController3D : MonoBehaviour
 			{
 				HighScoreManager.Get.shotFailed();
 				reinitializeCylinder(-1);
-				shakeIt(0.5f);
 				if(creepBlack) reinitializeCreepRow(-1);
 			}
 			Destroy( col.gameObject );
