@@ -33,10 +33,16 @@ public class TheEvent : MonoBehaviour
 	float appearDuration = 1f;
 
 	[SerializeField]
+	Vector2 appearVisibility;
+
+	[SerializeField]
 	Effects disappearEffect = Effects.None;
 
 	[SerializeField]
 	float disappearDuration = 1f;
+
+	[SerializeField]
+	Vector2 disappearVisibility;
 
 	float startTime;
 	float lifeTime;

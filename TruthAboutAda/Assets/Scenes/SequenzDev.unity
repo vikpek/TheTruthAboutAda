@@ -231,8 +231,10 @@ MonoBehaviour:
   hideEvent: {fileID: 1872124709}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &55089288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +518,7 @@ Prefab:
     - target: {fileID: 11452826, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+      objectReference: {fileID: 2800000, guid: 5b68c0da8497a304b97521357d1bc1ff, type: 3}
     - target: {fileID: 22452824, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_LocalScale.x
       value: .654978991
@@ -721,8 +723,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 1
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &174557662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,8 +811,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &208786766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 857ee20429d88cf4fadaa94a1b52f296, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -948,8 +954,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 0
   disappearDuration: 0
+  disappearVisibility: {x: 0, y: 0}
 --- !u!1 &267471108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,8 +1096,10 @@ MonoBehaviour:
   hideEvent: {fileID: 112281440}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &308649223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,8 +1362,10 @@ MonoBehaviour:
   hideEvent: {fileID: 145447263}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &387056390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,8 +1448,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 0
   disappearDuration: 0
+  disappearVisibility: {x: 0, y: 0}
 --- !u!1 &425263335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,8 +1508,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &425263338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,8 +1596,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 4
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &507551331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,8 +1676,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 0
   disappearDuration: 0
+  disappearVisibility: {x: 0, y: 0}
 --- !u!1001 &561618334
 Prefab:
   m_ObjectHideFlags: 0
@@ -2103,8 +2123,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 1
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &604711967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2564,8 +2586,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &876017346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,7 +2604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5b68c0da8497a304b97521357d1bc1ff, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2803,8 +2827,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &974919240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,7 +2845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5b68c0da8497a304b97521357d1bc1ff, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2941,8 +2967,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &998371619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,7 +3189,7 @@ Prefab:
     - target: {fileID: 11452826, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+      objectReference: {fileID: 2800000, guid: 8dd6eca08af5f524fafe74f0d7425d91, type: 3}
     - target: {fileID: 22452824, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_LocalScale.x
       value: .654978991
@@ -3401,8 +3429,10 @@ MonoBehaviour:
   hideEvent: {fileID: 1981487334}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1127951767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3734,8 +3764,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1282363703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3838,8 +3870,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1295228754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3924,8 +3958,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 3
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 0
   disappearDuration: 0
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1324592036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4319,8 +4355,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1434833874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4802,8 +4840,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1696604835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,7 +5075,7 @@ Prefab:
     - target: {fileID: 11452826, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+      objectReference: {fileID: 2800000, guid: 5b68c0da8497a304b97521357d1bc1ff, type: 3}
     - target: {fileID: 22452824, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_LocalScale.x
       value: .654978991
@@ -5129,8 +5169,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1791559801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,7 +5187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 8dd6eca08af5f524fafe74f0d7425d91, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5207,8 +5249,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 0
   disappearDuration: 0
+  disappearVisibility: {x: 0, y: 0}
 --- !u!1 &1836926242
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,8 +5309,10 @@ MonoBehaviour:
   hideEvent: {fileID: 267471108}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1836926245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5674,7 +5720,7 @@ Prefab:
     - target: {fileID: 11452826, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 2800000, guid: 13386209a572fab48ae2d11346a06ee9, type: 3}
+      objectReference: {fileID: 2800000, guid: 857ee20429d88cf4fadaa94a1b52f296, type: 3}
     - target: {fileID: 22452824, guid: 901318b9e3b37f844b999e648f974afe, type: 2}
       propertyPath: m_LocalScale.x
       value: .654978991
@@ -5768,8 +5814,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 2
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &1975860500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6011,8 +6059,10 @@ MonoBehaviour:
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
+  appearVisibility: {x: 0, y: 0}
   disappearEffect: 1
   disappearDuration: 2
+  disappearVisibility: {x: 0, y: 0}
 --- !u!114 &2020797314
 MonoBehaviour:
   m_ObjectHideFlags: 0
