@@ -149,6 +149,8 @@ ModelImporter:
     4300050: holder
     4300052: bolt4
     4300054: bolt5
+    7400000: Rotation CCW
+    7400002: Rotation CW
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -165,7 +167,95 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rotation CCW
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bolt
+        weight: 1
+      - path: bolt3
+        weight: 1
+      - path: bolt4
+        weight: 1
+      - path: bolt5
+        weight: 1
+      - path: cog
+        weight: 1
+      - path: cog3
+        weight: 1
+      - path: holder 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Rotation CW
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bolt
+        weight: 1
+      - path: bolt3
+        weight: 1
+      - path: bolt4
+        weight: 1
+      - path: bolt5
+        weight: 1
+      - path: cog
+        weight: 1
+      - path: cog3
+        weight: 1
+      - path: holder 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
