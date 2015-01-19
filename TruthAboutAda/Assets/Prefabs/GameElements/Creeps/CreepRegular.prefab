@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6511170}
   - 54: {fileID: 5411170}
   - 82: {fileID: 8215382}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: CreepRegular
   m_TagString: Creep
@@ -494,7 +495,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9000001, y: 0, z: 0}
+  m_LocalPosition: {x: -9.90999985, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411480}
@@ -534,8 +535,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100122}
-  m_LocalRotation: {x: 0, y: .999968886, z: 0, w: .00788947567}
-  m_LocalPosition: {x: 4.47034836e-08, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -.999834895, z: 0, w: -.0181701519}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 425834}
@@ -717,7 +718,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129150}
-  m_LocalRotation: {x: .522590995, y: -.511957884, z: .479505002, w: .484636664}
+  m_LocalRotation: {x: .522591054, y: -.511957943, z: .479505032, w: .484636694}
   m_LocalPosition: {x: 0, y: -.63999939, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1539,6 +1540,20 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 1.5
+  lerp: 0
+  directionRight: 1
 --- !u!114 &11411170
 MonoBehaviour:
   m_ObjectHideFlags: 1
