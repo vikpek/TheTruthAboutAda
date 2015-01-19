@@ -109,6 +109,8 @@ public class CreepController3D : MonoBehaviour
 				{
 					if( creepHP < blackCreepLifeCount ) 
 					{
+						cylinderTransform.FindChild("cylinder_main").renderer.materials[0].mainTexture = (Texture) Resources.Load ("Textures/Chars/MM_GPE_cylinder_black");
+						cylinderTransform.FindChild("cylinder_main").renderer.materials[1].mainTexture = (Texture) Resources.Load ("Textures/Chars/MM_GPE_cylinder_black");
 						damageCreepCage(0);
 						reinitializeCylinder(-1);
 					}
