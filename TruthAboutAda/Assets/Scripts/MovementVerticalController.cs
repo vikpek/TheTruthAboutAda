@@ -43,7 +43,6 @@ public class MovementVerticalController : MonoBehaviour {
 	public void CreepKill()
 	{
 		aliveCreeps--;
-		Debug.Log("Destroyed : " + aliveCreeps + " left " );
 		if( aliveCreeps <= 0 ) Destroy( gameObject );
 	}
 }

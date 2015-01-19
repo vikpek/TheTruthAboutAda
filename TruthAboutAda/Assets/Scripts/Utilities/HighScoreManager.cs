@@ -39,7 +39,7 @@ public class HighScoreManager : MonoBehaviour
 	{
 		creepCounter = GameObject.FindGameObjectsWithTag( Tags.CREEP ).Length;
 		Debug.Log("New Scene loaded with " + creepCounter );
-//		winScreen = ( creepCounter > 0 )?( true ):( false );
+		if( creepCounter != 0 ) winScreen = true; 
 	}
  
 	public void creepKilled()
@@ -47,6 +47,7 @@ public class HighScoreManager : MonoBehaviour
 		currentMultiplier += 1;
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
 		creepCounter--;
+		Debug.Log("Creep was killed");
 		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
 	}
 

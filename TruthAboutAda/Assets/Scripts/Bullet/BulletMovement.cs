@@ -10,7 +10,11 @@ public class BulletMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if( transform.position.y > topBorder ) Destroy( this );
+		if( transform.position.y > topBorder )
+		{
+			Destroy( GetComponent<BoxCollider>() );
+			Destroy( this );
+		}
 		transform.Translate( 0f, speed * Time.fixedDeltaTime, 0f );
 	}
 }   

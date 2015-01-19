@@ -16,7 +16,9 @@ public class CreepController3D : MonoBehaviour
 
 	[SerializeField]
 	float explosionRadius = 6;
-	
+
+	[SerializeField]
+	Vector3 HitOffset;
 
 	SoundManager soundManager;
 	ParticleSystem particleSystem;
@@ -41,6 +43,8 @@ public class CreepController3D : MonoBehaviour
 	float shakingTime;
 
 	MovementVerticalController _link;
+
+	bool destroyed;
 
 	void Awake()
 	{
@@ -125,13 +129,11 @@ public class CreepController3D : MonoBehaviour
 					{
 						creepDeath();
 						generateRail( col.gameObject );
-						_link.CreepKill();
 					}
 				} else 
 				{
 					creepDeath();
 					generateRail( col.gameObject );
-					_link.CreepKill();
 				}
 
 				creepHP++;
@@ -151,7 +153,6 @@ public class CreepController3D : MonoBehaviour
 				if( creepBlack ) reinitializeCreepRow(-1);
 				blockShot( col.gameObject );
 			}
-
 		}
 	}
 
@@ -165,7 +166,7 @@ public class CreepController3D : MonoBehaviour
 	// Creep simply falls down. This is an alternative dying animation.
 	void kickCreepDown()
 	{
-		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER))
+		foreach( Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER) )
 		{
 			element.gameObject.AddComponent<Rigidbody>();
 			element.gameObject.AddComponent<ConstantForce>();
@@ -178,26 +179,27 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if (creepBlack) reinitializeCreepRow (0);
+		if( creepBlack ) reinitializeCreepRow( 0 );
 		HighScoreManager.Get.creepKilled();
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
-		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>());
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
 	}
 
 
 	// Damages the creep cage in different stages dependent on damage:
 	// 0 - bends some elements of the cage
 	// 1 - cage falls down in single parts
-	void damageCreepCage(int damage)
+	void damageCreepCage( int damage )
 	{
-		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER)) {
 
-			if(element.tag == Tags.DESTROYABLE){
-				if(damage == 0){
-					element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
-				}
-				if(damage == 1){
+		foreach( Transform element in transform.FindChild( Constants.ANIMATION_HOLDER ).FindChild( Constants.CYLINDER ) )
+		{
+			if( element.tag == Tags.DESTROYABLE )
+			{
+				if( damage == 0 ) element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
+				else if( damage == 1 )
+				{
 					element.gameObject.AddComponent<Rigidbody>();
 					element.gameObject.AddComponent<ConstantForce>();
 					element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
@@ -206,17 +208,12 @@ public class CreepController3D : MonoBehaviour
 			}
 		} 
 	}
-
-
+	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
-	void reinitializeCreepRow(int value)
+	void reinitializeCreepRow( int value )
 	{
-		foreach (Transform creep in transform.parent) {
-			if(creep.tag == Tags.CREEP) 
-			{
-				creep.GetComponent<CreepController3D>().reinitializeCylinder(value);
-			}
-		}
+		foreach( Transform creep in transform.parent )
+			if( creep.tag == Tags.CREEP ) creep.GetComponent<CreepController3D>().reinitializeCylinder( value );
 	}
 
 
@@ -224,17 +221,19 @@ public class CreepController3D : MonoBehaviour
 	void rotateCylinder()
 	{
 		cylinderValue = Random.Range (0, 9);
-		if(cylinderTransform) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, cylinderValue);
+		if( cylinderTransform ) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, cylinderValue );
 	}
 
 
 	// Explosion that affects all creep in sphere radius.
-	void explodeYeah ()
+	void explodeYeah()
 	{
-		particleSystemExplosion.Play ();
+		particleSystemExplosion.Play();
 		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-		foreach (Collider collider in colliders) {
-			if(collider.transform.tag == Tags.CREEP){
+		foreach( Collider collider in colliders ) 
+		{
+			if( collider.transform.tag == Tags.CREEP )
+			{
 				collider.GetComponentInParent<CreepController3D>().damageCreepCage(2);
 				collider.GetComponentInParent<CreepController3D>().kickCreepDown();
 			}
@@ -255,15 +254,20 @@ public class CreepController3D : MonoBehaviour
 	
 	void generateRail( GameObject obj )
 	{
-		// Bullet
-		Destroy( obj.GetComponent<BulletMovement>() );
-		Destroy( obj.GetComponent<Rigidbody>() );
-		Destroy( obj.GetComponent<BoxCollider>() );
-		// Creep
-		Destroy( GetComponent<CreepController3D>() );
-		Destroy( GetComponent<Rigidbody>() );
-		transform.parent = obj.transform;
-		transform.localPosition = new Vector3();
-		obj.AddComponent<NumberRailGoaway>();
+		if( !destroyed )
+		{
+			// Bullet
+			Destroy( obj.GetComponent<BulletMovement>() );
+			Destroy( obj.GetComponent<Rigidbody>() );
+			Destroy( obj.GetComponent<BoxCollider>() );
+			// Creep
+			Destroy( GetComponent<CreepController3D>() );
+			Destroy( GetComponent<Rigidbody>() );
+			transform.parent = obj.transform;
+			transform.localPosition = HitOffset;
+			obj.AddComponent<NumberRailGoaway>();
+			_link.CreepKill();
+			destroyed = true;
+		}
 	}
 }
