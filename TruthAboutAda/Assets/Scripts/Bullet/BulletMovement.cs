@@ -8,10 +8,9 @@ public class BulletMovement : MonoBehaviour
 	[SerializeField]
 	float topBorder = 60;
 
-	bool up = true;
-
-	void FixedUpdate () {
-		if(transform.position.y > topBorder) up = false;
-		if(up) transform.Translate( 0f, speed * Time.fixedDeltaTime, 0f );
+	void FixedUpdate()
+	{
+		if( transform.position.y > topBorder ) Destroy( this );
+		transform.Translate( 0f, speed * Time.fixedDeltaTime, 0f );
 	}
 }   
