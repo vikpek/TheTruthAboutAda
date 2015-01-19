@@ -47,7 +47,7 @@ public class HighScoreManager : MonoBehaviour
 		currentMultiplier += 1;
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
 		creepCounter--;
-		Debug.Log("Creep was killed");
+		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
 		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
 	}
 

@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DelayController : MonoBehaviour {
-
-	int delayCount;
-	
+public class DelayController : MonoBehaviour 
+{
 	SpriteRenderer delayLayer;
 
 	float maxDelay;
@@ -21,7 +19,7 @@ public class DelayController : MonoBehaviour {
 	{
 		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").FindChild("cylinder_main").transform;
 		particleSystem = transform.FindChild( Constants.PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
-		audioSource = transform.GetComponent<AudioSource> ();
+		audioSource = transform.GetComponent<AudioSource>();
 	}
 
 	public void setRestDelay( float restDelay )
@@ -45,16 +43,7 @@ public class DelayController : MonoBehaviour {
 
 	public void setCylinderToNumber( int _loadedNumber )
 	{
-		cylinderTransform.localRotation = CylinderUtility.Get.setCylinderToValue( _loadedNumber );
-	}
-
-	public void resetDelay()
-	{
-		delayCount = 0;
-	}
-
-	public void setLoadedNumner( int _loadedNumber )
-	{
 		loadedNumber = _loadedNumber;
+		cylinderTransform.localRotation = CylinderUtility.Get.setCylinderToValue( _loadedNumber );
 	}
 }

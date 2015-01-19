@@ -30,11 +30,7 @@ public class PanelShooting : MonoBehaviour
 
 	void Update()
 	{
-		if( shootWaiter > 0f ) 
-		{
-			delayController.setRestDelay(shootWaiter);
-			shootWaiter -= Time.fixedDeltaTime;
-		}
+		if( shootWaiter > 0f ) shootWaiter -= Time.deltaTime;
 		if( shootWaiter <= 0f ) 
 		{
 			activeKey = scanKeys();
@@ -46,13 +42,11 @@ public class PanelShooting : MonoBehaviour
 					shootWaiter += 1f / shootsPerSecond;
 					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( lastActiveKey );
 					soundManager.playPlayerShot();
-					delayController.resetDelay();
 				} else if( activeKey != 10 )
 				{
 					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Prepare Shot" );
 					shootWaiter += waitBetweenDifferentsShots;
 					lastActiveKey = activeKey;
-					delayController.setLoadedNumner( activeKey );
 					delayController.setCylinderToNumber( activeKey );
 				}
 			}
