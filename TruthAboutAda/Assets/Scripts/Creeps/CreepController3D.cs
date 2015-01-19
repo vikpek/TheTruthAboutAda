@@ -77,14 +77,16 @@ public class CreepController3D : MonoBehaviour
 		if( rotationTime <= 0f && rotationDuration > 0 )
 		{
 			rotationDuration -= Time.fixedDeltaTime;
-			rotateCylinder ();
-			shakeIt(0.5f);
+			rotateCylinder();
+			shakeIt( 0.5f );
 
 			if( !audioSource.isPlaying ) audioSource.Play();
 		} else audioSource.Stop();
 
-		if( rotationDuration <= 0 ) cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue( cylinderValue );
-
+		if( rotationDuration <= 0 )
+		{
+			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue( cylinderValue );
+		}
 		if( shakingTime > 0f && rotationTime <= 0f )
 		{
 			if( shakingTime % 2 == 0 ) transform.rotation = CylinderUtility.Get.shakeCylinder( 5f );
@@ -157,22 +159,16 @@ public class CreepController3D : MonoBehaviour
 	}
 
 	// The owned cylinder will rotate and finally set to the given value which is random if -1.
-	public void reinitializeCylinder(int _cylinderValue)
+	public void reinitializeCylinder( int _cylinderValue )
 	{
-		if(_cylinderValue != -1) cylinderValue = _cylinderValue;
-		rotationDuration = Random.Range (0.6f, animationDuration);
+		if( _cylinderValue != -1 ) cylinderValue = _cylinderValue;
+		rotationDuration = Random.Range( 0.6f, animationDuration );
 	}
 
 	// Creep simply falls down. This is an alternative dying animation.
 	void kickCreepDown()
 	{
-		foreach( Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER) )
-		{
-			element.gameObject.AddComponent<Rigidbody>();
-			element.gameObject.AddComponent<ConstantForce>();
-			element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-			element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
-		}
+		foreach( Transform element in transform.FindChild( Constants.ANIMATION_HOLDER ).FindChild( Constants.CYLINDER ) ) addConstForces( element );
 		creepDeath();
 	}
 
@@ -192,26 +188,28 @@ public class CreepController3D : MonoBehaviour
 	// 1 - cage falls down in single parts
 	void damageCreepCage( int damage )
 	{
-
-		foreach( Transform element in transform.FindChild( Constants.ANIMATION_HOLDER ).FindChild( Constants.CYLINDER ) )
+		foreach( Transform element in transform.FindChild( Constants.ANIMATION_HOLDER  ).FindChild( Constants.CYLINDER ) )
 		{
 			if( element.tag == Tags.DESTROYABLE )
 			{
 				if( damage == 0 ) element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
-				else if( damage == 1 )
-				{
-					element.gameObject.AddComponent<Rigidbody>();
-					element.gameObject.AddComponent<ConstantForce>();
-					element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-					element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
-				}
+				else if( damage == 1 ) addConstForces( element );
 			}
 		} 
+	}
+
+	void addConstForces( Transform element )
+	{
+		element.gameObject.AddComponent<Rigidbody>();
+		element.gameObject.AddComponent<ConstantForce>();
+		element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
+		element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
 	}
 	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
 	void reinitializeCreepRow( int value )
 	{
+		Debug.Log( "Reint with " + value );
 		foreach( Transform creep in transform.parent )
 			if( creep.tag == Tags.CREEP ) creep.GetComponent<CreepController3D>().reinitializeCylinder( value );
 	}
@@ -239,8 +237,7 @@ public class CreepController3D : MonoBehaviour
 			}
 		}
 	}
-
-
+	
 	// Increases the shake duration by _shakingTime.
 	void shakeIt( float _shakingTime )
 	{

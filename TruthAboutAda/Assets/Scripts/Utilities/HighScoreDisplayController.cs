@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HighScoreDisplayController : MonoBehaviour {
+public class HighScoreDisplayController : MonoBehaviour 
+{
 	const int DIGIT_COUNT = 6;
 
 	Transform[] cylinders = new Transform[DIGIT_COUNT];
@@ -27,6 +28,6 @@ public class HighScoreDisplayController : MonoBehaviour {
 
 	void Update()
 	{
-		setHighScoreDisplayTo (HighScoreManager.Get.getCurrentHighScore());
+		setHighScoreDisplayTo( HighScoreManager.Get.getCurrentHighScore() );
 	}
 }
