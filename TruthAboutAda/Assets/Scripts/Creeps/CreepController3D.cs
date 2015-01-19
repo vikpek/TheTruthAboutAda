@@ -77,7 +77,7 @@ public class CreepController3D : MonoBehaviour
 		}
 
 		if (shakingTime > 0f && rotationTime <= 0f) {
-			transform.rotation = CylinderUtility.Get.shakeCylinder(5f);
+			if(shakingTime % 2 == 0) transform.rotation = CylinderUtility.Get.shakeCylinder(5f);
 			shakingTime -= Time.fixedDeltaTime;
 		}
 
@@ -200,11 +200,11 @@ public class CreepController3D : MonoBehaviour
 	void damageCreepCage(int damage)
 	{
 		foreach (Transform element in transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER)) {
-			if(damage == 0){
-				element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
-			}
 
 			if(element.tag == Tags.DESTROYABLE){
+				if(damage == 0){
+					element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
+				}
 				if(damage == 1){
 					element.gameObject.AddComponent<Rigidbody>();
 					element.gameObject.AddComponent<ConstantForce>();
