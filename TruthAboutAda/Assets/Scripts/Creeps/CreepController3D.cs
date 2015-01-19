@@ -270,4 +270,13 @@ public class CreepController3D : MonoBehaviour
 			destroyed = true;
 		}
 	}
+
+	void OnDestroy()
+	{
+		if( !destroyed )
+		{
+			HighScoreManager.Get.creepKilled();
+			destroyed = true;
+		}
+	}
 }
