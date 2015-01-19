@@ -17,7 +17,7 @@ public class NumberRailGoaway : MonoBehaviour
 
 	void Start()
 	{
-		disappearLeft = (Random.value > 0.5f)?(true):(false);
+		if( Random.value > .5f ) disappearLeft = false;
 	}
 
 	void FixedUpdate()
@@ -37,10 +37,5 @@ public class NumberRailGoaway : MonoBehaviour
 			if( !disappearLeft ) move *= -1;
 			transform.Translate( move, 0f, 0f, Space.World );
 		} else Destroy( gameObject );
-	}
-
-	public void AddObj( GameObject obj )
-	{
-		obj.transform.parent = transform;
 	}
 }
