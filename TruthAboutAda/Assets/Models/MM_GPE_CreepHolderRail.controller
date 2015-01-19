@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MM_GPE_CreepHolder
+  m_Name: MM_GPE_CreepHolderRail
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110791032}
+    m_StateMachine: {fileID: 110731026}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -20,31 +20,31 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &110291032
+--- !u!1102 &110231026
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Rotation CCW
+  m_Name: Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: f79f4795469bf436d8d598dffac39322, type: 3}
-  m_ParentStateMachine: {fileID: 110791032}
+  - {fileID: 7400000, guid: cc07beb83df6541ccac125f79f7a614d, type: 3}
+  m_ParentStateMachine: {fileID: 110731026}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110791032
+--- !u!1107 &110731026
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110291032}
+  m_DefaultState: {fileID: 110231026}
   m_States:
-  - {fileID: 110291032}
+  - {fileID: 110231026}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}
