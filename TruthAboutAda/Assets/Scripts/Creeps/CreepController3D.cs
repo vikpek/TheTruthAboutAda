@@ -159,8 +159,10 @@ public class CreepController3D : MonoBehaviour
 	// The owned cylinder will rotate and finally set to the given value which is random if -1.
 	public void reinitializeCylinder(int _cylinderValue)
 	{
+		Debug.Log ("a " + cylinderValue + " b " + _cylinderValue);
 		if(_cylinderValue != -1) cylinderValue = _cylinderValue;
 		rotationDuration = Random.Range (0.6f, animationDuration);
+		Debug.Log ("a " + cylinderValue + " b " + _cylinderValue);
 	}
 
 	// Creep simply falls down. This is an alternative dying animation.
