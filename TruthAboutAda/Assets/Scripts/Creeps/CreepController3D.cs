@@ -249,7 +249,8 @@ public class CreepController3D : MonoBehaviour
 			destroyed = true;
 			damageCreepCage(2);
 			kickCreepDown();
-			transform.parent = null;
+			//transform.parent = null;
+			transform.Find( Constants.ANIMATION_HOLDER ).parent = null;
 			_link.CreepKill();
 		}
 	}

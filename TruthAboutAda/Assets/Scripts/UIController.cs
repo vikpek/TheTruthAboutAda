@@ -24,10 +24,8 @@ public class UIController : MonoBehaviour
 	{
 		if( Input.GetKeyDown( KeyCode.Escape ) )
 		{
-			if( state == States.Pause )
-				UnpauseGame();
-			else 
-				PauseGame();
+			if( state == States.Pause ) UnpauseGame();
+			else PauseGame();
 		}
 	}
 
@@ -74,8 +72,12 @@ public class UIController : MonoBehaviour
 
 	public void SetWin()
 	{
+		// TODO : remove presentation hack
+		SetGameOver();
+		/*
 		lastState = state;
 		state = States.Win;
+		*/
 	}
 
 	public void Hide()
@@ -83,8 +85,6 @@ public class UIController : MonoBehaviour
 		lastState = state;
 		state = States.None;
 	}
-
-	// UNDONE : Clean up
 
 	void PauseGame()
 	{
