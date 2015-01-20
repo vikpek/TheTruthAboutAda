@@ -43,11 +43,11 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0849e0cc22178480b91d017fce3cced4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -110,6 +110,7 @@ MonoBehaviour:
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
   MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
+  FailedShot: {fileID: 8300000, guid: b7e3ea597253d4471b780edbd565ef44, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
