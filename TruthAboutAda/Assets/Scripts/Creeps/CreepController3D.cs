@@ -203,9 +203,9 @@ public class CreepController3D : MonoBehaviour
 	void addConstForces( Transform element )
 	{
 		element.gameObject.AddComponent<Rigidbody>();
-		ConstantForce el = element.gameObject.AddComponent<ConstantForce>();
-		el.relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-		el.relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
+		element.gameObject.AddComponent<ConstantForce>();
+		element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
+		element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
 	}
 	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
