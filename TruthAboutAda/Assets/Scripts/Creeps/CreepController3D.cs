@@ -112,12 +112,8 @@ public class CreepController3D : MonoBehaviour
 					{
 						damageCreepCage( creepHP );
 						reinitializeCylinder( -1 );
-					}
-					else
-					{
-						explodeYeah();
-						StartCoroutine( SendKillAfter( 1f ) );
-					}
+					} else explodeYeah();
+					blockShot( col.gameObject );
 				} else if( creepBlack )
 				{
 					if( creepHP < blackCreepLifeCount ) 
@@ -170,7 +166,7 @@ public class CreepController3D : MonoBehaviour
 	void kickCreepDown()
 	{
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
-		foreach( Transform element in el ) addConstForces( element );
+		foreach( Transform element in el ) addConstForces( element.gameObject );
 		creepDeath();
 	}
 
@@ -196,17 +192,19 @@ public class CreepController3D : MonoBehaviour
 			if( element.tag == Tags.DESTROYABLE )
 			{
 				if( damage == 0 ) element.rotation = CylinderUtility.Get.damageCylinder(element.rotation.eulerAngles, -1);
-				else if( damage == 1 ) addConstForces( element );
+				else if( damage == 1 ) addConstForces( element.gameObject );
 			}
 		} 
 	}
 
-	void addConstForces( Transform element )
+	void addConstForces( GameObject element )
 	{
-		element.gameObject.AddComponent<Rigidbody>();
-		element.gameObject.AddComponent<ConstantForce>();
-		element.GetComponent<ConstantForce>().relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-		element.GetComponent<ConstantForce>().relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
+		ConstantForce temp = element.GetComponent<ConstantForce>();
+		if( temp == null ) temp = element.AddComponent<ConstantForce>();
+		Rigidbody rig = element.GetComponent<Rigidbody>();
+		if( rig == null ) rig = element.AddComponent<Rigidbody>();
+		temp.relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
+		temp.relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
 	}
 	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
@@ -225,18 +223,33 @@ public class CreepController3D : MonoBehaviour
 
 
 	// Explosion that affects all creep in sphere radius.
-	void explodeYeah()
+	public void explodeYeah()
 	{
-		particleSystemExplosion.Play();
-		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-		foreach( Collider coll in colliders ) 
+		if( !destroyed )
 		{
-			if( coll.transform.tag == Tags.CREEP )
+			particleSystemExplosion.Play();
+			Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+			foreach( Collider coll in colliders ) 
 			{
-				CreepController3D t = coll.GetComponentInParent<CreepController3D>();
-				t.damageCreepCage(2);
-				t.kickCreepDown();
+				if( coll.transform.tag == Tags.CREEP )
+				{
+					CreepController3D t = coll.GetComponentInParent<CreepController3D>();
+					if( coll.name == Constants.CREEP_SILVER && t != this ) t.explodeYeah();
+					else t.explodeMe();
+				}
 			}
+		}
+	}
+
+	public void explodeMe()
+	{
+		if( !destroyed )
+		{
+			destroyed = true;
+			damageCreepCage(2);
+			kickCreepDown();
+			transform.parent = null;
+			_link.CreepKill();
 		}
 	}
 	
@@ -269,20 +282,5 @@ public class CreepController3D : MonoBehaviour
 			_link.CreepKill();
 			destroyed = true;
 		}
-	}
-
-	void OnDestroy()
-	{
-		if( !destroyed )
-		{
-			HighScoreManager.Get.creepKilled();
-			destroyed = true;
-		}
-	}
-
-	IEnumerator SendKillAfter( float time )
-	{
-		yield return new WaitForSeconds( time );
-		_link.CreepKill();
 	}
 }
