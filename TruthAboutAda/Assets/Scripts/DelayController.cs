@@ -1,63 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DelayController : MonoBehaviour {
-
-	int delayCount = 0;
-	
+public class DelayController : MonoBehaviour 
+{
 	SpriteRenderer delayLayer;
 
-	float maxDelay = 0;
+	float maxDelay;
 
 	ParticleSystem particleSystem;
 
 	Transform cylinderTransform;
 
-	int loadedNumber = 0;
+	int loadedNumber;
 
 	AudioSource audioSource;
 	
 	void Awake()
 	{
 		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").FindChild("cylinder_main").transform;
-		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
-		audioSource = transform.GetComponent<AudioSource> ();
+		//particleSystem = transform.FindChild( Constants.PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
+		audioSource = transform.GetComponent<AudioSource>();
 	}
 
-	public void setRestDelay(float restDelay)
+	public void setRestDelay( float restDelay )
 	{
 		rotateCylinder();
-		if (!audioSource.isPlaying) {
-			audioSource.Play ();
-		}
+		if( !audioSource.isPlaying ) audioSource.Play();
 
-		if (maxDelay == 0) {
-			maxDelay = restDelay;		
-		}
+		if( maxDelay == 0 ) maxDelay = restDelay;		
 
-		if (restDelay < maxDelay / 10) {
-			setCylinderToNumber(loadedNumber);
-			particleSystem.Play();
-			audioSource.Stop ();
+		if( restDelay < maxDelay / 10 )
+		{
+			//particleSystem.Play();
+			audioSource.Stop();
 		}
 	}
 
-	void rotateCylinder(){
-		cylinderTransform.localRotation = CylinderUtility.Get.rotateCylinder(cylinderTransform.rotation.eulerAngles, loadedNumber);
-	}
-
-	void setCylinderToNumber(int loadedNumber)
+	void rotateCylinder()
 	{
-		cylinderTransform.localRotation = CylinderUtility.Get.setCylinderToValue (loadedNumber);
+		cylinderTransform.localRotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, loadedNumber );
 	}
 
-	public void resetDelay()
-	{
-		delayCount = 0;
-	}
-
-	public void setLoadedNumner(int _loadedNumber)
+	public void setCylinderToNumber( int _loadedNumber )
 	{
 		loadedNumber = _loadedNumber;
+		cylinderTransform.localRotation = CylinderUtility.Get.setCylinderToValue( _loadedNumber );
 	}
 }

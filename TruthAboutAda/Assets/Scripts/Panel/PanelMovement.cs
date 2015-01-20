@@ -15,13 +15,20 @@ public class PanelMovement : MonoBehaviour
 	float minXBorder;
 	            
 
-	Transform cogwheel1Transform;
-	Transform cogwheel2Transform;
+	Transform transformSideCogRight;
+	Transform transformSideCogLeft;
+
+	ParticleSystem particleSystemSideCogRight;
+	ParticleSystem particleSystemSideCogLeft;
 
 	void Awake()
 	{
-		cogwheel1Transform = transform.FindChild("DelayCylinder").FindChild("animation_holder_sidecog1").transform;
-		cogwheel2Transform = transform.FindChild("DelayCylinder").FindChild("animation_holder_sidecog2").transform;
+		transformSideCogRight = transform.Find("DelayCylinder/animation_holder_sidecog_right").transform;
+		transformSideCogLeft = transform.Find("DelayCylinder/animation_holder_sidecog_left").transform;
+
+		particleSystemSideCogRight = transform.Find("DelayCylinder/particle_system_sidecog_right").GetComponent<ParticleSystem>(); 
+		particleSystemSideCogLeft = transform.Find("DelayCylinder/particle_system_sidecog_left").GetComponent<ParticleSystem>();
+
 	}
 
 	void FixedUpdate()
@@ -31,21 +38,26 @@ public class PanelMovement : MonoBehaviour
 		if( horizontal != 0f )
 		{
 			Vector3 nextPos = transform.position - new Vector3( horizontal * Time.fixedDeltaTime * speed, 0f );
-
-			// TODO linear interpolation would be nice!
+		
 			if( nextPos.x > maxXBorder ) nextPos.x = maxXBorder;
 			else if( nextPos.x < minXBorder ) nextPos.x = minXBorder;
 
-			if(horizontal>0)
+			if(horizontal > 0)
 			{
-				cogwheel1Transform.rotation = CylinderUtility.Get.rotatePanelCogWheel(cogwheel1Transform.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
-				cogwheel2Transform.rotation = CylinderUtility.Get.rotatePanelCogWheel(cogwheel2Transform.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
-			} else if(horizontal<0)
-			{
-				cogwheel1Transform.rotation = CylinderUtility.Get.rotatePanelCogWheel(cogwheel1Transform.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
-				cogwheel2Transform.rotation = CylinderUtility.Get.rotatePanelCogWheel(cogwheel1Transform.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
-			}
+				transformSideCogRight.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
+				transformSideCogLeft.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogLeft.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
 
+				particleSystemSideCogLeft.Stop();
+				particleSystemSideCogRight.Play();
+			
+			} else if(horizontal < 0)
+			{
+				transformSideCogRight.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
+				transformSideCogLeft.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
+		
+				particleSystemSideCogLeft.Play();
+				particleSystemSideCogRight.Stop ();
+			}
 			rigidbody.MovePosition( nextPos );
 		}
 	}
