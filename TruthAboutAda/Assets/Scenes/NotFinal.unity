@@ -19945,6 +19945,18 @@ Prefab:
       propertyPath: m_Name
       value: particle_system_sidecog_left
       objectReference: {fileID: 0}
+    - target: {fileID: 19807728, guid: 4c72d8f6a3392420ba6199cd66af284b, type: 2}
+      propertyPath: EmissionModule.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19807728, guid: 4c72d8f6a3392420ba6199cd66af284b, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 14.1999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 19807728, guid: 4c72d8f6a3392420ba6199cd66af284b, type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c72d8f6a3392420ba6199cd66af284b, type: 2}
   m_RootGameObject: {fileID: 1386580311}
@@ -30646,9 +30658,9 @@ ParticleSystem:
     randomDirection: 0
   EmissionModule:
     enabled: 1
-    m_Type: 0
+    m_Type: 1
     rate:
-      scalar: 8
+      scalar: 14.1999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
