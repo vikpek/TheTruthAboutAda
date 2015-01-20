@@ -18,6 +18,7 @@ public class RowSpawner : MonoBehaviour
 		movementStartDelay += spawnTimer;
 		animator = transform.GetComponent<Animator>();
 		foreach( Transform child in transform ) child.gameObject.SetActive( false );
+		GetComponent<MovementVerticalController>().enabled = false;
 	}
 
 	void FixedUpdate()
@@ -28,6 +29,7 @@ public class RowSpawner : MonoBehaviour
 			animator.enabled = true;
 			animator.Play( "RowAnimation" );
 			foreach( Transform child in transform ) child.gameObject.SetActive( true );
+			GetComponent<MovementVerticalController>().enabled = true;
 		}
 		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
 		if( movementStartDelay <= 0f )
