@@ -21,7 +21,19 @@ public class SoundManager : MonoBehaviour
 
 	[SerializeField]
 	AudioClip MenuBackgroundLoop;
-	
+
+	[SerializeField]
+	AudioClip FailedShot;
+
+	[SerializeField]
+	AudioClip CreepExplosion;
+
+	[SerializeField]
+	AudioClip PlayerDamageShot;
+
+	[SerializeField]
+	AudioClip FallingParts;
+
 	void Start()
 	{	
 		audioSource = gameObject.AddComponent<AudioSource>();
@@ -31,6 +43,27 @@ public class SoundManager : MonoBehaviour
 	public void playPlayerDeath()
 	{
 		if( PlayerDeath != null ) audioSource.PlayOneShot( PlayerDeath );
+	}
+
+	public void playFallingParts()
+	{
+		if( FallingParts != null ) audioSource.PlayOneShot( FallingParts );
+	}
+
+	public void playPlayerDamageShot()
+	{
+		if( PlayerDamageShot != null ) audioSource.PlayOneShot( PlayerDamageShot );
+	}
+
+
+	public void playCreepExplosion()
+	{
+		if( CreepExplosion != null ) audioSource.PlayOneShot( CreepExplosion );
+	}
+
+	public void playFailedShot()
+	{
+		if( FailedShot != null ) audioSource.PlayOneShot( FailedShot );
 	}
 	
 	public void playPlayerShot()

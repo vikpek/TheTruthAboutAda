@@ -141,6 +141,7 @@ public class CreepController3D : MonoBehaviour
 			} else
 			{
 				HighScoreManager.Get.shotFailed();
+				soundManager.playFailedShot();
 				reinitializeCylinder( -1 );
 				if( creepBlack ) reinitializeCreepRow(-1);
 				blockShot( col.gameObject );
@@ -158,6 +159,7 @@ public class CreepController3D : MonoBehaviour
 	// Creep simply falls down. This is an alternative dying animation.
 	void kickCreepDown()
 	{
+		soundManager.playFallingParts();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el ) addConstForces( element.gameObject );
 		creepDeath();
@@ -183,6 +185,7 @@ public class CreepController3D : MonoBehaviour
 	// 1 - cage falls down in single parts
 	void damageCreepCage( int damage )
 	{
+		soundManager.playPlayerDamageShot();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el )
 		{
@@ -224,6 +227,7 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( !destroyed )
 		{
+			soundManager.playCreepExplosion();
 			particleSystemExplosion.Play();
 			Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 			foreach( Collider coll in colliders ) 
