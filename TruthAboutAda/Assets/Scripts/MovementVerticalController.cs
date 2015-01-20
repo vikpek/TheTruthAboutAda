@@ -22,6 +22,7 @@ public class MovementVerticalController : MonoBehaviour {
 		startPosition = transform.position;
 		findChild( transform );
 		Debug.Log( "Row with : " + aliveCreeps );
+		HighScoreManager.Get.addCreeps( aliveCreeps );
 	}
 
 	void FixedUpdate()

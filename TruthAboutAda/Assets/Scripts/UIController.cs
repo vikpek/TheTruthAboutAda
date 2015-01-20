@@ -65,8 +65,11 @@ public class UIController : MonoBehaviour
 	public void SetGameOver()
 	{
 		lastState = state;
-		Time.timeScale = 0f;
+		Time.timeScale = 0f; // remove to let game run in background after lose
 		state = States.GameOver;
+		HighScoreManager.Get.resetCreepCounter();
+		GameObject[] list = GameObject.FindGameObjectsWithTag( Tags.CREEP );
+		foreach( GameObject obj in list ) obj.GetComponent<CreepController3D>().explodeMe();
 	}
 
 	public void SetWin()
@@ -100,6 +103,7 @@ public class UIController : MonoBehaviour
 	{
 		lastState = state;
 		Time.timeScale = 1f;
+		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
 	}
@@ -108,6 +112,7 @@ public class UIController : MonoBehaviour
 	{
 		lastState = state;
 		Time.timeScale = 1f;
+		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
 	}
