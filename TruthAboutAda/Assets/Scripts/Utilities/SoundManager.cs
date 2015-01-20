@@ -21,6 +21,9 @@ public class SoundManager : MonoBehaviour
 
 	[SerializeField]
 	AudioClip MenuBackgroundLoop;
+
+	[SerializeField]
+	AudioClip FailedShot;
 	
 	void Start()
 	{	
@@ -31,6 +34,11 @@ public class SoundManager : MonoBehaviour
 	public void playPlayerDeath()
 	{
 		if( PlayerDeath != null ) audioSource.PlayOneShot( PlayerDeath );
+	}
+
+	public void playFailedShot()
+	{
+		if( FailedShot != null ) audioSource.PlayOneShot( FailedShot );
 	}
 	
 	public void playPlayerShot()

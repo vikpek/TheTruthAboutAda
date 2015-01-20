@@ -148,6 +148,7 @@ public class CreepController3D : MonoBehaviour
 			} else
 			{
 				HighScoreManager.Get.shotFailed();
+				soundManager.playFailedShot();
 				reinitializeCylinder( -1 );
 				if( creepBlack ) reinitializeCreepRow(-1);
 				blockShot( col.gameObject );
