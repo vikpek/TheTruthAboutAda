@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CreepController3D : MonoBehaviour 
 {
@@ -115,7 +116,7 @@ public class CreepController3D : MonoBehaviour
 					else
 					{
 						explodeYeah();
-						_link.CreepKill();
+						StartCoroutine( SendKillAfter( 1f ) );
 					}
 				} else if( creepBlack )
 				{
@@ -277,5 +278,11 @@ public class CreepController3D : MonoBehaviour
 			HighScoreManager.Get.creepKilled();
 			destroyed = true;
 		}
+	}
+
+	IEnumerator SendKillAfter( float time )
+	{
+		yield return new WaitForSeconds( time );
+		_link.CreepKill();
 	}
 }
