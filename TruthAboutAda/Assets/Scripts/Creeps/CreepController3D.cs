@@ -249,8 +249,9 @@ public class CreepController3D : MonoBehaviour
 			destroyed = true;
 			damageCreepCage(2);
 			kickCreepDown();
-			//transform.parent = null;
-			transform.Find( Constants.ANIMATION_HOLDER ).parent = null;
+			transform.parent = null;
+			gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			gameObject.GetComponent<Rigidbody>().useGravity = true;
 			_link.CreepKill();
 		}
 	}
