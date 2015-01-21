@@ -78,7 +78,7 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha7 ) || Input.GetKeyDown( KeyCode.Keypad7 ) ) return 7;
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
-		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.UpArrow ) ) return 10;
+		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.UpArrow ) || Input.GetMouseButtonDown( 0 ) ) return 10;
 		if( Input.GetKeyDown( KeyCode.LeftArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") < 0 ) return 11;
 		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 ) return 12;
 		return -1;
