@@ -18,7 +18,7 @@ public class PanelShooting : MonoBehaviour
 	float shootWaiter;
 
 	int activeKey = -1;
-	int lastActiveKey = -1;
+	int lastActiveKey = 0;
 
 	DelayController delayController;
 
@@ -46,8 +46,16 @@ public class PanelShooting : MonoBehaviour
 				{
 					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Prepare Shot" );
 					shootWaiter += waitBetweenDifferentsShots;
-					lastActiveKey = activeKey;
-					delayController.setCylinderToNumber( activeKey );
+					if( activeKey == 12 )
+					{
+						if( lastActiveKey == 9 ) lastActiveKey = 0;
+						else lastActiveKey++;
+					} else if( activeKey == 11 )
+					{
+						if( lastActiveKey == 0 ) lastActiveKey = 9;
+						else lastActiveKey--;
+					} else lastActiveKey = activeKey;
+					delayController.setCylinderToNumber( lastActiveKey );
 				}
 			}
 		} else if( GameConfig.Get.DebugPannelShooting )
@@ -69,6 +77,8 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
 		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) ) return 10;
+		if( Input.GetKeyDown( KeyCode.LeftArrow ) ) return 11;
+		if( Input.GetKeyDown( KeyCode.RightArrow ) ) return 12;
 		return -1;
 	}
 }
