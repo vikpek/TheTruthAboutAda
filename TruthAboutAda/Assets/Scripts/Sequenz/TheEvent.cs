@@ -47,6 +47,8 @@ public class TheEvent : MonoBehaviour
 	float startTime;
 	float lifeTime;
 	float endTime;
+
+	bool skip;
 	
 	UnityEngine.UI.MaskableGraphic render;
 
@@ -58,10 +60,9 @@ public class TheEvent : MonoBehaviour
 		Set();
 	}
 
-	/* REMOVE SKIP BECAUSE OF UNKOWN BUGS
-	void LateUpdate()
+	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.Space ) )
+		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
 		{
 			if( skipWholeEvent )
 			{
@@ -77,8 +78,9 @@ public class TheEvent : MonoBehaviour
 				lifeTime = 0f;
 				if( !triggerAfterDisappear ) Trigger();
 			}
+			skip = true;
 		}
-	}*/
+	}
 
 	void FixedUpdate()
 	{
