@@ -5,6 +5,6 @@ public class StartOnClick : MonoBehaviour {
 
 	void OnMouseUpAsButton()
 	{
-		Application.LoadLevel( Constants.LEVEL_CUTSCENE);
+		Application.LoadLevel( Constants.LEVEL_CUTSCENE );
 	}
 }

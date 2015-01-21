@@ -9,6 +9,9 @@ public class PanelMovement : MonoBehaviour
 	bool smooth = true;
 
 	[SerializeField]
+	bool useMouse;
+
+	[SerializeField]
 	float maxXBorder;
 
 	[SerializeField]
@@ -33,7 +36,8 @@ public class PanelMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float horizontal = ( smooth )?( Input.GetAxis("Horizontal") ):( Input.GetAxisRaw("Horizontal") );
+		string axis = ( useMouse )?( "Mouse X" ):( "Horizontal" );
+		float horizontal = ( smooth )?( Input.GetAxis( axis ) ):( Input.GetAxisRaw( axis ) );
 		
 		if( horizontal != 0f )
 		{
