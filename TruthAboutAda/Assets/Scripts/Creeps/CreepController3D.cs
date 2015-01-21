@@ -47,6 +47,8 @@ public class CreepController3D : MonoBehaviour
 
 	bool destroyed;
 
+	bool gotPoints;
+
 	void Awake()
 	{
 		if( transform.name == Constants.CREEP_BLACK ) creepBlack = true;
@@ -123,17 +125,8 @@ public class CreepController3D : MonoBehaviour
 						damageCreepCage(0);
 						reinitializeCylinder(-1);
 						blockShot( col.gameObject );
-					}
-					else 
-					{
-						creepDeath();
-						generateRail( col.gameObject );
-					}
-				} else 
-				{
-					creepDeath();
-					generateRail( col.gameObject );
-				}
+					} else generateRail( col.gameObject );
+				} else generateRail( col.gameObject );
 
 				creepHP++;
 
@@ -175,8 +168,12 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if( creepBlack ) reinitializeCreepRow( 0 );
-		HighScoreManager.Get.creepKilled();
+		if( creepBlack ) reinitializeCreepRow( cylinderValue );
+		if( !gotPoints )
+		{
+			HighScoreManager.Get.creepKilled();
+			gotPoints = true;
+		}
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
@@ -253,6 +250,8 @@ public class CreepController3D : MonoBehaviour
 			damageCreepCage(2);
 			kickCreepDown();
 			transform.parent = null;
+			gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			gameObject.GetComponent<Rigidbody>().useGravity = true;
 			_link.CreepKill();
 		}
 	}
@@ -272,6 +271,7 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( !destroyed )
 		{
+			creepDeath();
 			// Bullet
 			Destroy( obj.GetComponent<BulletMovement>() );
 			Destroy( obj.GetComponent<Rigidbody>() );
@@ -279,6 +279,7 @@ public class CreepController3D : MonoBehaviour
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
 			Destroy( GetComponent<Rigidbody>() );
+			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.parent = obj.transform;
 			child.localPosition = HitOffset;

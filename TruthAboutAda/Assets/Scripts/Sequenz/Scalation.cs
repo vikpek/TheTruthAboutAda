@@ -13,6 +13,6 @@ public class Scalation : MonoBehaviour
 		float scaleX = temp.x / (float)Screen.width;
 		float scaleY = temp.y / (float)Screen.height;
 		scale = ( scaleX >= scaleY )?( scaleX ):( scaleY );
-		foreach( Transform child in transform ) child.localScale = new Vector3( 1 / scale, 1 / scale );
+		foreach( Transform child in transform ) child.localScale = new Vector3( 1 / scale, 1 / scale, 1 / scale );
 	}
 }

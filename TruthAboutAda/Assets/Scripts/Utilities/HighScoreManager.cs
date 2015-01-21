@@ -32,14 +32,12 @@ public class HighScoreManager : MonoBehaviour
 			_instance = this;
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
-		OnLevelWasLoaded ();
 	}
 
-	void OnLevelWasLoaded()
+	public void addCreeps( int numb )
 	{
-		creepCounter = GameObject.FindGameObjectsWithTag( Tags.CREEP ).Length;
-		Debug.Log("New Scene loaded with " + creepCounter );
-		if( creepCounter != 0 ) winScreen = true; 
+		creepCounter += numb;
+		winScreen = true;
 	}
  
 	public void creepKilled()
@@ -49,6 +47,12 @@ public class HighScoreManager : MonoBehaviour
 		creepCounter--;
 		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
 		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
+	}
+
+	public void resetCreepCounter()
+	{
+		creepCounter = 0;
+		winScreen = false;
 	}
 
 	public void shotFailed()

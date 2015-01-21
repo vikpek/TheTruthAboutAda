@@ -33,7 +33,7 @@ public class TheEvent : MonoBehaviour
 	float appearDuration = 1f;
 
 	[SerializeField]
-	Vector2 appearVisibility;
+	Vector2 appearVisibility = new Vector2( 0f, 1f );
 
 	[SerializeField]
 	Effects disappearEffect = Effects.None;
@@ -42,7 +42,7 @@ public class TheEvent : MonoBehaviour
 	float disappearDuration = 1f;
 
 	[SerializeField]
-	Vector2 disappearVisibility;
+	Vector2 disappearVisibility = new Vector2( 1f, 0f );
 
 	float startTime;
 	float lifeTime;
@@ -58,36 +58,37 @@ public class TheEvent : MonoBehaviour
 		Set();
 	}
 
+	/* REMOVE SKIP BECAUSE OF UNKOWN BUGS
 	void LateUpdate()
 	{
 		if( Input.GetKeyDown( KeyCode.Space ) )
 		{
 			if( skipWholeEvent )
 			{
-				if( endTime > 0f ) Effect( 0, disappearEffect );
+				if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
 				startTime = 0f;
 				lifeTime = 0f;
 				endTime = 0f;
 				if( triggerAfterDisappear ) Trigger();
 			} else 
 			{
-				if( startTime > 0f ) Effect( 1, appearEffect );
+				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
 				startTime = 0f;
 				lifeTime = 0f;
 				if( !triggerAfterDisappear ) Trigger();
 			}
 		}
-	}
+	}*/
 
 	void FixedUpdate()
 	{
 		if( startTime > 0f )
 		{
 			float startNormal = 1 - ( 1 / appearDuration ) * startTime;
-			Effect( startNormal, appearEffect );
+			Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, startNormal ), appearEffect );
 
 			startTime -= Time.fixedDeltaTime;
-			if( startTime <= 0f ) Effect( 1, appearEffect );
+			if( startTime <= 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
 		}
 		else if( lifeTime >= 0f )
 		{
@@ -97,11 +98,11 @@ public class TheEvent : MonoBehaviour
 		} 
 		else if( endTime > 0f && hideThemself )
 		{
-			float endNormal = ( 1 / disappearDuration ) * endTime;
-			Effect( endNormal, disappearEffect );
+			float endNormal = 1 - ( 1 / disappearDuration ) * endTime;
+			Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, endNormal ), disappearEffect );
 
 			endTime -= Time.fixedDeltaTime;
-			if( endTime < 0f ) Effect( 0, disappearEffect );
+			if( endTime < 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
 		} 
 		else if( hideThemself )
 		{
@@ -114,7 +115,7 @@ public class TheEvent : MonoBehaviour
 	void Set()
 	{
 		startTime = appearDuration;
-		if( appearEffect == Effects.Fade ) render.color = new Color( render.color.r, render.color.g, render.color.b, 0 );
+		if( appearEffect == Effects.Fade ) render.color = new Color( render.color.r, render.color.g, render.color.b, appearVisibility.x );
 		endTime = disappearDuration;
 		lifeTime = Duration;
 	}
@@ -128,7 +129,7 @@ public class TheEvent : MonoBehaviour
 	{
 		if( nextEvent != null )	nextEvent.SetActive( true );
 		if( hideEvent != null )	
-			if( hideEvent.activeSelf ) hideEvent.BroadcastMessage("Disappear");
+			if( hideEvent.activeSelf ) hideEvent.BroadcastMessage("Disappear", SendMessageOptions.DontRequireReceiver );
 		if( endTime <= 0f && hideThemself ) gameObject.SetActive( false );
 	}
 
