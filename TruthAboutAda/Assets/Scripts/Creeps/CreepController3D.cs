@@ -54,7 +54,7 @@ public class CreepController3D : MonoBehaviour
 		if( transform.name == Constants.CREEP_BLACK ) creepBlack = true;
 		else if( transform.name == Constants.CREEP_SILVER ) creepSilver = true;
 		
-		cylinderTransform = transform.FindChild (Constants.ANIMATION_HOLDER).FindChild (Constants.CYLINDER).FindChild( "animation_holder_cylinder" ).transform;
+		cylinderTransform = transform.FindChild( Constants.ANIMATION_HOLDER ).FindChild( Constants.CYLINDER ).FindChild( "animation_holder_cylinder" ).transform;
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
@@ -279,6 +279,7 @@ public class CreepController3D : MonoBehaviour
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
 			Destroy( GetComponent<Rigidbody>() );
+			//Debug.Log( transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/animation_holder_cylinder/Spotlight" ) );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.parent = obj.transform;
