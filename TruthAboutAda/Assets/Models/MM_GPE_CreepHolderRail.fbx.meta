@@ -1087,7 +1087,8 @@ ModelImporter:
     4300302: railholder2
     4300304: cog2
     7400000: Up
-    7400002: Down
+    7400002: Up
+    7400004: Down
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -1108,8 +1109,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Up
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 100
+      firstFrame: 100
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1174,8 +1175,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Down
       takeName: Take 001
-      firstFrame: 100
-      lastFrame: 200
+      firstFrame: 1
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
