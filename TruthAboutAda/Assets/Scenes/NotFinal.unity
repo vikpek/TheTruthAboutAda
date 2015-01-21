@@ -20373,7 +20373,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4287626495
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .200000003
@@ -31073,7 +31073,7 @@ MonoBehaviour:
   Bullet: {fileID: 100000, guid: 0d79c4be60c1541c98e4dbb2acc87bfb, type: 2}
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 2
-  waitBetweenDifferentsShots: .300000012
+  waitBetweenDifferentsShots: .00100000005
 --- !u!114 &862513175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37359,7 +37359,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4287626495
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: .200000003
@@ -47998,6 +47998,18 @@ Prefab:
     - target: {fileID: 435452, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19862174, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 19862172, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412064, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
+      propertyPath: waitBetweenDifferentsShots
+      value: .00100000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
