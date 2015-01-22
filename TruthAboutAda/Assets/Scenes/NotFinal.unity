@@ -67434,6 +67434,7 @@ GameObject:
   - 81: {fileID: 1171366406}
   - 82: {fileID: 1171366410}
   - 82: {fileID: 1171366409}
+  - 114: {fileID: 1171366411}
   m_Layer: 0
   m_Name: RumbleCamera
   m_TagString: MainCamera
@@ -67627,6 +67628,24 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1171366411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1171366403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c3946ab5378473cb34bedd1c8194ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogMode: 0
+  startDistance: 28.2099991
+  globalDensity: .0299999993
+  heightScale: 100
+  height: 0
+  globalFogColor: {r: .823529422, g: .474509805, b: .286274523, a: 1}
+  fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!1 &1173041604
 GameObject:
   m_ObjectHideFlags: 0
