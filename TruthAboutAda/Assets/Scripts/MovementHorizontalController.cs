@@ -22,36 +22,34 @@ public class MovementHorizontalController : MonoBehaviour {
 	void Awake()
 	{
 		move = transform.localPosition;
-
-		minX = transform.parent.FindChild("HorizontalRail").FindChild("right_border").transform.position.x;
-		maxX = transform.parent.FindChild("HorizontalRail").FindChild("left_border").transform.position.x;
-
-
-
+		Transform temp = transform.parent.Find( Constants.HORIZONTALRAIL );
+		if( temp == null ) temp = transform.parent.parent.Find( Constants.HORIZONTALRAIL );
+		if( temp == null ) temp = transform.parent.parent.parent.Find( Constants.HORIZONTALRAIL );
+		if( temp == null )
+		{
+			Debug.LogError("Coudlnt find HorizontalRail... Borders set to -10 & 7");
+			minX = -10;
+			maxX = 7;
+		} else
+		{
+			minX = temp.FindChild("right_border").transform.position.x;
+			maxX = temp.FindChild("left_border").transform.position.x;
+		}
 	}
 
 	void FixedUpdate()
 	{	
-		if (!(transform.localPosition.x > minX && transform.localPosition.x < maxX)) directionRight = !directionRight;
+		if( !( transform.localPosition.x > minX && transform.localPosition.x < maxX ) ) directionRight = !directionRight;
 	
-		if (directionRight) 
-		{
-			move.x = maxX;
-		} else if (!directionRight) 
-		{
-			move.x = minX;
-		}
+		if( directionRight ) move.x = maxX;
+		else if( !directionRight ) move.x = minX;
 
-		if (lerp) {
-			transform.localPosition = Vector3.Lerp (transform.localPosition, move, smooth * Time.fixedDeltaTime);
-		} else {
-			transform.localPosition = Vector3.MoveTowards (transform.localPosition, move, smooth * Time.fixedDeltaTime);
-		}
-
+		if( lerp ) transform.localPosition = Vector3.Lerp( transform.localPosition, move, smooth * Time.fixedDeltaTime );
+		else transform.localPosition = Vector3.MoveTowards( transform.localPosition, move, smooth * Time.fixedDeltaTime );
 	}
 
 	void OnTriggerEnter( Collider col )
 	{
-		directionRight = !directionRight;
+		if( col.tag != Tags.BULLET ) directionRight = !directionRight;
 	}
 }
