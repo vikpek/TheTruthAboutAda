@@ -20,6 +20,20 @@ public class UIController : MonoBehaviour
 	States state = States.None;
 	States lastState = States.None;
 
+	GameObject Menu;
+	GameObject ContinueB;
+	GameObject RestartB;
+	GameObject NextLevelB;
+
+	void Awake()
+	{
+		Menu = GameObject.Find("EscapeMenu");
+		ContinueB = Menu.transform.Find("Canvas/ContinueButton").gameObject;
+		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
+		NextLevelB = Menu.transform.Find("Canvas/NextLevelButton").gameObject;
+		Menu.SetActive( false );
+	}
+
 	void Update()
 	{
 		if( Input.GetKeyDown( KeyCode.Escape ) )
@@ -29,43 +43,12 @@ public class UIController : MonoBehaviour
 		}
 	}
 
-	void OnGUI()
-	{
-		Vector2 temp;
-		switch( state )
-		{
-			case States.None :
-				Screen.showCursor = false;
-				break;
-
-			case States.Pause :
-				Screen.showCursor = true;
-				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - ( Buttons.HEIGHT * 3 + Buttons.GAP * 2 ) / 2 );
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Continue" ) ) UnpauseGame();
-				temp.y += Buttons.GAP + Buttons.HEIGHT;
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Restart Level" ) ) RestartLevel();
-				temp.y += Buttons.GAP + Buttons.HEIGHT;
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Return to Menu" ) ) BackToMenu();
-				break;
-			case States.GameOver :
-				Screen.showCursor = true;
-				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - ( Buttons.HEIGHT * 2 + Buttons.GAP * 1 ) / 2 );
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Restart Level" ) ) RestartLevel();
-				temp.y += Buttons.GAP + Buttons.HEIGHT;
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Return to Menu" ) ) BackToMenu();
-				break;
-			case States.Win :
-				Screen.showCursor = true;
-				temp = new Vector2( Screen.width / 2 - Buttons.WIDTH / 2, ( Screen.height / 2 ) - ( Buttons.HEIGHT * 2 + Buttons.GAP * 1 ) / 2 );
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Next Level" ) ) NextLevel();
-				temp.y += Buttons.GAP + Buttons.HEIGHT;
-				if( GUI.Button( new Rect( temp.x, temp.y, Buttons.WIDTH, Buttons.HEIGHT ), "Return to Menu" ) ) BackToMenu();
-				break;
-		}
-	}
-
 	public void SetGameOver()
 	{
+		ContinueB.SetActive( false );
+		RestartB.SetActive( true );
+		NextLevelB.SetActive( false );
+		Screen.showCursor = true;
 		lastState = state;
 		Time.timeScale = 1f; // stop game (or) run in background
 		state = States.GameOver;
@@ -76,9 +59,13 @@ public class UIController : MonoBehaviour
 
 	public void SetWin()
 	{
+		Screen.showCursor = true;
 		// TODO : remove presentation hack
 		SetGameOver();
 		/*
+		ContinueB.SetActive( false );
+		NextLevelB.SetActive( true );
+		RestartB.SetActive( false );
 		lastState = state;
 		state = States.Win;
 		*/
@@ -92,36 +79,45 @@ public class UIController : MonoBehaviour
 
 	void PauseGame()
 	{
+		ContinueB.SetActive( true );
+		NextLevelB.SetActive( false );
+		RestartB.SetActive( true );
+		Menu.SetActive( true );
 		lastState = state;
 		Time.timeScale = 0f;
 		state = States.Pause;
+		Screen.showCursor = true;
 	}
 
-	void UnpauseGame()
+	public void UnpauseGame()
 	{
+		Menu.SetActive( false );
 		state = lastState;
 		Time.timeScale = 1f;
+		Screen.showCursor = false;
 	}
 
-	void RestartLevel()
+	public void RestartLevel()
 	{
 		lastState = state;
 		Time.timeScale = 1f;
 		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
+		Screen.showCursor = false;
 	}
 
-	void NextLevel()
+	public void NextLevel()
 	{
 		lastState = state;
 		Time.timeScale = 1f;
 		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
+		Screen.showCursor = false;
 	}
 
-	void BackToMenu()
+	public void BackToMenu()
 	{
 		lastState = state;
 		Time.timeScale = 1f;
