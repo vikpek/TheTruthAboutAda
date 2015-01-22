@@ -24,6 +24,7 @@ public class CreepController3D : MonoBehaviour
 	SoundManager soundManager;
 	ParticleSystem particleSystem;
 	ParticleSystem particleSystemExplosion;
+	ParticleSystem particleSystemLightning;
 	CameraRumbler cameraRumbler;
 
 	Transform cylinderTransform;
@@ -59,6 +60,7 @@ public class CreepController3D : MonoBehaviour
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 		particleSystemExplosion = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM_EXPLOSION ).GetComponent<ParticleSystem>();
+		particleSystemLightning = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM_LIGHTNING ).GetComponent<ParticleSystem>();
 
 		audioSource = transform.GetComponent<AudioSource>();
 
@@ -168,7 +170,10 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if( creepBlack ) reinitializeCreepRow( cylinderValue );
+		if( creepBlack ) {
+			reinitializeCreepRow( cylinderValue );
+			particleSystemLightning.Play();
+		}
 		if( !gotPoints )
 		{
 			HighScoreManager.Get.creepKilled();

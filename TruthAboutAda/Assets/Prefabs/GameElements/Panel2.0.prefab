@@ -673,7 +673,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .0900000036, z: -.326000005}
+  m_LocalPosition: {x: -1, y: .0900000036, z: -.330000013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494426}
@@ -838,8 +838,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162174}
-  m_LocalRotation: {x: -.252146661, y: -.690727651, z: -.242028162, w: .633040071}
-  m_LocalPosition: {x: -2.12899995, y: .451000363, z: -.223999232}
+  m_LocalRotation: {x: -.525133312, y: -.722106874, z: .11934866, w: .434226483}
+  m_LocalPosition: {x: -2.12899995, y: .451000363, z: -.223998934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412036}
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   smooth: 1
+  useMouse: 0
   maxXBorder: 11
   minXBorder: -11
 --- !u!114 &11412064
@@ -1663,7 +1664,8 @@ MonoBehaviour:
   Bullet: {fileID: 100000, guid: 0d79c4be60c1541c98e4dbb2acc87bfb, type: 2}
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 2
-  waitBetweenDifferentsShots: .300000012
+  waitBetweenDifferentsShots: .00100000005
+  multi: 0
 --- !u!114 &11412066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1860,10 +1862,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4287626495
+        rgba: 4283005394
       minMaxState: 0
     startSize:
-      scalar: .200000003
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1930,13 +1932,13 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: .699999988
     inheritVelocity: 0
-    maxNumParticles: 50
+    maxNumParticles: 100
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
     radius: .288196325
-    angle: 3.5473752
+    angle: 21.6419125
     length: 5
     boxX: 22.975771
     boxY: 1
@@ -1948,7 +1950,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 1
     rate:
-      scalar: 14.1999998
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2897,10 +2899,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4287626495
+        rgba: 4283005394
       minMaxState: 0
     startSize:
-      scalar: .200000003
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2967,13 +2969,13 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: .699999988
     inheritVelocity: 0
-    maxNumParticles: 50
+    maxNumParticles: 100
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
     radius: .288196325
-    angle: 3.5473752
+    angle: 21.6419125
     length: 5
     boxX: 22.975771
     boxY: 1
@@ -2985,7 +2987,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 1
     rate:
-      scalar: 14.1999998
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3772,7 +3774,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 7f16aaa27226a4016aab4275eda79451, type: 2}
+  - {fileID: 2100000, guid: 5b0c87587609d4f20b4e0642a93777d0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3804,7 +3806,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 7f16aaa27226a4016aab4275eda79451, type: 2}
+  - {fileID: 2100000, guid: 5b0c87587609d4f20b4e0642a93777d0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
