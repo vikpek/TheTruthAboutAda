@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
 	States state = States.None;
 	States lastState = States.None;
 
+	[SerializeField]
 	GameObject Menu;
 	GameObject ContinueB;
 	GameObject RestartB;
@@ -27,7 +28,7 @@ public class UIController : MonoBehaviour
 
 	void Awake()
 	{
-		Menu = GameObject.Find("EscapeMenu");
+		if( Menu == null ) Menu = GameObject.Find("EscapeMenu");
 		ContinueB = Menu.transform.Find("Canvas/ContinueButton").gameObject;
 		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
 		NextLevelB = Menu.transform.Find("Canvas/NextLevelButton").gameObject;
