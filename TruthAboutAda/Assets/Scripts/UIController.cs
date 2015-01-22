@@ -25,8 +25,11 @@ public class UIController : MonoBehaviour
 	GameObject RestartB;
 	GameObject NextLevelB;
 
+	GameObject mainCamera;
+
 	void Awake()
 	{
+		mainCamera = GameObject.FindWithTag("MainCamera");
 		Menu = GameObject.Find("EscapeMenu");
 		ContinueB = Menu.transform.Find("Canvas/ContinueButton").gameObject;
 		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
@@ -79,6 +82,9 @@ public class UIController : MonoBehaviour
 
 	void PauseGame()
 	{
+
+		mainCamera.GetComponent<BlurEffect>().enabled = true;
+	
 		ContinueB.SetActive( true );
 		NextLevelB.SetActive( false );
 		RestartB.SetActive( true );
@@ -91,6 +97,8 @@ public class UIController : MonoBehaviour
 
 	public void UnpauseGame()
 	{
+		mainCamera.GetComponent<BlurEffect>().enabled = false;
+
 		Menu.SetActive( false );
 		state = lastState;
 		Time.timeScale = 1f;
