@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SwitchNextLevel : MonoBehaviour {
 
+	[SerializeField]
 	float time = 1f;
 
 	void Update()
