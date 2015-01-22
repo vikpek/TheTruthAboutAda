@@ -25,12 +25,9 @@ public class UIController : MonoBehaviour
 	GameObject ContinueB;
 	GameObject RestartB;
 	GameObject NextLevelB;
-
-	BlurEffect blurEffect;
 	
 	void Awake()
 	{
-		blurEffect = Camera.main.GetComponent<BlurEffect>();
 		if( Menu == null ) Menu = GameObject.Find("EscapeMenu");
 		ContinueB = Menu.transform.Find("Canvas/ContinueButton").gameObject;
 		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
@@ -52,6 +49,7 @@ public class UIController : MonoBehaviour
 		ContinueB.SetActive( false );
 		RestartB.SetActive( true );
 		NextLevelB.SetActive( false );
+		Menu.SetActive( true );
 		Screen.showCursor = true;
 		lastState = state;
 		Time.timeScale = 1f; // stop game (or) run in background
@@ -75,15 +73,9 @@ public class UIController : MonoBehaviour
 		*/
 	}
 
-	public void Hide()
-	{
-		lastState = state;
-		state = States.None;
-	}
-
 	void PauseGame()
 	{
-		blurEffect.enabled = true;
+		Camera.main.GetComponent<BlurEffect>().enabled = true;
 		ContinueB.SetActive( true );
 		NextLevelB.SetActive( false );
 		RestartB.SetActive( true );
@@ -96,7 +88,7 @@ public class UIController : MonoBehaviour
 
 	public void UnpauseGame()
 	{
-		blurEffect.enabled = false;
+		Camera.main.GetComponent<BlurEffect>().enabled = false;
 		Menu.SetActive( false );
 		state = lastState;
 		Time.timeScale = 1f;
@@ -111,6 +103,7 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
 		Screen.showCursor = false;
+		Menu.SetActive( false );
 	}
 
 	public void NextLevel()
@@ -121,6 +114,7 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
 		Screen.showCursor = false;
+		Menu.SetActive( false );
 	}
 
 	public void BackToMenu()
@@ -130,5 +124,6 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Constants.LEVEL_MENU );
 		state = States.None;
 		Screen.showCursor = true;
+		Menu.SetActive( false );
 	}
 }

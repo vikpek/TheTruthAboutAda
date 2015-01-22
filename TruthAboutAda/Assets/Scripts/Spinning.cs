@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Spinning : MonoBehaviour {
+public class Spinning : MonoBehaviour
+{
 
 	[SerializeField]
 	float speed = 10f;
@@ -13,19 +13,16 @@ public class Spinning : MonoBehaviour {
 	bool twoD;
 
 
-	void Update ()
+	void Update()
 	{
-		if(!twoD)
+		if( !twoD )
 		{
-			if (direction == true) {
-				transform.Rotate(Vector3.right, speed * Time.deltaTime);
-			} else {
-				transform.Rotate(Vector3.left, speed * Time.deltaTime);
-			}
-
-		} else {
-			if(direction) transform.Rotate(Vector3.back, speed * Time.deltaTime);
-			else transform.Rotate(Vector3.forward, speed * Time.deltaTime);
+			if( direction ) transform.Rotate( Vector3.right, speed * Time.deltaTime );
+			else transform.Rotate( Vector3.left, speed * Time.deltaTime );
+		} else 
+		{
+			if( direction ) transform.Rotate( Vector3.back, speed * Time.deltaTime );
+			else transform.Rotate( Vector3.forward, speed * Time.deltaTime );
 		}
 	}
 }
