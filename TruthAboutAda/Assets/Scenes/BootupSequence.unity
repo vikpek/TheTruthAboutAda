@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 0
+  hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
   Duration: 2
@@ -188,7 +188,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 604711965}
-  - {fileID: 979357461}
   - {fileID: 1844139475}
   m_Father: {fileID: 1709447648}
   m_RootOrder: 0
@@ -255,58 +254,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756753335}
---- !u!1 &979357460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 159234, guid: b9ecc47dabac5b64899e1c5b61620afb, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 979357461}
-  - 114: {fileID: 979357462}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &979357461
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 459254, guid: b9ecc47dabac5b64899e1c5b61620afb, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 979357460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 718620583}
-  m_RootOrder: 1
---- !u!114 &979357462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459228, guid: b9ecc47dabac5b64899e1c5b61620afb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 979357460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideThemself: 0
-  triggerAfterDisappear: 0
-  skipWholeEvent: 0
-  Duration: 0
-  nextEvent: {fileID: 1844139474}
-  hideEvent: {fileID: 604711964}
-  appearEffect: 0
-  appearDuration: 0
-  appearVisibility: {x: 0, y: 1}
-  disappearEffect: 0
-  disappearDuration: 0
-  disappearVisibility: {x: 1, y: 0}
 --- !u!1 &1096981462
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1844139475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -625,7 +572,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 718620583}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -646,11 +593,11 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 2
+  Duration: 3
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: 2
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
   disappearDuration: 1
@@ -669,7 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: 90d39189f6cad415fa16aa5c3737ec1d, type: 3}
+  m_Texture: {fileID: 2800000, guid: 513f360babc304406b0659480f30a893, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
