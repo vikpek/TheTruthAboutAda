@@ -6033,7 +6033,7 @@ Transform:
   - {fileID: 384009009}
   - {fileID: 2124364754}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &125411407
 GameObject:
   m_ObjectHideFlags: 0
@@ -45319,6 +45319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c263eb7e6ad441f583165b347953e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  risingText: {fileID: 162022, guid: 06c7431c71e5640abaae97d051e722dd, type: 2}
 --- !u!114 &726394983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46011,7 +46012,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
@@ -47296,7 +47297,7 @@ Transform:
   m_PrefabInternal: {fileID: 887509554}
   m_GameObject: {fileID: 788876574}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 4.80000019, y: 11.8000002, z: 2.5999999}
+  m_LocalPosition: {x: -64.7099991, y: 11.8000002, z: 2.5999999}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 1919597314}
@@ -52179,7 +52180,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 3fedf4f07a81840f18be426b4edf96fa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.80000019
+      value: -64.7099991
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3fedf4f07a81840f18be426b4edf96fa, type: 2}
       propertyPath: m_LocalPosition.y
@@ -60381,7 +60382,7 @@ Transform:
   - {fileID: 1414911467}
   - {fileID: 1574418233}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &1037228600
 GameObject:
   m_ObjectHideFlags: 0
@@ -113761,6 +113762,10 @@ Prefab:
       propertyPath: FallingParts
       value: 
       objectReference: {fileID: 8300000, guid: f921c236825324009b16987cc0f4d964, type: 3}
+    - target: {fileID: 11498660, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
+      propertyPath: risingText
+      value: 
+      objectReference: {fileID: 162022, guid: 06c7431c71e5640abaae97d051e722dd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
   m_RootGameObject: {fileID: 726394980}

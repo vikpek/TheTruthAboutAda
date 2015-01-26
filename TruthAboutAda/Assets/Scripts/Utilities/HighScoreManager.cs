@@ -3,6 +3,9 @@ using System.Collections;
 
 public class HighScoreManager : MonoBehaviour 
 {
+	[SerializeField]
+	GameObject risingText;
+
 	public const float CREEP_POINTS = 10;
 
 	float currentHighscore;
@@ -41,10 +44,12 @@ public class HighScoreManager : MonoBehaviour
 		winScreen = true;
 	}
  
-	public void creepKilled()
+	public void creepKilled(Vector3 position)
 	{
 		currentMultiplier += 1;
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
+		risingText.GetComponent<RisingText>().setup((int) (CREEP_POINTS * currentMultiplier), 0.1f, 0.1f);
+		Instantiate(risingText, position, Quaternion.identity);
 		creepCounter--;
 		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
 		if( winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );

@@ -7,8 +7,7 @@ public class ButtonEvents : MonoBehaviour
 	// Callback Functions
 	public void StartOnClick()
 	{
-		Debug.LogWarning( "First Level not set - see Constants.cs & ButtonEvents.cs" );
-		Application.LoadLevel( Constants.LEVEL_LEVEL01 );
+		Application.LoadLevel( "Main" );
 	}
 
 	public void CreditsOnClick()
