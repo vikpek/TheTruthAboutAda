@@ -32,4 +32,15 @@ public class Shaking : MonoBehaviour
 			swap = !swap;
 		}
 	}
+
+	public void Disable()
+	{
+		// Reset to Zero
+		_ref.localRotation = new Quaternion();
+		_ref.localPosition = new Vector3();
+		// Set to default
+		swap = false;
+		repearCounter = 0;
+		enabled = false;
+	}
 }
