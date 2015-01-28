@@ -228,7 +228,7 @@ GameObject:
   - 4: {fileID: 412042}
   - 33: {fileID: 3312048}
   - 23: {fileID: 2312048}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: cylinder_main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &135452
 GameObject:
   m_ObjectHideFlags: 1
@@ -409,7 +409,7 @@ GameObject:
   - 4: {fileID: 494414}
   - 33: {fileID: 3394414}
   - 23: {fileID: 2394414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pipes_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - 4: {fileID: 494416}
   - 33: {fileID: 3394416}
   - 23: {fileID: 2394416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pipes_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - 4: {fileID: 494418}
   - 33: {fileID: 3394418}
   - 23: {fileID: 2394418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bolt_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - 4: {fileID: 494420}
   - 33: {fileID: 3394420}
   - 23: {fileID: 2394420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bolt_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - 4: {fileID: 494422}
   - 33: {fileID: 3394422}
   - 23: {fileID: 2394422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - 4: {fileID: 494424}
   - 33: {fileID: 3394424}
   - 23: {fileID: 2394424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494426}
   - 95: {fileID: 9594414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MM_GPE_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2048
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
@@ -1627,7 +1627,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   smooth: 1
-  useMouse: 0
+  useMouse: 1
   maxXBorder: 11
   minXBorder: -11
 --- !u!114 &11412064
