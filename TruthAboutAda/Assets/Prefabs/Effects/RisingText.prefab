@@ -42,7 +42,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 5d75281fa1433ba4c95c5ad25dbc913b, type: 3}
+  - {fileID: 2100000, guid: 402df4a57b4264005a7fb1e1d5ec933a, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -57,7 +57,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162022}
-  m_Text: 10 x8
+  m_Text: 10 x1
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -67,7 +67,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 5d75281fa1433ba4c95c5ad25dbc913b, type: 3}
+  m_Font: {fileID: 12800000, guid: 402df4a57b4264005a7fb1e1d5ec933a, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upwardsFadeout: 0
-  color: {r: .529411793, g: .529411793, b: .529411793, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
