@@ -184,7 +184,8 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if( creepBlack ) {
+		if( creepBlack )
+		{
 			reinitializeCreepRow( cylinderValue );
 			particleSystemLightning.Play();
 		}
@@ -196,6 +197,7 @@ public class CreepController3D : MonoBehaviour
 		soundManager.playEnemyDeath();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+		Destroy( GetComponent<CreepController3D>() );
 	}
 
 

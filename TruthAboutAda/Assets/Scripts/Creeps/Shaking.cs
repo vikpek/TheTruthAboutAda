@@ -13,6 +13,12 @@ public class Shaking : MonoBehaviour
 	[SerializeField]
 	bool useRotation = true;
 
+	[SerializeField]
+	bool useDuration = false;
+
+	[SerializeField]
+	float shakeDuration = 1f;
+
 	Transform _ref;
 
 	void Awake()
@@ -30,6 +36,11 @@ public class Shaking : MonoBehaviour
 			else _ref.localPosition = new Vector3( ( swap )?( shakeStrength * 0.01f ):( -shakeStrength * 0.01f ), 0f, 0f ) ;
 			repearCounter -= repeatSpeed;
 			swap = !swap;
+		}
+		if( useDuration ) 
+		{
+			shakeDuration -= Time.fixedDeltaTime;
+			if( shakeDuration <= 0f ) Disable();
 		}
 	}
 
