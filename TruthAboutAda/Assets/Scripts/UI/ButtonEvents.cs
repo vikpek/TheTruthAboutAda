@@ -8,7 +8,7 @@ public class ButtonEvents : MonoBehaviour
 	public void StartOnClick()
 	{
 		Debug.LogWarning( "First Level not set - see Constants.cs & ButtonEvents.cs" );
-		//Application.LoadLevel( Constants.LEVEL_LEVEL01 );
+		Application.LoadLevel( Constants.LEVEL_LEVEL01 );
 	}
 
 	public void CreditsOnClick()

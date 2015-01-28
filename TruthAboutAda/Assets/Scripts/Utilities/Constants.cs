@@ -15,7 +15,7 @@ public class Constants : MonoBehaviour
 
 	public const string LEVEL_MENU = "Menu";
 	public const string LEVEL_CREDITS = "Credits";
-	public const string LEVEL_LEVEL01 = "Cutscene";
+	public const string LEVEL_LEVEL01 = "SequenzDev";
 
 	public const string HORIZONTALRAIL = "HorizontalRail";
 

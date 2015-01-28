@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class HighScoreManager : MonoBehaviour 
 {
@@ -46,7 +47,13 @@ public class HighScoreManager : MonoBehaviour
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
 		creepCounter--;
 		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
-		if( winScreen && creepCounter == 0 ) GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
+		if( winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );
+	}
+
+	IEnumerator waitAndWin( float time )
+	{
+		yield return new WaitForSeconds( time );
+		GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
 	}
 
 	public void resetCreepCounter()
