@@ -27,16 +27,17 @@ public class PowerBarController : MonoBehaviour {
 		bar.fillAmount = fillState * 0.1f;
 	}
 
-	void resetFillState()
+	public void ResetFillState()
 	{
 		fillState = 0f;
+		bar.fillAmount = 0f;
 	}
 
-	public void Filled()
+	public bool Filled()
 	{
 		if(fillState == MAX_FILLSTATE)
 		{
-			resetFillState();
+			ResetFillState();
 			return true;
 		} else {
 			return false;

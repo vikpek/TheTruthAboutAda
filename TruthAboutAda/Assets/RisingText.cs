@@ -18,9 +18,9 @@ public class RisingText : MonoBehaviour
 	// "points" shows the points.
 	// "duration" is the lifespan of the object
 	// "rise speed" is how fast it will rise over time.
-	public void setup(int points, float duration, float rise_speed)
+	public void setup(string points, float duration, float rise_speed)
 	{
-		GetComponent<TextMesh>().text = points.ToString();        
+		GetComponent<TextMesh>().text = points;       
 		lifeLoss = 1f / duration;
 		crdsDelta = new Vector3(0f, rise_speed, 0f);        
 	}

@@ -108,7 +108,10 @@ public class CreepController3D : MonoBehaviour
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 		
-			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
+			if(col.GetComponent<BulletController>().IsBulletJoker())
+			{
+				explodeAllWithValue(cylinderValue);
+			} else if( col.GetComponent<BulletController>().GetBulletValue() == cylinderValue )
 			{
 				if( creepSilver )
 				{
@@ -147,6 +150,17 @@ public class CreepController3D : MonoBehaviour
 				reinitializeCylinder( -1 );
 				if( creepBlack ) reinitializeCreepRow(-1);
 				blockShot( col.gameObject );
+			}
+		}
+	}
+
+	void explodeAllWithValue (int _cylinderValue)
+	{
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag(Tags.CREEP)) {
+			if(go.GetComponent<CreepController3D>().cylinderValue == _cylinderValue)
+			{
+				Debug.Log ("test");
+				go.GetComponent<CreepController3D>().explodeYeah();
 			}
 		}
 	}
