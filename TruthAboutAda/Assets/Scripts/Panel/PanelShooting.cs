@@ -48,14 +48,12 @@ public class PanelShooting : MonoBehaviour
 					shootWaiter += 1f / shootsPerSecond;
 
 
-					((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().SetBulletValue( lastActiveKey );
-					if(powerBarController.Filled()) 
-					{
-						bullet.GetComponent<BulletController>().SetBulletToType(1);
-						powerBarController.ResetFillState();
-					}else { 
-						bullet.GetComponent<BulletController>().SetBulletToType(0);
-					}
+				
+					BulletController bc = 	((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
+					bc.SetBulletValue( lastActiveKey );
+					if(powerBarController.Filled()) bc.SetBulletToType(1);
+					else bc.SetBulletToType(0);
+					
 					soundManager.playPlayerShot();
 				} else if( activeKey != 10 )
 				{
