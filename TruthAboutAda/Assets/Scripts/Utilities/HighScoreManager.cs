@@ -49,7 +49,7 @@ public class HighScoreManager : MonoBehaviour
 		currentMultiplier += 1;
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
 		risingText.GetComponent<RisingText>().setup((int) (CREEP_POINTS * currentMultiplier), 0.1f, 0.1f);
-		Instantiate(risingText, position, Quaternion.identity);
+		Instantiate(risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 		creepCounter--;
 		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
 		if( winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );
