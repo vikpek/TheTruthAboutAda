@@ -29,6 +29,12 @@ public class SoundManager : MonoBehaviour
 	AudioClip CreepExplosion;
 
 	[SerializeField]
+	AudioClip CreepExplosion2;
+
+	[SerializeField]
+	AudioClip CreepExplosionBlackCreep;
+
+	[SerializeField]
 	AudioClip PlayerDamageShot;
 
 	[SerializeField]
@@ -59,6 +65,16 @@ public class SoundManager : MonoBehaviour
 	public void playCreepExplosion()
 	{
 		if( CreepExplosion != null ) audioSource.PlayOneShot( CreepExplosion );
+	}
+
+	public void playCreepExplosion2()
+	{
+		if( CreepExplosion2 != null ) audioSource.PlayOneShot( CreepExplosion2 );
+	}
+
+	public void playCreepExplosionBlackCreep()
+	{
+		if( CreepExplosionBlackCreep != null ) audioSource.PlayOneShot( CreepExplosionBlackCreep );
 	}
 
 	public void playFailedShot()
