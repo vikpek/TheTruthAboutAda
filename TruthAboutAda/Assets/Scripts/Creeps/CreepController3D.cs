@@ -173,6 +173,7 @@ public class CreepController3D : MonoBehaviour
 		if( creepBlack ) {
 			reinitializeCreepRow( cylinderValue );
 			particleSystemLightning.Play();
+			soundManager.playCreepExplosionBlackCreep();
 		}
 		if( !gotPoints )
 		{
@@ -180,6 +181,7 @@ public class CreepController3D : MonoBehaviour
 			gotPoints = true;
 		}
 		soundManager.playEnemyDeath();
+		soundManager.playCreepExplosionBlackCreep();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
 	}
@@ -233,6 +235,7 @@ public class CreepController3D : MonoBehaviour
 		if( !destroyed )
 		{
 			soundManager.playCreepExplosion();
+			soundManager.playCreepExplosion2();
 			particleSystemExplosion.Play();
 			Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 			foreach( Collider coll in colliders ) 
