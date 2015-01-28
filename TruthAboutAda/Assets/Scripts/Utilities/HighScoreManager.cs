@@ -10,6 +10,7 @@ public class HighScoreManager : MonoBehaviour
 
 	float currentHighscore;
 	float currentMultiplier;
+	PowerBarController powerBarController;
 
 	int creepCounter;
 	bool winScreen;
@@ -34,6 +35,7 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
+			powerBarController = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<PowerBarController>();
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
 	}
@@ -48,6 +50,7 @@ public class HighScoreManager : MonoBehaviour
 	{
 		currentMultiplier += 1;
 		currentHighscore += ( CREEP_POINTS * currentMultiplier );
+		powerBarController.fillUpValue((int) currentMultiplier);
 		risingText.GetComponent<RisingText>().setup((int) (CREEP_POINTS * currentMultiplier), 0.1f, 0.1f);
 		Instantiate(risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 		creepCounter--;

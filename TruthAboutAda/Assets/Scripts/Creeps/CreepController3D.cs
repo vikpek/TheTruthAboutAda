@@ -225,6 +225,7 @@ public class CreepController3D : MonoBehaviour
 	{
 		if( cylinderTransform ) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, Random.Range (0, 9) );
 	}
+	
 
 	// Explosion that affects all creep in sphere radius.
 	public void explodeYeah()
