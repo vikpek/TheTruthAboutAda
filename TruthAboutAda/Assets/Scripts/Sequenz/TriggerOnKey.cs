@@ -1,33 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TriggerOnDestroy : MonoBehaviour
+public class TriggerOnKey : MonoBehaviour 
 {
-	Transform _ref;
+	[SerializeField]
+	KeyCode key;
 
 	[SerializeField]
 	GameObject target;
 
 	[SerializeField]
 	GameObject hide;
-
+	
 	[SerializeField]
 	float waitTime = 0f;
-
+	
 	bool trigger;
 
-	void Awake()
+	void Update() 
 	{
-		_ref = transform.Find( Constants.ANIMATION_HOLDER );
-	}
-
-	void Update()
-	{
-		if( !trigger )
-		{
-			if( _ref == null ) StartCoroutine( Trigger() );
-			else if( _ref.parent != transform ) StartCoroutine( Trigger () );
-		}
+		if( !trigger ) 
+			if( Input.GetKeyDown( key ) ) StartCoroutine( Trigger() );
 	}
 
 	IEnumerator Trigger()
@@ -37,10 +30,5 @@ public class TriggerOnDestroy : MonoBehaviour
 		if( target != null ) target.SetActive( true );
 		if( hide != null ) hide.BroadcastMessage( "Disappear", SendMessageOptions.DontRequireReceiver );
 		this.enabled = false;
-	}	
-
-	void OnDestroy()
-	{
-		StartCoroutine( Trigger() );
 	}
 }
