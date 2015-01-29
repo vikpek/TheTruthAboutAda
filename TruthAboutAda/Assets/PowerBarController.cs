@@ -1,0 +1,50 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class PowerBarController : MonoBehaviour {
+
+	public const float MAX_FILLSTATE = 10;
+	Image bar;
+
+	float fillState = 0f;
+
+	bool _lock;
+
+	public void Start()
+	{
+		bar = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<Image>();
+	}
+
+	public void FillUpValue(int value)
+	{
+		if(!_lock){
+			if((value + fillState) < MAX_FILLSTATE)
+			{
+				fillState += value;
+			} else {
+				fillState = MAX_FILLSTATE;
+			}
+
+			//HACK will only work for MAX_FILLSTATE == 10. 
+			bar.fillAmount = fillState * 0.1f;
+		}
+	}
+
+	public void ResetFillState()
+	{
+		fillState = 0f;
+		bar.fillAmount = 0f;
+	}
+
+	public bool Filled()
+	{
+		if(fillState == MAX_FILLSTATE)
+		{
+			ResetFillState();
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

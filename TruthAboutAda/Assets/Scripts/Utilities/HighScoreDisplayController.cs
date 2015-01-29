@@ -11,9 +11,9 @@ public class HighScoreDisplayController : MonoBehaviour
 	void Awake()
 	{
 		for (int i = 0; i < DIGIT_COUNT; i++) {
-			cylinders[i] = transform.FindChild ("animation_holder").FindChild ("cylinder_" + i).FindChild("animation_holder_cylinder").transform;
+			cylinders[i] = transform.Find("animation_holder/cylinder_" + i + "/animation_holder_cylinder").transform;
 		}
-		setHighScoreDisplayTo (876543);
+
 	}	
 
 
@@ -21,7 +21,8 @@ public class HighScoreDisplayController : MonoBehaviour
 	{
 		int tmp = highScore;
 		for (int i = 0; i < DIGIT_COUNT; i++) {
-			cylinders [i].rotation = CylinderUtility.Get.rotateCylinder (new Vector3 (0, 0, 0), tmp % 10);
+			cylinders [i].rotation = CylinderUtility.Get.setCylinderToValue(tmp % 10);
+
 			tmp = tmp / 10;
 		}
 	}

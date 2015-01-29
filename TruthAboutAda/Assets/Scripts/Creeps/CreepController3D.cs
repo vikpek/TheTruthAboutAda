@@ -108,7 +108,10 @@ public class CreepController3D : MonoBehaviour
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 		
-			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
+			if(col.GetComponent<BulletController>().IsBulletJoker())
+			{
+				explodeAllWithValue(cylinderValue);
+			} else if( col.GetComponent<BulletController>().GetBulletValue() == cylinderValue )
 			{
 				if( creepSilver )
 				{
@@ -151,6 +154,17 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
+	void explodeAllWithValue (int _cylinderValue)
+	{
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag(Tags.CREEP)) {
+			if(go.GetComponent<CreepController3D>().cylinderValue == _cylinderValue)
+			{
+				Debug.Log ("test");
+				go.GetComponent<CreepController3D>().explodeYeah();
+			}
+		}
+	}
+
 	// The owned cylinder will rotate and finally set to the given value which is random if -1.
 	public void reinitializeCylinder( int _cylinderValue )
 	{
@@ -187,6 +201,16 @@ public class CreepController3D : MonoBehaviour
 			Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
 			destroyed = true;
 		}
+		if( !gotPoints )
+		{
+			HighScoreManager.Get.creepKilled(transform.position);
+			gotPoints = true;
+		}
+		soundManager.playEnemyDeath();
+		soundManager.playCreepExplosionBlackCreep();
+		Destroy( GetComponent<BoxCollider>() );
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+//		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
@@ -231,13 +255,13 @@ public class CreepController3D : MonoBehaviour
 		if( cylinderTransform ) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, Random.Range (0, 9) );
 	}
 
-
 	// Explosion that affects all creep in sphere radius.
 	public void explodeYeah()
 	{
 		if( !destroyed )
 		{
 			soundManager.playCreepExplosion();
+			soundManager.playCreepExplosion2();
 			particleSystemExplosion.Play();
 			Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 			foreach( Collider coll in colliders ) 

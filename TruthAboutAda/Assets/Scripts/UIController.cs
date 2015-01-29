@@ -25,12 +25,8 @@ public class UIController : MonoBehaviour
 	GameObject ContinueB;
 	GameObject RestartB;
 	GameObject NextLevelB;
-<<<<<<< HEAD
-	
-=======
 
 
->>>>>>> assetIntegration
 	void Awake()
 	{
 		if( Menu == null ) Menu = GameObject.Find("EscapeMenu");
@@ -54,10 +50,7 @@ public class UIController : MonoBehaviour
 		ContinueB.SetActive( false );
 		RestartB.SetActive( true );
 		NextLevelB.SetActive( false );
-<<<<<<< HEAD
-=======
 		Camera.main.GetComponent<BlurEffect>().enabled = true;
->>>>>>> assetIntegration
 		Menu.SetActive( true );
 		Screen.showCursor = true;
 		lastState = state;
@@ -81,6 +74,12 @@ public class UIController : MonoBehaviour
 		lastState = state;
 		state = States.Win;
 		*/
+	}
+
+	public void Hide()
+	{
+		lastState = state;
+		state = States.None;
 	}
 
 	void PauseGame()
@@ -113,7 +112,6 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
 		Screen.showCursor = false;
-		Menu.SetActive( false );
 	}
 
 	public void NextLevel()
@@ -124,7 +122,6 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
 		Screen.showCursor = false;
-		Menu.SetActive( false );
 	}
 
 	public void BackToMenu()
@@ -134,6 +131,5 @@ public class UIController : MonoBehaviour
 		Application.LoadLevel( Constants.LEVEL_MENU );
 		state = States.None;
 		Screen.showCursor = true;
-		Menu.SetActive( false );
 	}
 }
