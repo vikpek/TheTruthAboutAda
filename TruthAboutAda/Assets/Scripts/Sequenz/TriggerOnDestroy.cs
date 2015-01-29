@@ -11,11 +11,6 @@ public class TriggerOnDestroy : MonoBehaviour
 	[SerializeField]
 	GameObject hide;
 
-	[SerializeField]
-	float waitTime = 0f;
-
-	bool trigger;
-
 	void Awake()
 	{
 		_ref = transform.Find( Constants.ANIMATION_HOLDER );
@@ -23,17 +18,12 @@ public class TriggerOnDestroy : MonoBehaviour
 
 	void Update()
 	{
-		if( !trigger )
-		{
-			if( _ref == null ) StartCoroutine( Trigger() );
-			else if( _ref.parent != transform ) StartCoroutine( Trigger () );
-		}
+		if( _ref == null ) Trigger();
+		else if( _ref.parent != transform ) Trigger ();
 	}
 
-	IEnumerator Trigger()
+	void Trigger()
 	{
-		trigger = true;
-		if( waitTime > 0f ) yield return StartCoroutine( CoroutinesUtilities.WaitForRealSeconds( waitTime ) );
 		if( target != null ) target.SetActive( true );
 		if( hide != null ) hide.BroadcastMessage( "Disappear", SendMessageOptions.DontRequireReceiver );
 		this.enabled = false;
@@ -41,6 +31,6 @@ public class TriggerOnDestroy : MonoBehaviour
 
 	void OnDestroy()
 	{
-		StartCoroutine( Trigger() );
+		Trigger();
 	}
 }
