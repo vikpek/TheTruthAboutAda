@@ -7,7 +7,7 @@ public class ButtonEvents : MonoBehaviour
 	// Callback Functions
 	public void StartOnClick()
 	{
-		Application.LoadLevel( "Main" );
+		Application.LoadLevel( Application.loadedLevel + 1 );
 	}
 
 	public void CreditsOnClick()

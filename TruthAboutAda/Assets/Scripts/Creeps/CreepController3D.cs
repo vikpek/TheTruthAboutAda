@@ -199,7 +199,7 @@ public class CreepController3D : MonoBehaviour
 		soundManager.playCreepExplosionBlackCreep();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
-		Destroy( GetComponent<CreepController3D>() );
+//		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
