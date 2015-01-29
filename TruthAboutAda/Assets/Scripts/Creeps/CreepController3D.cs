@@ -170,20 +170,23 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if( creepBlack )
+		if( !destroyed )
 		{
-			reinitializeCreepRow( cylinderValue );
-			particleSystemLightning.Play();
+			if( creepBlack )
+			{
+				reinitializeCreepRow( cylinderValue );
+				particleSystemLightning.Play();
+			}
+			if( !gotPoints )
+			{
+				HighScoreManager.Get.creepKilled();
+				gotPoints = true;
+			}
+			soundManager.playEnemyDeath();
+			Destroy( GetComponent<BoxCollider>() );
+			Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+			destroyed = true;
 		}
-		if( !gotPoints )
-		{
-			HighScoreManager.Get.creepKilled();
-			gotPoints = true;
-		}
-		soundManager.playEnemyDeath();
-		Destroy( GetComponent<BoxCollider>() );
-		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
-		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
@@ -262,7 +265,12 @@ public class CreepController3D : MonoBehaviour
 			_link.CreepKill();
 		}
 	}
-	
+
+	public bool getDestroyed()
+	{
+		return destroyed;
+	}
+
 	// Increases the shake duration by _shakingTime.
 	void shakeIt( float _shakingTime )
 	{

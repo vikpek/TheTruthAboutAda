@@ -18,14 +18,18 @@ public class ModTime : MonoBehaviour
 
 	void Update()
 	{
-		time = Time.realtimeSinceStartup - lastTime;
-		if( time > 0.1f ) time = 0.1f;
-		lastTime = Time.realtimeSinceStartup;
-		waitTime -= time;
-		if( waitTime <= 0f )
+		if( waitTime >= 0 )
 		{
-			Time.timeScale = ( disableTime )?( 0f ):( 1f );
-			gameObject.SetActive( false );
+			time = Time.realtimeSinceStartup - lastTime;
+			if( time > 0.1f ) time = 0.1f;
+			lastTime = Time.realtimeSinceStartup;
+			waitTime -= time;
+			if( waitTime <= 0f )
+			{
+				Time.timeScale = ( disableTime )?( 0f ):( 1f );
+				gameObject.SetActive( false );
+			}
+
 		}
 	}
 }

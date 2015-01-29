@@ -2,23 +2,13 @@
 
 public class TriggerOnDestroy : MonoBehaviour
 {
-	CreepController3D _ref;
-
 	[SerializeField]
 	GameObject target;
 
-	void Awake()
+	void OnDestroy()
 	{
-		_ref = GetComponent<CreepController3D>();
-	}
-
-	void Update()
-	{
-		if( _ref == null )
-		{
-			Debug.Log("Trigger");
-			target.SetActive( true );
-			this.enabled = false;
-		}
+		Debug.Log("Trigger");
+		target.SetActive( true );
+		this.enabled = false;
 	}
 }
