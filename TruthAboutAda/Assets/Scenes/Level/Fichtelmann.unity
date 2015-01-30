@@ -14303,6 +14303,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11460260, guid: eab17bf3001134eefa18d63eb997a3c5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460262, guid: eab17bf3001134eefa18d63eb997a3c5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8260262, guid: eab17bf3001134eefa18d63eb997a3c5, type: 2}
     - {fileID: 8256748, guid: eab17bf3001134eefa18d63eb997a3c5, type: 2}
@@ -19659,7 +19667,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1182596990}
   m_GameObject: {fileID: 1611637958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a773099f140e846f7835d27351846623, type: 3}
   m_Name: 
@@ -19699,7 +19707,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1182596990}
   m_GameObject: {fileID: 1611637958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
@@ -25254,8 +25262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: 0d79c4be60c1541c98e4dbb2acc87bfb, type: 2}
   spawnOffset: {x: 0, y: 1, z: -1}
-  shootsPerSecond: 2
-  waitBetweenDifferentsShots: .00100000005
+  shootsPerSecond: 5
+  waitBetweenDifferentsShots: .100000001
   multi: 0
 --- !u!114 &1971169271
 MonoBehaviour:
@@ -25269,7 +25277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957704a13de3244cb9157cdce8fd573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   smooth: 1
   useMouse: 0
   maxXBorder: 11
