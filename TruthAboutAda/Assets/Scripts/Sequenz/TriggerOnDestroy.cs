@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class TriggerOnDestroy : MonoBehaviour
 {
@@ -8,42 +9,28 @@ public class TriggerOnDestroy : MonoBehaviour
 	GameObject target;
 
 	[SerializeField]
-	float waitTime = 0f;
-
-	float lastTime;
-	float time;
-
-	bool trigger;
+	GameObject hide;
 
 	void Awake()
 	{
 		_ref = transform.Find( Constants.ANIMATION_HOLDER );
 	}
 
-	void Start()
-	{
-		lastTime = Time.realtimeSinceStartup;
-	}
-
 	void Update()
 	{
-		if( trigger )
-		{
-			time = Time.realtimeSinceStartup - lastTime;
-			if( time > 0.1f ) time = 0.1f;
-			lastTime = Time.realtimeSinceStartup;
-			waitTime -= time;
-			if( time <= 0f ) Trigger();
-		} else {
-			if( _ref == null ) trigger = true;
-			else if( _ref.parent != transform ) trigger = true;
-		}
+		if( _ref == null ) Trigger();
+		else if( _ref.parent != transform ) Trigger ();
 	}
 
 	void Trigger()
 	{
-		Debug.Log("Trigger");
-		target.SetActive( true );
+		if( target != null ) target.SetActive( true );
+		if( hide != null ) hide.BroadcastMessage( "Disappear", SendMessageOptions.DontRequireReceiver );
 		this.enabled = false;
+	}	
+
+	void OnDestroy()
+	{
+		Trigger();
 	}
 }
