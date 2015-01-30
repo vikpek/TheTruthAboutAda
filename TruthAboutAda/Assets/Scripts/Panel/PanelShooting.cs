@@ -46,10 +46,8 @@ public class PanelShooting : MonoBehaviour
 				{
 					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Fire Shoot" );
 					shootWaiter += 1f / shootsPerSecond;
-
-
 				
-					BulletController bc = 	((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
+					BulletController bc = ((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
 					bc.SetBulletValue( lastActiveKey );
 					if(powerBarController.Filled()) bc.SetBulletToType(1);
 					else bc.SetBulletToType(0);

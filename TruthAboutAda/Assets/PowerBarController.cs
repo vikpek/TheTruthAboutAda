@@ -5,16 +5,12 @@ using System.Collections;
 public class PowerBarController : MonoBehaviour {
 
 	public const float MAX_FILLSTATE = 10;
+
 	Image bar;
 
 	float fillState = 0f;
 
 	bool _lock;
-
-	public void Start()
-	{
-		bar = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<Image>();
-	}
 
 	public void FillUpValue(int value)
 	{
@@ -26,15 +22,16 @@ public class PowerBarController : MonoBehaviour {
 				fillState = MAX_FILLSTATE;
 			}
 
-			//HACK will only work for MAX_FILLSTATE == 10. 
-			bar.fillAmount = fillState * 0.1f;
+			Quaternion newRotation = transform.rotation;
+			newRotation.z = fillState;
+			transform.rotation = newRotation;
 		}
 	}
 
 	public void ResetFillState()
 	{
 		fillState = 0f;
-		bar.fillAmount = 0f;
+		// TODO tbi
 	}
 
 	public bool Filled()

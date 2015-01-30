@@ -193,7 +193,7 @@ public class CreepController3D : MonoBehaviour
 			}
 			if( !gotPoints )
 			{
-				HighScoreManager.Get.creepKilled();
+				HighScoreManager.Get.creepKilled(transform.position);
 				gotPoints = true;
 			}
 			soundManager.playEnemyDeath();
