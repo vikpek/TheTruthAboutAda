@@ -49,7 +49,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Priority: 128
+  Priority: 164
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -87,7 +87,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: .0444444455
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -105,12 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDeath: {fileID: 8300000, guid: 4f34d880170d246eb9121d8eb9b08ca1, type: 3}
-  EnemyDeath: {fileID: 8300000, guid: d8e2373abb924439690c15c157257f8e, type: 3}
-  PlayerShot: {fileID: 8300000, guid: a96dc6e97dc1b4356afb9b8332dd5699, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: a12dbcb96c4dc1445a6af7fc3b34095f, type: 3}
+  PlayerShot: {fileID: 8300000, guid: c6c1b61b1c938e5418d020d3c40946b4, type: 3}
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
   MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
-  FailedShot: {fileID: 8300000, guid: b7e3ea597253d4471b780edbd565ef44, type: 3}
+  FailedShot: {fileID: 8300000, guid: b62dc64cbd3f94e4da76f79175c5f079, type: 3}
+  CreepExplosion: {fileID: 8300000, guid: a12dbcb96c4dc1445a6af7fc3b34095f, type: 3}
+  CreepExplosion2: {fileID: 8300000, guid: bd31752821e67437ca2d0a41dada5543, type: 3}
+  CreepExplosionBlackCreep: {fileID: 8300000, guid: 270200063e95a4f129242abe2f1276a3,
+    type: 3}
+  PlayerDamageShot: {fileID: 8300000, guid: c7b77a51a4c71477eaaeda0f031299a0, type: 3}
+  FallingParts: {fileID: 8300000, guid: f921c236825324009b16987cc0f4d964, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f185bb82b620984f8165969ae2c904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Menu: {fileID: 0}
 --- !u!114 &11498658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c263eb7e6ad441f583165b347953e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  risingText: {fileID: 162022, guid: 06c7431c71e5640abaae97d051e722dd, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

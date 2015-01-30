@@ -2,7 +2,8 @@
 
 public class PanelShooting : MonoBehaviour 
 {
-	public GameObject Bullet;
+	[SerializeField]
+	GameObject bullet;
 
 	[SerializeField]
 	Vector3 spawnOffset = new Vector3( 0f, 1f, -3f );
@@ -24,11 +25,13 @@ public class PanelShooting : MonoBehaviour
 	int lastActiveKey = 0;
 
 	DelayController delayController;
+	PowerBarController powerBarController;
 
 	void Awake()
 	{
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		delayController = transform.Find( "DelayCylinder" ).GetComponent<DelayController>();
+		powerBarController = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<PowerBarController>();
 	}
 
 	void Update()
@@ -43,7 +46,12 @@ public class PanelShooting : MonoBehaviour
 				{
 					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Fire Shoot" );
 					shootWaiter += 1f / shootsPerSecond;
-					((GameObject)Instantiate( Bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>().setBulletValue( lastActiveKey );
+				
+					BulletController bc = ((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
+					bc.SetBulletValue( lastActiveKey );
+					if(powerBarController.Filled()) bc.SetBulletToType(1);
+					else bc.SetBulletToType(0);
+					
 					soundManager.playPlayerShot();
 				} else if( activeKey != 10 )
 				{

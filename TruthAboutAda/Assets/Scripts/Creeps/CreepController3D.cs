@@ -108,7 +108,10 @@ public class CreepController3D : MonoBehaviour
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 		
-			if( col.GetComponent<BulletController>().getBulletValue() == cylinderValue )
+			if(col.GetComponent<BulletController>().IsBulletJoker())
+			{
+				explodeAllWithValue(cylinderValue);
+			} else if( col.GetComponent<BulletController>().GetBulletValue() == cylinderValue )
 			{
 				if( creepSilver )
 				{
@@ -151,6 +154,17 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
+	void explodeAllWithValue (int _cylinderValue)
+	{
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag(Tags.CREEP)) {
+			if(go.GetComponent<CreepController3D>().cylinderValue == _cylinderValue)
+			{
+				Debug.Log ("test");
+				go.GetComponent<CreepController3D>().explodeYeah();
+			}
+		}
+	}
+
 	// The owned cylinder will rotate and finally set to the given value which is random if -1.
 	public void reinitializeCylinder( int _cylinderValue )
 	{
@@ -170,20 +184,33 @@ public class CreepController3D : MonoBehaviour
 	// The logical consequences for destroyed creep - independend of the animations.
 	void creepDeath()
 	{
-		if( creepBlack ) {
-			reinitializeCreepRow( cylinderValue );
-			particleSystemLightning.Play();
-			soundManager.playCreepExplosionBlackCreep();
+		if( !destroyed )
+		{
+			if( creepBlack )
+			{
+				reinitializeCreepRow( cylinderValue );
+				particleSystemLightning.Play();
+			}
+			if( !gotPoints )
+			{
+				HighScoreManager.Get.creepKilled(transform.position);
+				gotPoints = true;
+			}
+			soundManager.playEnemyDeath();
+			Destroy( GetComponent<BoxCollider>() );
+			Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+			destroyed = true;
 		}
 		if( !gotPoints )
 		{
-			HighScoreManager.Get.creepKilled();
+			HighScoreManager.Get.creepKilled(transform.position);
 			gotPoints = true;
 		}
 		soundManager.playEnemyDeath();
 		soundManager.playCreepExplosionBlackCreep();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+//		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
@@ -228,7 +255,6 @@ public class CreepController3D : MonoBehaviour
 		if( cylinderTransform ) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, Random.Range (0, 9) );
 	}
 
-
 	// Explosion that affects all creep in sphere radius.
 	public void explodeYeah()
 	{
@@ -263,7 +289,12 @@ public class CreepController3D : MonoBehaviour
 			_link.CreepKill();
 		}
 	}
-	
+
+	public bool getDestroyed()
+	{
+		return destroyed;
+	}
+
 	// Increases the shake duration by _shakingTime.
 	void shakeIt( float _shakingTime )
 	{
