@@ -14,24 +14,28 @@ public class PowerBarController : MonoBehaviour {
 
 	public void FillUpValue(int value)
 	{
-		if(!_lock){
-			if((value + fillState) < MAX_FILLSTATE)
-			{
-				fillState += value;
-			} else {
-				fillState = MAX_FILLSTATE;
-			}
-
-			Quaternion newRotation = transform.rotation;
-			newRotation.z = fillState;
-			transform.rotation = newRotation;
+		if((value + fillState) < MAX_FILLSTATE)
+		{
+			fillState += value;
+		} else {
+			fillState = MAX_FILLSTATE;
 		}
+
+		syncFillState ();
+	}
+
+	void syncFillState ()
+	{
+		Quaternion newRotation = transform.rotation;
+		//HACK no idea why 0.09f works... but it does.
+		newRotation.z = 0.09f * fillState;
+		transform.rotation = newRotation;
 	}
 
 	public void ResetFillState()
 	{
 		fillState = 0f;
-		// TODO tbi
+		syncFillState();
 	}
 
 	public bool Filled()
