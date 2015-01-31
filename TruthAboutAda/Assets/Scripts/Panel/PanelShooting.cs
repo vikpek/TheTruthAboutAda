@@ -27,6 +27,8 @@ public class PanelShooting : MonoBehaviour
 	DelayController delayController;
 	PowerBarController powerBarController;
 
+	public bool Shooting = true;
+
 	void Awake()
 	{
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
@@ -39,7 +41,7 @@ public class PanelShooting : MonoBehaviour
 		if( shootWaiter > 0f ) shootWaiter -= Time.deltaTime;
 		if( shootWaiter <= 0f ) 
 		{
-			activeKey = scanKeys();
+			activeKey = ( Shooting )?( scanKeys() ):( -1 );
 			if( activeKey != -1 ) 
 			{
 				if( activeKey == 10 && lastActiveKey != -1 )

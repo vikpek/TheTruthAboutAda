@@ -27,4 +27,9 @@ public class BulletController : MonoBehaviour
 	{
 		return bulletType == 1;
 	}
+
+	void Update()
+	{
+		if( transform.localPosition.y <= 35f ) Destroy( gameObject );
+	}
 }
