@@ -63,25 +63,6 @@ public class TheEventNoTime : MonoBehaviour
 		Set();
 	}
 
-		/*if( Input.GetKeyDown( KeyCode.Space ) && !skip )
-		{
-			if( skipWholeEvent )
-			{
-				if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
-				startTime = 0f;
-				lifeTime = 0f;
-				endTime = 0f;
-				if( triggerAfterDisappear ) Trigger();
-			} else 
-			{
-				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
-				startTime = 0f;
-				lifeTime = 0f;
-				if( !triggerAfterDisappear ) Trigger();
-			}
-			skip = true;
-		}*/
-
 	void Start()
 	{
 		lastTime = Time.realtimeSinceStartup;
@@ -120,6 +101,25 @@ public class TheEventNoTime : MonoBehaviour
 			if( triggerAfterDisappear ) Trigger();
 			else gameObject.SetActive( false );
 			Set(); // Prepare for next use
+		}
+
+		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
+		{
+			if( skipWholeEvent )
+			{
+				if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				endTime = 0f;
+				if( triggerAfterDisappear ) Trigger();
+			} else 
+			{
+				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				if( !triggerAfterDisappear ) Trigger();
+			}
+			skip = true;
 		}
 	}
 

@@ -27,7 +27,7 @@ public class ModTime : MonoBehaviour
 			if( waitTime <= 0f )
 			{
 				Time.timeScale = ( disableTime )?( 0f ):( 1f );
-				gameObject.SetActive( false );
+				enabled = false;
 			}
 
 		}
