@@ -63,7 +63,7 @@ public class HighScoreManager : MonoBehaviour
 	IEnumerator waitAndWin( float time )
 	{
 		yield return new WaitForSeconds( time );
-		GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
+		transform.GetComponent<TheEventNoTime>().enabled = true;
 	}
 
 	public void resetCreepCounter()
