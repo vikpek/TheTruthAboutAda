@@ -8,8 +8,7 @@ public class MovementVerticalController : MonoBehaviour {
 	[SerializeField]
 	float minY = 45; 
 
-	[SerializeField]
-	float smooth = 5f;
+	public float smooth = 5f;
 
 	Vector3 move;
 	Vector3 startPosition;
