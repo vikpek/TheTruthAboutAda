@@ -3,11 +3,9 @@ using System.Collections;
 
 public class CreepController3D : MonoBehaviour 
 {
-	[SerializeField]
-	bool randomized = true;
+	public bool randomized = true;
 	
-	[SerializeField]
-	int cylinderValue;
+	public int cylinderValue;
 
 	[SerializeField]
 	float beginRotationAfter = 2;
@@ -85,9 +83,8 @@ public class CreepController3D : MonoBehaviour
 			rotationDuration -= Time.deltaTime;
 			rotateCylinder();
 			shakeIt( 0.5f );
-
-			if( !audioSource.isPlaying ) audioSource.Play();
-		} else audioSource.Stop();
+			if( creepBlack || creepSilver ) if( !audioSource.isPlaying ) audioSource.Play();
+		} else if( creepBlack || creepSilver ) audioSource.Stop();
 
 		if( rotationDuration <= 0 )
 		{

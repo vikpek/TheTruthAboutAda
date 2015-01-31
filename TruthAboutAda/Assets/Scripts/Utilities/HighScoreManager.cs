@@ -14,6 +14,7 @@ public class HighScoreManager : MonoBehaviour
 
 	int creepCounter;
 	bool winScreen;
+	bool block;
 
 	static HighScoreManager _instance;
 	
@@ -24,7 +25,8 @@ public class HighScoreManager : MonoBehaviour
 			if( _instance == null )
 			{
 				_instance = GameObject.FindObjectOfType<HighScoreManager>();
-				DontDestroyOnLoad (_instance);
+				_instance.powerBarController = GameObject.FindWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
+				DontDestroyOnLoad( _instance );
 			}
 			return _instance;
 		}
@@ -35,7 +37,7 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
-			powerBarController = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<PowerBarController>();
+			powerBarController = GameObject.FindWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
 	}
@@ -43,7 +45,7 @@ public class HighScoreManager : MonoBehaviour
 	public void addCreeps( int numb )
 	{
 		creepCounter += numb;
-		winScreen = true;
+		if( !block ) winScreen = true;
 	}
  
 	public void creepKilled(Vector3 position)
@@ -67,7 +69,7 @@ public class HighScoreManager : MonoBehaviour
 	public void resetCreepCounter()
 	{
 		creepCounter = 0;
-		winScreen = false;
+		if( !block ) winScreen = false;
 	}
 
 	public void shotFailed()
@@ -83,6 +85,11 @@ public class HighScoreManager : MonoBehaviour
 	public int getCurrentMultiplier()
 	{
 		return (int) currentMultiplier;
+	}
+
+	public void setBlock( bool value )
+	{
+		block = value;
 	}
 
 }

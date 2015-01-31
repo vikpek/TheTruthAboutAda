@@ -2,16 +2,14 @@
 
 public class RowSpawner : MonoBehaviour 
 {
-	[SerializeField]
-	float spawnTimer = 1.5f;
+	public float spawnTimer = 1.5f;
 
 	Animator animator;
 
 	[SerializeField]
 	bool incomingAnimation = true;
 
-	[SerializeField]
-	float movementStartDelay = 3;
+	public float movementStartDelay = 3;
 
 	void Awake()
 	{

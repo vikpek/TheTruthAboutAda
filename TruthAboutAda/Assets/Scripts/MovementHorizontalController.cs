@@ -8,16 +8,14 @@ public class MovementHorizontalController : MonoBehaviour {
 	float minX = -10; 
 	float maxX = 7;
 
-	[SerializeField]
-	float smooth = 0.1f;
+	public float smooth = 0.1f;
 
 	[SerializeField]
 	bool lerp = true;
 
 	Vector3 move;
 
-	[SerializeField]
-	bool directionRight = true;
+	public bool directionRight = true;
 	
 	void Awake()
 	{
