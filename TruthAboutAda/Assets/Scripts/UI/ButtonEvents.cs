@@ -7,13 +7,17 @@ public class ButtonEvents : MonoBehaviour
 	// Callback Functions
 	public void StartOnClick()
 	{
-		Application.LoadLevel( Application.loadedLevel + 1 );
+		Application.LoadLevel(Constants.LEVEL_TUTORIAL);
+	}
+
+	public void StartArcadeOnClick()
+	{
+		Application.LoadLevel(Constants.LEVEL_INFINITY);
 	}
 
 	public void CreditsOnClick()
 	{
-		Debug.LogWarning( "Credits Level not set - see Constants.cs & ButtonEvents.cs" );
-		//Application.LoadLevel( Constants.LEVEL_CREDITS );
+		Application.LoadLevel( Constants.LEVEL_CREDITS );
 	}
 
 	public void QuitOnClick()

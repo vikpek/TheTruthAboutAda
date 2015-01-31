@@ -14,6 +14,8 @@ public class Constants : MonoBehaviour
 	public const string CREEP_PARTICLE_SYSTEM_LIGHTNING = "particle_system_lightning";
 
 	public const string LEVEL_MENU = "Menu";
+	public const string LEVEL_TUTORIAL = "Level_Tutorial";
+	public const string LEVEL_INFINITY = "Level_Infinity";
 	public const string LEVEL_CREDITS = "Credits";
 	public const string LEVEL_LEVEL01 = "SequenzDev";
 
@@ -28,5 +30,4 @@ public class Constants : MonoBehaviour
 
 	public const string ANIMATION_HOLDER = "animation_holder";
 	public const string CYLINDER = "cylinder";
-
 }
