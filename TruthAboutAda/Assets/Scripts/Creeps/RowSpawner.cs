@@ -2,6 +2,7 @@
 
 public class RowSpawner : MonoBehaviour 
 {
+
 	public float spawnTimer = 1.5f;
 
 	Animator animator;
