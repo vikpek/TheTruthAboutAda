@@ -4050,7 +4050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &83936852
 Transform:
   m_ObjectHideFlags: 0
@@ -12098,7 +12098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &170348108
 Transform:
   m_ObjectHideFlags: 0
@@ -25048,7 +25048,7 @@ Prefab:
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideEvent
       value: 
-      objectReference: {fileID: 63678692}
+      objectReference: {fileID: 516700174}
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideThemself
       value: 1
@@ -38467,7 +38467,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 0
   nextEvent: {fileID: 0}
-  hideEvent: {fileID: 63678692}
+  hideEvent: {fileID: 136426725}
   appearEffect: 0
   appearDuration: 0
   appearVisibility: {x: 0, y: 1}
@@ -43233,6 +43233,7 @@ GameObject:
   - 222: {fileID: 516700178}
   - 114: {fileID: 516700177}
   - 114: {fileID: 516700176}
+  - 114: {fileID: 516700179}
   m_Layer: 5
   m_Name: Satz04
   m_TagString: Untagged
@@ -43316,6 +43317,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 516700174}
+--- !u!114 &516700179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516700174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f446afe16fa60fc4aa3e1351dd3cdc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activate: 1
 --- !u!1 &518062075
 GameObject:
   m_ObjectHideFlags: 0
@@ -43617,7 +43630,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 111260, guid: 035a1c46fc370cc43a3ba71c909b91c3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11411260, guid: 035a1c46fc370cc43a3ba71c909b91c3, type: 2}
       propertyPath: target
@@ -45980,7 +45993,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 588910167}
-  - 114: {fileID: 588910168}
   m_Layer: 0
   m_Name: FourthShow
   m_TagString: Untagged
@@ -46004,18 +46016,6 @@ Transform:
   - {fileID: 136268711}
   m_Father: {fileID: 1800469808}
   m_RootOrder: 5
---- !u!114 &588910168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 588910166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f446afe16fa60fc4aa3e1351dd3cdc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activate: 1
 --- !u!1 &597169716
 GameObject:
   m_ObjectHideFlags: 0
@@ -53473,7 +53473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &780818329
 Transform:
   m_ObjectHideFlags: 0
@@ -62650,7 +62650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &910209849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -91649,7 +91649,7 @@ Prefab:
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideEvent
       value: 
-      objectReference: {fileID: 63678692}
+      objectReference: {fileID: 136426725}
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideThemself
       value: 1
@@ -92914,7 +92914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1484341279
 Transform:
   m_ObjectHideFlags: 0
@@ -114009,7 +114009,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 0
   nextEvent: {fileID: 0}
-  hideEvent: {fileID: 63678692}
+  hideEvent: {fileID: 516700174}
   appearEffect: 0
   appearDuration: 0
   appearVisibility: {x: 0, y: 1}
@@ -116925,7 +116925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1888287748
 Transform:
   m_ObjectHideFlags: 0
@@ -123976,7 +123976,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 111260, guid: 035a1c46fc370cc43a3ba71c909b91c3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11411260, guid: 035a1c46fc370cc43a3ba71c909b91c3, type: 2}
       propertyPath: target
