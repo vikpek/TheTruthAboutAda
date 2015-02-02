@@ -3,6 +3,9 @@ using System.Collections;
 
 public class TriggerOnDestroy : MonoBehaviour
 {
+	[SerializeField]
+	bool disableRefCheck = false;
+
 	Transform _ref;
 
 	[SerializeField]
@@ -18,8 +21,11 @@ public class TriggerOnDestroy : MonoBehaviour
 
 	void Update()
 	{
-		if( _ref == null ) Trigger();
-		else if( _ref.parent != transform ) Trigger ();
+		if (!disableRefCheck)
+		{
+			if (_ref == null) Trigger ();
+			else if (_ref.parent != transform)Trigger ();
+		}
 	}
 
 	void Trigger()

@@ -42,7 +42,7 @@ public class CreepController3D : MonoBehaviour
 
 	float shakingTime;
 
-	MovementVerticalController _link;
+	RowSpawner _link;
 
 	bool destroyed;
 
@@ -71,7 +71,7 @@ public class CreepController3D : MonoBehaviour
 
 	void findMovVerCon( Transform obj )
 	{
-		if( obj.parent.GetComponent<MovementVerticalController>() != null ) _link = obj.parent.GetComponent<MovementVerticalController>();
+		if( obj.parent.GetComponent<RowSpawner>() != null ) _link = obj.parent.GetComponent<RowSpawner>();
 		else findMovVerCon( obj.parent );
 	}
 
@@ -315,7 +315,6 @@ public class CreepController3D : MonoBehaviour
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
 			Destroy( GetComponent<Rigidbody>() );
-			//Debug.Log( transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/animation_holder_cylinder/Spotlight" ) );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.parent = obj.transform;

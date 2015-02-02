@@ -37,7 +37,7 @@ public class UIController : MonoBehaviour
 
 	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.Escape ) )
+		if( Input.GetKeyDown( KeyCode.Escape ) || Input.GetKeyDown( KeyCode.JoystickButton9 ) )
 		{
 			if( state == States.Pause ) UnpauseGame();
 			else PauseGame();

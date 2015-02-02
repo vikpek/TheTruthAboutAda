@@ -38782,7 +38782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 1265691663}
   rowGen: {fileID: 1265691660}
-  firstWaveTimer: 3
+  firstWaveTimer: 0
 --- !u!114 &1265691663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38794,30 +38794,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3415913fbb340cb428db026b991664d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RowPerWaves: 0
-  InitSpawnTimer: 6
+  RowPerWaves: 5
+  InitSpawnTimer: 5
   InitMoveDelay: 3
   InitSmooth: .5
+  InitWaitRows: 3
   MultiSpawnTimer: -.200000003
   MultiMoveDelay: -.200000003
   MultiSmooth: 0
+  MultiWaitRows: -.5
   RowMultiSpawnTimer: 0
   RowMultiMoveDelay: 0
   RowMultiSmooth: 0
+  RowMultiWaitRows: 0
   MaxSpawnTimer: 10
   MaxMoveDelay: 5
   MaxSmooth: 1
-  MinSpawnTimer: 1
+  MaxWaitRows: 3
+  MinSpawnTimer: 6
   MinMoveDelay: .5
   MinSmooth: .100000001
+  MinWaitRows: .5
   Creep_MaxCounter: 5
   Creep_MaxPosition: 10
-  Creep_MaxSmooth: 1
+  Creep_MaxSmooth: .600000024
   Creep_MaxRandomTrys: 10
   Creep_MinCounter: 1
   Creep_MinPosition: -10
   Creep_MinDifPos: .5
-  Creep_MinSmooth: -1
+  Creep_MinSmooth: -.600000024
 --- !u!1 &1282874761
 GameObject:
   m_ObjectHideFlags: 0
@@ -49851,7 +49856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1643561346
 Transform:
   m_ObjectHideFlags: 0
