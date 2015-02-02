@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   smooth: 1
-  useMouse: 1
+  useMouse: 0
   maxXBorder: 11
   minXBorder: -11
 --- !u!114 &11412064
@@ -1666,6 +1666,7 @@ MonoBehaviour:
   shootsPerSecond: 5
   waitBetweenDifferentsShots: .100000001
   multi: 0
+  Shooting: 1
 --- !u!114 &11412066
 MonoBehaviour:
   m_ObjectHideFlags: 1
