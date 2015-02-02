@@ -47,6 +47,7 @@ public class RowGenerator : MonoBehaviour
 	public void GenerateRow( float spawnTimer, float movementStartDelay, float smooth )
 	{
 		temp = (GameObject)Instantiate( basicRow );
+		temp.name = temp.name.Substring( 0, temp.name.Length - 7 );
 		// Configuration
 		RowSpawner c0 = temp.GetComponent<RowSpawner>();
 		c0.spawnTimer = spawnTimer;
@@ -79,6 +80,7 @@ public class RowGenerator : MonoBehaviour
 			}
 			if( enemy != null )
 			{
+				enemy.name = enemy.name.Substring( 0, enemy.name.Length - 7 );
 				enemy.transform.parent = temp.transform;
 				enemy.transform.localPosition = pos;
 				if( type != Creeps.Ghost )
