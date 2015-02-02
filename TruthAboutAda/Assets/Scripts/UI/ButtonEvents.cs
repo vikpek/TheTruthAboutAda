@@ -7,8 +7,14 @@ public class ButtonEvents : MonoBehaviour
 	// Callback Functions
 	public void StartOnClick()
 	{
+		Application.LoadLevel("Level_01");
+	}
+
+	public void TutorialOnClick()
+	{
 		Application.LoadLevel(Constants.LEVEL_TUTORIAL);
 	}
+
 
 	public void StartArcadeOnClick()
 	{
