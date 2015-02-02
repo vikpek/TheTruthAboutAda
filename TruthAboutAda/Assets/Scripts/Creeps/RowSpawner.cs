@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class RowSpawner : MonoBehaviour 
 {
-
 	public float spawnTimer = 1.5f;
 
 	Animator animator;
@@ -11,6 +11,11 @@ public class RowSpawner : MonoBehaviour
 	bool incomingAnimation = true;
 
 	public float movementStartDelay = 3;
+
+	int aliveCreeps;
+
+	bool spawn;
+	bool move;
 
 	void Awake()
 	{
@@ -22,25 +27,51 @@ public class RowSpawner : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if( spawnTimer > 0f ) spawnTimer -= Time.fixedDeltaTime;
-		if( incomingAnimation && spawnTimer <= 0f )
+		if( !spawn )
 		{
-			animator.enabled = true;
-			animator.Play( "RowAnimation" );
-			foreach( Transform child in transform ) child.gameObject.SetActive( true );
-			GetComponent<MovementVerticalController>().enabled = true;
-			if(GetComponent<TheEventNoTime>()) GetComponent<TheEventNoTime>().enabled = true;
-		}
-		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
-		if( movementStartDelay <= 0f )
-		{
-			foreach( Transform child in transform )
+			if( spawnTimer > 0f ) spawnTimer -= Time.fixedDeltaTime;
+			if( incomingAnimation && spawnTimer <= 0f )
 			{
-				child.gameObject.SetActive( true );
-				if(child.GetComponent<MovementHorizontalController>())	child.GetComponent<MovementHorizontalController>().enabled = true;
-				if(child.GetComponent<MovementVerticalController>()) child.GetComponent<MovementVerticalController>().enabled = true;
+				animator.enabled = true;
+				animator.Play( "RowAnimation" );
+				foreach( Transform child in transform ) child.gameObject.SetActive( true );
+				GetComponent<MovementVerticalController>().enabled = true;
+				// count childs
+				findChild( transform );
+				Debug.Log( "Row with : " + aliveCreeps );
+				HighScoreManager.Get.addCreeps( aliveCreeps );
+				spawn = true;
 			}
-			animator.enabled = false;
 		}
+		if( !move )
+		{
+			if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
+			if( movementStartDelay <= 0f )
+			{
+				foreach( Transform child in transform )
+				{
+					child.gameObject.SetActive( true );
+					if(child.GetComponent<MovementHorizontalController>())	child.GetComponent<MovementHorizontalController>().enabled = true;
+					if(child.GetComponent<MovementVerticalController>()) child.GetComponent<MovementVerticalController>().enabled = true;
+				}
+				animator.enabled = false;
+				move = true;
+			}
+		}
+	}
+	void findChild( Transform parent )
+	{
+		if( parent.childCount > 0 )
+		{
+			foreach( Transform child in parent )
+				if( child.tag == Tags.CREEP ) aliveCreeps++;
+			else if( child.tag == "Untagged" ) findChild( child );
+		}
+	}
+
+	public void CreepKill()
+	{
+		aliveCreeps--;
+		if( aliveCreeps <= 0 ) Destroy( gameObject );
 	}
 }
