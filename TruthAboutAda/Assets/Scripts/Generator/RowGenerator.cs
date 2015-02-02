@@ -50,7 +50,7 @@ public class RowGenerator : MonoBehaviour
 		// Configuration
 		RowSpawner c0 = temp.GetComponent<RowSpawner>();
 		c0.spawnTimer = spawnTimer;
-		c0.movementStartDelay = movementStartDelay;
+		c0.movementStartDelay = movementStartDelay + spawnTimer;
 		temp.GetComponent<MovementVerticalController>().smooth = smooth;
 	}
 
@@ -97,5 +97,23 @@ public class RowGenerator : MonoBehaviour
 				}
 			}
 		} else Debug.LogWarning( "BasicRow is missing." );
+	}
+
+	public Creeps Creep( int type )
+	{
+		switch( type )
+		{
+			case -1 :
+				return Creeps.Ghost;
+			case 0 :
+				return Creeps.Regular;
+			case 1 :
+				return Creeps.Silver;
+			case 2 :
+				return Creeps.Black;
+			default :
+				Debug.LogWarning("Unkown CreepType : " + type );
+				return Creeps.Regular;
+		}
 	}
 }

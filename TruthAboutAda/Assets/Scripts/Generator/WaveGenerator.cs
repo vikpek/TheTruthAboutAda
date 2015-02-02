@@ -45,13 +45,12 @@ public class WaveGenerator : MonoBehaviour
 			waveCounter++;
 			rowCounter = 1;
 		}
-		WaveConfig.RowConfig rowConfig = config.GetRowConfig( waveCounter, rowCounter );
+		WaveConfig.RowConfig rowConfig = config.GetRowConfig( waveCounter, rowCounter );		
 
-		// TODO : Inplement RowConfig Usage
+		rowGen.GenerateRow( rowConfig.SpawnTimer, rowConfig.MoveDelay, rowConfig.Smooth );
+		foreach( WaveConfig.CreepConfig conf in rowConfig.creeps ) 
+			rowGen.addEnemy( rowGen.Creep( conf.Type ), new Vector3( conf.Position, 0f ), conf.Value, conf.Smooth );
 
-		rowGen.GenerateRow( 5f, 7f, 0.5f );
-		rowGen.addEnemy( RowGenerator.Creeps.Regular, Vector3.zero );
-
-		return 10f;
+		return rowConfig.Wait + rowConfig.SpawnTimer;
 	}
 }

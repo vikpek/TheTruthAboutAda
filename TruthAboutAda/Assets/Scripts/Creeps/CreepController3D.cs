@@ -315,7 +315,6 @@ public class CreepController3D : MonoBehaviour
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
 			Destroy( GetComponent<Rigidbody>() );
-			//Debug.Log( transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/animation_holder_cylinder/Spotlight" ) );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.parent = obj.transform;

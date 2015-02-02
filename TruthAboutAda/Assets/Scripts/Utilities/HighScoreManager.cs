@@ -45,7 +45,7 @@ public class HighScoreManager : MonoBehaviour
 	public void addCreeps( int numb )
 	{
 		creepCounter += numb;
-		if( !block ) winScreen = true;
+		winScreen = true;
 	}
  
 	public void creepKilled(Vector3 position)
@@ -57,7 +57,7 @@ public class HighScoreManager : MonoBehaviour
 		Instantiate(risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 		creepCounter--;
 		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
-		if( winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );
+		if( !block && winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );
 	}
 
 	IEnumerator waitAndWin( float time )
