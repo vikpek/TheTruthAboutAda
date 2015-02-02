@@ -17,36 +17,42 @@ public class WaveConfig : MonoBehaviour
 		public float SpawnTimer;
 		public float MoveDelay;
 		public float Smooth;
+		public float Wait;
 	}
 
 	// Basic
-	public int RowPerWaves;
+	public int RowPerWaves = 5;
 
 	// ROW CONFIGURATION
 	// Init
 	public float InitSpawnTimer = 5f;
 	public float InitMoveDelay = 3f;
 	public float InitSmooth = 0.5f;
+	public float InitWaitRows = 3f;
 
 	// Multiplyer
 	public float MultiSpawnTimer = -0.2f;
 	public float MultiMoveDelay = -0.2f;
 	public float MultiSmooth = 0f;
+	public float MultiWaitRows = -0.5f;
 
 	// RowDiffer
 	public float RowMultiSpawnTimer = 0f;
 	public float RowMultiMoveDelay = 0f;
 	public float RowMultiSmooth = 0f;
+	public float RowMultiWaitRows = 0f;
 
 	// Max
 	public float MaxSpawnTimer = 10f;
 	public float MaxMoveDelay = 5f;
 	public float MaxSmooth = 1f;
+	public float MaxWaitRows = 3f;
 
 	// Min
 	public float MinSpawnTimer = 1f;
 	public float MinMoveDelay = 0.5f;
 	public float MinSmooth = 0.1f;
+	public float MinWaitRows = 0.5f;
 
 	// CREEP CONFIGURATION
 	// Max
@@ -81,6 +87,11 @@ public class WaveConfig : MonoBehaviour
 		temp.Smooth = InitSmooth + wave * MultiSmooth + row * RowMultiSmooth;
 		if( temp.Smooth > MaxSmooth ) temp.Smooth = MaxSmooth;
 		else if( temp.Smooth < MinSmooth ) temp.Smooth = MinSmooth;
+
+		// Wait
+		temp.Wait = InitWaitRows + wave * MultiWaitRows + row * RowMultiWaitRows;
+		if( temp.Wait > MaxWaitRows ) temp.Wait = MaxWaitRows;
+		else if( temp.Wait < MinWaitRows ) temp.Wait = MinWaitRows;
 
 		// CREEP CONFIGURATION
 		float lastPos = 12f;

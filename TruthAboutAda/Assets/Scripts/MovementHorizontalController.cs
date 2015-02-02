@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MovementHorizontalController : MonoBehaviour {
 
-	bool moving = false;
+	bool moving;
 
 	float minX = -10; 
 	float maxX = 7;
@@ -11,7 +11,7 @@ public class MovementHorizontalController : MonoBehaviour {
 	public float smooth = 0.1f;
 
 	[SerializeField]
-	bool lerp = true;
+	bool lerp;
 
 	Vector3 move;
 

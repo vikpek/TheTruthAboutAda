@@ -3674,13 +3674,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 169423649}
+  - 114: {fileID: 169423651}
   - 65: {fileID: 169423653}
   - 54: {fileID: 169423652}
-  - 114: {fileID: 169423651}
+  - 82: {fileID: 169423654}
   - 114: {fileID: 169423650}
   m_Layer: 0
   m_Name: CreepRegular
-  m_TagString: Untagged
+  m_TagString: Creep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3763,8 +3764,67 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: 1, z: 2.3534615}
+  m_Size: {x: .453634948, y: 1, z: 2.3534615}
   m_Center: {x: -.00533437729, y: 0, z: .031879425}
+--- !u!82 &169423654
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8215382, guid: 3cc1e5fe7094c492aab9c65827105b35,
+    type: 2}
+  m_PrefabInternal: {fileID: 111083215}
+  m_GameObject: {fileID: 169423648}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: c88fecb5d8b054a8ab848fb638dfb181, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &177926397
 GameObject:
   m_ObjectHideFlags: 0
@@ -17662,7 +17722,7 @@ Transform:
   m_LocalScale: {x: 2.38578701, y: 1.075858, z: 1.075858}
   m_Children: []
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 0
+  m_RootOrder: 6
 --- !u!65 &485768523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17674,7 +17734,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .300000012, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &494230118
 GameObject:
@@ -19201,7 +19261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!199 &585765891
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -22245,7 +22305,7 @@ Transform:
   - {fileID: 116584908}
   - {fileID: 1516108772}
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!111 &690900185
 Animation:
   m_ObjectHideFlags: 0
@@ -26477,9 +26537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: 0d79c4be60c1541c98e4dbb2acc87bfb, type: 2}
   spawnOffset: {x: 0, y: 1, z: -1}
-  shootsPerSecond: 2
-  waitBetweenDifferentsShots: .00100000005
+  shootsPerSecond: 5
+  waitBetweenDifferentsShots: .100000001
   multi: 0
+  Shooting: 1
 --- !u!114 &862513175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26492,7 +26553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957704a13de3244cb9157cdce8fd573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   smooth: 1
   useMouse: 0
   maxXBorder: 11
@@ -26539,7 +26600,7 @@ Transform:
   m_Children:
   - {fileID: 1265074860}
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!199 &862534236
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -32401,7 +32462,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .300000012, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1048284953
 GameObject:
@@ -38656,7 +38717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 1265691663}
   rowGen: {fileID: 1265691660}
-  firstWaveTimer: 3
+  firstWaveTimer: 0
 --- !u!114 &1265691663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38668,30 +38729,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3415913fbb340cb428db026b991664d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RowPerWaves: 0
-  InitSpawnTimer: 6
+  RowPerWaves: 5
+  InitSpawnTimer: 5
   InitMoveDelay: 3
   InitSmooth: .5
+  InitWaitRows: 3
   MultiSpawnTimer: -.200000003
   MultiMoveDelay: -.200000003
   MultiSmooth: 0
+  MultiWaitRows: -.5
   RowMultiSpawnTimer: 0
   RowMultiMoveDelay: 0
   RowMultiSmooth: 0
+  RowMultiWaitRows: 0
   MaxSpawnTimer: 10
   MaxMoveDelay: 5
   MaxSmooth: 1
-  MinSpawnTimer: 1
+  MaxWaitRows: 3
+  MinSpawnTimer: 6
   MinMoveDelay: .5
   MinSmooth: .100000001
+  MinWaitRows: .5
   Creep_MaxCounter: 5
   Creep_MaxPosition: 10
-  Creep_MaxSmooth: 1
+  Creep_MaxSmooth: .600000024
   Creep_MaxRandomTrys: 10
   Creep_MinCounter: 1
   Creep_MinPosition: -10
   Creep_MinDifPos: .5
-  Creep_MinSmooth: -1
+  Creep_MinSmooth: -.600000024
 --- !u!1 &1282874761
 GameObject:
   m_ObjectHideFlags: 0
@@ -40637,13 +40703,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1366352115}
+  - 114: {fileID: 1366352117}
   - 65: {fileID: 1366352119}
   - 54: {fileID: 1366352118}
-  - 114: {fileID: 1366352117}
+  - 82: {fileID: 1366352120}
   - 114: {fileID: 1366352116}
   m_Layer: 0
   m_Name: CreepRegular
-  m_TagString: Untagged
+  m_TagString: Creep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40658,13 +40725,13 @@ Transform:
   m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 485768522}
   - {fileID: 1673968970}
   - {fileID: 585765890}
   - {fileID: 862534235}
   - {fileID: 1495735963}
   - {fileID: 690900184}
   - {fileID: 1803786992}
+  - {fileID: 485768522}
   m_Father: {fileID: 1643561346}
   m_RootOrder: 2
 --- !u!114 &1366352116
@@ -40726,8 +40793,67 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: 1, z: 2.3534615}
+  m_Size: {x: .453634948, y: 1, z: 2.3534615}
   m_Center: {x: -.00533437729, y: 0, z: .031879425}
+--- !u!82 &1366352120
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8215382, guid: 3cc1e5fe7094c492aab9c65827105b35,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924448759}
+  m_GameObject: {fileID: 1366352114}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: c88fecb5d8b054a8ab848fb638dfb181, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1376118050
 GameObject:
   m_ObjectHideFlags: 0
@@ -42734,7 +42860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!199 &1495735964
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -49665,7 +49791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1643561346
 Transform:
   m_ObjectHideFlags: 0
@@ -50018,7 +50144,7 @@ Transform:
   - {fileID: 463064602}
   - {fileID: 1819895993}
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!199 &1673968971
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -53803,7 +53929,7 @@ Transform:
   m_Children:
   - {fileID: 535287293}
   m_Father: {fileID: 1366352115}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1809578699
 GameObject:
   m_ObjectHideFlags: 0
