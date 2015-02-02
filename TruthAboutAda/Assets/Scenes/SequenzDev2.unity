@@ -125,7 +125,7 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 6
+  Duration: 3
   nextEvent: {fileID: 267471108}
   hideEvent: {fileID: 1872124709}
   appearEffect: 1
@@ -160,10 +160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Letter : \"Dear Mrs. Lovelace... in name of King Georg we have to inform...
-    \nbeloved Kind is dead... Oh no!... use the machine... support our decision...
-    \nuse the Babbage-Machine for... full support to... This is unbeliveable! \nWhat
-    to imagine... No! I have to do something!\""
+  m_Text: 'Letter : "Leaving my Home behind...forever.."'
 --- !u!222 &55089289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -185,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &112281441
 Transform:
   m_ObjectHideFlags: 0
@@ -199,34 +196,6 @@ Transform:
   - {fileID: 2020797312}
   m_Father: {fileID: 1981487335}
   m_RootOrder: 1
---- !u!1 &145447263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 159258, guid: b9ecc47dabac5b64899e1c5b61620afb, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 145447264}
-  m_Layer: 0
-  m_Name: Layer04
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &145447264
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 459262, guid: b9ecc47dabac5b64899e1c5b61620afb, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 145447263}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 974919238}
-  m_Father: {fileID: 1981487335}
-  m_RootOrder: 4
 --- !u!1 &208786763
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +306,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 267471108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 726, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 208786764}
@@ -429,7 +398,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ada : "A Letter ? At such hour ? I wonder..."'
+  m_Text: 'Ada : "I..I have to leave the city! Quickly...before anyone takes notice!"'
 --- !u!222 &308649224
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -491,11 +460,11 @@ MonoBehaviour:
   Duration: 2
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 1981487334}
-  appearEffect: 0
+  appearEffect: 1
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .600000024
   disappearVisibility: {x: 1, y: 0}
 --- !u!114 &387056390
 MonoBehaviour:
@@ -523,7 +492,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ada : "There is no way other than... If they really plan to do this..."'
+  m_Text: 'Ada : "Only when I''m gone..The Machine will never exist...again!"'
 --- !u!222 &387056391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -594,94 +563,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756753335}
---- !u!1 &974919237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 159236, guid: b9ecc47dabac5b64899e1c5b61620afb, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 974919238}
-  - 222: {fileID: 974919241}
-  - 114: {fileID: 974919240}
-  - 114: {fileID: 974919239}
-  m_Layer: 5
-  m_Name: Layer04_ada
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &974919238
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22459248, guid: b9ecc47dabac5b64899e1c5b61620afb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974919237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .654978991, y: .654978991, z: .654978991}
-  m_Children: []
-  m_Father: {fileID: 145447264}
-  m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -459, y: -410}
-  m_SizeDelta: {x: 2550, y: 3300}
-  m_Pivot: {x: .5, y: .5}
---- !u!114 &974919239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459232, guid: b9ecc47dabac5b64899e1c5b61620afb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974919237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideThemself: 0
-  triggerAfterDisappear: 0
-  skipWholeEvent: 0
-  Duration: 0
-  nextEvent: {fileID: 387056387}
-  hideEvent: {fileID: 0}
-  appearEffect: 1
-  appearDuration: 1
-  appearVisibility: {x: 0, y: 1}
-  disappearEffect: 1
-  disappearDuration: 1
-  disappearVisibility: {x: 1, y: 0}
---- !u!114 &974919240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459230, guid: b9ecc47dabac5b64899e1c5b61620afb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974919237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Texture: {fileID: 2800000, guid: ec5a9c455b16b2e4586fa5d737b70535, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &974919241
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22259248, guid: b9ecc47dabac5b64899e1c5b61620afb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 974919237}
 --- !u!1 &998371616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,9 +1254,9 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 4
-  nextEvent: {fileID: 145447263}
-  hideEvent: {fileID: 267471108}
+  Duration: 3
+  nextEvent: {fileID: 387056387}
+  hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
@@ -1408,8 +1289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ada : \"This is terrible... to use the machine for this... \nI got to do
-    something. I can't let this happen... but... \nhow... what to do...\""
+  m_Text: 'Ada : "But I''ve got no choice..."'
 --- !u!222 &1836926246
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1475,7 +1355,7 @@ RectTransform:
   m_LocalScale: {x: .625857949, y: .625857949, z: .625857949}
   m_Children: []
   m_Father: {fileID: 1981487335}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -2, y: -399}
@@ -1562,7 +1442,6 @@ Transform:
   - {fileID: 112281441}
   - {fileID: 1872124710}
   - {fileID: 267471109}
-  - {fileID: 145447264}
   - {fileID: 1975860498}
   m_Father: {fileID: 1709447648}
   m_RootOrder: 0
