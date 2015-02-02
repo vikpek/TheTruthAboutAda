@@ -29,6 +29,7 @@ public class RowSpawner : MonoBehaviour
 			animator.Play( "RowAnimation" );
 			foreach( Transform child in transform ) child.gameObject.SetActive( true );
 			GetComponent<MovementVerticalController>().enabled = true;
+			if(GetComponent<TheEventNoTime>()) GetComponent<TheEventNoTime>().enabled = true;
 		}
 		if( movementStartDelay > 0f ) movementStartDelay -= Time.fixedDeltaTime;
 		if( movementStartDelay <= 0f )
