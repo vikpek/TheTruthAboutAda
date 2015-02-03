@@ -2,12 +2,9 @@
 
 public class NumberRailGoaway : MonoBehaviour 
 {
-	[SerializeField]
 	float zMoveSpeed = 5f;
-	[SerializeField]
-	float zMoveRange = 5f;
+	float zMoveRange = 8f;
 
-	[SerializeField]
 	float horizontalMoveSpeed = 5f;
 
 	bool disappearLeft = true;
