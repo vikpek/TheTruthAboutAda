@@ -122,8 +122,8 @@ public class CreepController3D : MonoBehaviour
 				{
 					if( creepHP < blackCreepLifeCount ) 
 					{
-						cylinderTransform.FindChild("cylinder_main").renderer.materials[0].mainTexture = (Texture) Resources.Load ("Textures/Chars/MM_GPE_cylinder_black");
-						cylinderTransform.FindChild("cylinder_main").renderer.materials[1].mainTexture = (Texture) Resources.Load ("Textures/Chars/MM_GPE_cylinder_black");
+						cylinderTransform.FindChild("cylinder_main").renderer.material = (Material) Resources.Load ("Materials/GPE_Creep_Black_num");
+//						cylinderTransform.FindChild("cylinder_main").renderer.materials[1].mainTexture = (Texture) Resources.Load ("Textures/Chars/GPE_Creep_02_diffuse");
 						damageCreepCage(0);
 						reinitializeCylinder(-1);
 						blockShot( col.gameObject );
@@ -235,7 +235,7 @@ public class CreepController3D : MonoBehaviour
 		Rigidbody rig = element.GetComponent<Rigidbody>();
 		if( rig == null ) rig = element.AddComponent<Rigidbody>();
 		temp.relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-		temp.relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(0,5));
+		temp.relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(-10, -5));
 	}
 	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
