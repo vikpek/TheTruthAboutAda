@@ -23102,6 +23102,18 @@ Prefab:
       propertyPath: targetCam
       value: 
       objectReference: {fileID: 463395858}
+    - target: {fileID: 100000, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421192, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421194, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
   m_RootGameObject: {fileID: 473340987}
@@ -40336,7 +40348,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 329050272}
   m_GameObject: {fileID: 473340987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
@@ -40357,7 +40369,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 329050272}
   m_GameObject: {fileID: 473340987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a773099f140e846f7835d27351846623, type: 3}
   m_Name: 
@@ -78617,7 +78629,7 @@ MonoBehaviour:
   triggerAfterDisappear: 1
   skipWholeEvent: 1
   Duration: 2
-  nextEvent: {fileID: 473340987}
+  nextEvent: {fileID: 0}
   hideEvent: {fileID: 2038390663}
   appearEffect: 1
   appearDuration: 1
