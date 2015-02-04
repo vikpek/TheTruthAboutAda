@@ -172,6 +172,7 @@ public class CreepController3D : MonoBehaviour
 	// Creep simply falls down. This is an alternative dying animation.
 	void kickCreepDown()
 	{
+		tag = "";
 		soundManager.playFallingParts();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el ) addConstForces( element.gameObject );
