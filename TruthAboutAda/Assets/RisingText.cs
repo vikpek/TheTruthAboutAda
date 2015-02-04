@@ -4,10 +4,10 @@ using System.Collections;
 [RequireComponent(typeof(TextMesh))]
 public class RisingText : MonoBehaviour
 {
-	Vector3 crdsDelta;
 	float alpha;
 	float lifeLoss;
 	Camera  cam;
+	Vector3 destination;
 
 	public Color color = Color.white;
 	
@@ -19,21 +19,20 @@ public class RisingText : MonoBehaviour
 	{
 		GetComponent<TextMesh>().text = points;       
 		lifeLoss = 1f / duration;
-		crdsDelta = new Vector3(0f, rise_speed, 0f);        
 	}
 	
 	void Start() 
 	{
+		destination = GameObject.FindGameObjectWithTag(Tags.HIGHSCOREDISPLAY).GetComponent<Transform>().position;
 		alpha = 1f;
 		cam = Camera.main;
-		crdsDelta = new Vector3(-2f, 1f, 1f);
 		lifeLoss = 0.5f;
 	}
 	
 	void Update () 
 	{
-		transform.Translate(crdsDelta * Time.deltaTime, Space.World);
-//		transform.position = Vector3.Lerp(transform.position, newPosition, smooth * Time.deltaTime);
+//		transform.Translate(crdsDelta * Time.deltaTime, Space.World);
+		transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime);
 	
 
 		alpha -= Time.deltaTime * lifeLoss;

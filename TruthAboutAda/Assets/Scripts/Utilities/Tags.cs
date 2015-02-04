@@ -18,4 +18,5 @@ public class Tags : MonoBehaviour
 	public const string CREEPBULLET = "CreepBullet";
 	public const string LOADINGSTATUS = "LoadingStatus";
 	public const string POWERBAR = "PowerBar";
+	public const string HIGHSCOREDISPLAY = "HighScoreDisplay";
 }
