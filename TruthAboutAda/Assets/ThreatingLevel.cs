@@ -3,9 +3,12 @@ using System.Collections;
 
 public class ThreatingLevel : MonoBehaviour {
 
-	GameObject[] creeps;
+	[SerializeField]
+	float _threatBottomBorder = 7f;
 
-	float relativeDistance;
+	GameObject[] _creeps;
+
+	float _relativeDistance;
 
 	// Use this for initialization
 	void Start () {
@@ -14,24 +17,25 @@ public class ThreatingLevel : MonoBehaviour {
 
 
 	void calculateDistance() {
-		creeps = GameObject.FindGameObjectsWithTag(Tags.CREEP);
+		_creeps = GameObject.FindGameObjectsWithTag(Tags.CREEP);
 
-		if(creeps.Length>0)
+		if(_creeps.Length>0)
 		{
-			relativeDistance = 100f;
+			_relativeDistance = 100f;
 
-			foreach (GameObject creep in creeps) {
+			foreach (GameObject creep in _creeps) {
 				if(creep.transform.position.y > 20f)
 				{
-					if((creep.transform.position.y - transform.position.y) < relativeDistance)
+					if((creep.transform.position.y - transform.position.y) < _relativeDistance)
 					{
-						relativeDistance = (creep.transform.position.y - transform.position.y);
+						_relativeDistance = (creep.transform.position.y - transform.position.y);
 					}
 				}
 			}
 		}
 
-		Debug.Log(relativeDistance);
-		GenericFXController.Get.rumbleCamera(1f, 5f/relativeDistance); 
+		if(_relativeDistance < _threatBottomBorder){
+			GenericFXController.Get.rumbleCamera(1f, 1f/_relativeDistance); 
+		}
 	}
 }
