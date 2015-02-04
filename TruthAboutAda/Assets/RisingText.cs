@@ -4,9 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(TextMesh))]
 public class RisingText : MonoBehaviour
 {
-	[SerializeField]
-	bool upwardsFadeout = true;
-
 	Vector3 crdsDelta;
 	float alpha;
 	float lifeLoss;
@@ -29,14 +26,15 @@ public class RisingText : MonoBehaviour
 	{
 		alpha = 1f;
 		cam = Camera.main;
-		crdsDelta = new Vector3(0f, 1f, 0f);
+		crdsDelta = new Vector3(-2f, 1f, 1f);
 		lifeLoss = 0.5f;
 	}
 	
 	void Update () 
 	{
-		if(upwardsFadeout) transform.Translate(crdsDelta * Time.deltaTime, Space.World);
-		else transform.Translate(-crdsDelta * Time.deltaTime, Space.World);
+		transform.Translate(crdsDelta * Time.deltaTime, Space.World);
+//		transform.position = Vector3.Lerp(transform.position, newPosition, smooth * Time.deltaTime);
+	
 
 		alpha -= Time.deltaTime * lifeLoss;
 		renderer.material.color = new Color(color.r,color.g,color.b,alpha);

@@ -110,7 +110,7 @@ MonoBehaviour:
   PlayerShot: {fileID: 8300000, guid: c6c1b61b1c938e5418d020d3c40946b4, type: 3}
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
-  MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
+  MenuBackgroundLoop: {fileID: 0}
   FailedShot: {fileID: 8300000, guid: b62dc64cbd3f94e4da76f79175c5f079, type: 3}
   CreepExplosion: {fileID: 8300000, guid: a12dbcb96c4dc1445a6af7fc3b34095f, type: 3}
   CreepExplosion2: {fileID: 8300000, guid: bd31752821e67437ca2d0a41dada5543, type: 3}
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 0}
+  waitTillTimeStop: 1.5
 --- !u!114 &11444304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,10 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
+  hideThemself: 0
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 10
+  Duration: 1
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 0}
   appearEffect: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   disappearEffect: 0
   disappearDuration: 0
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &11498658
 MonoBehaviour:
   m_ObjectHideFlags: 1
