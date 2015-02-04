@@ -125,7 +125,7 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 4
   nextEvent: {fileID: 267471108}
   hideEvent: {fileID: 1872124709}
   appearEffect: 1
@@ -134,6 +134,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &55089288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &208786766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +365,7 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 2
+  Duration: 4
   nextEvent: {fileID: 1872124709}
   hideEvent: {fileID: 112281440}
   appearEffect: 1
@@ -372,6 +374,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &308649223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,7 +460,7 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 2
+  Duration: 4
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 1981487334}
   appearEffect: 1
@@ -466,6 +469,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: .600000024
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &387056390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +627,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &998371619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,6 +1180,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &1791559801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1260,7 @@ MonoBehaviour:
   hideThemself: 1
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 4
   nextEvent: {fileID: 387056387}
   hideEvent: {fileID: 0}
   appearEffect: 1
@@ -1263,6 +1269,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &1836926245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1392,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: .200000003
   disappearVisibility: {x: .699999988, y: 0}
+  canBeSkipped: 1
 --- !u!114 &1975860500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1505,6 +1513,7 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &2020797314
 MonoBehaviour:
   m_ObjectHideFlags: 0
