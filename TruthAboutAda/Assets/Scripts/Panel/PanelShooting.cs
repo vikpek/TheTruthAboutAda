@@ -92,4 +92,9 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown( KeyCode.JoystickButton7 ) ) return 12;
 		return -1;
 	}
+
+	public void SetShootDisable( bool v )
+	{
+		Shooting = !v;
+	}
 }

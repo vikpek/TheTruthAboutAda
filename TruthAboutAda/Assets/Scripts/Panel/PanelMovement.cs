@@ -17,6 +17,7 @@ public class PanelMovement : MonoBehaviour
 	[SerializeField]
 	float minXBorder;
 	            
+	bool move = true;
 
 	Transform transformSideCogRight;
 	Transform transformSideCogLeft;
@@ -37,7 +38,7 @@ public class PanelMovement : MonoBehaviour
 	void FixedUpdate()
 	{
 		string axis = ( useMouse )?( "Mouse X" ):( "Horizontal" );
-		float horizontal = ( smooth )?( Input.GetAxis( axis ) ):( Input.GetAxisRaw( axis ) );
+		float horizontal = ( move )?( ( smooth )?( Input.GetAxis( axis ) ):( Input.GetAxisRaw( axis ) ) ):( 0f );
 		
 		if( horizontal != 0f )
 		{
@@ -72,5 +73,10 @@ public class PanelMovement : MonoBehaviour
 			}
 			rigidbody.MovePosition( nextPos );
 		}
+	}
+
+	public void SetMoveDisable( bool v )
+	{
+		move = !v;
 	}
 }
