@@ -12,10 +12,6 @@ public class HighScoreManager : MonoBehaviour
 	float currentMultiplier;
 	PowerBarController powerBarController;
 
-	int creepCounter;
-	bool winScreen;
-	bool block;
-
 	static HighScoreManager _instance;
 	
 	public static HighScoreManager Get
@@ -41,12 +37,6 @@ public class HighScoreManager : MonoBehaviour
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
 	}
-
-	public void addCreeps( int numb )
-	{
-		creepCounter += numb;
-		winScreen = true;
-	}
  
 	public void creepKilled(Vector3 position)
 	{
@@ -55,21 +45,6 @@ public class HighScoreManager : MonoBehaviour
 //		powerBarController.FillUpValue((int) 2);
 		risingText.GetComponent<RisingText>().setup("" + CREEP_POINTS + " x" + currentMultiplier, 0.1f, 0.1f);
 		Instantiate(risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
-		creepCounter--;
-		Debug.Log("Creep was killed, " + creepCounter + " left in this Level" );
-		if( !block && winScreen && creepCounter == 0 ) StartCoroutine( waitAndWin( 2f ) );
-	}
-
-	IEnumerator waitAndWin( float time )
-	{
-		yield return new WaitForSeconds( time );
-		GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
-	}
-
-	public void resetCreepCounter()
-	{
-		creepCounter = 0;
-		if( !block ) winScreen = false;
 	}
 
 	public void shotFailed()
@@ -86,10 +61,4 @@ public class HighScoreManager : MonoBehaviour
 	{
 		return (int) currentMultiplier;
 	}
-
-	public void setBlock( bool value )
-	{
-		block = value;
-	}
-
 }

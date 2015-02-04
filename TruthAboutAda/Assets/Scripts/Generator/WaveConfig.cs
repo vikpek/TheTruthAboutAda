@@ -64,7 +64,6 @@ public class WaveConfig : MonoBehaviour
 	// Min
 	public int Creep_MinCounter = 1;
 	public float Creep_MinPosition = -10f;
-	public float Creep_MinDifPos = 0.5f;
 	public float Creep_MinSmooth = -1f;
 
 	RowConfig temp;
@@ -96,24 +95,19 @@ public class WaveConfig : MonoBehaviour
 		// CREEP CONFIGURATION
 		float lastPos = 12f;
 		temp.creeps = new CreepConfig[Random.Range( Creep_MinCounter, Creep_MaxCounter )];
+		float space = 0f;
+		float startPos = 0f;
+		if( temp.creeps.Length != 1 ) 
+		{
+			space = ( Creep_MaxPosition - Creep_MinPosition ) / ( temp.creeps.Length - 1 );
+			startPos = Creep_MinPosition;
+		}
 		for( int i = 0; i < temp.creeps.Length; i++ )
 		{
 			CreepConfig creep;
 			creep.Value = Random.Range( 0, 9 );
-			creep.Position = Random.Range( Creep_MinPosition, Creep_MaxPosition );
-
-			int counter = 0;
-			bool run = checkRange( Creep_MinDifPos, creep.Position );
-
-			while( run )
-			{
-				// Process
-				creep.Position = creep.Position = Random.Range( Creep_MinPosition, Creep_MaxPosition );
-				// Check
-				counter++;
-				if( counter > Creep_MaxRandomTrys ) run = false;
-				else run = checkRange( Creep_MinDifPos, creep.Position );
-			}
+			creep.Position = startPos;
+			startPos += space;
 			float smooth = Random.Range( Creep_MinSmooth, Creep_MaxSmooth );
 			if( smooth > 0.1f || smooth < -0.1f ) creep.Smooth = smooth; else creep.Smooth = 0f;
 			int type = Random.Range( 0, 6 );
@@ -125,12 +119,5 @@ public class WaveConfig : MonoBehaviour
 		}
 
 		return temp;
-	}
-
-	bool checkRange( float MinDif, float CurrentPos )
-	{
-		for( int i = 0; i < temp.creeps.Length; i++ )
-			if( Mathf.Abs( temp.creeps[i].Position - CurrentPos ) < MinDif ) return true;
-		return false;
 	}
 }

@@ -44,6 +44,9 @@ public class TheEvent : MonoBehaviour
 	[SerializeField]
 	Vector2 disappearVisibility = new Vector2( 1f, 0f );
 
+	[SerializeField]
+	bool canBeSkipped = true;
+
 	float startTime;
 	float lifeTime;
 	float endTime;
@@ -62,24 +65,25 @@ public class TheEvent : MonoBehaviour
 
 	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
-		{
-			if( skipWholeEvent )
+		if( canBeSkipped ) 
+			if( Input.GetKeyDown( KeyCode.Space ) && !skip )
 			{
-				if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
-				startTime = 0f;
-				lifeTime = 0f;
-				endTime = 0f;
-				if( triggerAfterDisappear ) Trigger();
-			} else 
-			{
-				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
-				startTime = 0f;
-				lifeTime = 0f;
-				if( !triggerAfterDisappear ) Trigger();
+				if( skipWholeEvent )
+				{
+					if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
+					startTime = 0f;
+					lifeTime = 0f;
+					endTime = 0f;
+					if( triggerAfterDisappear ) Trigger();
+				} else 
+				{
+					if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
+					startTime = 0f;
+					lifeTime = 0f;
+					if( !triggerAfterDisappear ) Trigger();
+				}
+				skip = true;
 			}
-			skip = true;
-		}
 	}
 
 	void FixedUpdate()

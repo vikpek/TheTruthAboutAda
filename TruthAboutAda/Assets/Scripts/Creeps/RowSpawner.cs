@@ -39,7 +39,6 @@ public class RowSpawner : MonoBehaviour
 				// count childs
 				findChild( transform );
 				Debug.Log( "Row with : " + aliveCreeps );
-				HighScoreManager.Get.addCreeps( aliveCreeps );
 				spawn = true;
 			}
 		}
