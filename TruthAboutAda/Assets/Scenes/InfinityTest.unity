@@ -874,7 +874,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412014, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11412064, guid: 2f274fd3a26f04423b3a507490a9b9b8, type: 2}
       propertyPath: bullet
@@ -2233,7 +2233,7 @@ Transform:
   - {fileID: 384009009}
   - {fileID: 2124364754}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!1 &126495167
 GameObject:
   m_ObjectHideFlags: 0
@@ -17763,7 +17763,7 @@ Transform:
   m_Children:
   - {fileID: 300768593}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!1 &534059807
 GameObject:
   m_ObjectHideFlags: 0
@@ -23772,6 +23772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 1029951282}
+  waitTillTimeStop: 1.5
 --- !u!82 &726394985
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26494,7 +26495,7 @@ Transform:
   - {fileID: 742313885}
   - {fileID: 1501363368}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!54 &862513172
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26539,7 +26540,6 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 5
   waitBetweenDifferentsShots: .100000001
-  multi: 0
   Shooting: 1
 --- !u!114 &862513175
 MonoBehaviour:
@@ -32580,7 +32580,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1053363225
 GameObject:
   m_ObjectHideFlags: 0
@@ -35201,7 +35201,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1.47686684}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1116201269
 GameObject:
   m_ObjectHideFlags: 0
@@ -38703,7 +38703,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &1265691662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38756,7 +38756,6 @@ MonoBehaviour:
   Creep_MaxRandomTrys: 10
   Creep_MinCounter: 1
   Creep_MinPosition: -10
-  Creep_MinDifPos: .5
   Creep_MinSmooth: -.600000024
 --- !u!1 &1282874761
 GameObject:
@@ -38867,6 +38866,58 @@ Transform:
   - {fileID: 1971873643}
   m_Father: {fileID: 1170268664}
   m_RootOrder: 0
+--- !u!1 &1287732956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1287732959}
+  - 65: {fileID: 1287732958}
+  - 114: {fileID: 1287732957}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1287732957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287732956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d3371446b4d6348a1f35d2b6d37156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1287732958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287732956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1287732959
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287732956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 39.8499985, z: 18}
+  m_LocalScale: {x: 26.747488, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &1289660676
 GameObject:
   m_ObjectHideFlags: 0
@@ -49811,7 +49862,7 @@ Transform:
   - {fileID: 169423649}
   - {fileID: 1351872663}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &1643561347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64466,7 +64517,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &2115380550
 GameObject:
   m_ObjectHideFlags: 0
