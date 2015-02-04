@@ -25,7 +25,6 @@ public class WaveGenerator : MonoBehaviour
 		else if( config == null ) Debug.LogError( "WaveConfig is not set." );
 		else check = true;
 		if( !check ) Debug.Break();
-		HighScoreManager.Get.setBlock( true );
 		rowPerWaves = config.RowPerWaves;
 		// Start First Wave
 		StartCoroutine( WaitAndGenerate( firstWaveTimer ) );

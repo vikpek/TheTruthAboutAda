@@ -27289,6 +27289,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
   m_RootGameObject: {fileID: 393118667}
@@ -38631,6 +38635,10 @@ Prefab:
       propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
       value: .666666687
       objectReference: {fileID: 0}
+    - target: {fileID: 194316, guid: 33c1d0582e841474bb96e79c11bf6508, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33c1d0582e841474bb96e79c11bf6508, type: 2}
   m_RootGameObject: {fileID: 295180733}
@@ -44333,6 +44341,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e23445d1093e54858a5a1b07de06fce6, type: 2}
+    - target: {fileID: 100116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
   m_RootGameObject: {fileID: 513599923}
@@ -46743,6 +46755,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
   m_RootGameObject: {fileID: 377839466}
@@ -46817,6 +46833,7 @@ GameObject:
   - 114: {fileID: 778173957}
   - 95: {fileID: 778173956}
   - 114: {fileID: 778173955}
+  - 114: {fileID: 778173958}
   m_Layer: 0
   m_Name: EnemyRow
   m_TagString: Untagged
@@ -46880,6 +46897,17 @@ MonoBehaviour:
   spawnTimer: 0
   incomingAnimation: 1
   movementStartDelay: 6
+--- !u!114 &778173958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778173953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fba493507b2fd14a9e11009dc921ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &783296435
 GameObject:
   m_ObjectHideFlags: 0
@@ -52481,7 +52509,7 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 5
   waitBetweenDifferentsShots: .100000001
-  multi: 0
+  Shooting: 1
 --- !u!114 &862513175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83026,7 +83054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1482721502
 Transform:
   m_ObjectHideFlags: 0
@@ -96533,7 +96561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1692477796
 Transform:
   m_ObjectHideFlags: 0
@@ -105758,6 +105786,10 @@ Prefab:
     - target: {fileID: 400116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100116, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cc1e5fe7094c492aab9c65827105b35, type: 2}

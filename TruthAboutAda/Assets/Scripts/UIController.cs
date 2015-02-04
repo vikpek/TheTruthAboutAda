@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class UIController : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class UIController : MonoBehaviour
 	GameObject RestartB;
 	GameObject NextLevelB;
 
+	[SerializeField]
+	float waitTillTimeStop = 1.5f;
+
 	void Awake()
 	{
 		if( Menu == null ) Menu = GameObject.Find("EscapeMenu");
@@ -46,33 +50,37 @@ public class UIController : MonoBehaviour
 
 	public void SetGameOver()
 	{
-		ContinueB.SetActive( false );
-		RestartB.SetActive( true );
-		NextLevelB.SetActive( false );
-		Camera.main.GetComponent<BlurEffect>().enabled = true;
-		Menu.SetActive( true );
-		Screen.showCursor = true;
-		lastState = state;
-		Time.timeScale = 1f; // stop game (or) run in background
-		state = States.GameOver;
-		HighScoreManager.Get.resetCreepCounter();
-		GameObject[] list = GameObject.FindGameObjectsWithTag( Tags.CREEP );
-		foreach( GameObject obj in list ) obj.GetComponent<CreepController3D>().explodeMe();
+		if( state != States.GameOver )
+		{
+			ContinueB.SetActive( false );
+			RestartB.SetActive( true );
+			NextLevelB.SetActive( false );
+			Camera.main.GetComponent<BlurEffect>().enabled = true;
+			Menu.SetActive( true );
+			Screen.showCursor = true;
+			lastState = state;
+			state = States.GameOver;
+			GameObject[] list = GameObject.FindGameObjectsWithTag( Tags.CREEP );
+			foreach( GameObject obj in list ) obj.GetComponent<CreepController3D>().explodeMe();
+			Debug.Log("Lose Game");
+			StartCoroutine( WaitAndStopTime( waitTillTimeStop ) );
+		}
 	}
 
 	public void SetWin()
 	{
-		Screen.showCursor = true;
-		// TODO : remove presentation hack
-		SetGameOver();
-		/*
-		ContinueB.SetActive( false );
-		NextLevelB.SetActive( true );
-		RestartB.SetActive( false );
-		Menu.SetActive( true );
-		lastState = state;
-		state = States.Win;
-		*/
+		if( state != States.Win )
+		{
+			Screen.showCursor = true;
+			ContinueB.SetActive( false );
+			NextLevelB.SetActive( true );
+			RestartB.SetActive( false );
+			Menu.SetActive( true );
+			lastState = state;
+			state = States.Win;
+			Debug.Log("Win Game");
+			StartCoroutine( WaitAndStopTime( waitTillTimeStop ) );
+		}
 	}
 
 	void PauseGame()
@@ -102,7 +110,6 @@ public class UIController : MonoBehaviour
 		Camera.main.GetComponent<BlurEffect>().enabled = false;
 		lastState = state;
 		Time.timeScale = 1f;
-		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
 		Screen.showCursor = false;
@@ -114,7 +121,6 @@ public class UIController : MonoBehaviour
 		Camera.main.GetComponent<BlurEffect>().enabled = false;
 		lastState = state;
 		Time.timeScale = 1f;
-		HighScoreManager.Get.resetCreepCounter();
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
 		Screen.showCursor = false;
@@ -130,5 +136,11 @@ public class UIController : MonoBehaviour
 		state = States.None;
 		Screen.showCursor = true;
 		Menu.SetActive( false );
+	}
+
+	IEnumerator WaitAndStopTime( float wait )
+	{
+		yield return new WaitForSeconds( wait );
+		if( state == States.GameOver || state == States.Win ) Time.timeScale = 0f;
 	}
 }

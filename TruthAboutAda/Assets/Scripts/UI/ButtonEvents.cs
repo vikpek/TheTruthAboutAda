@@ -15,6 +15,11 @@ public class ButtonEvents : MonoBehaviour
 		Application.LoadLevel(Constants.LEVEL_TUTORIAL);
 	}
 
+	public void MenuOnClick()
+	{
+		Application.LoadLevel(Constants.LEVEL_MENU);
+	}
+
 
 	public void StartArcadeOnClick()
 	{
