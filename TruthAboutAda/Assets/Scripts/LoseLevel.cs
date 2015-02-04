@@ -16,7 +16,7 @@ public class LoseLevel : MonoBehaviour
 		if( col.gameObject.tag == Tags.CREEP  && !_lock) {
 			_lock = true;
 			transform.GetComponent<TheEventNoTime>().enabled = true;
-			StartCoroutine(waitAndLoose(3f));
+			StartCoroutine(waitAndLoose(6f));
 		}
 	}
 
