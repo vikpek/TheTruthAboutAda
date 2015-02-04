@@ -11,6 +11,7 @@ GameObject:
   - 65: {fileID: 6527988}
   - 114: {fileID: 11427990}
   - 114: {fileID: 11427988}
+  - 114: {fileID: 11450488}
   m_Layer: 0
   m_Name: GameOverBlock
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 39.5900002, z: 0}
+  m_LocalPosition: {x: 0, y: 40.2999992, z: 0}
   m_LocalScale: {x: 45.9376869, y: 1, z: 46.6784859}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
+  hideThemself: 0
   triggerAfterDisappear: 0
   skipWholeEvent: 0
   Duration: 1
@@ -65,6 +66,7 @@ MonoBehaviour:
   disappearEffect: 0
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
 --- !u!114 &11427990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +78,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d3371446b4d6348a1f35d2b6d37156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11450488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _threatBottomBorder: 7
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

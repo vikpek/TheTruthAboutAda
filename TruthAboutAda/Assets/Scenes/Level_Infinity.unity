@@ -17953,7 +17953,6 @@ GameObject:
   - 65: {fileID: 1333514194}
   - 114: {fileID: 1333514193}
   - 114: {fileID: 1333514192}
-  - 114: {fileID: 1333514195}
   m_Layer: 0
   m_Name: GameOverBlock
   m_TagString: Untagged
@@ -18023,18 +18022,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1333514195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1333514190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _threatBottomBorder: 7
 --- !u!1 &1348314165
 GameObject:
   m_ObjectHideFlags: 0
@@ -25104,28 +25091,16 @@ MonoBehaviour:
 --- !u!114 &1729883637
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11444304, guid: 7b795cde19b7b4f758231a91ca80db74,
+  m_PrefabParentObject: {fileID: 11402844, guid: 7b795cde19b7b4f758231a91ca80db74,
     type: 2}
   m_PrefabInternal: {fileID: 1436083683}
   m_GameObject: {fileID: 1729883634}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
-  skipWholeEvent: 0
-  Duration: 1
-  nextEvent: {fileID: 0}
-  hideEvent: {fileID: 0}
-  appearEffect: 0
-  appearDuration: 1
-  appearVisibility: {x: 0, y: 1}
-  disappearEffect: 0
-  disappearDuration: 0
-  disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
+  _threatBottomBorder: 7
 --- !u!114 &1729883638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25266,7 +25241,7 @@ MonoBehaviour:
   PlayerShot: {fileID: 8300000, guid: c6c1b61b1c938e5418d020d3c40946b4, type: 3}
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
-  MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
+  MenuBackgroundLoop: {fileID: 0}
   FailedShot: {fileID: 8300000, guid: b62dc64cbd3f94e4da76f79175c5f079, type: 3}
   CreepExplosion: {fileID: 8300000, guid: a12dbcb96c4dc1445a6af7fc3b34095f, type: 3}
   CreepExplosion2: {fileID: 8300000, guid: bd31752821e67437ca2d0a41dada5543, type: 3}

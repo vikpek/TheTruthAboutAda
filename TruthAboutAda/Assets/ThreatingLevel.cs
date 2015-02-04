@@ -34,6 +34,7 @@ public class ThreatingLevel : MonoBehaviour {
 			}
 		}
 
+		Debug.Log(_relativeDistance);
 		if(_relativeDistance < _threatBottomBorder){
 			GenericFXController.Get.rumbleCamera(1f, 1f/_relativeDistance); 
 		}
