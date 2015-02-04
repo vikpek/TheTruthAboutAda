@@ -3423,10 +3423,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 121112, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11121202, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
@@ -10232,7 +10228,6 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!114 &606311590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12757,7 +12752,6 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!114 &846154777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17761,6 +17755,7 @@ MonoBehaviour:
   Creep_MaxRandomTrys: 10
   Creep_MinCounter: 1
   Creep_MinPosition: -10
+  Creep_MinDifPos: .5
   Creep_MinSmooth: -.600000024
 --- !u!1 &1275812909
 GameObject:
@@ -17997,7 +17992,6 @@ MonoBehaviour:
   disappearEffect: 0
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!114 &1333514193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18034,7 +18028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _threatBottomBorder: 7
 --- !u!1 &1348314165
 GameObject:
   m_ObjectHideFlags: 0
@@ -18630,7 +18623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd45db1ff4de20943aba9d07c8336f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
   targetCam: {fileID: 877628920}
 --- !u!95 &1444204721
 Animator:
@@ -25100,7 +25092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 1886819765}
-  waitTillTimeStop: 1.5
 --- !u!114 &1729883637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25125,7 +25116,6 @@ MonoBehaviour:
   disappearEffect: 0
   disappearDuration: 0
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!114 &1729883638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26653,7 +26643,6 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!114 &1952716285
 MonoBehaviour:
   m_ObjectHideFlags: 0
