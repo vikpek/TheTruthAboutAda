@@ -7,6 +7,7 @@ public class HighScoreManager : MonoBehaviour
 	GameObject risingText;
 
 	public const float CREEP_POINTS = 10;
+	public const float DAMAGE_POINTS = 5;
 
 	float currentHighscore;
 	float currentMultiplier;
@@ -40,11 +41,21 @@ public class HighScoreManager : MonoBehaviour
  
 	public void creepKilled(Vector3 position)
 	{
+		showScoreText (position, CREEP_POINTS);
+	}
+
+	public void creepDamaged(Vector3 position)
+	{
+		showScoreText (position, DAMAGE_POINTS);
+	}
+
+	void showScoreText (Vector3 position, float score)
+	{
 		currentMultiplier += 1;
-		currentHighscore += ( CREEP_POINTS * currentMultiplier );
-//		powerBarController.FillUpValue((int) 2);
-		risingText.GetComponent<RisingText>().setup("" + CREEP_POINTS + " x" + currentMultiplier, 5f, 1f);
-		Instantiate(risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
+		currentHighscore += (score * currentMultiplier);
+		//		powerBarController.FillUpValue((int) 2);
+		risingText.GetComponent<RisingText> ().setup ("" + score + " x" + currentMultiplier, 5f, 1f);
+		Instantiate (risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 	}
 
 	public void shotFailed()

@@ -116,7 +116,6 @@ public class TheEvent : MonoBehaviour
 		{
 			if( triggerAfterDisappear ) Trigger();
 			else gameObject.SetActive( false );
-			Set(); // Prepare for next use
 		}
 	}
 

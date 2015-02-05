@@ -11,13 +11,6 @@ public class UIController : MonoBehaviour
 		Win
 	}
 
-	private struct Buttons
-	{
-		public const int HEIGHT = 50;
-		public const int WIDTH = 130;
-		public const int GAP = 30;
-	}
-
 	States state = States.None;
 	States lastState = States.None;
 
@@ -26,6 +19,7 @@ public class UIController : MonoBehaviour
 	GameObject ContinueB;
 	GameObject RestartB;
 	GameObject NextLevelB;
+	UnityEngine.EventSystems.EventSystem ev;
 
 	[SerializeField]
 	float waitTillTimeStop = 1.5f;
@@ -36,6 +30,7 @@ public class UIController : MonoBehaviour
 		ContinueB = Menu.transform.Find("Canvas/ContinueButton").gameObject;
 		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
 		NextLevelB = Menu.transform.Find("Canvas/NextLevelButton").gameObject;
+		ev = Menu.GetComponentInChildren<UnityEngine.EventSystems.EventSystem>();
 		Menu.SetActive( false );
 	}
 
@@ -55,6 +50,7 @@ public class UIController : MonoBehaviour
 			ContinueB.SetActive( false );
 			RestartB.SetActive( true );
 			NextLevelB.SetActive( false );
+			ev.SetSelectedGameObject( RestartB );
 			Camera.main.GetComponent<BlurEffect>().enabled = true;
 			Menu.SetActive( true );
 			Screen.showCursor = true;
@@ -75,6 +71,7 @@ public class UIController : MonoBehaviour
 			ContinueB.SetActive( false );
 			NextLevelB.SetActive( true );
 			RestartB.SetActive( false );
+			ev.SetSelectedGameObject( ContinueB );
 			Menu.SetActive( true );
 			lastState = state;
 			state = States.Win;
@@ -89,6 +86,7 @@ public class UIController : MonoBehaviour
 		ContinueB.SetActive( true );
 		NextLevelB.SetActive( false );
 		RestartB.SetActive( true );
+		ev.SetSelectedGameObject( ContinueB );
 		Menu.SetActive( true );
 		lastState = state;
 		Time.timeScale = 0f;
