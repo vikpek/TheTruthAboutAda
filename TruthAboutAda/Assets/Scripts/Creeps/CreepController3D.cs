@@ -178,7 +178,7 @@ public class CreepController3D : MonoBehaviour
 			}
 			if( !gotPoints )
 			{
-				HighScoreManager.Get.creepKilled( transform.position );
+				HighScoreManager.Get.creepKilled(transform.position);
 				gotPoints = true;
 			}
 			soundManager.playEnemyDeath();
@@ -186,8 +186,16 @@ public class CreepController3D : MonoBehaviour
 			Destroy( transform.FindChild( "direction_trigger").GetComponent<BoxCollider>() );
 			destroyed = true;
 		}
+		if( !gotPoints )
+		{
+			HighScoreManager.Get.creepKilled(transform.position);
+			gotPoints = true;
+		}
 		soundManager.playEnemyDeath();
 		soundManager.playCreepExplosionBlackCreep();
+		Destroy( GetComponent<BoxCollider>() );
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+//		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
@@ -196,6 +204,7 @@ public class CreepController3D : MonoBehaviour
 	// 1 - cage falls down in single parts
 	void damageCreepCage( int damage )
 	{
+		HighScoreManager.Get.creepDamaged(transform.position);
 		soundManager.playPlayerDamageShot();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el )
