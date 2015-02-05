@@ -182,16 +182,24 @@ public class CreepController3D : MonoBehaviour
 			}
 			if( !gotPoints )
 			{
-				HighScoreManager.Get.creepKilled( transform.position );
+				HighScoreManager.Get.creepKilled(transform.position);
 				gotPoints = true;
 			}
 			soundManager.playEnemyDeath();
 			Destroy( GetComponent<BoxCollider>() );
-			Destroy( transform.FindChild( "direction_trigger" ).GetComponent<BoxCollider>() );
+			Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
 			destroyed = true;
+		}
+		if( !gotPoints )
+		{
+			HighScoreManager.Get.creepKilled(transform.position);
+			gotPoints = true;
 		}
 		soundManager.playEnemyDeath();
 		soundManager.playCreepExplosionBlackCreep();
+		Destroy( GetComponent<BoxCollider>() );
+		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+//		Destroy( GetComponent<CreepController3D>() );
 	}
 
 
@@ -249,8 +257,9 @@ public class CreepController3D : MonoBehaviour
 			{
 				if( coll.transform.tag == Tags.CREEP )
 				{
-					if( coll.name == Constants.CREEP_SILVER ) coll.GetComponentInParent<CreepController3D>().explodeYeah();
-					else coll.GetComponentInParent<CreepController3D>().explodeMe();
+					CreepController3D t = coll.GetComponentInParent<CreepController3D>();
+					if( coll.name == Constants.CREEP_SILVER && t != this ) t.explodeYeah();
+					else t.explodeMe();
 				}
 			}
 		}
