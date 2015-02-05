@@ -3538,7 +3538,6 @@ GameObject:
   - 65: {fileID: 81406000}
   - 54: {fileID: 81405999}
   - 82: {fileID: 81405998}
-  - 114: {fileID: 81406002}
   m_Layer: 0
   m_Name: CreepRegular
   m_TagString: Creep
@@ -3671,21 +3670,6 @@ MonoBehaviour:
   animationDuration: 1
   explosionRadius: 6
   HitOffset: {x: 0, y: -.699999988, z: 0}
---- !u!114 &81406002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11428638, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 725763159}
-  m_GameObject: {fileID: 81405996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: .5
-  lerp: 0
-  directionRight: 0
 --- !u!1 &81451409
 GameObject:
   m_ObjectHideFlags: 0
@@ -22717,7 +22701,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '!SUCCESS!
+  m_Text: 'SUCCESS!
 
 
     Next Level'
@@ -27340,6 +27324,13 @@ Prefab:
     - target: {fileID: 473582, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_RootOrder
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473586, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_Text
+      value: 'SUCCESS!
+
+
+        Next Level'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
@@ -38197,7 +38188,6 @@ GameObject:
   - 65: {fileID: 460697466}
   - 54: {fileID: 460697465}
   - 82: {fileID: 460697464}
-  - 114: {fileID: 460697463}
   m_Layer: 0
   m_Name: CreepRegular
   m_TagString: Creep
@@ -38224,21 +38214,6 @@ Transform:
   - {fileID: 1556052034}
   m_Father: {fileID: 572295073}
   m_RootOrder: 1
---- !u!114 &460697463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11428638, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 1905818688}
-  m_GameObject: {fileID: 460697461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: .5
-  lerp: 0
-  directionRight: 1
 --- !u!82 &460697464
 AudioSource:
   m_ObjectHideFlags: 0
@@ -82673,7 +82648,7 @@ BoxCollider:
   m_GameObject: {fileID: 1337777411}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -96320,7 +96295,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 210640530}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!1 &1647137804
