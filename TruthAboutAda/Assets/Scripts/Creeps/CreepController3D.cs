@@ -208,6 +208,7 @@ public class CreepController3D : MonoBehaviour
 	// 1 - cage falls down in single parts
 	void damageCreepCage( int damage )
 	{
+		HighScoreManager.Get.creepDamaged(transform.position);
 		soundManager.playPlayerDamageShot();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el )
