@@ -22,12 +22,13 @@ public class LoseLevel : MonoBehaviour
 			_lock = true;
 			transform.GetComponent<TheEventNoTime>().enabled = true;
 			StartCoroutine( waitAndLoose( timeTillMenu ) );
+			Debug.Log("LOSE GAME");
 		}
 	}
 
 	IEnumerator waitAndLoose( float time )
 	{
 		yield return new WaitForSeconds( time );
-		uiController.BackToMenu();
+		uiController.SetGameOver();
 	}
 }
