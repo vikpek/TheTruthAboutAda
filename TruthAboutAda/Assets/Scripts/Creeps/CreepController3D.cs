@@ -309,6 +309,7 @@ public class CreepController3D : MonoBehaviour
 			Destroy( GetComponent<Rigidbody>() );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
+			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
 			child.parent = obj.transform;
 			child.localPosition = HitOffset;
 			obj.AddComponent<NumberRailGoaway>();
