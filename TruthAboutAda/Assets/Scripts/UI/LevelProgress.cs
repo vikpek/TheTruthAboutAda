@@ -14,6 +14,11 @@ public class LevelProgress : MonoBehaviour
 			if( _instance == null )
 			{
 				_instance = GameObject.FindObjectOfType<LevelProgress>();
+				if( _instance == null )
+				{
+					GameObject temp = new GameObject();
+					_instance = temp.AddComponent<LevelProgress>();
+				}
 				DontDestroyOnLoad( _instance );
 				_instance.init();
 			}

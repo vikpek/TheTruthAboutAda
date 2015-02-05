@@ -7,9 +7,12 @@ public class ButtonEvents : MonoBehaviour
 
 	LevelProgress progress;
 
+	UnityEngine.EventSystems.EventSystem ev;
+
 	void Awake()
 	{
 		progress = LevelProgress.Get;
+		ev = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
 		buttons = new GameObject[13];
 		buttons[0] = GameObject.Find( "TutorialButton" );
 		buttons[1] = GameObject.Find( "StartButton" );
@@ -68,6 +71,11 @@ public class ButtonEvents : MonoBehaviour
 		Application.LoadLevel( Constants.LEVEL_MENU );
 	}
 
+	public void StoryOnClick()
+	{
+		Application.LoadLevel( Constants.LEVEL_LEVEL01 );
+	}
+
 	public void StartArcadeOnClick()
 	{
 		Application.LoadLevel( Constants.LEVEL_INFINITY );
@@ -98,6 +106,7 @@ public class ButtonEvents : MonoBehaviour
 		buttons[10].SetActive( false );
 		buttons[11].SetActive( false );
 		buttons[12].SetActive( false );
+		ev.SetSelectedGameObject( buttons[0] );
 	}
 
 	public void ShowLevelMenu()
@@ -125,5 +134,6 @@ public class ButtonEvents : MonoBehaviour
 		buttons[11].GetComponent<Button>().interactable = progress.GetLevel( 5 );
 		buttons[11].GetComponentInChildren<Text>().color = new Color( 89f / 255f, 50f / 255f, 27f / 255f, ( progress.GetLevel( 5 ) )?( 1f ):( 0.5f ) );
 		buttons[12].SetActive( true );
+		ev.SetSelectedGameObject( buttons[6] );
 	}
 }
