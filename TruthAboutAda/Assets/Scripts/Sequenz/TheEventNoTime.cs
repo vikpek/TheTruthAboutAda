@@ -106,6 +106,7 @@ public class TheEventNoTime : MonoBehaviour
 			Set(); // Prepare for next use
 		}
 		if( canBeSkipped )
+		{
 			if( Input.GetKeyDown( KeyCode.Space ) && !skip )
 			{
 				if( skipWholeEvent )
@@ -124,6 +125,7 @@ public class TheEventNoTime : MonoBehaviour
 				}
 				skip = true;
 			}
+		}
 	}
 
 	void Set()

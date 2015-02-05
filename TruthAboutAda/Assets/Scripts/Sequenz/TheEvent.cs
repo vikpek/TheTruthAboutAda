@@ -65,7 +65,8 @@ public class TheEvent : MonoBehaviour
 
 	void Update()
 	{
-		if( canBeSkipped ) 
+		if( canBeSkipped )
+		{
 			if( Input.GetKeyDown( KeyCode.Space ) && !skip )
 			{
 				if( skipWholeEvent )
@@ -84,6 +85,7 @@ public class TheEvent : MonoBehaviour
 				}
 				skip = true;
 			}
+		}
 	}
 
 	void FixedUpdate()
