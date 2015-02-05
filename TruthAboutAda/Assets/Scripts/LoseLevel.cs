@@ -7,16 +7,19 @@ public class LoseLevel : MonoBehaviour
 	UIController uiController;
 	bool _lock;
 
-	void Awake(){
+	void Awake()
+	{
 		uiController = GameObject.FindWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>();
 	}
 
 	void OnCollisionEnter( Collision col )
 	{
-		if( col.gameObject.tag == Tags.CREEP  && !_lock) {
+		if( col.gameObject.tag == Tags.CREEP  && !_lock ) 
+		{
+			Debug.Log( col.gameObject.name );
 			_lock = true;
 			transform.GetComponent<TheEventNoTime>().enabled = true;
-			StartCoroutine(waitAndLoose(6f));
+			StartCoroutine( waitAndLoose( 6f ) );
 		}
 	}
 
@@ -24,6 +27,5 @@ public class LoseLevel : MonoBehaviour
 	{
 		yield return new WaitForSeconds( time );
 		uiController.BackToMenu();
-
 	}
 }
