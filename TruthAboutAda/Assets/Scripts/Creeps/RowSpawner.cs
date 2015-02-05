@@ -50,11 +50,17 @@ public class RowSpawner : MonoBehaviour
 				foreach( Transform child in transform )
 				{
 					child.gameObject.SetActive( true );
-					if(child.GetComponent<MovementHorizontalController>())	child.GetComponent<MovementHorizontalController>().enabled = true;
-					if(child.GetComponent<MovementVerticalController>()) child.GetComponent<MovementVerticalController>().enabled = true;
+					if( child.GetComponent<MovementHorizontalController>() ) child.GetComponent<MovementHorizontalController>().enabled = true;
+					if( child.GetComponent<MovementVerticalController>() ) child.GetComponent<MovementVerticalController>().enabled = true;
+					if( child.tag == Tags.CREEP ) // fixed rotation bug
+					{
+						Transform temp = child.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/" + Constants.ANIMATION_HOLDER + "_" + Constants.CYLINDER );
+						temp.rotation = Quaternion.Euler( 0f, temp.rotation.eulerAngles.y, 0f );
+					}
 				}
 				animator.enabled = false;
 				move = true;
+				transform.rotation = Quaternion.Euler( 0f, 0f, 0f );
 			}
 		}
 	}
@@ -63,8 +69,10 @@ public class RowSpawner : MonoBehaviour
 		if( parent.childCount > 0 )
 		{
 			foreach( Transform child in parent )
+			{
 				if( child.tag == Tags.CREEP ) aliveCreeps++;
-			else if( child.tag == "Untagged" ) findChild( child );
+				else if( child.tag == "Untagged" ) findChild( child );
+			}
 		}
 	}
 

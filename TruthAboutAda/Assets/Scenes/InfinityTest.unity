@@ -3770,8 +3770,6 @@ GameObject:
   - 54: {fileID: 169423652}
   - 82: {fileID: 169423654}
   - 114: {fileID: 169423657}
-  - 114: {fileID: 169423656}
-  - 114: {fileID: 169423655}
   - 114: {fileID: 169423650}
   m_Layer: 0
   m_Name: CreepRegular
@@ -3919,36 +3917,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &169423655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11428638, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 111083215}
-  m_GameObject: {fileID: 169423648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: .5
-  lerp: 0
-  directionRight: 0
---- !u!114 &169423656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11446164, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 111083215}
-  m_GameObject: {fileID: 169423648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: 1.5
-  lerp: 0
-  directionRight: 1
 --- !u!114 &169423657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9832,7 +9800,7 @@ BoxCollider:
   m_GameObject: {fileID: 216059374}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -24718,7 +24686,6 @@ GameObject:
   - 114: {fileID: 726394984}
   - 114: {fileID: 726394983}
   - 114: {fileID: 726394982}
-  - 114: {fileID: 726394990}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -24892,7 +24859,7 @@ MonoBehaviour:
   PlayerShot: {fileID: 8300000, guid: c6c1b61b1c938e5418d020d3c40946b4, type: 3}
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
-  MenuBackgroundLoop: {fileID: 8300000, guid: c0d5a7df678a04beb90e4bd660065384, type: 3}
+  MenuBackgroundLoop: {fileID: 0}
   FailedShot: {fileID: 8300000, guid: b62dc64cbd3f94e4da76f79175c5f079, type: 3}
   CreepExplosion: {fileID: 8300000, guid: 65aa58fd802494fd6bff8a29058374dd, type: 3}
   CreepExplosion2: {fileID: 8300000, guid: bd31752821e67437ca2d0a41dada5543, type: 3}
@@ -24900,31 +24867,6 @@ MonoBehaviour:
     type: 3}
   PlayerDamageShot: {fileID: 8300000, guid: c7b77a51a4c71477eaaeda0f031299a0, type: 3}
   FallingParts: {fileID: 8300000, guid: f921c236825324009b16987cc0f4d964, type: 3}
---- !u!114 &726394990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11444304, guid: 7b795cde19b7b4f758231a91ca80db74,
-    type: 2}
-  m_PrefabInternal: {fileID: 2130885140}
-  m_GameObject: {fileID: 726394980}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
-  skipWholeEvent: 0
-  Duration: 10
-  nextEvent: {fileID: 0}
-  hideEvent: {fileID: 0}
-  appearEffect: 0
-  appearDuration: 1
-  appearVisibility: {x: 0, y: 1}
-  disappearEffect: 0
-  disappearDuration: 0
-  disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!1 &735561377
 GameObject:
   m_ObjectHideFlags: 0
@@ -37729,8 +37671,6 @@ GameObject:
   - 114: {fileID: 1171366415}
   - 114: {fileID: 1171366414}
   - 114: {fileID: 1171366412}
-  - 114: {fileID: 1171366411}
-  - 114: {fileID: 1171366409}
   m_Layer: 0
   m_Name: RumbleCamera
   m_TagString: MainCamera
@@ -37759,8 +37699,8 @@ Camera:
   m_GameObject: {fileID: 1171366403}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: .32531178, g: .284061432, b: .544117689, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -37807,31 +37747,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 296785320}
   m_GameObject: {fileID: 1171366403}
   m_Enabled: 1
---- !u!114 &1171366409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459910, guid: eab17bf3001134eefa18d63eb997a3c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 296785320}
-  m_GameObject: {fileID: 1171366403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideThemself: 0
-  triggerAfterDisappear: 0
-  skipWholeEvent: 0
-  Duration: 1
-  nextEvent: {fileID: 0}
-  hideEvent: {fileID: 0}
-  appearEffect: 0
-  appearDuration: 0
-  appearVisibility: {x: 0, y: 1}
-  disappearEffect: 0
-  disappearDuration: 0
-  disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
 --- !u!82 &1171366410
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37891,20 +37806,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1171366411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11459908, guid: eab17bf3001134eefa18d63eb997a3c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 296785320}
-  m_GameObject: {fileID: 1171366403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8693821d907cdc48926fb5734f6e9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableTime: 1
-  waitTime: 0
 --- !u!114 &1171366412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41855,8 +41756,6 @@ GameObject:
   - 54: {fileID: 1366352118}
   - 82: {fileID: 1366352120}
   - 114: {fileID: 1366352123}
-  - 114: {fileID: 1366352122}
-  - 114: {fileID: 1366352121}
   - 114: {fileID: 1366352116}
   m_Layer: 0
   m_Name: CreepRegular
@@ -42004,36 +41903,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1366352121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11428638, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 1924448759}
-  m_GameObject: {fileID: 1366352114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: .5
-  lerp: 0
-  directionRight: 0
---- !u!114 &1366352122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11446164, guid: 3cc1e5fe7094c492aab9c65827105b35,
-    type: 2}
-  m_PrefabInternal: {fileID: 1924448759}
-  m_GameObject: {fileID: 1366352114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce78da4bce1c647f784116d898f0c825, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: 1.5
-  lerp: 0
-  directionRight: 1
 --- !u!114 &1366352123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45211,7 +45080,7 @@ Transform:
   m_GameObject: {fileID: 1501185331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: -6.5, z: -16.8999996}
-  m_LocalScale: {x: 18.7929726, y: 18.7929821, z: 463.620087}
+  m_LocalScale: {x: 18.7929726, y: 1, z: 463.620087}
   m_Children: []
   m_Father: {fileID: 1505236820}
   m_RootOrder: 2
@@ -45283,7 +45152,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Level
+  m_Text: '!SUCCESS!
+
+
+    Next Level'
 --- !u!222 &1501216846
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45306,8 +45178,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 187}
-  m_SizeDelta: {x: -563, y: -98.5}
+  m_AnchoredPosition: {x: 0, y: 424}
+  m_SizeDelta: {x: -563, y: 280}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1501363367
 GameObject:
