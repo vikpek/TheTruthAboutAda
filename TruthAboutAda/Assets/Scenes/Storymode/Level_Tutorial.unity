@@ -3147,7 +3147,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -3165,11 +3165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 0
-  triggerAfterDisappear: 0
+  hideThemself: 1
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 3
-  nextEvent: {fileID: 1678363845}
+  nextEvent: {fileID: 2108152618}
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
@@ -3207,7 +3207,7 @@ MonoBehaviour:
   m_Text: 'What happen if I hit the cylinder with the wrong number?
 
 
-    (Press SPACE/X to continue the level)'
+    (Press SPACE/X to skip)'
 --- !u!222 &63678696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10084,11 +10084,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 0
-  triggerAfterDisappear: 0
+  hideThemself: 1
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 3
-  nextEvent: {fileID: 1868780246}
+  nextEvent: {fileID: 1702917728}
   hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: 1
@@ -10124,7 +10124,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "OH! A black cylinder. With Letters? Oh yeah \nA is 1, B is 2, ... yes yes
-    ... I know it.\n\n(Press SPACE/X to continue the level)"
+    ... I know it.\n\n(Press SPACE/X to skip)"
 --- !u!222 &136426729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36746,7 +36746,7 @@ Prefab:
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideEvent
       value: 
-      objectReference: {fileID: 63678692}
+      objectReference: {fileID: 2108152618}
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideThemself
       value: 1
@@ -38166,7 +38166,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 0
   nextEvent: {fileID: 0}
-  hideEvent: {fileID: 136426725}
+  hideEvent: {fileID: 1702917728}
   appearEffect: 0
   appearDuration: 0
   appearVisibility: {x: 0, y: 1}
@@ -42765,7 +42765,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -43297,6 +43297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d3371446b4d6348a1f35d2b6d37156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTillMenu: 6
 --- !u!65 &540998994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71334,10 +71335,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'AH! The cylinders have numbers. I must select the right one.
+  m_Text: 'AH! The cylinders have numbers. I must select the right one with the arrow
+    keys <>/L1 and R1 and move the panel with A and D/Left Stick.
 
 
-    (Press SPACE/X to continue the level)'
+    (Press SPACE/X to start the level)'
 --- !u!222 &1113346662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -91345,7 +91347,7 @@ Prefab:
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideEvent
       value: 
-      objectReference: {fileID: 136426725}
+      objectReference: {fileID: 1702917728}
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideThemself
       value: 1
@@ -92966,7 +92968,7 @@ MonoBehaviour:
   m_Text: 'I must remember how the machine works.
 
 
-    (Press SPACE/X to start the level)'
+    (Press SPACE/X to skip)'
 --- !u!222 &1494971930
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -99611,6 +99613,104 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1905818688}
   m_GameObject: {fileID: 1701975035}
   m_Mesh: {fileID: 4300054, guid: f79f4795469bf436d8d598dffac39322, type: 3}
+--- !u!1 &1702917728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 191636, guid: 7f24f90964a882b498a1e6a6d643bff9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1702917729}
+  - 222: {fileID: 1702917732}
+  - 114: {fileID: 1702917731}
+  - 114: {fileID: 1702917730}
+  m_Layer: 5
+  m_Name: Satz03_a
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1702917729
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22491620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702917728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143968237}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 68, y: -380}
+  m_SizeDelta: {x: 855, y: 172}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1702917730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491636, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702917728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideThemself: 0
+  triggerAfterDisappear: 0
+  skipWholeEvent: 0
+  Duration: 3
+  nextEvent: {fileID: 1868780246}
+  hideEvent: {fileID: 0}
+  appearEffect: 1
+  appearDuration: 1
+  appearVisibility: {x: 0, y: 1}
+  disappearEffect: 1
+  disappearDuration: 1
+  disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
+--- !u!114 &1702917731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491638, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702917728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5d75281fa1433ba4c95c5ad25dbc913b, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 30
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Also I think he influence the other cylinders.
+
+
+    (Press SPACE/X to continue the level)'
+--- !u!222 &1702917732
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22291620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1702917728}
 --- !u!1 &1703140570
 GameObject:
   m_ObjectHideFlags: 0
@@ -122134,6 +122234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba493507b2fd14a9e11009dc921ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setLevelOnWin: -1
 --- !u!1 &1947459143
 GameObject:
   m_ObjectHideFlags: 0
@@ -124600,7 +124701,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 0
   nextEvent: {fileID: 0}
-  hideEvent: {fileID: 63678692}
+  hideEvent: {fileID: 2108152618}
   appearEffect: 0
   appearDuration: 0
   appearVisibility: {x: 0, y: 1}
@@ -132632,6 +132733,102 @@ MonoBehaviour:
   disableRefCheck: 1
   target: {fileID: 572295072}
   hide: {fileID: 0}
+--- !u!1 &2108152618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 191636, guid: 7f24f90964a882b498a1e6a6d643bff9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2108152619}
+  - 222: {fileID: 2108152622}
+  - 114: {fileID: 2108152621}
+  - 114: {fileID: 2108152620}
+  m_Layer: 5
+  m_Name: Satz05_a
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2108152619
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22491620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108152618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143968237}
+  m_RootOrder: 7
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 68, y: -380}
+  m_SizeDelta: {x: 855, y: 172}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2108152620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491636, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108152618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideThemself: 0
+  triggerAfterDisappear: 0
+  skipWholeEvent: 0
+  Duration: 3
+  nextEvent: {fileID: 1678363845}
+  hideEvent: {fileID: 0}
+  appearEffect: 1
+  appearDuration: 1
+  appearVisibility: {x: 0, y: 1}
+  disappearEffect: 1
+  disappearDuration: 1
+  disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
+--- !u!114 &2108152621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491638, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108152618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5d75281fa1433ba4c95c5ad25dbc913b, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 30
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Also I must pay intention that the cylinders don\xB4t reach the bottom.\n\n(Press
+    SPACE/X to continue the level)"
+--- !u!222 &2108152622
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22291620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108152618}
 --- !u!1 &2110005834
 GameObject:
   m_ObjectHideFlags: 0
@@ -136609,8 +136806,10 @@ Transform:
   - {fileID: 1494971927}
   - {fileID: 1113346659}
   - {fileID: 136426726}
+  - {fileID: 1702917729}
   - {fileID: 516700175}
   - {fileID: 63678693}
+  - {fileID: 2108152619}
   m_Father: {fileID: 1407561409}
   m_RootOrder: 1
 --- !u!1 &2144844421
