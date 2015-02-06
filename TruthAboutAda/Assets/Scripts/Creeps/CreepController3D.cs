@@ -48,17 +48,19 @@ public class CreepController3D : MonoBehaviour
 
 	bool gotPoints;
 
+	bool rotateEnd;
+
 	void Awake()
 	{
 		if( transform.name == Constants.CREEP_BLACK ) creepBlack = true;
 		else if( transform.name == Constants.CREEP_SILVER ) creepSilver = true;
 		
-		cylinderTransform = transform.FindChild( Constants.ANIMATION_HOLDER ).FindChild( Constants.CYLINDER ).FindChild( "animation_holder_cylinder" ).transform;
+		cylinderTransform = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/" + "animation_holder_cylinder" );
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
-		particleSystem = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
-		particleSystemExplosion = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM_EXPLOSION ).GetComponent<ParticleSystem>();
-		particleSystemLightning = transform.FindChild( Constants.CREEP_PARTICLE_SYSTEM_LIGHTNING ).GetComponent<ParticleSystem>();
+		particleSystem = transform.Find( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
+		particleSystemExplosion = transform.Find( Constants.CREEP_PARTICLE_SYSTEM_EXPLOSION ).GetComponent<ParticleSystem>();
+		particleSystemLightning = transform.Find( Constants.CREEP_PARTICLE_SYSTEM_LIGHTNING ).GetComponent<ParticleSystem>();
 
 		audioSource = transform.GetComponent<AudioSource>();
 
@@ -84,11 +86,11 @@ public class CreepController3D : MonoBehaviour
 			rotateCylinder();
 			shakeIt( 0.5f );
 			if( creepBlack || creepSilver ) if( !audioSource.isPlaying ) audioSource.Play();
-		} else if( creepBlack || creepSilver ) audioSource.Stop();
-
-		if( rotationDuration <= 0 )
+		} else if( rotateEnd )
 		{
 			cylinderTransform.rotation = CylinderUtility.Get.setCylinderToValue( cylinderValue );
+			if( creepBlack || creepSilver ) audioSource.Stop();
+			rotateEnd = false;
 		}
 		if( shakingTime > 0f && rotationTime <= 0f )
 		{
@@ -99,16 +101,14 @@ public class CreepController3D : MonoBehaviour
 
 	void OnTriggerEnter( Collider col )
 	{
-		shakeIt(0.5f);
+		shakeIt( 0.5f );
 		if( col.gameObject.tag == Tags.BULLET )
 		{
 			particleSystem.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 		
-			if(col.GetComponent<BulletController>().IsBulletJoker())
-			{
-				explodeAllWithValue(cylinderValue);
-			} else if( col.GetComponent<BulletController>().GetBulletValue() == cylinderValue )
+			if( col.GetComponent<BulletController>().IsBulletJoker() ) explodeAllWithValue( cylinderValue );
+			else if( col.GetComponent<BulletController>().GetBulletValue() == cylinderValue )
 			{
 				if( creepSilver )
 				{
@@ -123,23 +123,13 @@ public class CreepController3D : MonoBehaviour
 					if( creepHP < blackCreepLifeCount ) 
 					{
 						cylinderTransform.FindChild("cylinder_main").renderer.material = (Material) Resources.Load ("Materials/GPE_Creep_Black_num");
-//						cylinderTransform.FindChild("cylinder_main").renderer.materials[1].mainTexture = (Texture) Resources.Load ("Textures/Chars/GPE_Creep_02_diffuse");
-						damageCreepCage(0);
-						reinitializeCylinder(-1);
+						damageCreepCage( 0 );
+						reinitializeCylinder( -1 );
 						blockShot( col.gameObject );
 					} else generateRail( col.gameObject );
 				} else generateRail( col.gameObject );
 
 				creepHP++;
-
-				if( GameConfig.Get.ShowEnemyCollisionPoints )
-				{
-					GameObject temp = GameObject.CreatePrimitive( PrimitiveType.Sphere );
-					temp.transform.position = col.ClosestPointOnBounds( transform.position );
-					temp.transform.parent = transform;
-					temp.renderer.material.color = Color.red;
-					Destroy( temp.GetComponent<SphereCollider>() );
-				}
 			} else
 			{
 				HighScoreManager.Get.shotFailed();
@@ -151,14 +141,11 @@ public class CreepController3D : MonoBehaviour
 		}
 	}
 
-	void explodeAllWithValue (int _cylinderValue)
+	void explodeAllWithValue( int _cylinderValue )
 	{
-		foreach (GameObject go in GameObject.FindGameObjectsWithTag(Tags.CREEP)) {
-			if(go.GetComponent<CreepController3D>().cylinderValue == _cylinderValue)
-			{
-				Debug.Log ("test");
-				go.GetComponent<CreepController3D>().explodeYeah();
-			}
+		foreach( GameObject go in GameObject.FindGameObjectsWithTag( Tags.CREEP ) ) 
+		{
+			if( go.GetComponent<CreepController3D>().cylinderValue == _cylinderValue ) go.GetComponent<CreepController3D>().explodeYeah();
 		}
 	}
 
@@ -172,6 +159,7 @@ public class CreepController3D : MonoBehaviour
 	// Creep simply falls down. This is an alternative dying animation.
 	void kickCreepDown()
 	{
+		tag = "Untagged";
 		soundManager.playFallingParts();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el ) addConstForces( element.gameObject );
@@ -195,7 +183,7 @@ public class CreepController3D : MonoBehaviour
 			}
 			soundManager.playEnemyDeath();
 			Destroy( GetComponent<BoxCollider>() );
-			Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
+			Destroy( transform.FindChild( "direction_trigger").GetComponent<BoxCollider>() );
 			destroyed = true;
 		}
 		if( !gotPoints )
@@ -216,6 +204,7 @@ public class CreepController3D : MonoBehaviour
 	// 1 - cage falls down in single parts
 	void damageCreepCage( int damage )
 	{
+		HighScoreManager.Get.creepDamaged(transform.position);
 		soundManager.playPlayerDamageShot();
 		Transform el = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER );
 		foreach( Transform element in el )
@@ -230,12 +219,14 @@ public class CreepController3D : MonoBehaviour
 
 	void addConstForces( GameObject element )
 	{
+		element.transform.rotation = new Quaternion();
 		ConstantForce temp = element.GetComponent<ConstantForce>();
 		if( temp == null ) temp = element.AddComponent<ConstantForce>();
 		Rigidbody rig = element.GetComponent<Rigidbody>();
 		if( rig == null ) rig = element.AddComponent<Rigidbody>();
-		temp.relativeTorque = new Vector3(Random.Range(0,10), Random.Range(0,10),Random.Range(0,10));
-		temp.relativeForce = new Vector3(Random.Range(0,5), Random.Range(0,5),Random.Range(-10, -5));
+		temp.relativeTorque = new Vector3( Random.Range(0,10), Random.Range(0,10),Random.Range( 0,10 ) );
+		temp.relativeForce = new Vector3( Random.Range(0,5), Random.Range(0,5),Random.Range( -10, -5) );
+		element.AddComponent<DestroyOn>();
 	}
 	
 	// Reinitializes a whole creep row. If value is set to -1 the row is initialized with random values.
@@ -250,6 +241,7 @@ public class CreepController3D : MonoBehaviour
 	void rotateCylinder()
 	{
 		if( cylinderTransform ) cylinderTransform.rotation = CylinderUtility.Get.rotateCylinder( cylinderTransform.rotation.eulerAngles, Random.Range (0, 9) );
+		rotateEnd = true;
 	}
 
 	// Explosion that affects all creep in sphere radius.
@@ -260,7 +252,7 @@ public class CreepController3D : MonoBehaviour
 			soundManager.playCreepExplosion();
 			soundManager.playCreepExplosion2();
 			particleSystemExplosion.Play();
-			Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+			Collider[] colliders = Physics.OverlapSphere( transform.position, explosionRadius );
 			foreach( Collider coll in colliders ) 
 			{
 				if( coll.transform.tag == Tags.CREEP )
@@ -280,9 +272,10 @@ public class CreepController3D : MonoBehaviour
 			destroyed = true;
 			damageCreepCage(2);
 			kickCreepDown();
-			transform.parent = null;
-			gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-			gameObject.GetComponent<Rigidbody>().useGravity = true;
+			transform.Find( Constants.ANIMATION_HOLDER ).parent = null;
+			Destroy( GetComponent<CreepController3D>() );
+			Destroy( GetComponent<MovementHorizontalController>() );
+			Destroy( rigidbody );
 			_link.CreepKill();
 		}
 	}
@@ -317,6 +310,7 @@ public class CreepController3D : MonoBehaviour
 			Destroy( GetComponent<Rigidbody>() );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
+			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
 			child.parent = obj.transform;
 			child.localPosition = HitOffset;
 			obj.AddComponent<NumberRailGoaway>();

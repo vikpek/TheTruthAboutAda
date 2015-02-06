@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &173594
 GameObject:
   m_ObjectHideFlags: 1
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400008, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -335,7 +335,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Level
+  m_Text: '!SUCCESS!
+
+
+    Next Level'
 --- !u!114 &11473588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,7 +457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400008, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -598,7 +601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400008, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -673,7 +676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400008, guid: 7b795cde19b7b4f758231a91ca80db74, type: 2}
         m_MethodName: UnpauseGame
         m_Mode: 1
         m_Arguments:
@@ -748,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 173600}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!222 &22273582
@@ -837,7 +840,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 220}
+  m_AnchoredPosition: {x: 0, y: 43}
   m_SizeDelta: {x: 1126, y: 197}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22473584
@@ -854,8 +857,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 187}
-  m_SizeDelta: {x: -563, y: -98.5}
+  m_AnchoredPosition: {x: 0, y: 424}
+  m_SizeDelta: {x: -563, y: 280}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22473586
 RectTransform:
@@ -923,7 +926,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -68}
+  m_AnchoredPosition: {x: 0, y: -123}
   m_SizeDelta: {x: 1126, y: 197}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22473594
@@ -956,13 +959,13 @@ RectTransform:
   m_GameObject: {fileID: 173598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .655857921, y: .65585798, z: .65585798}
+  m_LocalScale: {x: .550920665, y: .550920546, z: .550920546}
   m_Children: []
   m_Father: {fileID: 22473594}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -31}
+  m_AnchoredPosition: {x: 0, y: -2}
   m_SizeDelta: {x: 1000, y: 1400}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22473598
@@ -980,7 +983,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -352}
+  m_AnchoredPosition: {x: 0, y: -283}
   m_SizeDelta: {x: 1126, y: 197}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22473600
@@ -998,7 +1001,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 220}
+  m_AnchoredPosition: {x: 0, y: 43}
   m_SizeDelta: {x: 1125.99988, y: 197}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

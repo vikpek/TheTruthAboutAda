@@ -18,7 +18,7 @@ public class CameraRumbler : MonoBehaviour
 	void Update () 
 	{
 		if (shake > 0) 
-		{
+		{		
 			_camera.transform.localPosition = Random.insideUnitSphere * shakeAmount;
 			shake -= Time.deltaTime * decreaseFactor;
 		} else 

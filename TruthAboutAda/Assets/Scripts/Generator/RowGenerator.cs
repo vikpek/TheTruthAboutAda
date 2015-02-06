@@ -94,8 +94,10 @@ public class RowGenerator : MonoBehaviour
 				}
 				if( smoothMove != 0f )
 				{
-					enemy.AddComponent<MovementHorizontalController>().smooth = Mathf.Abs( smoothMove );
-					if( smoothMove < 0f ) enemy.GetComponent<MovementHorizontalController>().directionRight = false;
+					MovementHorizontalController controll = enemy.GetComponent<MovementHorizontalController>();
+					if( controll == null ) controll = enemy.AddComponent<MovementHorizontalController>();
+					controll.smooth = Mathf.Abs( smoothMove );
+					if( smoothMove < 0f ) controll.directionRight = false;
 				}
 			}
 		} else Debug.LogWarning( "BasicRow is missing." );
