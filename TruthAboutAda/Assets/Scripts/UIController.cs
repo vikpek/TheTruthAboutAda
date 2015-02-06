@@ -71,7 +71,7 @@ public class UIController : MonoBehaviour
 			ContinueB.SetActive( false );
 			NextLevelB.SetActive( true );
 			RestartB.SetActive( false );
-			ev.SetSelectedGameObject( ContinueB );
+			ev.SetSelectedGameObject( NextLevelB );
 			Menu.SetActive( true );
 			lastState = state;
 			state = States.Win;
