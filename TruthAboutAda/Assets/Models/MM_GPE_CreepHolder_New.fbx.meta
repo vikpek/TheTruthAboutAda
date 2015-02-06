@@ -1,42 +1,78 @@
 fileFormatVersion: 2
-guid: 2e959c4a1f4e14bfe9367ff10134c323
+guid: b201c52b81d63484f98f30194f0e8c28
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: body
-    100002: bolt4
-    100004: bolt5
-    100006: bolt7
-    100008: bolt8
-    100010: cog5
-    100012: cog6
-    100014: holder 1
-    100016: //RootNode
+    100002: bolt
+    100004: bolt10
+    100006: bolt4
+    100008: bolt5
+    100010: bolt6
+    100012: bolt7
+    100014: bolt8
+    100016: bolt9
+    100018: cog
+    100020: cog4
+    100022: cog5
+    100024: cog6
+    100026: cog7
+    100028: cog8
+    100030: holder
+    100032: holder 1
+    100034: //RootNode
+    100036: rail
     400000: body
-    400002: bolt4
-    400004: bolt5
-    400006: bolt7
-    400008: bolt8
-    400010: cog5
-    400012: cog6
-    400014: holder 1
-    400016: //RootNode
+    400002: bolt
+    400004: bolt10
+    400006: bolt4
+    400008: bolt5
+    400010: bolt6
+    400012: bolt7
+    400014: bolt8
+    400016: bolt9
+    400018: cog
+    400020: cog4
+    400022: cog5
+    400024: cog6
+    400026: cog7
+    400028: cog8
+    400030: holder
+    400032: holder 1
+    400034: //RootNode
+    400036: rail
     2300000: body
-    2300002: bolt4
-    2300004: bolt5
-    2300006: bolt7
-    2300008: bolt8
-    2300010: cog5
-    2300012: cog6
-    2300014: holder 1
+    2300002: bolt
+    2300004: bolt10
+    2300006: bolt4
+    2300008: bolt5
+    2300010: bolt6
+    2300012: bolt7
+    2300014: bolt8
+    2300016: bolt9
+    2300018: cog
+    2300020: cog4
+    2300022: cog5
+    2300024: cog6
+    2300026: cog7
+    2300028: cog8
+    2300030: holder 1
     3300000: body
-    3300002: bolt4
-    3300004: bolt5
-    3300006: bolt7
-    3300008: bolt8
-    3300010: cog5
-    3300012: cog6
-    3300014: holder 1
+    3300002: bolt
+    3300004: bolt10
+    3300006: bolt4
+    3300008: bolt5
+    3300010: bolt6
+    3300012: bolt7
+    3300014: bolt8
+    3300016: bolt9
+    3300018: cog
+    3300020: cog4
+    3300022: cog5
+    3300024: cog6
+    3300026: cog7
+    3300028: cog8
+    3300030: holder 1
     4300000: body
     4300002: holder
     4300004: bolt4
@@ -45,6 +81,15 @@ ModelImporter:
     4300010: cog5
     4300012: bolt8
     4300014: cog6
+    4300016: bolt
+    4300018: cog
+    4300020: bolt6
+    4300022: cog4
+    4300024: bolt9
+    4300026: cog7
+    4300028: bolt10
+    4300030: cog8
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -79,9 +124,9 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 35
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
