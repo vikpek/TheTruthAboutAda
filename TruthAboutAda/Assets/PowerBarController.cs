@@ -4,6 +4,9 @@ using System.Collections;
 
 public class PowerBarController : MonoBehaviour {
 
+	[SerializeField]
+	bool powerBarActive = true;
+
 	public const float MAX_FILLSTATE = 10;
 
 	Image bar;
@@ -14,14 +17,17 @@ public class PowerBarController : MonoBehaviour {
 
 	public void FillUpValue(int value)
 	{
-		if((value + fillState) < MAX_FILLSTATE)
+		if(powerBarActive)
 		{
-			fillState += value;
-		} else {
-			fillState = MAX_FILLSTATE;
-		}
+			if((value + fillState) < MAX_FILLSTATE)
+			{
+				fillState += 1;
+			} else {
+				fillState = MAX_FILLSTATE;
+			}
 
-		syncFillState ();
+			syncFillState ();
+		}
 	}
 
 	void syncFillState ()

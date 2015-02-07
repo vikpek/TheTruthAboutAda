@@ -9,9 +9,6 @@ public class PanelMovement : MonoBehaviour
 	bool smooth = true;
 
 	[SerializeField]
-	bool useMouse;
-
-	[SerializeField]
 	float maxXBorder;
 
 	[SerializeField]
@@ -37,8 +34,7 @@ public class PanelMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		string axis = ( useMouse )?( "Mouse X" ):( "Horizontal" );
-		float horizontal = ( move )?( ( smooth )?( Input.GetAxis( axis ) ):( Input.GetAxisRaw( axis ) ) ):( 0f );
+		float horizontal = ( move )?( ( smooth )?( Input.GetAxis( "Horizontal" ) ):( Input.GetAxisRaw( "Horizontal" ) ) ):( 0f );
 		
 		if( horizontal != 0f )
 		{
@@ -49,7 +45,7 @@ public class PanelMovement : MonoBehaviour
 			if( nextPos.x > maxXBorder ) nextPos.x = maxXBorder;
 			else if( nextPos.x < minXBorder ) nextPos.x = minXBorder;
 
-			if(horizontal > 0)
+			if( horizontal > 0 )
 			{
 				transformSideCogRight.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
 				transformSideCogLeft.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogLeft.transform.eulerAngles, Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
@@ -60,7 +56,7 @@ public class PanelMovement : MonoBehaviour
 				particleSystemSideCogRight.enableEmission = true;
 
 			
-			} else if(horizontal < 0)
+			} else if( horizontal < 0 )
 			{
 				transformSideCogRight.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
 				transformSideCogLeft.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);

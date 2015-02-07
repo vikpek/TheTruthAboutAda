@@ -53,8 +53,8 @@ public class HighScoreManager : MonoBehaviour
 	{
 		currentMultiplier += 1;
 		currentHighscore += (score * currentMultiplier);
-		//		powerBarController.FillUpValue((int) 2);
-		risingText.GetComponent<RisingText> ().setup ("" + score + " x" + currentMultiplier, 5f, 1f);
+//		powerBarController.FillUpValue((int) 2);
+		risingText.GetComponent<RisingText> ().setup ("" + score + " x" + currentMultiplier, 5f, 1f, currentMultiplier);
 		Instantiate (risingText, position + Vector3.down + Vector3.right * 2, Quaternion.identity);
 	}
 
