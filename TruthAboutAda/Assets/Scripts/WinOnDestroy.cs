@@ -7,7 +7,8 @@ public class WinOnDestroy : MonoBehaviour
 
 	void OnDestroy()
 	{
-		GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<UIController>().SetWin();
+		GameObject temp = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER );
+		if( temp != null )temp.GetComponent<UIController>().SetWin();
 		if( setLevelOnWin != -1 ) LevelProgress.Get.SetLevel( setLevelOnWin );
 	}
 }

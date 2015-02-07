@@ -9,13 +9,14 @@ public class UIController : MonoBehaviour
 		Pause,
 		GameOver,
 		Win
-	}
+	};
 
 	States state = States.None;
 	States lastState = States.None;
 
 	[SerializeField]
 	GameObject Menu;
+
 	GameObject ContinueB;
 	GameObject RestartB;
 	GameObject NextLevelB;
@@ -31,7 +32,17 @@ public class UIController : MonoBehaviour
 		RestartB = Menu.transform.Find("Canvas/RestartButton").gameObject;
 		NextLevelB = Menu.transform.Find("Canvas/NextLevelButton").gameObject;
 		ev = Menu.GetComponentInChildren<UnityEngine.EventSystems.EventSystem>();
+
 		Menu.SetActive( false );
+	}
+
+	void blur( bool state )
+	{
+		if( Camera.main != null ) 
+		{
+			BlurEffect effect = Camera.main.GetComponent<BlurEffect>();
+			if( effect != null ) effect.enabled = state;
+		}
 	}
 
 	void Update()
@@ -51,7 +62,7 @@ public class UIController : MonoBehaviour
 			RestartB.SetActive( true );
 			NextLevelB.SetActive( false );
 			ev.SetSelectedGameObject( RestartB );
-			Camera.main.GetComponent<BlurEffect>().enabled = true;
+			blur( true );
 			Menu.SetActive( true );
 			Screen.showCursor = true;
 			lastState = state;
@@ -72,6 +83,7 @@ public class UIController : MonoBehaviour
 			NextLevelB.SetActive( true );
 			RestartB.SetActive( false );
 			ev.SetSelectedGameObject( NextLevelB );
+			blur( true );
 			Menu.SetActive( true );
 			lastState = state;
 			state = States.Win;
@@ -82,7 +94,7 @@ public class UIController : MonoBehaviour
 
 	void PauseGame()
 	{
-		Camera.main.GetComponent<BlurEffect>().enabled = true;
+		blur( true );
 		ContinueB.SetActive( true );
 		NextLevelB.SetActive( false );
 		RestartB.SetActive( true );
@@ -96,16 +108,17 @@ public class UIController : MonoBehaviour
 
 	public void UnpauseGame()
 	{
-		Camera.main.GetComponent<BlurEffect>().enabled = false;
+		blur( false );
 		Menu.SetActive( false );
 		state = lastState;
 		Time.timeScale = 1f;
 		Screen.showCursor = false;
+		Debug.Log("Unpause");
 	}
 
 	public void RestartLevel()
 	{
-		Camera.main.GetComponent<BlurEffect>().enabled = false;
+		blur( false );
 		lastState = state;
 		Time.timeScale = 1f;
 		Application.LoadLevel( Application.loadedLevel );
@@ -116,7 +129,7 @@ public class UIController : MonoBehaviour
 
 	public void NextLevel()
 	{
-		Camera.main.GetComponent<BlurEffect>().enabled = false;
+		blur( false );
 		lastState = state;
 		Time.timeScale = 1f;
 		Application.LoadLevel( Application.loadedLevel + 1 );
@@ -127,7 +140,7 @@ public class UIController : MonoBehaviour
 
 	public void BackToMenu()
 	{
-		Camera.main.GetComponent<BlurEffect>().enabled = false;
+		blur( false );
 		lastState = state;
 		Time.timeScale = 1f;
 		Application.LoadLevel( Constants.LEVEL_MENU );
