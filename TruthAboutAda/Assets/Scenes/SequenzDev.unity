@@ -135,6 +135,7 @@ MonoBehaviour:
   disappearDuration: .200000003
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &10001705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
+  hideThemself: 0
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 7
   nextEvent: {fileID: 267471108}
@@ -224,6 +225,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 1
 --- !u!114 &55089288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +380,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &174557662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +470,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &208786766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,8 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
+  hideThemself: 0
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 2
   nextEvent: {fileID: 1872124709}
@@ -584,6 +588,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 1
 --- !u!114 &308649223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,8 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
+  hideThemself: 0
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 2
   nextEvent: {fileID: 1379636218}
@@ -679,6 +684,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 1
 --- !u!114 &387056390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +780,7 @@ MonoBehaviour:
   disappearDuration: 3
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &507551331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,6 +870,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &604711967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1084,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &974919240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1165,8 @@ MonoBehaviour:
   disappearEffect: 0
   disappearDuration: 0
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
+  canBeSkipped: 0
+  triggerOnSkip: 0
 --- !u!1 &998371616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1228,7 @@ MonoBehaviour:
   disappearDuration: .200000003
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &998371619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,6 +1318,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &1035189071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,8 +1440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
+  hideThemself: 0
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 4
   nextEvent: {fileID: 629769787}
@@ -1441,6 +1453,7 @@ MonoBehaviour:
   disappearDuration: .200000003
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 1
 --- !u!114 &1127951767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1798,9 +1811,10 @@ MonoBehaviour:
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
-  disappearDuration: 2
+  disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &1295228754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,6 +1904,7 @@ MonoBehaviour:
   disappearDuration: 2
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &1324592036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,9 +1991,10 @@ MonoBehaviour:
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
-  disappearDuration: .800000012
+  disappearDuration: .5
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 1
+  canBeSkipped: 0
+  triggerOnSkip: 0
 --- !u!114 &1378615987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,6 +2497,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &1791559801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,8 +2574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideThemself: 1
-  triggerAfterDisappear: 0
+  hideThemself: 0
+  triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 4.5
   nextEvent: {fileID: 145447263}
@@ -2570,6 +2587,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 1
 --- !u!114 &1836926245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,6 +2713,7 @@ MonoBehaviour:
   disappearDuration: .200000003
   disappearVisibility: {x: .699999988, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &1975860500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,6 +2837,7 @@ MonoBehaviour:
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
   canBeSkipped: 1
+  triggerOnSkip: 0
 --- !u!114 &2020797314
 MonoBehaviour:
   m_ObjectHideFlags: 0
