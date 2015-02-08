@@ -47,6 +47,12 @@ public class TheEventNoTime : MonoBehaviour
 	[SerializeField]
 	bool canBeSkipped = true;
 
+	[SerializeField]
+	bool triggerOnSkip;
+
+	[SerializeField]
+	bool fastSkip;
+
 	float startTime;
 	float lifeTime;
 	float endTime;
@@ -71,6 +77,32 @@ public class TheEventNoTime : MonoBehaviour
 		lastTime = Time.realtimeSinceStartup;
 	}
 
+	void Skip()
+	{
+		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
+		{
+			if( triggerOnSkip )
+			{
+				if( !triggerAfterDisappear ) Trigger();
+				hideThemself = true;
+			} else if( skipWholeEvent )
+			{
+				if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				endTime = 0f;
+				if( triggerAfterDisappear ) Trigger();
+			} else 
+			{
+				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				if( !triggerAfterDisappear ) Trigger();
+			}
+			skip = true;
+		}
+	}
+
 	void Update()
 	{
 		// calc time
@@ -89,7 +121,7 @@ public class TheEventNoTime : MonoBehaviour
 		{
 			lifeTime -= time;
 			if( lifeTime < 0f )	
-				if( !triggerAfterDisappear  ) Trigger();
+				if( !triggerAfterDisappear && !triggerOnSkip ) Trigger();
 		} 
 		else if( endTime > 0f && hideThemself )
 		{
@@ -106,24 +138,8 @@ public class TheEventNoTime : MonoBehaviour
 		}
 		if( canBeSkipped )
 		{
-			if( Input.GetKeyDown( KeyCode.Space ) && !skip )
-			{
-				if( skipWholeEvent )
-				{
-					if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
-					startTime = 0f;
-					lifeTime = 0f;
-					endTime = 0f;
-					if( triggerAfterDisappear ) Trigger();
-				} else 
-				{
-					if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
-					startTime = 0f;
-					lifeTime = 0f;
-					if( !triggerAfterDisappear ) Trigger();
-				}
-				skip = true;
-			}
+			if( fastSkip ) Skip();
+			else if( startTime <= 0f ) Skip();
 		}
 	}
 
