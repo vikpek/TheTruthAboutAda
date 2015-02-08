@@ -13,6 +13,7 @@ public class BulletMovement : MonoBehaviour
 		if( transform.position.y > topBorder )
 		{
 			Destroy( GetComponent<BoxCollider>() );
+			gameObject.tag = "Untagged";
 			Destroy( this );
 		}
 		transform.Translate( 0f, speed * Time.fixedDeltaTime, 0f );

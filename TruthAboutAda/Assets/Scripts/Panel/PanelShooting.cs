@@ -43,7 +43,6 @@ public class PanelShooting : MonoBehaviour
 			{
 				if( activeKey == 10 && lastActiveKey != -1 )
 				{
-					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Fire Shoot" );
 					shootWaiter += 1f / shootsPerSecond;
 				
 					BulletController bc = ((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
@@ -53,7 +52,6 @@ public class PanelShooting : MonoBehaviour
 					soundManager.playPlayerShot();
 				} else if( activeKey != 10 )
 				{
-					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Prepare Shot" );
 					if( activeKey == 12 )
 					{
 						if( lastActiveKey == 9 ) lastActiveKey = 0;
@@ -69,9 +67,6 @@ public class PanelShooting : MonoBehaviour
 					delayController.setCylinderToNumber( lastActiveKey );
 				}
 			}
-		} else if( GameConfig.Get.DebugPannelShooting )
-		{
-			if( activeKey != -1 ) Debug.Log("Waiting for Shot");
 		}
 	}
 

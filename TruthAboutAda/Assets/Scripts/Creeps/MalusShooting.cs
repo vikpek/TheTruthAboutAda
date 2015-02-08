@@ -10,17 +10,13 @@ public class MalusShooting : MonoBehaviour
 	[SerializeField]
 	float maxTime = 3f;
 	
-	SoundManager soundManager;
-	
 	float shootWaiter;
 
 	ParticleSystem particleSystem;
 	
 	void Awake()
 	{
-		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
-
 	}
 
 	void Update()

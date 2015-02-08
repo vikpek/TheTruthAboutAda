@@ -11,7 +11,6 @@ public class HighScoreManager : MonoBehaviour
 
 	float currentHighscore;
 	float currentMultiplier;
-	PowerBarController powerBarController;
 
 	static HighScoreManager _instance;
 	
@@ -22,7 +21,6 @@ public class HighScoreManager : MonoBehaviour
 			if( _instance == null )
 			{
 				_instance = GameObject.FindObjectOfType<HighScoreManager>();
-				_instance.powerBarController = GameObject.FindWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
 				DontDestroyOnLoad( _instance );
 			}
 			return _instance;
@@ -34,7 +32,6 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
-			powerBarController = GameObject.FindWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
 	}
