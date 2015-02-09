@@ -13,7 +13,6 @@ public class NumberRailGoaway : MonoBehaviour
 	bool disappearLeft = true;
 
 	bool moveBack = true;
-	bool moveVertical = true;
 
 	float zMoveDistance;
 

@@ -93,7 +93,6 @@ public class WaveConfig : MonoBehaviour
 		else if( temp.Wait < MinWaitRows ) temp.Wait = MinWaitRows;
 
 		// CREEP CONFIGURATION
-		float lastPos = 12f;
 		temp.creeps = new CreepConfig[Random.Range( Creep_MinCounter, Creep_MaxCounter )];
 		float space = 0f;
 		float startPos = 0f;

@@ -2,12 +2,10 @@
 
 public class VerticalRailController : MonoBehaviour
 {
-	Animation _animation;
 	Animator _animator;
 	
 	void Awake()
 	{
-		_animation = gameObject.GetComponent<Animation>();
 		_animator = gameObject.GetComponent<Animator>();
 	}
 

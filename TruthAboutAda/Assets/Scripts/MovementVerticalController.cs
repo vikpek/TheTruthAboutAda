@@ -11,12 +11,10 @@ public class MovementVerticalController : MonoBehaviour {
 	public float smooth = 5f;
 
 	Vector3 move;
-	Vector3 startPosition;
 
 	void Awake()
 	{
 		move = transform.position;
-		startPosition = transform.position;
 	}
 
 	void FixedUpdate()
