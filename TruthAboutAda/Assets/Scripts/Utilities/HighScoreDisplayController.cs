@@ -7,9 +7,12 @@ public class HighScoreDisplayController : MonoBehaviour
 
 	Transform[] cylinders = new Transform[DIGIT_COUNT];
 
+	SoundManager soundManager;
+
 
 	void Awake()
 	{
+		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		for (int i = 0; i < DIGIT_COUNT; i++) {
 			cylinders[i] = transform.Find("animation_holder/cylinder_" + i + "/animation_holder_cylinder").transform;
 		}
@@ -25,6 +28,7 @@ public class HighScoreDisplayController : MonoBehaviour
 
 			tmp = tmp / 10;
 		}
+		soundManager.playHighscoreRotation();
 	}
 
 	void Update()
