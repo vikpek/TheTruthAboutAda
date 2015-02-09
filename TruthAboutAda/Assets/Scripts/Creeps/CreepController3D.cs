@@ -174,11 +174,11 @@ public class CreepController3D : MonoBehaviour
 			{
 				reinitializeCreepRow( cylinderValue );
 				particleSystemLightning.Play();
-				particleSystemLightning.transform.parent = transform.parent;
+				particleSystemLightning.transform.parent = null;
 			}
 			if( !gotPoints )
 			{
-				HighScoreManager.Get.creepKilled(transform.position);
+				HighScoreManager.Get.creepKilled( transform.position );
 				gotPoints = true;
 			}
 			soundManager.playEnemyDeath();
