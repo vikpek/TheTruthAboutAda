@@ -18,6 +18,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &160268
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460268}
+  - 108: {fileID: 10860268}
+  m_Layer: 10
+  m_Name: Point_Machine_Inside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &195246
 GameObject:
   m_ObjectHideFlags: 1
@@ -30,7 +46,7 @@ GameObject:
   - 26: {fileID: 2695286}
   - 12: {fileID: 1295286}
   m_Layer: 9
-  m_Name: Transition Fog
+  m_Name: Transition_Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +62,7 @@ GameObject:
   - 4: {fileID: 495248}
   - 108: {fileID: 10895278}
   m_Layer: 0
-  m_Name: Directional Panel
+  m_Name: Directional_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +145,7 @@ GameObject:
   - 198: {fileID: 19895276}
   - 199: {fileID: 19995276}
   m_Layer: 0
-  m_Name: Fog Flow
+  m_Name: Fog_Flow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +229,7 @@ GameObject:
   - 4: {fileID: 495268}
   - 108: {fileID: 10895280}
   m_Layer: 0
-  m_Name: Directional All but Inside
+  m_Name: Directional_All_but_Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +262,7 @@ GameObject:
   - 4: {fileID: 495272}
   - 108: {fileID: 10895282}
   m_Layer: 0
-  m_Name: Directional Inside
+  m_Name: Directional_Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +280,7 @@ GameObject:
   - 26: {fileID: 2695288}
   - 12: {fileID: 1295288}
   m_Layer: 9
-  m_Name: Transition Fog
+  m_Name: Transition_Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,7 +343,7 @@ GameObject:
   - 4: {fileID: 495282}
   - 108: {fileID: 10895284}
   m_Layer: 8
-  m_Name: Directional Creep Cylinder
+  m_Name: Directional_Creep_Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,7 +360,7 @@ GameObject:
   - 108: {fileID: 10895286}
   - 123: {fileID: 12395288}
   m_Layer: 10
-  m_Name: Point Machine Inside
+  m_Name: Point_Machine_Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +376,7 @@ GameObject:
   - 4: {fileID: 495286}
   - 108: {fileID: 10895288}
   m_Layer: 0
-  m_Name: Point Creep
+  m_Name: Point_Creep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,6 +409,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495280}
   m_RootOrder: 3
+--- !u!4 &460268
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160268}
+  m_LocalRotation: {x: -.0999100432, y: 0, z: 0, w: .994996488}
+  m_LocalPosition: {x: 0, y: 45.4000015, z: 30.7999992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 495288}
+  m_RootOrder: 6
 --- !u!4 &495246
 Transform:
   m_ObjectHideFlags: 1
@@ -677,6 +705,7 @@ Transform:
   - {fileID: 495284}
   - {fileID: 495286}
   - {fileID: 495268}
+  - {fileID: 460268}
   m_Father: {fileID: 495278}
   m_RootOrder: 0
 --- !u!12 &1210080
@@ -940,6 +969,41 @@ ParticleRenderer:
     x Tile: 1
     y Tile: 1
     cycles: 1
+--- !u!108 &10860268
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160268}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 2
+  m_Color: {r: .448529422, g: .448529422, b: .448529422, a: 1}
+  m_Intensity: 4.17999983
+  m_Range: 40
+  m_SpotAngle: 101
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!108 &10895278
 Light:
   m_ObjectHideFlags: 1
