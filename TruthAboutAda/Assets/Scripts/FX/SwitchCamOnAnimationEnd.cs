@@ -9,6 +9,9 @@ public class SwitchCamOnAnimationEnd : MonoBehaviour
 	[SerializeField]
 	GameObject targetCam;
 
+	[SerializeField]
+	GameObject sounds; 
+
 	Animator _an;
 
 	bool start;
@@ -29,6 +32,7 @@ public class SwitchCamOnAnimationEnd : MonoBehaviour
 		targetCam.SetActive( true );
 		panel.GetComponent<PanelShooting>().SetShootDisable( false );
 		panel.GetComponent<PanelMovement>().SetMoveDisable( false );
+		sounds.SetActive( true);
 		gameObject.SetActive( false );
 	}
 }
