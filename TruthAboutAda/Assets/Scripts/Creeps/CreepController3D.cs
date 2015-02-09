@@ -174,6 +174,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				reinitializeCreepRow( cylinderValue );
 				particleSystemLightning.Play();
+				particleSystemLightning.transform.parent = transform.parent;
 			}
 			if( !gotPoints )
 			{
