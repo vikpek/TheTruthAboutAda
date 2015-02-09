@@ -12,18 +12,18 @@ public class MalusShooting : MonoBehaviour
 	
 	float shootWaiter;
 
-	ParticleSystem particleSystem;
+	ParticleSystem pS;
 	
 	void Awake()
 	{
-		particleSystem = transform.FindChild (Constants.PARTICLE_SYSTEM).GetComponent<ParticleSystem> ();
+		pS = transform.FindChild( Constants.PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 	}
 
 	void Update()
 	{
 		if( shootWaiter <= 0f ) 
 		{
-			particleSystem.Play();
+			pS.Play();
 			Instantiate( Malus, transform.position, Quaternion.identity );
 			shootWaiter += Random.Range( minTime, maxTime );
 		}

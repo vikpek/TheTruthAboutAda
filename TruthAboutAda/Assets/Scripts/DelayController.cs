@@ -7,8 +7,6 @@ public class DelayController : MonoBehaviour
 
 	float maxDelay;
 
-	ParticleSystem particleSystem;
-
 	Transform cylinderTransform;
 
 	int loadedNumber;
@@ -18,7 +16,6 @@ public class DelayController : MonoBehaviour
 	void Awake()
 	{
 		cylinderTransform = transform.FindChild ("animation_holder").FindChild ("cylinder").FindChild("animation_holder_cylinder").FindChild("cylinder_main").transform;
-		//particleSystem = transform.FindChild( Constants.PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 		audioSource = transform.GetComponent<AudioSource>();
 	}
 
@@ -31,7 +28,6 @@ public class DelayController : MonoBehaviour
 
 		if( restDelay < maxDelay / 10 )
 		{
-			//particleSystem.Play();
 			audioSource.Stop();
 		}
 	}
