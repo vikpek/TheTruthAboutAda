@@ -174,6 +174,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				reinitializeCreepRow( cylinderValue );
 				particleSystemLightning.Play();
+				particleSystemLightning.transform.parent = transform.parent;
 			}
 			if( !gotPoints )
 			{
@@ -308,9 +309,7 @@ public class CreepController3D : MonoBehaviour
 			Destroy( obj.GetComponent<BoxCollider>() );
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
-			GetComponent<Rigidbody>().useGravity = true;
-			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-			gameObject.AddComponent<DestroyOn>();
+			Destroy( GetComponent<Rigidbody>() );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
