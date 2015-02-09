@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class CreepController3D : MonoBehaviour 
 {
@@ -272,10 +271,12 @@ public class CreepController3D : MonoBehaviour
 			destroyed = true;
 			damageCreepCage(2);
 			kickCreepDown();
-			transform.Find( Constants.ANIMATION_HOLDER ).parent = null;
+			transform.parent = null;
 			Destroy( GetComponent<CreepController3D>() );
 			Destroy( GetComponent<MovementHorizontalController>() );
-			Destroy( rigidbody );
+			GetComponent<Rigidbody>().useGravity = true;
+			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			gameObject.AddComponent<DestroyOn>();
 			_link.CreepKill();
 		}
 	}
@@ -307,12 +308,14 @@ public class CreepController3D : MonoBehaviour
 			Destroy( obj.GetComponent<BoxCollider>() );
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
-			Destroy( GetComponent<Rigidbody>() );
+			GetComponent<Rigidbody>().useGravity = true;
+			GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+			gameObject.AddComponent<DestroyOn>();
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
-			child.parent = obj.transform;
-			child.localPosition = HitOffset;
+			transform.parent = obj.transform;
+			transform.localPosition = HitOffset;
 			obj.AddComponent<NumberRailGoaway>();
 			_link.CreepKill();
 			destroyed = true;
