@@ -47,6 +47,15 @@ public class TheEvent : MonoBehaviour
 	[SerializeField]
 	bool canBeSkipped = true;
 
+	[SerializeField]
+	bool triggerOnSkip;
+
+	[SerializeField]
+	bool fastSkip;
+
+	[SerializeField]
+	bool hideOnSkip;
+
 	float startTime;
 	float lifeTime;
 	float endTime;
@@ -67,25 +76,41 @@ public class TheEvent : MonoBehaviour
 	{
 		if( canBeSkipped )
 		{
-			if( Input.GetKeyDown( KeyCode.Space ) && !skip )
-			{
-				if( skipWholeEvent )
-				{
-					if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
-					startTime = 0f;
-					lifeTime = 0f;
-					endTime = 0f;
-					if( triggerAfterDisappear ) Trigger();
-				} else 
-				{
-					if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
-					startTime = 0f;
-					lifeTime = 0f;
-					if( !triggerAfterDisappear ) Trigger();
-				}
-				skip = true;
-			}
+			if( fastSkip ) Skip();
+			else if( startTime <= 0f ) Skip();
 		}
+	}
+
+	void Skip()
+	{
+		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
+		{
+			if( triggerOnSkip )
+			{
+				if( skipWholeEvent ) SkipWholeEvent(); 
+				else if( !triggerAfterDisappear ) Trigger();
+				if( hideOnSkip ) hideThemself = true;
+				startTime = 0f;
+				lifeTime = 0f;
+			} else if( skipWholeEvent ) SkipWholeEvent();
+			else 
+			{
+				if( startTime > 0f ) Effect( Mathf.Lerp( appearVisibility.x, appearVisibility.y, 1 ), appearEffect );
+				startTime = 0f;
+				lifeTime = 0f;
+				if( !triggerAfterDisappear ) Trigger();
+			}
+			skip = true;
+		}
+	}
+
+	void SkipWholeEvent()
+	{
+		if( endTime > 0f ) Effect( Mathf.Lerp( disappearVisibility.x, disappearVisibility.y, 1 ), disappearEffect );
+		startTime = 0f;
+		lifeTime = 0f;
+		endTime = 0f;
+		if( triggerAfterDisappear ) Trigger();
 	}
 
 	void FixedUpdate()
@@ -102,7 +127,7 @@ public class TheEvent : MonoBehaviour
 		{
 			lifeTime -= Time.fixedDeltaTime;
 			if( lifeTime < 0f )	
-				if( !triggerAfterDisappear  ) Trigger();
+				if( !triggerAfterDisappear && !triggerOnSkip ) Trigger();
 		} 
 		else if( endTime > 0f && hideThemself )
 		{

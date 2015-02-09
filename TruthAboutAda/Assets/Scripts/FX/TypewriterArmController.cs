@@ -4,11 +4,7 @@ public class TypewriterArmController : MonoBehaviour {
 
 	[SerializeField]
 	float forwardAnimationSpeed = 3.0f;
-
-	[SerializeField]
-	float backwardAnimationSpeed = -0.8f;
-
-	Animation _animation;
+	
 	Animator _animator;
 
 	int _activeKey = 1;
@@ -16,7 +12,6 @@ public class TypewriterArmController : MonoBehaviour {
 
 	void Awake()
 	{
-		_animation = gameObject.GetComponent<Animation>();
 		_animator = gameObject.GetComponent<Animator>();
 	}
 

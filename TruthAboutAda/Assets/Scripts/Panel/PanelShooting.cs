@@ -24,7 +24,7 @@ public class PanelShooting : MonoBehaviour
 	DelayController delayController;
 	PowerBarController powerBarController;
 
-	public bool Shooting = true;
+	bool Shooting = true;
 
 	void Awake()
 	{
@@ -43,7 +43,6 @@ public class PanelShooting : MonoBehaviour
 			{
 				if( activeKey == 10 && lastActiveKey != -1 )
 				{
-					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Fire Shoot" );
 					shootWaiter += 1f / shootsPerSecond;
 				
 					BulletController bc = ((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
@@ -53,7 +52,6 @@ public class PanelShooting : MonoBehaviour
 					soundManager.playPlayerShot();
 				} else if( activeKey != 10 )
 				{
-					if( GameConfig.Get.DebugPannelShooting ) Debug.Log( "Prepare Shot" );
 					if( activeKey == 12 )
 					{
 						if( lastActiveKey == 9 ) lastActiveKey = 0;
@@ -69,9 +67,6 @@ public class PanelShooting : MonoBehaviour
 					delayController.setCylinderToNumber( lastActiveKey );
 				}
 			}
-		} else if( GameConfig.Get.DebugPannelShooting )
-		{
-			if( activeKey != -1 ) Debug.Log("Waiting for Shot");
 		}
 	}
 
@@ -87,9 +82,9 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha7 ) || Input.GetKeyDown( KeyCode.Keypad7 ) ) return 7;
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
-		if( Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.UpArrow ) || Input.GetMouseButtonDown( 0 ) || Input.GetKeyDown( KeyCode.JoystickButton0 ) ) return 10;
-		if( Input.GetKeyDown( KeyCode.LeftArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown( KeyCode.JoystickButton6 ) ) return 11;
-		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown( KeyCode.JoystickButton7 ) ) return 12;
+		if( Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.UpArrow ) || Input.GetMouseButtonDown( 0 ) || Input.GetKeyDown( KeyCode.JoystickButton0 ) ) return 10;
+		if( Input.GetKeyDown( KeyCode.LeftArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown( KeyCode.JoystickButton6 ) || Input.GetKeyDown( KeyCode.JoystickButton4 ) ) return 11;
+		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown( KeyCode.JoystickButton7 ) || Input.GetKeyDown( KeyCode.JoystickButton5 ) ) return 12;
 		return -1;
 	}
 

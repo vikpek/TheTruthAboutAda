@@ -2,9 +2,6 @@
 
 public class RailMovement : MonoBehaviour
 {
-
-	[SerializeField]
-	float horizontalMovementStepSize = 1.0f;
 	[SerializeField]
 	float verticalMovementStepSize = 1.0f;
 	[SerializeField]
@@ -15,31 +12,24 @@ public class RailMovement : MonoBehaviour
 	[SerializeField]
 	int maxStepsToSide = 3;
 
-	bool creep = true;
-
 	float nextMoveTime;
 	int currentStep;
 	bool moveRight;
 
 	bool moving = false;
-	
-	void Awake()
-	{
-		if( name == Constants.HORIZONTALRAIL ) creep = false;
-	}
 
 	void Update()
 	{
 
 		if( nextMoveTime > 0f ) nextMoveTime -= Time.fixedDeltaTime;
-		if (nextMoveTime <= 0f) {
-				if (!moving) {
-						moveStep ();
-				}
+		if( nextMoveTime <= 0f )
+		{
+			if( !moving ) moveStep();
 		}
 	}
 
-	void moveStep(){
+	void moveStep()
+	{
 		moving = true;
 
 		Vector3 move = new Vector3();
