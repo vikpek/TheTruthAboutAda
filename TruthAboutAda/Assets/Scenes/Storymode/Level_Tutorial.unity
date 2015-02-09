@@ -43837,6 +43837,7 @@ GameObject:
   - 4: {fileID: 540998991}
   - 65: {fileID: 540998994}
   - 114: {fileID: 540998992}
+  - 114: {fileID: 540998993}
   m_Layer: 0
   m_Name: GameOverBlock
   m_TagString: Untagged
@@ -43882,6 +43883,17 @@ MonoBehaviour:
   canBeSkipped: 1
   triggerOnSkip: 0
   fastSkip: 0
+--- !u!114 &540998993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 540998990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d3371446b4d6348a1f35d2b6d37156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &540998994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44583,7 +44595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 572295072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hideThemself: 0
@@ -44601,6 +44613,7 @@ MonoBehaviour:
   canBeSkipped: 1
   triggerOnSkip: 0
   fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &572295075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62456,13 +62469,14 @@ GameObject:
   - 222: {fileID: 910209852}
   - 114: {fileID: 910209851}
   - 114: {fileID: 910209850}
+  - 114: {fileID: 910209853}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &910209849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62497,7 +62511,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 1
   nextEvent: {fileID: 1130631200}
-  hideEvent: {fileID: 0}
+  hideEvent: {fileID: 1407561408}
   appearEffect: 1
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
@@ -62535,6 +62549,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 910209848}
+--- !u!114 &910209853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910209848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8693821d907cdc48926fb5734f6e9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableTime: 1
+  waitTime: 0
 --- !u!1 &910606166
 GameObject:
   m_ObjectHideFlags: 0
@@ -66431,7 +66458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1022437387
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74584,7 +74611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1130631201
 RectTransform:
   m_ObjectHideFlags: 0
@@ -83804,13 +83831,14 @@ GameObject:
   - 222: {fileID: 1340276706}
   - 114: {fileID: 1340276705}
   - 114: {fileID: 1340276704}
+  - 114: {fileID: 1340276708}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1340276704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83827,7 +83855,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 1
   nextEvent: {fileID: 1947459143}
-  hideEvent: {fileID: 0}
+  hideEvent: {fileID: 1407561408}
   appearEffect: 1
   appearDuration: 1
   appearVisibility: {x: 0, y: 1}
@@ -83883,6 +83911,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2952, y: 1288}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &1340276708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340276703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8693821d907cdc48926fb5734f6e9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableTime: 1
+  waitTime: 0
 --- !u!1 &1344596231
 GameObject:
   m_ObjectHideFlags: 0
@@ -107060,7 +107101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1761216980
 Transform:
   m_ObjectHideFlags: 0
@@ -122896,7 +122937,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1946470782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hideThemself: 0
@@ -122914,6 +122955,7 @@ MonoBehaviour:
   canBeSkipped: 1
   triggerOnSkip: 0
   fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &1946470785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122985,7 +123027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1947459144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -131755,7 +131797,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072981974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hideThemself: 0
@@ -131773,6 +131815,7 @@ MonoBehaviour:
   canBeSkipped: 1
   triggerOnSkip: 0
   fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &2072981980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133767,7 +133810,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2107629548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: a0c2f7887d7295d4fb74dd0ea49b1f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hideThemself: 0
@@ -133785,6 +133828,7 @@ MonoBehaviour:
   canBeSkipped: 0
   triggerOnSkip: 0
   fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &2107629554
 MonoBehaviour:
   m_ObjectHideFlags: 0
