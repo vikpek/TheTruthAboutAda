@@ -80,8 +80,14 @@ public class PanelShooting : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.Alpha8 ) || Input.GetKeyDown( KeyCode.Keypad8 ) ) return 8;
 		if( Input.GetKeyDown( KeyCode.Alpha9 ) || Input.GetKeyDown( KeyCode.Keypad9 ) ) return 9;
 		if( Input.GetKeyDown( KeyCode.KeypadEnter ) || Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.UpArrow ) || Input.GetMouseButtonDown( 0 ) || Input.GetKeyDown( KeyCode.JoystickButton0 ) ) return 10;
-		if( Input.GetKeyDown( KeyCode.LeftArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown( KeyCode.JoystickButton6 ) || Input.GetKeyDown( KeyCode.JoystickButton4 ) ) return 11;
-		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown( KeyCode.JoystickButton7 ) || Input.GetKeyDown( KeyCode.JoystickButton5 ) ) return 12;
+		if( Input.GetKeyDown( KeyCode.LeftArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown( KeyCode.JoystickButton6 ) || Input.GetKeyDown( KeyCode.JoystickButton4 ) ){
+			soundManager.playPanelRotation();
+			return 11;
+		}
+		if( Input.GetKeyDown( KeyCode.RightArrow ) || Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown( KeyCode.JoystickButton7 ) || Input.GetKeyDown( KeyCode.JoystickButton5 ) ){
+			soundManager.playPanelRotation();
+			return 12;
+		}
 		return -1;
 	}
 

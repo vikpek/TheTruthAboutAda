@@ -40,6 +40,21 @@ public class SoundManager : MonoBehaviour
 	[SerializeField]
 	AudioClip FallingParts;
 
+	[SerializeField]
+	AudioClip Lightning;
+
+	[SerializeField]
+	AudioClip PanelRotation;
+
+	[SerializeField]
+	AudioClip HighscoreRotation;
+
+	[SerializeField]
+	AudioClip CreepCylinderRotation;
+
+	[SerializeField]
+	AudioClip PanelMovementSound;
+
 	void Start()
 	{	
 		audioSource = gameObject.AddComponent<AudioSource>();
@@ -106,4 +121,34 @@ public class SoundManager : MonoBehaviour
 	{
 		if( MenuBackgroundLoop != null ) audioSource.PlayOneShot( MenuBackgroundLoop );
 	}	
+
+	public void playLightning ()
+	{
+		if( Lightning != null ) audioSource.PlayOneShot( Lightning );
+	}	
+	
+	public void playPanelRotation ()
+	{
+		if( PanelRotation != null ) audioSource.PlayOneShot( PanelRotation );
+	}	
+
+	public void playHighscoreRotation ()
+	{
+		if( HighscoreRotation != null ) audioSource.PlayOneShot( HighscoreRotation );
+	}	
+
+	public void playCreepCylinderRotation ()
+	{
+		if( CreepCylinderRotation != null ) audioSource.PlayOneShot( CreepCylinderRotation );
+	}
+
+	public void playPanelMovementSound ()
+	{
+
+		if( PanelMovementSound != null ) {
+			if(!audioSource.isPlaying){
+					audioSource.PlayOneShot( PanelMovementSound );
+			}
+		}
+	}
 }

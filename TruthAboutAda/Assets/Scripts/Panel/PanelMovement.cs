@@ -22,6 +22,8 @@ public class PanelMovement : MonoBehaviour
 	ParticleSystem particleSystemSideCogRight;
 	ParticleSystem particleSystemSideCogLeft;
 
+	SoundManager soundManager;
+
 	void Awake()
 	{
 		transformSideCogRight = transform.Find("DelayCylinder/animation_holder_sidecog_right").transform;
@@ -29,6 +31,8 @@ public class PanelMovement : MonoBehaviour
 
 		particleSystemSideCogRight = transform.Find("DelayCylinder/particle_system_sidecog_right").GetComponent<ParticleSystem>(); 
 		particleSystemSideCogLeft = transform.Find("DelayCylinder/particle_system_sidecog_left").GetComponent<ParticleSystem>();
+
+		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 
 	}
 
@@ -54,8 +58,6 @@ public class PanelMovement : MonoBehaviour
 //				particleSystemSideCogRight.Play();
 				particleSystemSideCogLeft.enableEmission = false;
 				particleSystemSideCogRight.enableEmission = true;
-
-			
 			} else if( horizontal < 0 )
 			{
 				transformSideCogRight.rotation = CylinderUtility.Get.rotatePanelCogWheel(transformSideCogRight.transform.eulerAngles, -Constants.PANEL_COGWHEEL_ROTATION_ANIMATION);
@@ -67,6 +69,8 @@ public class PanelMovement : MonoBehaviour
 //				particleSystemSideCogLeft.Play();
 //				particleSystemSideCogRight.Stop ();
 			}
+
+			soundManager.playPanelMovementSound();
 			rigidbody.MovePosition( nextPos );
 		}
 	}
