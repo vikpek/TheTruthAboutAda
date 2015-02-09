@@ -24,7 +24,7 @@ public class PanelShooting : MonoBehaviour
 	DelayController delayController;
 	PowerBarController powerBarController;
 
-	public bool Shooting = true;
+	bool Shooting = true;
 
 	void Awake()
 	{
