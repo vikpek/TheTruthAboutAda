@@ -3259,7 +3259,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 2108152618}
   hideEvent: {fileID: 0}
   appearEffect: 1
@@ -10060,7 +10060,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 1702917728}
   hideEvent: {fileID: 0}
   appearEffect: 1
@@ -10099,9 +10099,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'A black cylinder with letters on it? Right, I have to choose the digit
-    that represents the position in the alphabet. A would be 1, B is 2, C is 3 - and
-    so on...
-
+    that represents the position in the alphabet. A would be 1, B is 2, - and so on...
 
     (Press SPACE/X to skip)'
 --- !u!222 &136426729
@@ -13171,6 +13169,7 @@ Transform:
   - {fileID: 533471795}
   - {fileID: 473340988}
   - {fileID: 1723907333}
+  - {fileID: 926228191}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &199772373
@@ -27507,7 +27506,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 196201790}
     m_Modifications:
     - target: {fileID: 473582, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -27539,7 +27538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473582, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 11473586, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_Text
@@ -43058,14 +43057,14 @@ MonoBehaviour:
   nextEvent: {fileID: 516700174}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: .100000001
   appearVisibility: {x: 0, y: .699999988}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .100000001
   disappearVisibility: {x: .699999988, y: 0}
   canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!114 &495092257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43376,7 +43375,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 697271676}
   hideEvent: {fileID: 495092254}
   appearEffect: 1
@@ -43416,7 +43415,6 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Another special cylinder! This time it''s silver. That''s a tough one.
     I''ll have to hit it multiple times. But I forgot what happens when it goes down...
-
 
     (Press SPACE/X to continue the level)'
 --- !u!222 &516700178
@@ -59126,6 +59124,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8247668, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11121202, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7ab477dbdeba94774b9832a3b7f0bd76, type: 2}
@@ -62789,8 +62791,8 @@ Transform:
   m_Children:
   - {fileID: 202692526}
   - {fileID: 1640716852}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 196201790}
+  m_RootOrder: 18
 --- !u!1 &926725943
 GameObject:
   m_ObjectHideFlags: 0
@@ -69470,14 +69472,14 @@ MonoBehaviour:
   nextEvent: {fileID: 63678692}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: .100000001
   appearVisibility: {x: 0, y: .699999988}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .100000001
   disappearVisibility: {x: .699999988, y: 0}
   canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!114 &1096715626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71903,7 +71905,6 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 5
   waitBetweenDifferentsShots: .100000001
-  Shooting: 1
 --- !u!114 &1112126488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72042,7 +72043,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 153109356}
   hideEvent: {fileID: 2123503897}
   appearEffect: 1
@@ -72081,8 +72082,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'The cylinders have numbers. I have to select the same one on my panel at
-    the bottom. [Use arrow keys on keyboard; L/R on your controller]
-
+    the bottom. Use arrow keys on keyboard; L/R on your controller
 
     (Press SPACE/X to start the level)'
 --- !u!222 &1113346662
@@ -79019,14 +79019,14 @@ MonoBehaviour:
   nextEvent: {fileID: 20866167}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: .300000012
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .300000012
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 0
+  canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!114 &1260144844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93658,7 +93658,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 1113346658}
   hideEvent: {fileID: 0}
   appearEffect: 1
@@ -100602,7 +100602,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 525568537}
   hideEvent: {fileID: 2130432846}
   appearEffect: 1
@@ -130075,7 +130075,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2952, y: 1288}
+  m_SizeDelta: {x: 1980, y: 1114}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2038390666
 MonoBehaviour:
@@ -130123,14 +130123,14 @@ MonoBehaviour:
   nextEvent: {fileID: 0}
   hideEvent: {fileID: 0}
   appearEffect: 0
-  appearDuration: 1
+  appearDuration: 0
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .300000012
   disappearVisibility: {x: 1, y: 0}
-  canBeSkipped: 0
+  canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!1 &2040878296
 GameObject:
   m_ObjectHideFlags: 0
@@ -133850,7 +133850,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 1
   skipWholeEvent: 0
-  Duration: 3
+  Duration: 0
   nextEvent: {fileID: 1807377284}
   hideEvent: {fileID: 1096715623}
   appearEffect: 1
@@ -134460,14 +134460,14 @@ MonoBehaviour:
   nextEvent: {fileID: 1494971926}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: .100000001
   appearVisibility: {x: 0, y: .699999988}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .100000001
   disappearVisibility: {x: .699999988, y: 0}
   canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!114 &2123503900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136809,14 +136809,14 @@ MonoBehaviour:
   nextEvent: {fileID: 136426725}
   hideEvent: {fileID: 0}
   appearEffect: 1
-  appearDuration: 1
+  appearDuration: .100000001
   appearVisibility: {x: 0, y: .699999988}
   disappearEffect: 1
-  disappearDuration: 1
+  disappearDuration: .100000001
   disappearVisibility: {x: .699999988, y: 0}
   canBeSkipped: 1
   triggerOnSkip: 0
-  fastSkip: 0
+  fastSkip: 1
 --- !u!114 &2130432849
 MonoBehaviour:
   m_ObjectHideFlags: 0

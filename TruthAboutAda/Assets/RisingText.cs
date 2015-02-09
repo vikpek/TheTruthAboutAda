@@ -9,7 +9,10 @@ public class RisingText : MonoBehaviour
 
 	[SerializeField]
 	int initialFontSize = 40;
-	
+
+	[SerializeField]
+	int maxSize = 200;
+
 	Vector3 crdsDelta;
 	float alpha;
 	float lifeLoss;
@@ -24,8 +27,10 @@ public class RisingText : MonoBehaviour
 	// "rise speed" is how fast it will rise over time.
 	public void setup(string points, float duration, float rise_speed, float sizeMultiplier)
 	{
-		GetComponent<TextMesh>().text = points;   
-		if(initialFontSize + (10 * (int) sizeMultiplier) < 200) GetComponent<TextMesh>().fontSize = initialFontSize + (10 * (int) sizeMultiplier);
+		GetComponent<TextMesh>().text = points;
+		int newSize = initialFontSize + (10 * (int)sizeMultiplier);
+		if( newSize > maxSize ) newSize = maxSize;
+		GetComponent<TextMesh>().fontSize = newSize;
 		lifeLoss = 1f / duration;
 		crdsDelta = new Vector3(0f, rise_speed, 0f);        
 	}
