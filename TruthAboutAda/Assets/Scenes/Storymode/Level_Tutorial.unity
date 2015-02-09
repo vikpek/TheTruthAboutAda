@@ -22761,8 +22761,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 424}
-  m_SizeDelta: {x: -563, y: 280}
+  m_AnchoredPosition: {x: 3.05175781e-05, y: 187}
+  m_SizeDelta: {x: -562.999939, y: -98.5}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &324149706
 MonoBehaviour:
@@ -22790,10 +22790,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'SUCCESS!
-
-
-    Next Level'
+  m_Text: Next Level
 --- !u!222 &324149707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27542,10 +27539,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11473586, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_Text
-      value: 'SUCCESS!
-
-
-        Next Level'
+      value: Next Level
       objectReference: {fileID: 0}
     - target: {fileID: 11473610, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27582,6 +27576,30 @@ Prefab:
     - target: {fileID: 11473606, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473582, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473582, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1125.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473584, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 187
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473584, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.05175781e-05
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473584, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -562.999939
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473584, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -98.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7da68239536e7a243b80d130b17d5dc3, type: 2}
@@ -43078,7 +43096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .90196079}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Texture: {fileID: 2800000, guid: fc6849057487ab3448f19311e6a64f24, type: 3}
   m_UVRect:
     serializedVersion: 2
@@ -69520,7 +69538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .90196079}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Texture: {fileID: 2800000, guid: 52e97a1c27376824d8ee9381486fc952, type: 3}
   m_UVRect:
     serializedVersion: 2
@@ -82058,7 +82076,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 43}
-  m_SizeDelta: {x: 1126, y: 197}
+  m_SizeDelta: {x: 1125.99988, y: 197}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1312207252
 MonoBehaviour:
@@ -87006,7 +87024,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 463395860}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -133817,7 +133835,7 @@ MonoBehaviour:
   hideThemself: 0
   triggerAfterDisappear: 0
   skipWholeEvent: 0
-  Duration: 16
+  Duration: 10
   nextEvent: {fileID: 1678272529}
   hideEvent: {fileID: 0}
   appearEffect: 0
@@ -134526,7 +134544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .90196079}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Texture: {fileID: 2800000, guid: e58c083961c513e439c78c653d714bfc, type: 3}
   m_UVRect:
     serializedVersion: 2
@@ -136875,7 +136893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .90196079}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Texture: {fileID: 2800000, guid: 03c55af8542fd9143945eb61acdfa4a1, type: 3}
   m_UVRect:
     serializedVersion: 2
