@@ -15,34 +15,33 @@ public class ThreatingLevel : MonoBehaviour
 
 	PowerBarController _ref;
 
-	float xPos;
+	float yPos;
 
 	void Awake()
 	{
 		_ref = GameObject.FindGameObjectWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
-		xPos = transform.position.x;
+		yPos = transform.position.y;
 	}
 
 	void Start()
 	{
 		InvokeRepeating("calculateDistance", 0f, 0.6f);
-		_distance = 100f;
 	}
 
 
 	void calculateDistance() 
 	{
 		_creeps = GameObject.FindGameObjectsWithTag( Tags.CREEP );
-
+		_distance = 100f;
 		if( _creeps.Length > 0 )
 		{
 			foreach( GameObject creep in _creeps )
 			{
-				float temp = xPos - creep.transform.position.x;
+				float temp = creep.transform.position.y - yPos;
 				if( temp < _distance ) _distance = temp;
 			}
 		}
-
+		Debug.Log( _distance );
 		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 1f / _distance );
 		_ref.SetFill( 10f / maxDistance * _distance );
 	}
