@@ -309,12 +309,14 @@ public class CreepController3D : MonoBehaviour
 			Destroy( obj.GetComponent<BoxCollider>() );
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
-			Destroy( GetComponent<Rigidbody>() );
+			rigidbody.useGravity = true;
+			rigidbody.constraints = RigidbodyConstraints.None;
+			gameObject.AddComponent<DestroyOn>();
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
-			transform.parent = obj.transform;
-			transform.localPosition = HitOffset;
+			child.parent = obj.transform;
+			child.localPosition = HitOffset;
 			obj.AddComponent<NumberRailGoaway>();
 			_link.CreepKill();
 			destroyed = true;
