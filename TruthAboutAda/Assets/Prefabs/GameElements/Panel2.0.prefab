@@ -1469,7 +1469,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 5e3090d1742704886b0c2be81cb2d37c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1646,7 +1646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   smooth: 1
-  useMouse: 0
   maxXBorder: 11
   minXBorder: -11
 --- !u!114 &11412064
@@ -1664,7 +1663,6 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 1, z: -1}
   shootsPerSecond: 5
   waitBetweenDifferentsShots: .100000001
-  Shooting: 1
 --- !u!114 &11412066
 MonoBehaviour:
   m_ObjectHideFlags: 1
