@@ -19,7 +19,7 @@ public class CreepController3D : MonoBehaviour
 	Vector3 HitOffset;
 
 	SoundManager soundManager;
-	ParticleSystem particleSystem;
+	ParticleSystem particleSystemN;
 	ParticleSystem particleSystemExplosion;
 	ParticleSystem particleSystemLightning;
 	CameraRumbler cameraRumbler;
@@ -57,7 +57,7 @@ public class CreepController3D : MonoBehaviour
 		cylinderTransform = transform.Find( Constants.ANIMATION_HOLDER + "/" + Constants.CYLINDER + "/" + "animation_holder_cylinder" );
 
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
-		particleSystem = transform.Find( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
+		particleSystemN = transform.Find( Constants.CREEP_PARTICLE_SYSTEM ).GetComponent<ParticleSystem>();
 		particleSystemExplosion = transform.Find( Constants.CREEP_PARTICLE_SYSTEM_EXPLOSION ).GetComponent<ParticleSystem>();
 		particleSystemLightning = transform.Find( Constants.CREEP_PARTICLE_SYSTEM_LIGHTNING ).GetComponent<ParticleSystem>();
 
@@ -103,7 +103,7 @@ public class CreepController3D : MonoBehaviour
 		shakeIt( 0.5f );
 		if( col.gameObject.tag == Tags.BULLET )
 		{
-			particleSystem.Play();
+			particleSystemN.Play();
 			GenericFXController.Get.rumbleCamera( 0.3f, 0.03f );
 		
 			if( col.GetComponent<BulletController>().IsBulletJoker() ) explodeAllWithValue( cylinderValue );
@@ -174,11 +174,11 @@ public class CreepController3D : MonoBehaviour
 			{
 				reinitializeCreepRow( cylinderValue );
 				particleSystemLightning.Play();
-				particleSystemLightning.transform.parent = transform.parent;
+				particleSystemLightning.transform.parent = null;
 			}
 			if( !gotPoints )
 			{
-				HighScoreManager.Get.creepKilled(transform.position);
+				HighScoreManager.Get.creepKilled( transform.position );
 				gotPoints = true;
 			}
 			soundManager.playEnemyDeath();
@@ -305,19 +305,17 @@ public class CreepController3D : MonoBehaviour
 			creepDeath();
 			// Bullet
 			Destroy( obj.GetComponent<BulletMovement>() );
-			Destroy( obj.GetComponent<Rigidbody>() );
 			Destroy( obj.GetComponent<BoxCollider>() );
+			Destroy( obj.rigidbody );
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
-			rigidbody.useGravity = true;
-			rigidbody.constraints = RigidbodyConstraints.None;
-			gameObject.AddComponent<DestroyOn>();
+			Destroy( rigidbody );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );
 			child.parent = obj.transform;
 			child.localPosition = HitOffset;
-			obj.AddComponent<NumberRailGoaway>();
+			obj.AddComponent<BringAwayRail>();
 			_link.CreepKill();
 			destroyed = true;
 		}

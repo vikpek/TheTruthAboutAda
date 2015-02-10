@@ -4,8 +4,10 @@ public class RailMovement : MonoBehaviour
 {
 	[SerializeField]
 	float verticalMovementStepSize = 1.0f;
+
 	[SerializeField]
 	float horizontalStepTime = 1f;
+
 	[SerializeField]
 	float verticalStepTime = 1f;
 
@@ -16,7 +18,7 @@ public class RailMovement : MonoBehaviour
 	int currentStep;
 	bool moveRight;
 
-	bool moving = false;
+	bool moving;
 
 	void Update()
 	{

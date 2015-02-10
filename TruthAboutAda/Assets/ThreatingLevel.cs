@@ -3,37 +3,46 @@ using System.Collections;
 
 public class ThreatingLevel : MonoBehaviour 
 {
+	[SerializeField]
+	float maxDistance = 25f;
 
 	[SerializeField]
-	float _threatBottomBorder = 7f;
+	float _rumbleActive = 7f;
 
 	GameObject[] _creeps;
 
-	float _relativeDistance;
+	float _distance;
 
-	// Use this for initialization
+	PowerBarController _ref;
+
+	float yPos;
+
+	void Awake()
+	{
+		_ref = GameObject.FindGameObjectWithTag( Tags.POWERBAR ).GetComponent<PowerBarController>();
+		yPos = transform.position.y;
+	}
+
 	void Start()
 	{
-		InvokeRepeating("calculateDistance", 0f, 2.0f);
+		InvokeRepeating("calculateDistance", 0f, 0.6f);
 	}
 
 
 	void calculateDistance() 
 	{
-		_creeps = GameObject.FindGameObjectsWithTag(Tags.CREEP);
-
+		_creeps = GameObject.FindGameObjectsWithTag( Tags.CREEP );
+		_distance = 100f;
 		if( _creeps.Length > 0 )
 		{
-			_relativeDistance = 100f;
-
 			foreach( GameObject creep in _creeps )
 			{
-				if( creep.transform.position.y > 20f )
-				{
-					if( ( creep.transform.position.y - transform.position.y ) < _relativeDistance ) _relativeDistance = ( creep.transform.position.y - transform.position.y );
-				}
+				float temp = creep.transform.position.y - yPos;
+				if( temp < _distance ) _distance = temp;
 			}
 		}
-		if( _relativeDistance < _threatBottomBorder && _relativeDistance != 0 ) GenericFXController.Get.rumbleCamera( 1f, 1f / _relativeDistance );
+		Debug.Log( _distance );
+		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 1f / _distance );
+		_ref.SetFill( 10f / maxDistance * _distance );
 	}
 }

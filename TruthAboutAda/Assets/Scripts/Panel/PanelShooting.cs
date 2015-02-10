@@ -22,7 +22,6 @@ public class PanelShooting : MonoBehaviour
 	int lastActiveKey;
 
 	DelayController delayController;
-	PowerBarController powerBarController;
 
 	bool Shooting = true;
 
@@ -30,7 +29,6 @@ public class PanelShooting : MonoBehaviour
 	{
 		soundManager = GameObject.FindGameObjectWithTag( Tags.GAMECONTROLLER ).GetComponent<SoundManager>();
 		delayController = transform.Find( "DelayCylinder" ).GetComponent<DelayController>();
-		powerBarController = GameObject.FindWithTag(Tags.POWERBAR).GetComponent<PowerBarController>();
 	}
 
 	void Update()
@@ -47,8 +45,7 @@ public class PanelShooting : MonoBehaviour
 				
 					BulletController bc = ((GameObject)Instantiate( bullet, transform.position + spawnOffset, Quaternion.identity )).GetComponent<BulletController>();
 					bc.SetBulletValue( lastActiveKey );
-					bc.SetBulletToType( ( powerBarController.Filled() )?( 1 ):( 0 ) );
-					
+
 					soundManager.playPlayerShot();
 				} else if( activeKey != 10 )
 				{

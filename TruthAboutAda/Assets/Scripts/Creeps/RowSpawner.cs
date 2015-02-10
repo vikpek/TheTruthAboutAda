@@ -59,10 +59,11 @@ public class RowSpawner : MonoBehaviour
 					}
 				}
 				animator.enabled = false;
-				move = true;
 				transform.rotation = Quaternion.Euler( 0f, 0f, 0f );
+				move = true;
 			}
 		}
+		if( move && spawn ) enabled = false;
 	}
 	void findChild( Transform parent )
 	{
