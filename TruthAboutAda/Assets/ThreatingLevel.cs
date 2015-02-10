@@ -25,14 +25,14 @@ public class ThreatingLevel : MonoBehaviour
 
 	void Start()
 	{
-		InvokeRepeating("calculateDistance", 0f, 0.6f);
+		InvokeRepeating("calculateDistance", 0f, 0.5f);
 	}
 
 
 	void calculateDistance() 
 	{
 		_creeps = GameObject.FindGameObjectsWithTag( Tags.CREEP );
-		_distance = 100f;
+		_distance = maxDistance;
 		if( _creeps.Length > 0 )
 		{
 			foreach( GameObject creep in _creeps )
