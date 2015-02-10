@@ -3634,7 +3634,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -12151,7 +12151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -46708,11 +46708,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 68, y: -380}
-  m_SizeDelta: {x: 855, y: 172}
+  m_AnchoredPosition: {x: 107, y: -381}
+  m_SizeDelta: {x: 933, y: 174}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &516700176
 MonoBehaviour:
@@ -46767,10 +46767,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Another special cylinder! This time it''s silver. That''s a tough one.
-    I''ll have to hit it multiple times. But I forgot what happens when it goes down...
-
-    (Press ENTER/O to continue the level)'
+  m_Text: "Another special cylinder! This time it's silver. \n I'll have to hit it
+    multiple times. But I \nforgot what happens when it goes down...\n(Press ENTER/O
+    to continue the level)"
 --- !u!222 &516700178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47351,8 +47350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 25
-  _rumbleActive: 7
 --- !u!1 &541034111
 GameObject:
   m_ObjectHideFlags: 0
@@ -52790,7 +52787,7 @@ MonoBehaviour:
   skipWholeEvent: 0
   Duration: 0
   nextEvent: {fileID: 0}
-  hideEvent: {fileID: 1113346658}
+  hideEvent: {fileID: 1287344657}
   appearEffect: 0
   appearDuration: 0
   appearVisibility: {x: 0, y: 1}
@@ -78337,8 +78334,8 @@ MonoBehaviour:
   triggerAfterDisappear: 1
   skipWholeEvent: 0
   Duration: 0
-  nextEvent: {fileID: 153109356}
-  hideEvent: {fileID: 2123503897}
+  nextEvent: {fileID: 1287344657}
+  hideEvent: {fileID: 0}
   appearEffect: 1
   appearDuration: .100000001
   appearVisibility: {x: 0, y: 1}
@@ -78374,10 +78371,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The cylinders have numbers. I have to select the same one on my panel at
-    the bottom. Use arrow keys on keyboard; L/R on your controller
-
-    (Press ENTER/O to start the level)'
+  m_Text: "The panel at the bottom is able to shoot \nprojectiles, when I use the
+    Spacebar \nor X on the controller.\n(Press ENTER/O to start the level)"
 --- !u!222 &1113346662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81532,7 +81527,7 @@ Prefab:
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideEvent
       value: 
-      objectReference: {fileID: 1113346658}
+      objectReference: {fileID: 1287344657}
     - target: {fileID: 11401606, guid: f61ead888fc1015468d3418a80c928f4, type: 2}
       propertyPath: hideThemself
       value: 1
@@ -88003,6 +87998,106 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1287344657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 191636, guid: 7f24f90964a882b498a1e6a6d643bff9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1287344658}
+  - 222: {fileID: 1287344661}
+  - 114: {fileID: 1287344660}
+  - 114: {fileID: 1287344659}
+  m_Layer: 5
+  m_Name: Satz02_a
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1287344658
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22491620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287344657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2143968237}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 107, y: -381}
+  m_SizeDelta: {x: 932, y: 174}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1287344659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491636, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287344657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e21cfcd62e2044baabfe8155b29b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideThemself: 0
+  triggerAfterDisappear: 1
+  skipWholeEvent: 0
+  Duration: 0
+  nextEvent: {fileID: 153109356}
+  hideEvent: {fileID: 2123503897}
+  appearEffect: 1
+  appearDuration: .100000001
+  appearVisibility: {x: 0, y: 1}
+  disappearEffect: 1
+  disappearDuration: .100000001
+  disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
+  triggerOnSkip: 1
+  fastSkip: 1
+--- !u!114 &1287344660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491638, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287344657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .349019617, g: .196078435, b: .105882354, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5d75281fa1433ba4c95c5ad25dbc913b, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 30
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'The cylinders have numbers. I have to select the same one on my panel at
+    the bottom by using the arrow keys on your keyboard and L/R on controller.
+
+    (Press ENTER/O to start the level)'
+--- !u!222 &1287344661
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22291620, guid: 7f24f90964a882b498a1e6a6d643bff9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287344657}
 --- !u!1 &1288225764
 GameObject:
   m_ObjectHideFlags: 0
@@ -111977,7 +112072,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -146953,7 +147048,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2143968237}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 68, y: -380}
@@ -151707,6 +151802,7 @@ Transform:
   - {fileID: 1260144842}
   - {fileID: 1494971927}
   - {fileID: 1113346659}
+  - {fileID: 1287344658}
   - {fileID: 136426726}
   - {fileID: 1702917729}
   - {fileID: 516700175}
