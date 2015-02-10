@@ -55,7 +55,7 @@ public class LevelProgress : MonoBehaviour
 	// Presentation Hack
 	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.U ) && Input.GetKeyDown( KeyCode.I ) && Input.GetKeyDown( KeyCode.O ) )
+		if( Input.GetKey( KeyCode.U ) && Input.GetKey( KeyCode.I ) && Input.GetKey( KeyCode.O ) )
 		{
 			Debug.Log("Hack active");
 			level[0] = true;
