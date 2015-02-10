@@ -79,7 +79,7 @@ public class TheEventNoTime : MonoBehaviour
 
 	void Skip()
 	{
-		if( Input.GetKeyDown( KeyCode.Return ) && !skip )
+		if( ( Input.GetKeyDown( KeyCode.Return ) || Input.GetKeyDown( KeyCode.JoystickButton2 ) ) && !skip )
 		{
 			if( triggerOnSkip )
 			{
