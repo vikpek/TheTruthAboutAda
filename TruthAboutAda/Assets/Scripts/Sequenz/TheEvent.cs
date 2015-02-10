@@ -83,7 +83,7 @@ public class TheEvent : MonoBehaviour
 
 	void Skip()
 	{
-		if( Input.GetKeyDown( KeyCode.Space ) && !skip )
+		if( Input.GetKeyDown( KeyCode.Return ) && !skip )
 		{
 			if( triggerOnSkip )
 			{
