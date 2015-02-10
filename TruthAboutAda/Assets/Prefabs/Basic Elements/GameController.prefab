@@ -30,8 +30,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: .400000006, y: 48.7799988, z: 41.4199982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.81738281, y: 51.19207, z: 18.9960938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,24 +112,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe8d18a7758b41d38406f22126b11e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerDeath: {fileID: 8300000, guid: 4f34d880170d246eb9121d8eb9b08ca1, type: 3}
+  PlayerDeath: {fileID: 8300000, guid: 83d77b6fd190d4e2e89e7f41e986da8b, type: 3}
   EnemyDeath: {fileID: 8300000, guid: 2bb0cee8d10534e72b2d1e361c3857e8, type: 3}
   PlayerShot: {fileID: 8300000, guid: 4dd15cbd5e4684a02a68561771806b50, type: 3}
   EnemyShot: {fileID: 8300000, guid: 7187f6ae7ccdd4951a393287c5524d24, type: 3}
   GameBackgroundLoop: {fileID: 0}
   MenuBackgroundLoop: {fileID: 0}
-  FailedShot: {fileID: 8300000, guid: 6408a1e54d51c434ea90b7f4259721b2, type: 3}
-  CreepExplosion: {fileID: 8300000, guid: 711ee51144e8247e1a090daf1e96b9c1, type: 3}
-  CreepExplosion2: {fileID: 8300000, guid: 711ee51144e8247e1a090daf1e96b9c1, type: 3}
-  CreepExplosionBlackCreep: {fileID: 8300000, guid: 270200063e95a4f129242abe2f1276a3,
+  FailedShot: {fileID: 8300000, guid: fb71ebfae4d534cbda6bf3e7a7a260fd, type: 3}
+  CreepExplosion: {fileID: 8300000, guid: f4788a592869e4bd0845d5624f126f5f, type: 3}
+  CreepExplosion2: {fileID: 8300000, guid: f4788a592869e4bd0845d5624f126f5f, type: 3}
+  CreepExplosionBlackCreep: {fileID: 8300000, guid: b4fb281fc3a4042eabc77bdcee18b612,
     type: 3}
   PlayerDamageShot: {fileID: 8300000, guid: 0e73b7a22b42c42feadfa997485340ed, type: 3}
   FallingParts: {fileID: 8300000, guid: 43150a45075324d2daa85ad47ec45585, type: 3}
-  Lightning: {fileID: 8300000, guid: 4ace3f940bfd049debb7fae937da08e2, type: 3}
-  PanelRotation: {fileID: 0}
+  Lightning: {fileID: 8300000, guid: b4fb281fc3a4042eabc77bdcee18b612, type: 3}
+  PanelRotation: {fileID: 8300000, guid: 7d8718bf3286b4b77a1a5fec42d17b8e, type: 3}
   HighscoreRotation: {fileID: 0}
-  CreepCylinderRotation: {fileID: 0}
-  PanelMovementSound: {fileID: 0}
+  CreepCylinderRotation: {fileID: 8300000, guid: 80e465e129de84daa9b7420303e4f691,
+    type: 3}
+  PanelMovementSound: {fileID: 8300000, guid: b34c1e1e85cf44b2abb8f4dd15933b31, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

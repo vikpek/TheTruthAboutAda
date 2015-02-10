@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseLayer: {fileID: 1042497165}
+  background: {fileID: 0}
 --- !u!223 &41806753
 Canvas:
   m_ObjectHideFlags: 0
@@ -813,6 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseLayer: {fileID: 846154774}
+  background: {fileID: 0}
 --- !u!223 &72419405
 Canvas:
   m_ObjectHideFlags: 0
@@ -22345,7 +22347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbee45baae714371ad1701f6330774c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerBarActive: 1
 --- !u!1 &1002176255
 GameObject:
   m_ObjectHideFlags: 0
@@ -35450,7 +35451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad825968241f4ba3a39b375b9164581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _threatBottomBorder: 7
+  maxDistance: 25
+  _rumbleActive: 7
 --- !u!1 &1348270612
 GameObject:
   m_ObjectHideFlags: 0

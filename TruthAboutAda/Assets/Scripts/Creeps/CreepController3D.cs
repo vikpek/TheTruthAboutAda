@@ -174,6 +174,7 @@ public class CreepController3D : MonoBehaviour
 			{
 				reinitializeCreepRow( cylinderValue );
 				particleSystemLightning.Play();
+				soundManager.playCreepExplosionBlackCreep();
 				particleSystemLightning.transform.parent = null;
 			}
 			if( !gotPoints )
@@ -191,8 +192,9 @@ public class CreepController3D : MonoBehaviour
 			HighScoreManager.Get.creepKilled(transform.position);
 			gotPoints = true;
 		}
+
+
 		soundManager.playEnemyDeath();
-		soundManager.playCreepExplosionBlackCreep();
 		Destroy( GetComponent<BoxCollider>() );
 		Destroy( transform.FindChild("direction_trigger").GetComponent<BoxCollider>() );
 //		Destroy( GetComponent<CreepController3D>() );

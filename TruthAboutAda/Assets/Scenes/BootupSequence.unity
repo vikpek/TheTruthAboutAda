@@ -134,6 +134,10 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
+  triggerOnSkip: 0
+  fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &604711967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseLayer: {fileID: 604711964}
+  background: {fileID: 0}
 --- !u!223 &1709447651
 Canvas:
   m_ObjectHideFlags: 0
@@ -443,6 +448,10 @@ MonoBehaviour:
   disappearEffect: 1
   disappearDuration: 1
   disappearVisibility: {x: 1, y: 0}
+  canBeSkipped: 1
+  triggerOnSkip: 0
+  fastSkip: 0
+  hideOnSkip: 0
 --- !u!114 &1844139477
 MonoBehaviour:
   m_ObjectHideFlags: 0
