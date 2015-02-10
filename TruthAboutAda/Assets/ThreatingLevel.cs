@@ -39,7 +39,7 @@ public class ThreatingLevel : MonoBehaviour
 			}
 		}
 		Debug.Log( _distance );
-		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 0.7f / _distance );
+		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 0.4321f / _distance );
 		_ref.SetFill( 10f / maxDistance * ( maxDistance - _distance ) );
 	}
 }
