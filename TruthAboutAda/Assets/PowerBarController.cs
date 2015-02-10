@@ -4,6 +4,8 @@ public class PowerBarController : MonoBehaviour
 {
 	const float MAX_FILLSTATE = 10f;
 
+	const float STEP = 21.5f;
+
 	float fillState;
 
 	public void SetFill( float value )
@@ -16,6 +18,6 @@ public class PowerBarController : MonoBehaviour
 
 	void syncFillState()
 	{
-		transform.rotation = Quaternion.Euler( 0, 0, 250 + 21.5f * fillState );
+		transform.rotation = Quaternion.Euler( 0, 0, 252f + STEP * fillState );
 	}
 }

@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ThreatingLevel : MonoBehaviour 
 {
-	[SerializeField]
-	float maxDistance = 25f;
-
-	[SerializeField]
+	float maxDistance = 17f;
+	
 	float _rumbleActive = 7f;
 
 	GameObject[] _creeps;
@@ -43,6 +40,6 @@ public class ThreatingLevel : MonoBehaviour
 		}
 		Debug.Log( _distance );
 		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 1f / _distance );
-		_ref.SetFill( 10f / maxDistance * _distance );
+		_ref.SetFill( 10f / maxDistance * ( maxDistance - _distance ) );
 	}
 }
