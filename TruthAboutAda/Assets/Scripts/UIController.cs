@@ -56,7 +56,7 @@ public class UIController : MonoBehaviour
 
 	public void SetGameOver()
 	{
-		if( state != States.GameOver )
+		if( state != States.GameOver && state != States.Win )
 		{
 			ContinueB.SetActive( false );
 			RestartB.SetActive( true );
@@ -67,8 +67,6 @@ public class UIController : MonoBehaviour
 			Screen.showCursor = true;
 			lastState = state;
 			state = States.GameOver;
-			GameObject[] list = GameObject.FindGameObjectsWithTag( Tags.CREEP );
-			foreach( GameObject obj in list ) obj.GetComponent<CreepController3D>().explodeMe();
 			Debug.Log("Lose Game");
 			StartCoroutine( WaitAndStopTime( waitTillTimeStop ) );
 		}
@@ -76,7 +74,7 @@ public class UIController : MonoBehaviour
 
 	public void SetWin()
 	{
-		if( state != States.Win )
+		if( state != States.Win && state != States.GameOver )
 		{
 			Screen.showCursor = true;
 			ContinueB.SetActive( false );
