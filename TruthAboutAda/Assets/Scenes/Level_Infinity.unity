@@ -1326,6 +1326,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 661142274}
+    - target: {fileID: 11400000, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
+      propertyPath: targetCam
+      value: 
+      objectReference: {fileID: 877628920}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1eefd276f7dc43d2917e972be5caa33, type: 2}
   m_RootGameObject: {fileID: 1444204715}
@@ -7162,7 +7170,7 @@ Transform:
   m_PrefabParentObject: {fileID: 493368, guid: f87f74aadbead461aa02aa67d82db6a6, type: 2}
   m_PrefabInternal: {fileID: 1660043518}
   m_GameObject: {fileID: 452352865}
-  m_LocalRotation: {x: .707106888, y: -1.15202319e-07, z: -1.15202333e-07, w: -.707106769}
+  m_LocalRotation: {x: .707106829, y: -1.15202312e-07, z: -1.15202326e-07, w: -.707106709}
   m_LocalPosition: {x: -1.5, y: 700.700012, z: -174}
   m_LocalScale: {x: 3.95942593, y: 3.95942783, z: 17.6432743}
   m_Children: []
@@ -28877,8 +28885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd45db1ff4de20943aba9d07c8336f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
-  targetCam: {fileID: 0}
+  panel: {fileID: 661142274}
+  targetCam: {fileID: 877628920}
   sounds: {fileID: 0}
 --- !u!95 &1444204721
 Animator:
@@ -28988,8 +28996,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .00999999978
-  far clip plane: 2000
+  near clip plane: .100000001
+  far clip plane: 1000
   field of view: 50
   orthographic: 0
   orthographic size: 5
