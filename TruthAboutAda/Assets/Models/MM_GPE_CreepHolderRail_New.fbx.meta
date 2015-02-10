@@ -107,7 +107,69 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body1
+        weight: 1
+      - path: bolt
+        weight: 1
+      - path: bolt6
+        weight: 1
+      - path: bolt9
+        weight: 1
+      - path: bolt10
+        weight: 1
+      - path: cog
+        weight: 1
+      - path: cog4
+        weight: 1
+      - path: cog7
+        weight: 1
+      - path: cog8
+        weight: 1
+      - path: rail1
+        weight: 1
+      - path: railholder
+        weight: 1
+      - path: railholder2
+        weight: 1
+      - path: railholder3
+        weight: 1
+      - path: railholder4
+        weight: 1
+      - path: square
+        weight: 1
+      - path: square1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -129,7 +191,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

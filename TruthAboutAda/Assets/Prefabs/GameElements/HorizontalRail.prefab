@@ -213,6 +213,7 @@ GameObject:
   - 4: {fileID: 443314}
   - 33: {fileID: 3343316}
   - 23: {fileID: 2343316}
+  - 114: {fileID: 11408026}
   m_Layer: 0
   m_Name: cog2
   m_TagString: Untagged
@@ -230,6 +231,7 @@ GameObject:
   - 4: {fileID: 443316}
   - 33: {fileID: 3343318}
   - 23: {fileID: 2343318}
+  - 114: {fileID: 11408024}
   m_Layer: 0
   m_Name: cog
   m_TagString: Untagged
@@ -391,7 +393,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .870000005, z: 0}
+  m_LocalPosition: {x: 0, y: .869998932, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443330}
@@ -1189,7 +1191,7 @@ Animator:
   m_GameObject: {fileID: 143330}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af2b3e83ba3a84c49a8af5268449d183, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1204,11 +1206,40 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400004, guid: cc07beb83df6541ccac125f79f7a614d, type: 3}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400004, guid: cc07beb83df6541ccac125f79f7a614d, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11408024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14b659b644234ccfa3ab20c91cbf1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  direction: 0
+  twoD: 1
+--- !u!114 &11408026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14b659b644234ccfa3ab20c91cbf1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  direction: 0
+  twoD: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
