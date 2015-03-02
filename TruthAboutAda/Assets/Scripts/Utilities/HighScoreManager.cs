@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HighScoreManager : MonoBehaviour 
 {
@@ -70,6 +71,25 @@ public class HighScoreManager : MonoBehaviour
 		return (int) currentMultiplier;
 	}
 
+	public void printHighScore()
+	{
+		addHighscore("FFF", getCurrentHighScore());
+
+		Text highScoreText = GameObject.FindGameObjectWithTag("HighScoreText").GetComponent<Text>();
+
+		string output = "";
+		int i;
+		for(i=0;i<10;i++){
+			output = output + PlayerPrefs.GetInt(i+"HScore");
+			output = output + PlayerPrefs.GetString(i+"HScoreName");
+			output = output + "\n";
+		}
+
+		highScoreText.text = output;
+		highScoreText.enabled = true;
+	}
+
+
 	public void addHighscore(string name, int score)
 	{
 		int newScore;
@@ -81,6 +101,7 @@ public class HighScoreManager : MonoBehaviour
 		newName = name;
 
 		int i;
+
 		for(i=0;i<10;i++){
 			if(PlayerPrefs.HasKey(i+"HScore")){
 				if(PlayerPrefs.GetInt(i+"HScore")<newScore){ 

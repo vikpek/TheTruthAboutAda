@@ -11,6 +11,7 @@ public class LoseLevel : MonoBehaviour
 		{
 			Debug.Log( col.gameObject.name );
 			_lock = true;
+			HighScoreManager.Get.printHighScore();
 			transform.GetComponent<TheEventNoTime>().enabled = true;
 		}
 	}

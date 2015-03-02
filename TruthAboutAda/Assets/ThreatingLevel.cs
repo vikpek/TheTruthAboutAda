@@ -38,7 +38,7 @@ public class ThreatingLevel : MonoBehaviour
 				if( temp < _distance ) _distance = temp;
 			}
 		}
-		Debug.Log( _distance );
+	
 		if( _distance < _rumbleActive ) GenericFXController.Get.rumbleCamera( 1f, 0.4321f / _distance );
 		_ref.SetFill( 10f / maxDistance * ( maxDistance - _distance ) );
 	}
