@@ -10,8 +10,12 @@ public class HighScoreManager : MonoBehaviour
 	public const float CREEP_POINTS = 10;
 	public const float DAMAGE_POINTS = 5;
 
+	string playerName = "";
+
 	float currentHighscore;
 	float currentMultiplier;
+
+	GameObject highScoreObject;
 
 	static HighScoreManager _instance;
 	
@@ -33,21 +37,22 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
+			highScoreObject = GameObject.FindGameObjectWithTag ("HighScoreText");
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
 	}
  
 	public void creepKilled(Vector3 position)
 	{
-		showScoreText (position, CREEP_POINTS);
+		ShowScoreText (position, CREEP_POINTS);
 	}
 
 	public void creepDamaged(Vector3 position)
 	{
-		showScoreText (position, DAMAGE_POINTS);
+		ShowScoreText (position, DAMAGE_POINTS);
 	}
 
-	void showScoreText (Vector3 position, float score)
+	void ShowScoreText (Vector3 position, float score)
 	{
 		currentMultiplier += 1;
 		currentHighscore += (score * currentMultiplier);
@@ -71,24 +76,65 @@ public class HighScoreManager : MonoBehaviour
 		return (int) currentMultiplier;
 	}
 
-	public void printHighScore()
+	public void prepareHighScore()
 	{
-		addHighscore("FFF", getCurrentHighScore());
-
-		Text highScoreText = GameObject.FindGameObjectWithTag("HighScoreText").GetComponent<Text>();
-
-		string output = "";
-		int i;
-		for(i=0;i<10;i++){
-			output = output + PlayerPrefs.GetInt(i+"HScore");
-			output = output + PlayerPrefs.GetString(i+"HScoreName");
-			output = output + "\n";
+		if(highScoreObject){
+			StartCoroutine(PrintDelayed());
 		}
 
-		highScoreText.text = output;
-		highScoreText.enabled = true;
+
 	}
 
+	IEnumerator PrintDelayed()
+	{
+		yield return new WaitForSeconds(2f);
+		PrintScore();
+		ShowSubmissionInterface();
+	}
+
+	void ShowSubmissionInterface ()
+	{
+		if(highScoreObject)
+		{
+			Transform[] transforms = highScoreObject.gameObject.GetComponentsInChildren<Transform>();
+			foreach(Transform t in transform)
+			{
+				t.gameObject.SetActive(true);
+			}
+
+			Button submitButton = highScoreObject.gameObject.GetComponentsInChildren<Button>()[0];
+			Text playerNameTextField = highScoreObject.gameObject.GetComponentsInChildren<Text>()[0];
+
+			playerName = playerNameTextField.text;
+
+			submitButton.onClick.AddListener(processNewHighScore);
+		}
+	}
+
+	void processNewHighScore ()
+	{
+		addHighscore(playerName, getCurrentHighScore());
+		StartCoroutine(PrintDelayed());
+	}
+	
+
+	private void PrintScore ()
+	{
+		if(highScoreObject)
+		{
+			 Text highScoreText = highScoreObject.GetComponent<Text>();
+		
+			string output = "";
+			int i;
+			for (i = 0; i < 10; i++) {
+				output = output + PlayerPrefs.GetInt (i + "HScore");
+				output = output + PlayerPrefs.GetString (i + "HScoreName");
+				output = output + "\n";
+			}
+			highScoreText.text = output;
+			highScoreText.enabled = true;
+		}
+	}
 
 	public void addHighscore(string name, int score)
 	{
