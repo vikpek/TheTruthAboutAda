@@ -47,7 +47,7 @@ public class RailMovement : MonoBehaviour
 //			if( creep ) move.x += ( moveRight )?( horizontalMovementStepSize ):( -horizontalMovementStepSize );
 			nextMoveTime += horizontalStepTime;
 		}
-		rigidbody.position = Vector3.Lerp(rigidbody.position, rigidbody.position + move, 10000);
+		GetComponent<Rigidbody>().position = Vector3.Lerp(GetComponent<Rigidbody>().position, GetComponent<Rigidbody>().position + move, 10000);
 		moving = false;
 	}
 }

@@ -64,7 +64,7 @@ public class UIController : MonoBehaviour
 			ev.SetSelectedGameObject( RestartB );
 			blur( true );
 			Menu.SetActive( true );
-			Screen.showCursor = true;
+			Cursor.visible = true;
 			lastState = state;
 			state = States.GameOver;
 			Debug.Log("Lose Game");
@@ -76,7 +76,7 @@ public class UIController : MonoBehaviour
 	{
 		if( state != States.Win && state != States.GameOver )
 		{
-			Screen.showCursor = true;
+			Cursor.visible = true;
 			ContinueB.SetActive( false );
 			NextLevelB.SetActive( true );
 			RestartB.SetActive( false );
@@ -101,7 +101,7 @@ public class UIController : MonoBehaviour
 		lastState = state;
 		Time.timeScale = 0f;
 		state = States.Pause;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 	}
 
 	public void UnpauseGame()
@@ -110,7 +110,7 @@ public class UIController : MonoBehaviour
 		Menu.SetActive( false );
 		state = lastState;
 		Time.timeScale = 1f;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		Debug.Log("Unpause");
 	}
 
@@ -121,7 +121,7 @@ public class UIController : MonoBehaviour
 		Time.timeScale = 1f;
 		Application.LoadLevel( Application.loadedLevel );
 		state = States.None;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		Menu.SetActive( false );
 	}
 
@@ -132,7 +132,7 @@ public class UIController : MonoBehaviour
 		Time.timeScale = 1f;
 		Application.LoadLevel( Application.loadedLevel + 1 );
 		state = States.None;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		Menu.SetActive( false );
 	}
 
@@ -143,7 +143,7 @@ public class UIController : MonoBehaviour
 		Time.timeScale = 1f;
 		Application.LoadLevel( Constants.LEVEL_MENU );
 		state = States.None;
-		Screen.showCursor = true;
+		Cursor.visible = true;
 		Menu.SetActive( false );
 	}
 

@@ -121,7 +121,7 @@ public class CreepController3D : MonoBehaviour
 				{
 					if( creepHP < blackCreepLifeCount ) 
 					{
-						cylinderTransform.FindChild("cylinder_main").renderer.material = (Material) Resources.Load ("Materials/GPE_Creep_Black_num");
+						cylinderTransform.FindChild("cylinder_main").GetComponent<Renderer>().material = (Material) Resources.Load ("Materials/GPE_Creep_Black_num");
 						damageCreepCage( 0 );
 						reinitializeCylinder( -1 );
 						blockShot( col.gameObject );
@@ -308,10 +308,10 @@ public class CreepController3D : MonoBehaviour
 			// Bullet
 			Destroy( obj.GetComponent<BulletMovement>() );
 			Destroy( obj.GetComponent<BoxCollider>() );
-			Destroy( obj.rigidbody );
+			Destroy( obj.GetComponent<Rigidbody>() );
 			// Creep
 			Destroy( GetComponent<CreepController3D>() );
-			Destroy( rigidbody );
+			Destroy( GetComponent<Rigidbody>() );
 			gameObject.tag = "Untagged";
 			Transform child = transform.Find( Constants.ANIMATION_HOLDER );
 			child.Find( Constants.CYLINDER + "/Spotlight" ).gameObject.SetActive( false );

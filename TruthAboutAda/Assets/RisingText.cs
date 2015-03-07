@@ -49,7 +49,7 @@ public class RisingText : MonoBehaviour
 		else transform.Translate(-crdsDelta * Time.deltaTime, Space.World);
 		
 		alpha -= Time.deltaTime * lifeLoss;
-		renderer.material.color = new Color(color.r,color.g,color.b,alpha);
+		GetComponent<Renderer>().material.color = new Color(color.r,color.g,color.b,alpha);
 		
 		if (alpha <= 0f) Destroy(gameObject);
 		

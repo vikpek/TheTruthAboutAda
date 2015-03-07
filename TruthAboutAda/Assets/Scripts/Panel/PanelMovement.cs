@@ -71,7 +71,7 @@ public class PanelMovement : MonoBehaviour
 			}
 
 			soundManager.playPanelMovementSound();
-			rigidbody.MovePosition( nextPos );
+			GetComponent<Rigidbody>().MovePosition( nextPos );
 		}
 	}
 

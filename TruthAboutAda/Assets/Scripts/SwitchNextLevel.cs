@@ -12,7 +12,7 @@ public class SwitchNextLevel : MonoBehaviour {
 		if(time <= 0)
 		{
 			Application.LoadLevel(Application.loadedLevel+1);
-			Screen.showCursor = false;
+			Cursor.visible = false;
 		}
 	}
 }
