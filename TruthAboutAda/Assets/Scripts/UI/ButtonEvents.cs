@@ -13,7 +13,7 @@ public class ButtonEvents : MonoBehaviour
 	{
 		progress = LevelProgress.Get;
 		ev = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
-		buttons = new GameObject[13];
+		buttons = new GameObject[14];
 		buttons[0] = GameObject.Find( "TutorialButton" );
 		buttons[1] = GameObject.Find( "StartButton" );
 		buttons[2] = GameObject.Find( "LevelButton" );
@@ -27,6 +27,7 @@ public class ButtonEvents : MonoBehaviour
 		buttons[10] = GameObject.Find( "Level05Button" );
 		buttons[11] = GameObject.Find( "Level06Button" );
 		buttons[12] = GameObject.Find( "BackButton" );
+		buttons[13] = GameObject.Find( "SettingsButton" );
 		BackToMainMenu();
 	}
 
@@ -86,6 +87,11 @@ public class ButtonEvents : MonoBehaviour
 		Application.LoadLevel( Constants.LEVEL_CREDITS );
 	}
 
+	public void SettingsOnClick()
+	{
+		Application.LoadLevel( "Settings");
+	}
+
 	public void QuitOnClick()
 	{
 		Application.Quit();
@@ -106,6 +112,7 @@ public class ButtonEvents : MonoBehaviour
 		buttons[10].SetActive( false );
 		buttons[11].SetActive( false );
 		buttons[12].SetActive( false );
+		buttons[13].SetActive( true );
 		ev.SetSelectedGameObject( buttons[0] );
 	}
 
@@ -117,6 +124,7 @@ public class ButtonEvents : MonoBehaviour
 		buttons[3].SetActive( false );
 		buttons[4].SetActive( false );
 		buttons[5].SetActive( false );
+		buttons[13].SetActive( false );
 		buttons[6].SetActive( true ); // lv1
 		buttons[7].SetActive( true ); // lv2
 		buttons[7].GetComponent<Button>().interactable = progress.GetLevel( 1 );
