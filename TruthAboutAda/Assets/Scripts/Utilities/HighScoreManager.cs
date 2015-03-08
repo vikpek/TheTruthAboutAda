@@ -101,18 +101,16 @@ public class HighScoreManager : MonoBehaviour
 			{
 				t.gameObject.SetActive(true);
 			}
-
-			Button submitButton = highScoreObject.gameObject.GetComponentsInChildren<Button>()[0];
-			Text playerNameTextField = highScoreObject.gameObject.GetComponentsInChildren<Text>()[0];
-
-			playerName = playerNameTextField.text;
-
-			submitButton.onClick.AddListener(processNewHighScore);
 		}
 	}
 
-	void processNewHighScore ()
+	public void processNewHighScore ()
 	{
+		Button submitButton = highScoreObject.gameObject.GetComponentsInChildren<Button>()[0];
+		Text playerNameTextField = highScoreObject.gameObject.GetComponentsInChildren<Text>()[0];
+		
+		playerName = playerNameTextField.text;
+
 		addHighscore(playerName, getCurrentHighScore());
 		StartCoroutine(PrintDelayed());
 	}
@@ -128,7 +126,7 @@ public class HighScoreManager : MonoBehaviour
 			int i;
 			for (i = 0; i < 10; i++) {
 				output = output + PlayerPrefs.GetInt (i + "HScore");
-				output = output + PlayerPrefs.GetString (i + "HScoreName");
+				output = output + "  " + PlayerPrefs.GetString (i + "HScoreName");
 				output = output + "\n";
 			}
 			highScoreText.text = output;
