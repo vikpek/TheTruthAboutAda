@@ -1,59 +1,65 @@
 ﻿using UnityEngine;
 
-public class GameConfig : MonoBehaviour {
+public class GameConfig : MonoBehaviour
+{
 
-	float brightnessValue;
-	float arcadeDifficulty;
+		float arcadeDifficulty;
 
-	// singleton
-	static GameConfig _instance;
+		// singleton
+		static GameConfig _instance;
 	
-	public static GameConfig Get
-	{
-		get
-		{
-			if( _instance == null )
-			{
-				_instance = GameObject.FindObjectOfType<GameConfig>();
-				DontDestroyOnLoad( _instance );
-			}
-			return _instance;
+		public static GameConfig Get {
+				get {
+						if (_instance == null) {
+								_instance = GameObject.FindObjectOfType<GameConfig> ();
+								DontDestroyOnLoad (_instance);
+						}
+						return _instance;
+				}
 		}
-	}
 	
-	void Awake()
-	{
-		if( _instance == null ) // First Instance
+		void Awake ()
 		{
-			_instance = this;
-			brightnessValue = 0.5f;
-			arcadeDifficulty = 1;
-			DontDestroyOnLoad( this );
-		} else if( this != _instance ) Destroy( gameObject );
-	}
+				if (_instance == null) {
+						_instance = this;
+						arcadeDifficulty = 1;
+						DontDestroyOnLoad (this);
+				} else if (this != _instance)
+						Destroy (gameObject);
+		}
 
-	// CONFIG
-	public bool ShowEnemyCollisionPoints;
+		void OnLevelWasLoaded (int level)
+		{
+				if (GameObject.FindWithTag ("GammaLight")) {
+						Light gammaLight = GameObject.FindWithTag ("GammaLight").GetComponent<Light> ();
+						if (gammaLight) {
+								gammaLight.intensity = BrightnessValue ();
+								Debug.Log ("starting with gamma: " + gammaLight.intensity);
+						}
+				}
+		}
 
-	public bool DebugPannelShooting;
+		// CONFIG
+		public bool ShowEnemyCollisionPoints;
+		public bool DebugPannelShooting;
 
-	public void SetBrightnessTo(float brightness)
-	{
-		brightnessValue = brightness;
-	}
+		public void SetBrightnessTo (float brightness)
+		{
+				PlayerPrefs.SetFloat ("brightness_value", brightness);
+		}
 
-	public float BrightnessValue()
-	{
-		return brightnessValue;
-	}
+		public float BrightnessValue ()
+		{
+				return PlayerPrefs.GetFloat ("brightness_value");
+		}
 
-	public float ArcadeDifficulty()
-	{
-		return arcadeDifficulty;
-	}
+		public float ArcadeDifficulty ()
+		{
+				return arcadeDifficulty;
+		}
 
-	public void SetArcadeDifficulty(float difficulty)
-	{
-		arcadeDifficulty = difficulty;
-	}
+		public void SetArcadeDifficulty (float difficulty)
+		{
+				arcadeDifficulty = difficulty;
+		}
 }
