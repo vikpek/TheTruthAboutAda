@@ -78,6 +78,7 @@ public class HighScoreManager : MonoBehaviour
 
 	public void prepareHighScore()
 	{
+		highScoreObject = GameObject.FindGameObjectWithTag ("HighScoreText");
 		if(highScoreObject){
 			StartCoroutine(PrintDelayed());
 		}
@@ -87,7 +88,7 @@ public class HighScoreManager : MonoBehaviour
 
 	IEnumerator PrintDelayed()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(0f);
 		PrintScore();
 		ShowSubmissionInterface();
 	}
@@ -120,9 +121,12 @@ public class HighScoreManager : MonoBehaviour
 	{
 		if(highScoreObject)
 		{
+
 			Text highScoreNames = GameObject.FindGameObjectWithTag ("HighScoreNames").GetComponent<Text>();
 			Text highScorePoints = GameObject.FindGameObjectWithTag ("HighScorePoints").GetComponent<Text>();
 		
+			Debug.Log ("textfields found");
+
 			string output = "";
 			int i;
 			for (i = 0; i < 10; i++) {
@@ -139,6 +143,8 @@ public class HighScoreManager : MonoBehaviour
 			}
 			highScorePoints.text = output;
 			highScorePoints.enabled = true;
+		}else{
+			Debug.Log ("textfields not found");
 		}
 	}
 

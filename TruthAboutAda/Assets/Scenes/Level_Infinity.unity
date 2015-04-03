@@ -543,7 +543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &72419403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3393,7 +3393,7 @@ Prefab:
     - target: {fileID: 11427988, guid: f55b39ea664504a5b89aa3ebbec63e27, type: 2}
       propertyPath: nextEvent
       value: 
-      objectReference: {fileID: 1764655117}
+      objectReference: {fileID: 978007347}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55b39ea664504a5b89aa3ebbec63e27, type: 2}
   m_IsPrefabParent: 0
@@ -3751,7 +3751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1764655118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4119,7 +4119,7 @@ MonoBehaviour:
   triggerAfterDisappear: 0
   skipWholeEvent: 0
   Duration: 1
-  nextEvent: {fileID: 1764655117}
+  nextEvent: {fileID: 978007347}
   hideEvent: {fileID: 0}
   appearEffect: 0
   appearDuration: 0
