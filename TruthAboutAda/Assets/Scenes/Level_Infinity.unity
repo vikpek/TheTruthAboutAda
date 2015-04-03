@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c793d710f584c11468a69d57090e9e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseLayer: {fileID: 0}
+  baseLayer: {fileID: 1764655117}
   background: {fileID: 0}
 --- !u!223 &72419405
 Canvas:
@@ -1533,7 +1533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'AAA
+  m_Text: 'LOREM!!!
 
     RIP
 
@@ -3393,7 +3393,7 @@ Prefab:
     - target: {fileID: 11427988, guid: f55b39ea664504a5b89aa3ebbec63e27, type: 2}
       propertyPath: nextEvent
       value: 
-      objectReference: {fileID: 1952716282}
+      objectReference: {fileID: 1764655117}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55b39ea664504a5b89aa3ebbec63e27, type: 2}
   m_IsPrefabParent: 0
@@ -4119,10 +4119,10 @@ MonoBehaviour:
   triggerAfterDisappear: 0
   skipWholeEvent: 0
   Duration: 1
-  nextEvent: {fileID: 0}
+  nextEvent: {fileID: 1764655117}
   hideEvent: {fileID: 0}
   appearEffect: 0
-  appearDuration: 1
+  appearDuration: 0
   appearVisibility: {x: 0, y: 1}
   disappearEffect: 1
   disappearDuration: 1
