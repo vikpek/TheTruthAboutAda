@@ -120,17 +120,25 @@ public class HighScoreManager : MonoBehaviour
 	{
 		if(highScoreObject)
 		{
-			 Text highScoreText = highScoreObject.GetComponent<Text>();
+			Text highScoreNames = GameObject.FindGameObjectWithTag ("HighScoreNames").GetComponent<Text>();
+			Text highScorePoints = GameObject.FindGameObjectWithTag ("HighScorePoints").GetComponent<Text>();
 		
 			string output = "";
 			int i;
 			for (i = 0; i < 10; i++) {
-				output = output + PlayerPrefs.GetInt (i + "HScore");
-				output = output + "  " + PlayerPrefs.GetString (i + "HScoreName");
+				output = output + PlayerPrefs.GetString (i + "HScoreName");
 				output = output + "\n";
 			}
-			highScoreText.text = output;
-			highScoreText.enabled = true;
+			highScoreNames.text = output;
+			highScoreNames.enabled = true;
+
+			output = "";
+			for (i = 0; i < 10; i++) {
+				output = output + PlayerPrefs.GetInt (i + "HScore");
+				output = output + "\n";
+			}
+			highScorePoints.text = output;
+			highScorePoints.enabled = true;
 		}
 	}
 
