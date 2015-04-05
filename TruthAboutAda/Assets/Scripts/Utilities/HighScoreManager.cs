@@ -37,6 +37,7 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
+			PlayerPrefs.DeleteAll();
 			highScoreObject = GameObject.FindGameObjectWithTag ("HighScoreText");
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
@@ -107,8 +108,8 @@ public class HighScoreManager : MonoBehaviour
 
 	public void processNewHighScore ()
 	{
-		Button submitButton = highScoreObject.gameObject.GetComponentsInChildren<Button>()[0];
-		Text playerNameTextField = highScoreObject.gameObject.GetComponentsInChildren<Text>()[0];
+		Button submitButton = GameObject.FindGameObjectWithTag ("HighScoreSubmitButton").GetComponent<Button>();
+		Text playerNameTextField = GameObject.FindGameObjectWithTag ("HighScoreInputField").GetComponent<Text>();
 		
 		playerName = playerNameTextField.text;
 
@@ -130,16 +131,20 @@ public class HighScoreManager : MonoBehaviour
 			string output = "";
 			int i;
 			for (i = 0; i < 10; i++) {
-				output = output + PlayerPrefs.GetString (i + "HScoreName");
-				output = output + "\n";
+				if(PlayerPrefs.GetString (i + "HScoreName").Length > 0){
+					output = output + PlayerPrefs.GetString (i + "HScoreName");
+					output = output + "\n";
+				}
 			}
 			highScoreNames.text = output;
 			highScoreNames.enabled = true;
 
 			output = "";
 			for (i = 0; i < 10; i++) {
-				output = output + PlayerPrefs.GetInt (i + "HScore");
-				output = output + "\n";
+				if(PlayerPrefs.GetString (i + "HScore").Length > 0){
+					output = output + PlayerPrefs.GetInt (i + "HScore");
+					output = output + "\n";
+				}
 			}
 			highScorePoints.text = output;
 			highScorePoints.enabled = true;
