@@ -30,4 +30,7 @@ public class Constants : MonoBehaviour
 
 	public const string ANIMATION_HOLDER = "animation_holder";
 	public const string CYLINDER = "cylinder";
+
+	public const string PREF_DIFFICULTY = "difficulty_value";
+	public const string PREF_BRIGHTNESS = "brightness_value";
 }

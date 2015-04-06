@@ -2,9 +2,6 @@
 
 public class GameConfig : MonoBehaviour
 {
-
-		float arcadeDifficulty;
-
 		// singleton
 		static GameConfig _instance;
 	
@@ -22,7 +19,6 @@ public class GameConfig : MonoBehaviour
 		{
 				if (_instance == null) {
 						_instance = this;
-						arcadeDifficulty = 1;
 						DontDestroyOnLoad (this);
 				} else if (this != _instance)
 						Destroy (gameObject);
@@ -45,6 +41,7 @@ public class GameConfig : MonoBehaviour
 
 		public void SetBrightnessTo (float brightness)
 		{
+				Debug.Log ("brightness " + brightness);
 				PlayerPrefs.SetFloat ("brightness_value", brightness);
 		}
 
@@ -55,11 +52,12 @@ public class GameConfig : MonoBehaviour
 
 		public float ArcadeDifficulty ()
 		{
-				return arcadeDifficulty;
+				return PlayerPrefs.GetFloat ("difficulty_value");
 		}
 
 		public void SetArcadeDifficulty (float difficulty)
 		{
-				arcadeDifficulty = difficulty;
+				Debug.Log ("difficulty " + difficulty);
+				PlayerPrefs.SetFloat ("difficulty_value", difficulty);
 		}
 }

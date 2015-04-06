@@ -37,7 +37,7 @@ public class HighScoreManager : MonoBehaviour
 		if( _instance == null )
 		{
 			_instance = this;
-			PlayerPrefs.DeleteAll();
+//			PlayerPrefs.DeleteAll();
 			highScoreObject = GameObject.FindGameObjectWithTag ("HighScoreText");
 			DontDestroyOnLoad( this );
 		} else if( _instance != this ) Destroy( gameObject );
@@ -112,9 +112,13 @@ public class HighScoreManager : MonoBehaviour
 		Text playerNameTextField = GameObject.FindGameObjectWithTag ("HighScoreInputField").GetComponent<Text>();
 		
 		playerName = playerNameTextField.text;
+		if(playerName.Length > 0){
+			addHighscore(playerName, getCurrentHighScore());
+			StartCoroutine(PrintDelayed());
 
-		addHighscore(playerName, getCurrentHighScore());
-		StartCoroutine(PrintDelayed());
+			submitButton.transform.gameObject.SetActive(false);
+			playerNameTextField.transform.parent.gameObject.SetActive(false);
+		}
 	}
 	
 
@@ -122,11 +126,8 @@ public class HighScoreManager : MonoBehaviour
 	{
 		if(highScoreObject)
 		{
-
 			Text highScoreNames = GameObject.FindGameObjectWithTag ("HighScoreNames").GetComponent<Text>();
 			Text highScorePoints = GameObject.FindGameObjectWithTag ("HighScorePoints").GetComponent<Text>();
-		
-			Debug.Log ("textfields found");
 
 			string output = "";
 			int i;
@@ -141,15 +142,13 @@ public class HighScoreManager : MonoBehaviour
 
 			output = "";
 			for (i = 0; i < 10; i++) {
-				if(PlayerPrefs.GetString (i + "HScore").Length > 0){
+				if(PlayerPrefs.GetString (i + "HScoreName").Length > 0){
 					output = output + PlayerPrefs.GetInt (i + "HScore");
 					output = output + "\n";
 				}
 			}
 			highScorePoints.text = output;
 			highScorePoints.enabled = true;
-		}else{
-			Debug.Log ("textfields not found");
 		}
 	}
 
@@ -167,7 +166,7 @@ public class HighScoreManager : MonoBehaviour
 
 		for(i=0;i<10;i++){
 			if(PlayerPrefs.HasKey(i+"HScore")){
-				if(PlayerPrefs.GetInt(i+"HScore")<newScore){ 
+				if(PlayerPrefs.GetInt(i+"HScore") < newScore){ 
 					// new score is higher than the stored score
 					oldScore = PlayerPrefs.GetInt(i+"HScore");
 					oldName = PlayerPrefs.GetString(i+"HScoreName");
@@ -176,13 +175,12 @@ public class HighScoreManager : MonoBehaviour
 					newScore = oldScore;
 					newName = oldName;
 				}
-			}else{
+			} else {
 				PlayerPrefs.SetInt(i+"HScore",newScore);
 				PlayerPrefs.SetString(i+"HScoreName",newName);
 				newScore = 0;
 				newName = "";
 			}
 		}
-
 	}
 }
