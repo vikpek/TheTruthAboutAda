@@ -41,7 +41,7 @@ public class GameConfig : MonoBehaviour
 
 		public void SetBrightnessTo (float brightness)
 		{
-				Debug.Log ("brightness " + brightness);
+//				Debug.Log ("brightness " + brightness);
 				PlayerPrefs.SetFloat ("brightness_value", brightness);
 		}
 

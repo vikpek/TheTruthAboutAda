@@ -2030,7 +2030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1619760607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,6 +2065,7 @@ GameObject:
   - 222: {fileID: 1769236210}
   - 114: {fileID: 1769236209}
   - 114: {fileID: 1769236208}
+  - 114: {fileID: 1769236211}
   m_Layer: 5
   m_Name: EndButton
   m_TagString: Untagged
@@ -2130,8 +2131,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1619760607}
-        m_MethodName: MenuOnClick
+      - m_Target: {fileID: 1769236211}
+        m_MethodName: BackToMainMenuOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2171,6 +2172,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1769236206}
+--- !u!114 &1769236211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1769236206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8843b449f780646cf8f59c15c611eae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1944972740
 GameObject:
   m_ObjectHideFlags: 0
